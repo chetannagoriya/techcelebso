@@ -63,6 +63,28 @@ html {
   color: #0b132b !important;
 }
 
+.consumer-tech-navbar,
+.dark .consumer-tech-navbar {
+  background: #020a1d !important;
+  border-color: rgba(129, 140, 248, 0.18) !important;
+}
+
+.consumer-tech-navbar nav,
+.consumer-tech-navbar button,
+.consumer-tech-navbar .logo span,
+.dark .consumer-tech-navbar nav,
+.dark .consumer-tech-navbar button,
+.dark .consumer-tech-navbar .logo span {
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+
+.consumer-tech-navbar > div:last-child > a,
+.dark .consumer-tech-navbar > div:last-child > a {
+  border-color: #246bfe !important;
+  background: #1264ff !important;
+  color: white !important;
+}
+
 a {
   text-decoration: none;
   color: inherit;

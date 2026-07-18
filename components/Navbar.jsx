@@ -9,7 +9,8 @@ import { industriesData, generateSlug as generateIndustrySlug } from "../data/in
 
 export default function Navbar() {
   const pathname = usePathname();
-  const isShowcasePage = ["/industries/agriculture", "/industries/energy-utilities", "/industries/logistics-supply-chain", "/industries/government-smart-cities", "/industries/telecom", "/industries/aviation-aerospace", "/industries/maritime-ports", "/industries/hospitality-travel", "/industries/real-estate", "/services/data-annotation", "/services/gis-geospatial"].includes(pathname);
+  const isConsumerTechnologyPage = pathname === "/industries/consumer-technology";
+  const isShowcasePage = ["/industries/agriculture", "/industries/automotive", "/industries/healthcare", "/industries/banking-finance", "/industries/insurance", "/industries/manufacturing", "/industries/retail-ecommerce", "/industries/environment-climate", "/industries/pharmaceutical-life-sciences", "/industries/quick-commerce-delivery", "/industries/robotics", "/industries/security-surveillance", "/industries/education", "/industries/energy-utilities", "/industries/logistics-supply-chain", "/industries/government-smart-cities", "/industries/telecom", "/industries/aviation-aerospace", "/industries/maritime-ports", "/industries/hospitality-travel", "/industries/consumer-technology", "/industries/real-estate", "/services/data-annotation", "/services/gis-geospatial"].includes(pathname);
   const { theme, toggleTheme, mounted } = useTheme();
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
@@ -42,7 +43,7 @@ export default function Navbar() {
     }`;
 
   return (
-    <header className={`navbar w-full flex items-center justify-between px-8 py-4 bg-white dark:bg-[#0B132B] border-b border-[#E2E8F0] dark:border-[#1C2541] z-50 transition-colors duration-300 ${isShowcasePage ? "showcase-navbar" : ""}`}>
+    <header className={`navbar w-full flex items-center justify-between px-8 py-4 bg-white dark:bg-[#0B132B] border-b border-[#E2E8F0] dark:border-[#1C2541] z-50 transition-colors duration-300 ${isShowcasePage ? "showcase-navbar" : ""} ${isConsumerTechnologyPage ? "consumer-tech-navbar" : ""}`}>
       <div className="logo flex-shrink-0">
         <Link href="/" className="flex items-center">
           <span className="font-extrabold text-3xl tracking-tighter text-slate-900 dark:text-white transition-colors duration-300">
@@ -168,7 +169,7 @@ export default function Navbar() {
               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
                 {industriesData.map((category, idx) => {
                   const Icon = category.icon;
-                  const industryLandingRoutes = { "Real Estate": "/industries/real-estate", "Agriculture": "/industries/agriculture", "Energy & Utilities": "/industries/energy-utilities", "Logistics & Supply Chain": "/industries/logistics-supply-chain", "GIS & Mapping": "/services/gis-geospatial", "Government & Smart Cities": "/industries/government-smart-cities", "Telecom": "/industries/telecom", "Aviation & Aerospace": "/industries/aviation-aerospace", "Maritime & Ports": "/industries/maritime-ports", "Hospitality & Travel": "/industries/hospitality-travel" };
+                  const industryLandingRoutes = { "Healthcare": "/industries/healthcare", "Automotive": "/industries/automotive", "Banking & Finance": "/industries/banking-finance", "Insurance": "/industries/insurance", "Manufacturing": "/industries/manufacturing", "Retail & E-commerce": "/industries/retail-ecommerce", "Environmental & Climate": "/industries/environment-climate", "Pharmaceutical & Life Sciences": "/industries/pharmaceutical-life-sciences", "Quick Commerce & Delivery": "/industries/quick-commerce-delivery", "Robotics": "/industries/robotics", "Security & Surveillance": "/industries/security-surveillance", "Real Estate": "/industries/real-estate", "Agriculture": "/industries/agriculture", "Education": "/industries/education", "Energy & Utilities": "/industries/energy-utilities", "Logistics & Supply Chain": "/industries/logistics-supply-chain", "GIS & Mapping": "/services/gis-geospatial", "Government & Smart Cities": "/industries/government-smart-cities", "Telecom": "/industries/telecom", "Aviation & Aerospace": "/industries/aviation-aerospace", "Maritime & Ports": "/industries/maritime-ports", "Hospitality & Travel": "/industries/hospitality-travel", "Consumer Technology": "/industries/consumer-technology" };
                   const landingRoute = industryLandingRoutes[category.category];
                   const hasLandingPage = Boolean(landingRoute);
                   return (
