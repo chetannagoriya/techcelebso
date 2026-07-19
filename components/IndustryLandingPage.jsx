@@ -82,8 +82,22 @@ export default function IndustryLandingPage({ config }) {
       <section className="mx-auto max-w-[1360px] px-6 py-5 md:px-10">
         <div className="rounded-xl border border-slate-100 bg-white p-5 shadow-sm">
           <p className="text-center text-[10px] font-bold uppercase text-[#0c327e]">Trusted by leading organizations</p>
-          <div className="mt-5 grid grid-cols-2 gap-5 text-center text-base font-bold sm:grid-cols-4 lg:grid-cols-8">
-            {logos.map((logo, index) => <span key={logo} className={index % 3 === 0 ? "text-[#1264d8]" : "text-slate-700"}>{logo}</span>)}
+          <div className="mt-5 grid grid-cols-2 items-center gap-5 text-center text-base font-bold sm:grid-cols-4 lg:grid-cols-8">
+            {logos.map((logo, index) => {
+              const name = typeof logo === "string" ? logo : logo.name;
+              return typeof logo === "string" ? (
+                <span key={name} className={index % 3 === 0 ? "text-[#1264d8]" : "text-slate-700"}>{name}</span>
+              ) : (
+                <span key={name} className="grid min-h-12 place-items-center rounded-md border border-slate-100 bg-white px-3 py-2 shadow-sm">
+                  <span
+                    aria-hidden="true"
+                    className="block h-7 w-full bg-contain bg-center bg-no-repeat"
+                    style={{ backgroundImage: `url("${logo.src}")` }}
+                  />
+                  <span className="mt-1 text-[10px] font-extrabold uppercase tracking-[.04em] text-slate-700">{name}</span>
+                </span>
+              );
+            })}
           </div>
         </div>
       </section>
