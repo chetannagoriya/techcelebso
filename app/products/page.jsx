@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Bot, BrainCircuit, Building2, Camera, Check, CircleDollarSign, Command, Globe2, Home, Layers, Rocket, ShieldCheck, Sparkles, Users, Zap } from "lucide-react";
+import { ArrowRight, Bot, BrainCircuit, Camera, Check, CircleDollarSign, Command, Globe2, Home, Layers, Rocket, ShieldCheck, Sparkles, Users, Zap } from "lucide-react";
+import ProductFeatureSlideshow from "../../components/ProductFeatureSlideshow";
 
 const products = [
   {
@@ -8,6 +9,7 @@ const products = [
     tagline: "A social network for ambitious dreamers.",
     copy: "A creator-first network where creators, professionals, brands and public figures connect, showcase work and discover collaborations.",
     image: "/images/products/celebsox.jpeg",
+    href: "/products/celebsox",
     accent: "#f7b817",
     icon: Users,
     bullets: ["Creator profiles", "Portfolio & media", "Brand collaborations", "Community discovery"],
@@ -17,6 +19,7 @@ const products = [
     tagline: "The AI business operating system.",
     copy: "Connect CRM, business tools and data into one natural-language AI workspace for dashboards, reports, insights and automation.",
     image: "/images/products/byizon-ai.jpeg",
+    href: "/products/byizon-ai",
     accent: "#5b6cff",
     icon: Bot,
     bullets: ["Conversational BI", "Business memory", "CRM connectors", "Real-time dashboards"],
@@ -26,6 +29,7 @@ const products = [
     tagline: "The operating system for every space.",
     copy: "Voice-first spatial AI that gives homes, hotels, offices and venues a brain for automation, sensing and autonomous control.",
     image: "/images/products/grehni-ai.jpeg",
+    href: "/products/grehni-ai",
     accent: "#18d884",
     icon: Home,
     bullets: ["Voice-first control", "Spatial AI", "Energy optimization", "Device automation"],
@@ -35,6 +39,7 @@ const products = [
     tagline: "Crafting iconic visuals.",
     copy: "Premium production for fashion, editorial, commercial campaigns, celebrity shoots, model portfolios and brand storytelling.",
     image: "/images/products/celebso-production.jpeg",
+    href: "/products/celebso-production",
     accent: "#c89b3c",
     icon: Camera,
     bullets: ["Fashion photography", "Brand campaigns", "Celebrity shoots", "Video production"],
@@ -44,6 +49,7 @@ const products = [
     tagline: "India's next generation startup fund.",
     copy: "A founder-focused fund and startup ecosystem with AI due diligence, incubation, mentorship and growth support.",
     image: "/images/products/nxtfund-capital.jpeg",
+    href: "/products/nxtfund-capital",
     accent: "#ff684f",
     icon: CircleDollarSign,
     bullets: ["Startup funding", "AI due diligence", "Incubation", "Founder mentorship"],
@@ -92,7 +98,7 @@ export default function ProductsPage() {
             {products.slice(0, 4).map((product, index) => {
               const Icon = product.icon;
               return (
-                <article key={product.name} className={`group overflow-hidden rounded-2xl border border-white/10 bg-white/8 p-3 backdrop-blur ${index === 1 ? "sm:translate-y-8" : ""}`}>
+                <Link href={product.href} key={product.name} className={`group overflow-hidden rounded-2xl border border-white/10 bg-white/8 p-3 backdrop-blur transition hover:-translate-y-1 ${index === 1 ? "sm:translate-y-8" : ""}`}>
                   <div className="relative aspect-[1.25] overflow-hidden rounded-xl bg-slate-900">
                     <Image src={product.image} alt={`${product.name} preview`} fill className="object-cover object-top opacity-85 transition duration-500 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#071124] via-transparent to-transparent" />
@@ -102,7 +108,7 @@ export default function ProductsPage() {
                   </div>
                   <h3 className="mt-3 text-lg font-extrabold">{product.name}</h3>
                   <p className="mt-1 text-xs text-white/62">{product.tagline}</p>
-                </article>
+                </Link>
               );
             })}
           </div>
@@ -123,7 +129,7 @@ export default function ProductsPage() {
           {products.map((product) => {
             const Icon = product.icon;
             return (
-              <article key={product.name} className="group flex min-h-[430px] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+              <Link href={product.href} key={product.name} className="group flex min-h-[430px] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
                 <div className="relative h-52 overflow-hidden bg-slate-950">
                   <Image src={product.image} alt={`${product.name} interface`} fill className="object-cover object-top transition duration-500 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent" />
@@ -141,11 +147,11 @@ export default function ProductsPage() {
                       </li>
                     ))}
                   </ul>
-                  <Link href="/contact" className="mt-auto inline-flex items-center gap-2 pt-5 text-xs font-extrabold" style={{ color: product.accent }}>
-                    Request Demo <ArrowRight size={14} />
-                  </Link>
+                  <span className="mt-auto inline-flex items-center gap-2 pt-5 text-xs font-extrabold" style={{ color: product.accent }}>
+                    View Product <ArrowRight size={14} />
+                  </span>
                 </div>
-              </article>
+              </Link>
             );
           })}
         </div>
@@ -178,23 +184,17 @@ export default function ProductsPage() {
                 </div>
               ))}
             </div>
-            <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
-              <div className="grid md:grid-cols-[.9fr_1.1fr]">
-                <div className="p-8">
-                  <p className="text-xs font-extrabold uppercase tracking-[.12em] text-[#3a86ff]">Featured Product</p>
-                  <h3 className="mt-4 text-3xl font-extrabold tracking-[-.03em]">Byizon.ai connects business systems through conversation.</h3>
-                  <p className="mt-4 text-sm leading-7 text-slate-600">
-                    A flagship AI operating system for business teams that need instant dashboards, CRM answers, automation and recommendations.
-                  </p>
-                  <Link href="/contact" className="mt-6 inline-flex items-center gap-2 rounded-md bg-[#3a86ff] px-5 py-3 text-xs font-bold text-white">
-                    Book Byizon Demo <ArrowRight size={14} />
-                  </Link>
-                </div>
-                <div className="relative min-h-80 bg-slate-950">
-                  <Image src="/images/products/byizon-ai.jpeg" alt="Byizon product screen" fill className="object-cover object-top" />
-                </div>
-              </div>
-            </div>
+            <ProductFeatureSlideshow
+              products={products.map(({ name, tagline, copy, image, href, accent, bullets }) => ({
+                name,
+                tagline,
+                copy,
+                image,
+                href,
+                accent,
+                bullets,
+              }))}
+            />
           </div>
         </div>
       </section>

@@ -33,14 +33,20 @@ export default function Navbar() {
 
   // Close dropdown on route change
   useEffect(() => {
-    setIsServicesOpen(false);
-    setIsIndustriesOpen(false);
+    const closeDropdowns = window.setTimeout(() => {
+      setIsServicesOpen(false);
+      setIsIndustriesOpen(false);
+    }, 0);
+
+    return () => window.clearTimeout(closeDropdowns);
   }, [pathname]);
 
   const linkClass = (path) =>
     `hover:text-[#3A86FF] dark:hover:text-[#00F5D4] transition-colors duration-200 ${
       pathname === path ? "text-[#3A86FF] dark:text-[#00F5D4] font-semibold" : ""
     }`;
+
+  if (["/products/byizon-ai", "/products/grehni-ai", "/products/nxtfund-capital", "/products/celebso-production"].includes(pathname)) return null;
 
   return (
     <header className={`navbar w-full flex items-center justify-between px-8 py-4 bg-white dark:bg-[#0B132B] border-b border-[#E2E8F0] dark:border-[#1C2541] z-50 transition-colors duration-300 ${isShowcasePage ? "showcase-navbar" : ""} ${isConsumerTechnologyPage ? "consumer-tech-navbar" : ""}`}>
@@ -212,7 +218,21 @@ export default function Navbar() {
         </div>
 
         <Link href="/products" className={linkClass("/products")}>Products</Link>
-        <Link href="/resources" className={linkClass("/resources")}>Resources</Link>
+        <div className="relative group">
+          <Link href="/resources/blog" className={`flex items-center gap-1 hover:text-[#3A86FF] dark:hover:text-[#00F5D4] transition-colors ${pathname.startsWith('/resources') ? 'text-[#3A86FF] dark:text-[#00F5D4] font-semibold' : ''}`}>
+            Resources <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:rotate-180 transition-transform"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </Link>
+          <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50">
+            <div className="bg-white dark:bg-[#1C2541] border border-[#E2E8F0] dark:border-[#2D3A54] shadow-xl rounded-sm p-2 w-56 flex flex-col">
+              <Link href="/resources/impact" className="px-4 py-2 text-sm text-[#0B132B]/70 dark:text-white/70 hover:bg-[#F4F7FA] dark:hover:bg-[#0B132B] hover:text-[#3A86FF] dark:hover:text-[#00F5D4] rounded-sm transition-colors">
+                Our Impact
+              </Link>
+              <Link href="/resources/blog" className="px-4 py-2 text-sm text-[#0B132B]/70 dark:text-white/70 hover:bg-[#F4F7FA] dark:hover:bg-[#0B132B] hover:text-[#3A86FF] dark:hover:text-[#00F5D4] rounded-sm transition-colors">
+                Our Blog
+              </Link>
+            </div>
+          </div>
+        </div>
         <div className="relative group">
           <Link href="/events" className={`flex items-center gap-1 hover:text-[#3A86FF] dark:hover:text-[#00F5D4] transition-colors ${pathname === '/events' ? 'text-[#3A86FF] dark:text-[#00F5D4] font-semibold' : ''}`}>
             Events <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:rotate-180 transition-transform"><polyline points="6 9 12 15 18 9"></polyline></svg>
