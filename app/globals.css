@@ -54,8 +54,7 @@ html {
   border-color: #e2e8f0 !important;
 }
 .dark .showcase-navbar nav,
-.dark .showcase-navbar button,
-.dark .showcase-navbar .logo span {
+.dark .showcase-navbar button {
   color: #0b132b !important;
 }
 .dark .showcase-navbar > div:last-child > a {
@@ -71,10 +70,8 @@ html {
 
 .consumer-tech-navbar nav,
 .consumer-tech-navbar button,
-.consumer-tech-navbar .logo span,
 .dark .consumer-tech-navbar nav,
-.dark .consumer-tech-navbar button,
-.dark .consumer-tech-navbar .logo span {
+.dark .consumer-tech-navbar button {
   color: rgba(255, 255, 255, 0.82) !important;
 }
 
@@ -168,6 +165,17 @@ h1, h2, h3, h4, h5, h6 {
 
 .logo span {
   color: var(--accent-yellow);
+}
+
+.navbar .logo .nav-logo-mark,
+.dark .navbar .logo .nav-logo-mark,
+.showcase-navbar .logo .nav-logo-mark,
+.consumer-tech-navbar .logo .nav-logo-mark {
+  color: var(--accent-teal) !important;
+}
+
+.dark .navbar .logo .nav-logo-word {
+  color: #ffffff !important;
 }
 
 .nav-links {

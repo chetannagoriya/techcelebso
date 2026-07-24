@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import CompactFooter from "../components/CompactFooter";
 
 export default function Home() {
   const [currentTestimonial, setCurrentTestimonial] = useState(1);
@@ -347,66 +348,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="footer">
-        <div className="footer-grid">
-          <div className="footer-about">
-            <div className="footer-logo"><i className="fas fa-power-off text-[#5de4c7] mr-2"></i> ltodo</div>
-            <p>Pellentesque in commodo elit. Nunc tincidunt sapien eget condimentum. Vivamus aliquam sollicitudin purus. Quisque sem leo.</p>
-            <div className="contact-info-block mt-8">
-              <i className="fas fa-phone-alt"></i>
-              <div>
-                <span>CONTACT US 24/7</span>
-                <strong>+55 (990) 666 22</strong>
-              </div>
-            </div>
-          </div>
-
-          <div className="footer-links">
-            <h4>Explore Links</h4>
-            <ul>
-              <li><a href="#services">Our Services</a></li>
-              <li><a href="#">Meet Our Team</a></li>
-              <li><a href="#portfolio">Our Portfolio</a></li>
-              <li><a href="#contact">Contact</a></li>
-              <li><a href="#">News</a></li>
-            </ul>
-          </div>
-
-          <div className="footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><a href="#">Mission & Vision</a></li>
-              <li><a href="#">Why Choose Us</a></li>
-              <li><a href="#portfolio">Portfolio</a></li>
-              <li><a href="#">Case Studies</a></li>
-              <li><a href="#">Case Studies V2</a></li>
-            </ul>
-          </div>
-
-          <div className="footer-links">
-            <h4>Solutions</h4>
-            <ul>
-              <li><i className="fas fa-phone"></i> + 55 (66633) 25 66</li>
-              <li><i className="fas fa-phone"></i> + 55 (66633) 25 66</li>
-              <li><i className="fas fa-envelope"></i> info.ltodo@company.com</li>
-              <li><i className="fas fa-map-marker-alt"></i> 88 Broklyn Golden Road<br />Street New York. USA</li>
-            </ul>
-          </div>
-
-          <div className="footer-instagram">
-            <h4>Instagram</h4>
-            <div className="insta-grid">
-              <div className="insta-wrapper"><img src="/images/instagram_page/OIP.webp" alt="Insta 1" /></div>
-              <div className="insta-wrapper"><img src="/images/instagram_page/download (1).webp" alt="Insta 2" /></div>
-              <div className="insta-wrapper"><img src="/images/instagram_page/download.webp" alt="Insta 3" /></div>
-              <div className="insta-wrapper"><img src="/images/instagram_page/th.webp" alt="Insta 4" /></div>
-              <div className="insta-wrapper"><img src="/images/instagram_page/OIP.webp" alt="Insta 5" /></div>
-              <div className="insta-wrapper"><img src="/images/instagram_page/download (1).webp" alt="Insta 6" /></div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <CompactFooter />
     </main>
   );
 }

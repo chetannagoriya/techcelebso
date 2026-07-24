@@ -51,15 +51,19 @@ export default function Navbar() {
   return (
     <header className={`navbar w-full flex items-center justify-between px-8 py-4 bg-white dark:bg-[#0B132B] border-b border-[#E2E8F0] dark:border-[#1C2541] z-50 transition-colors duration-300 ${isShowcasePage ? "showcase-navbar" : ""} ${isConsumerTechnologyPage ? "consumer-tech-navbar" : ""}`}>
       <div className="logo flex-shrink-0">
-        <Link href="/" className="flex items-center">
-          <span className="font-extrabold text-3xl tracking-tighter text-slate-900 dark:text-white transition-colors duration-300">
+        <Link href="/" aria-label="Antellay home" className="flex items-center text-2xl font-black tracking-[0.12em]">
+          <span className="nav-logo-mark transition-colors duration-300" aria-hidden="true">
             Λ
+          </span>
+          <span
+            className="nav-logo-word transition-colors duration-300"
+            style={{ color: theme === "dark" ? "#ffffff" : "#0B132B" }}
+          >
+            NTELLAY
           </span>
         </Link>
       </div>
       <nav className="nav-links flex flex-1 justify-center items-center gap-6 text-sm font-medium text-[#0B132B]/70 dark:text-white/60">
-        <Link href="/about" className={linkClass("/about")}>About</Link>
-        
         {/* Services Mega Menu */}
         <div ref={dropdownRef}>
           <button 
@@ -223,12 +227,21 @@ export default function Navbar() {
             Resources <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:rotate-180 transition-transform"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </Link>
           <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50">
-            <div className="bg-white dark:bg-[#1C2541] border border-[#E2E8F0] dark:border-[#2D3A54] shadow-xl rounded-sm p-2 w-56 flex flex-col">
+            <div className="bg-white dark:bg-[#1C2541] border border-[#E2E8F0] dark:border-[#2D3A54] shadow-xl rounded-sm p-2 w-60 flex flex-col">
               <Link href="/resources/impact" className="px-4 py-2 text-sm text-[#0B132B]/70 dark:text-white/70 hover:bg-[#F4F7FA] dark:hover:bg-[#0B132B] hover:text-[#3A86FF] dark:hover:text-[#00F5D4] rounded-sm transition-colors">
                 Our Impact
               </Link>
               <Link href="/resources/blog" className="px-4 py-2 text-sm text-[#0B132B]/70 dark:text-white/70 hover:bg-[#F4F7FA] dark:hover:bg-[#0B132B] hover:text-[#3A86FF] dark:hover:text-[#00F5D4] rounded-sm transition-colors">
                 Our Blog
+              </Link>
+              <Link href="/resources/case-studies" className="px-4 py-2 text-sm text-[#0B132B]/70 dark:text-white/70 hover:bg-[#F4F7FA] dark:hover:bg-[#0B132B] hover:text-[#3A86FF] dark:hover:text-[#00F5D4] rounded-sm transition-colors">
+                Case Studies
+              </Link>
+              <Link href="/resources/press-release" className="px-4 py-2 text-sm text-[#0B132B]/70 dark:text-white/70 hover:bg-[#F4F7FA] dark:hover:bg-[#0B132B] hover:text-[#3A86FF] dark:hover:text-[#00F5D4] rounded-sm transition-colors">
+                Press Release
+              </Link>
+              <Link href="/resources/newsletter" className="px-4 py-2 text-sm text-[#0B132B]/70 dark:text-white/70 hover:bg-[#F4F7FA] dark:hover:bg-[#0B132B] hover:text-[#3A86FF] dark:hover:text-[#00F5D4] rounded-sm transition-colors">
+                Newsletter
               </Link>
             </div>
           </div>
@@ -248,6 +261,7 @@ export default function Navbar() {
             </div>
           </div>
         </div>
+        <Link href="/about" className={linkClass("/about")}>About</Link>
         <Link href="/careers" className={linkClass("/careers")}>Careers</Link>
         <Link href="/contact" className={linkClass("/contact")}>Contact Us</Link>
       </nav>
