@@ -275,7 +275,10 @@ export default function Navbar() {
             )}
           </button>
         )}
-        <Link href="/contact" className="px-5 py-2 border-2 border-slate-900 dark:border-white rounded-sm text-sm font-bold text-slate-900 dark:text-white hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-[#0B132B] transition-all duration-300">
+        <Link
+          href="/contact"
+          className="inline-flex min-h-10 shrink-0 items-center justify-center whitespace-nowrap rounded-md bg-[#00F5D4] px-5 py-2.5 text-sm font-bold text-[#0B132B] shadow-sm shadow-cyan-400/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#20e8ce] hover:shadow-md hover:shadow-cyan-400/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00F5D4] focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#0B132B]"
+        >
           Get a Free Consultation
         </Link>
       </div>

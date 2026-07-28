@@ -1,10 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { ArrowUpRight, Pause, Play, Volume2, VolumeX } from "lucide-react";
 import CompactFooter from "../components/CompactFooter";
 
 export default function Home() {
   const [currentTestimonial, setCurrentTestimonial] = useState(1);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(true);
+  const [isVideoMuted, setIsVideoMuted] = useState(true);
+  const landingVideoRef = useRef<HTMLVideoElement>(null);
 
   const testimonials = [
     {
@@ -29,19 +33,39 @@ export default function Home() {
 
   const handlePrev = () => setCurrentTestimonial(prev => (prev === 0 ? testimonials.length - 1 : prev - 1));
   const handleNext = () => setCurrentTestimonial(prev => (prev === testimonials.length - 1 ? 0 : prev + 1));
+  const toggleLandingVideo = () => {
+    const video = landingVideoRef.current;
+    if (!video) return;
+
+    if (video.paused) {
+      void video.play();
+    } else {
+      video.pause();
+    }
+  };
+  const toggleLandingVideoSound = () => {
+    const video = landingVideoRef.current;
+    if (!video) return;
+
+    video.muted = !video.muted;
+    setIsVideoMuted(video.muted);
+  };
+  const featuredLogos = [
+    { src: "/images/forbes.jpg", alt: "Forbes" },
+    { src: "/images/yourstory.jpg", alt: "YourStory" },
+    { src: "/images/news18.jpg", alt: "News 18" },
+    { src: "/images/inc42.jpg", alt: "Inc 42" },
+    { src: "/images/theEconomicTimes.jpg", alt: "The Economic Times" },
+    { src: "/images/keells_logo.png", alt: "Keells" },
+    { src: "/images/Antellay_logo.jpeg", alt: "Antellay" }
+  ];
 
   return (
     <main className="min-h-screen bg-white dark:bg-[#0B132B] text-[#0B132B] dark:text-white transition-colors duration-300">
 
 
       {/* Hero Section */}
-      <section id="about" className="hero-section bg-white dark:bg-[#0B132B] transition-colors duration-300 flex flex-col items-center justify-center pt-32 pb-24 min-h-[70vh]">
-        <div className="hero-top-text mb-8 w-full px-6">
-          <p className="text-slate-600 dark:text-slate-300 max-w-3xl mx-auto text-center mt-4 text-lg transition-colors duration-300">
-            With Antellay you're not just expanding your team, you're augmenting your capabilities. Let's join forces to create a future that's not just possible, but inevitable.
-          </p>
-        </div>
-        
+      <section id="about" className="hero-section bg-white pb-20 pt-32 transition-colors duration-300 dark:bg-[#0B132B]">
         <div className="flex justify-center w-full px-6 my-12 cursor-pointer">
           <img 
             src="/images/Antellay_name.jpeg" 
@@ -49,17 +73,87 @@ export default function Home() {
             className="w-full max-w-xl mx-auto block object-contain mix-blend-multiply dark:invert dark:mix-blend-screen transition-all duration-500 ease-out transform hover:scale-[1.03] hover:filter hover:drop-shadow-[0_0_15px_rgba(58,134,255,0.3)] dark:hover:drop-shadow-[0_0_15px_rgba(0,245,212,0.5)]"
           />
         </div>
-        
-        <p className="text-slate-800 dark:text-slate-100 font-bold text-2xl md:text-4xl text-center mt-10 transition-colors duration-300 mb-16 px-6">
-          IT solutions & services company.
-        </p>
 
-        <div id="industries" className="client-logos">
-          <div className="client-logo-wrapper"><img src="/images/forbes.jpg" alt="Forbes" /></div>
-          <div className="client-logo-wrapper"><img src="/images/yourstory.jpg" alt="YourStory" /></div>
-          <div className="client-logo-wrapper"><img src="/images/news18.jpg" alt="News 18" /></div>
-          <div className="client-logo-wrapper"><img src="/images/inc42.jpg" alt="Inc 42" /></div>
-          <div className="client-logo-wrapper"><img src="/images/theEconomicTimes.jpg" alt="The Economic Times" /></div>
+        <div className="mx-auto mt-16 max-w-[1400px] px-6 md:px-10">
+          <div className="relative left-1/2 w-screen -translate-x-1/2 px-6 md:px-10">
+            <h1 className="font-[family-name:var(--font-heading)] text-3xl font-medium tracking-[-0.025em] text-[#0B132B] dark:text-white md:text-4xl">
+              Welcome To Antellay
+            </h1>
+            <p className="mt-8 text-base leading-8 text-slate-600 dark:text-slate-300 md:text-lg">
+              Antellay is your trusted partner in all things IT. As a premier IT consulting company, we provide bespoke IT solutions tailored to your business ethos, requirements, and vision. Our experienced professionals guide you through your digital transformation journey, turning complex business challenges into meaningful opportunities. With Antellay, success is not just a destination—it is a journey we step on with you.
+            </p>
+          </div>
+
+          <div className="relative left-1/2 mt-20 w-screen -translate-x-1/2 px-6 md:px-10">
+            <h2 className="font-[family-name:var(--font-heading)] text-3xl font-medium tracking-[-0.025em] text-[#0B132B] dark:text-white md:text-4xl">
+              Our Valued Customers
+            </h2>
+            <p className="mt-8 text-base leading-8 text-slate-600 dark:text-slate-300 md:text-lg">
+              We are trusted by ambitious brands and growing businesses across industries because we focus on real value—simplifying complex processes and delivering technology that works for the people who use it.
+            </p>
+          </div>
+        </div>
+
+        <div id="industries" className="client-logos mt-16" aria-label="Featured brands">
+          <div className="client-logos-track">
+            {[...featuredLogos, ...featuredLogos].map((logo, index) => (
+              <div
+                className="client-logo-wrapper"
+                aria-hidden={index >= featuredLogos.length}
+                key={`${logo.alt}-${index}`}
+              >
+                <img src={logo.src} alt={index < featuredLogos.length ? logo.alt : ""} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Landing Video Showcase */}
+      <section className="bg-white px-4 pb-12 dark:bg-[#0B132B] md:px-8 md:pb-20">
+        <div className="relative mx-auto min-h-[420px] max-w-[1440px] overflow-hidden rounded-[1.5rem] bg-[#0B132B] shadow-[0_30px_80px_rgba(11,19,43,0.18)] md:min-h-[620px] md:rounded-[2rem]">
+          <video
+            ref={landingVideoRef}
+            className="absolute inset-0 h-full w-full object-cover"
+            src="/videos/landing-routine.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            onPlay={() => setIsVideoPlaying(true)}
+            onPause={() => setIsVideoPlaying(false)}
+          />
+          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#071126]/70 to-transparent" />
+
+          <div className="relative z-10 flex min-h-[420px] flex-col justify-end p-7 text-white md:min-h-[620px] md:p-14 lg:p-20">
+            <a
+              href="/contact"
+              className="inline-flex w-fit items-center gap-2 rounded-full bg-[#00F5D4] px-6 py-3 font-semibold text-[#071126] transition hover:bg-white"
+            >
+              Build with us
+              <ArrowUpRight size={18} />
+            </a>
+          </div>
+
+          <div className="absolute right-5 top-5 z-20 flex gap-2 md:right-8 md:top-8">
+            <button
+              type="button"
+              onClick={toggleLandingVideoSound}
+              aria-label={isVideoMuted ? "Unmute landing page video" : "Mute landing page video"}
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-black/30 text-white backdrop-blur-md transition hover:bg-black/50 focus:outline-none focus:ring-2 focus:ring-[#00F5D4]"
+            >
+              {isVideoMuted ? <VolumeX size={19} /> : <Volume2 size={19} />}
+            </button>
+            <button
+              type="button"
+              onClick={toggleLandingVideo}
+              aria-label={isVideoPlaying ? "Pause landing page video" : "Play landing page video"}
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-black/30 text-white backdrop-blur-md transition hover:bg-black/50 focus:outline-none focus:ring-2 focus:ring-[#00F5D4]"
+            >
+              {isVideoPlaying ? <Pause size={18} fill="currentColor" /> : <Play size={18} fill="currentColor" />}
+            </button>
+          </div>
         </div>
       </section>
 
@@ -84,11 +178,7 @@ export default function Home() {
 
       {/* Trusted Partner Section */}
       <section id="events" className="trusted-partner">
-        <p className="partner-text">
-          Antellay is your trusted partner in all things IT. As a premier IT consulting company, we provide bespoke IT solutions tailored to your business ethos, requirements, and vision. Our team of experienced IT professionals is your trusted partner in steering you through your digital transformation journey, pivoting business challenges into new opportunities. With Antellay, success is not just a destination, it is a journey we step on with you.
-        </p>
-
-        <div className="mt-16 w-full max-w-[1200px] mx-auto">
+        <div className="w-full max-w-[1200px] mx-auto">
           <img src="/images/page_3.jpg" alt="Trusted Partner Journey" className="w-full h-auto object-contain" />
         </div>
       </section>
