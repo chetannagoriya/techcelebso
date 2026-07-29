@@ -1,8 +1,71 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { ArrowUpRight, Pause, Play, Volume2, VolumeX } from "lucide-react";
+import Image from "next/image";
+import {
+  ArrowUpRight,
+  Bot,
+  Boxes,
+  BrainCircuit,
+  Building2,
+  Code2,
+  Factory,
+  Globe2,
+  GraduationCap,
+  HeartPulse,
+  HomeIcon,
+  Landmark,
+  Network,
+  PanelsTopLeft,
+  Pause,
+  Play,
+  Rocket,
+  ShoppingCart,
+  Tags,
+  Truck,
+  Volume2,
+  VolumeX,
+} from "lucide-react";
 import CompactFooter from "../components/CompactFooter";
+
+const coreServices = [
+  { title: "AI Infrastructure", description: "Scalable, secure, high-performance AI infrastructure for modern enterprises.", icon: BrainCircuit },
+  { title: "AI Agents", description: "Intelligent agents that automate workflows and improve productivity.", icon: Bot },
+  { title: "Dynamic AI Interfaces", description: "Next-generation user experiences powered by AI that adapt in real time.", icon: PanelsTopLeft },
+  { title: "GIS & Geospatial", description: "Location intelligence, mapping, and spatial analytics solutions.", icon: Globe2 },
+  { title: "Data Annotation", description: "High-quality training data for AI and ML models with human accuracy.", icon: Tags },
+  { title: "Enterprise Software", description: "Custom platforms and dashboards built for scale and efficiency.", icon: Code2 },
+];
+
+const flagshipProducts = [
+  { title: "ByiZon AI", subtitle: "Dynamic AI Interface System", image: "/images/products/byizon-ai.jpeg", href: "/products/byizon-ai" },
+  { title: "Grehni AI", subtitle: "AI OS for smart homes", image: "/images/products/grehni-ai.jpeg", href: "/products/grehni-ai" },
+  { title: "CelebsoX", subtitle: "Professional social network", image: "/images/products/celebsox.jpeg", href: "/products/celebsox" },
+  { title: "NxtFund Capital", subtitle: "Venture and growth platform", image: "/images/products/nxtfund-capital.jpeg", href: "/products/nxtfund-capital" },
+  { title: "Celebso Production", subtitle: "Media and creative technology", image: "/images/products/celebso-production.jpeg", href: "/products/celebso-production" },
+];
+
+const industries = [
+  ["Healthcare", HeartPulse],
+  ["Finance", Landmark],
+  ["Retail", ShoppingCart],
+  ["Manufacturing", Factory],
+  ["Government", Building2],
+  ["Education", GraduationCap],
+  ["Logistics", Truck],
+  ["Smart Cities", Network],
+] as const;
+
+const ecosystemCompanies = [
+  ["Antellay", "AI, GIS & Engineering", BrainCircuit],
+  ["ByiZon AI", "Dynamic AI Interface", PanelsTopLeft],
+  ["Grehni AI", "Smart AI OS", HomeIcon],
+  ["CelebsoX", "Social Network", Network],
+  ["Startup Valley", "Incubator & Coworking", Rocket],
+  ["NXTFUND", "Venture Capital", Landmark],
+  ["Startup School", "Learning Platform", GraduationCap],
+  ["Celebso Production", "Media & Events", Boxes],
+] as const;
 
 export default function Home() {
   const [currentTestimonial, setCurrentTestimonial] = useState(1);
@@ -183,6 +246,124 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Business overview — begins after the personalized IT journey */}
+      <section className="bg-[#f7f9fc] px-6 py-20 dark:bg-[#0d1730] md:px-10">
+        <div className="mx-auto max-w-[1400px]">
+          <div className="mb-10">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#3A86FF] dark:text-[#00F5D4]">What we build</p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-5xl">Our Core Services</h2>
+            <p className="mt-4 max-w-2xl text-slate-600 dark:text-slate-300">End-to-end AI, data, and engineering solutions designed to accelerate your business growth.</p>
+          </div>
+          <div className="grid gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 shadow-sm dark:border-white/10 dark:bg-white/10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+            {coreServices.map(({ title, description, icon: Icon }) => (
+              <article key={title} className="group min-h-64 bg-white p-6 transition hover:-translate-y-1 hover:shadow-xl dark:bg-[#111d3a]">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#3A86FF]/10 text-[#3A86FF] transition group-hover:bg-[#3A86FF] group-hover:text-white dark:bg-[#00F5D4]/10 dark:text-[#00F5D4]">
+                  <Icon size={25} strokeWidth={1.8} />
+                </div>
+                <h3 className="mt-6 text-lg font-bold">{title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-500 dark:text-slate-400">{description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white px-6 py-20 dark:bg-[#0B132B] md:px-10">
+        <div className="mx-auto max-w-[1400px]">
+          <div className="mb-10">
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#3A86FF] dark:text-[#00F5D4]">Built by Antellay</p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-5xl">Our Flagship Products</h2>
+            <p className="mt-4 text-slate-600 dark:text-slate-300">Innovative products built to solve real-world problems.</p>
+          </div>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+            {flagshipProducts.map((product) => (
+              <a key={product.title} href={product.href} className="group relative min-h-[340px] overflow-hidden rounded-2xl border border-white/15 bg-[#071b46] p-6 text-white shadow-xl ring-1 ring-slate-900/5 transition duration-300 hover:-translate-y-2 hover:border-[#3A86FF]/70 hover:shadow-2xl hover:shadow-[#3A86FF]/15">
+                <Image
+                  src={product.image}
+                  alt={`${product.title} product preview`}
+                  fill
+                  sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 20vw"
+                  className="object-cover object-top transition duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-black/95 via-black/60 to-transparent" />
+                <div className="relative flex h-full flex-col justify-end drop-shadow-md">
+                  <h3 className="text-xl font-bold tracking-tight">{product.title}</h3>
+                  <p className="mt-2 text-sm font-medium leading-6 text-white/85">{product.subtitle}</p>
+                  <span className="mt-5 inline-flex items-center gap-1 text-sm font-bold text-[#00F5D4]">Explore product <ArrowUpRight size={15} /></span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#f7f9fc] px-6 py-16 dark:bg-[#0d1730] md:px-10">
+        <div className="mx-auto max-w-[1400px]">
+          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Industries We Serve</h2>
+          <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-8">
+            {industries.map(([label, Icon]) => (
+              <a key={label} href="/industries" className="group flex min-h-32 flex-col items-center justify-center rounded-xl border border-slate-200 bg-white px-3 text-center shadow-sm transition hover:-translate-y-1 hover:border-[#3A86FF] dark:border-white/10 dark:bg-[#111d3a]">
+                <Icon className="text-slate-500 transition group-hover:text-[#3A86FF] dark:text-slate-400 dark:group-hover:text-[#00F5D4]" size={27} strokeWidth={1.7} />
+                <span className="mt-4 text-sm font-semibold">{label}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white px-6 py-20 dark:bg-[#0B132B] md:px-10">
+        <div className="mx-auto max-w-[1400px]">
+          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Part of Celebso Group Ecosystem</h2>
+          <div className="mt-9 grid gap-3 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
+            {ecosystemCompanies.map(([name, description, Icon]) => (
+              <div key={name} className="rounded-xl border border-slate-200 bg-[#f8fafc] p-5 text-center dark:border-white/10 dark:bg-[#111d3a]">
+                {name === "Antellay" ? (
+                  <Image
+                    src="/images/ecosystem/antellay-logo.png"
+                    alt="Antellay logo"
+                    width={42}
+                    height={40}
+                    className="mx-auto h-10 w-10 object-contain"
+                  />
+                ) : name === "Grehni AI" ? (
+                  <Image
+                    src="/images/ecosystem/grehni-logo.svg"
+                    alt="Grehni AI logo"
+                    width={40}
+                    height={40}
+                    className="mx-auto h-10 w-10 rounded-lg object-cover"
+                  />
+                ) : name === "NXTFUND" ? (
+                  <Image
+                    src="/images/ecosystem/nxtfund-logo.png"
+                    alt="NXTFUND logo"
+                    width={78}
+                    height={32}
+                    className="mx-auto h-10 w-[78px] object-contain"
+                  />
+                ) : (
+                  <Icon size={25} className="mx-auto text-[#3A86FF] dark:text-[#00F5D4]" />
+                )}
+                <h3 className="mt-3 text-sm font-bold">{name}</h3>
+                <p className="mt-1 text-xs leading-5 text-slate-500 dark:text-slate-400">{description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="relative mt-12 overflow-hidden rounded-3xl bg-gradient-to-r from-[#06173c] via-[#102e78] to-[#32118a] px-8 py-12 text-white shadow-2xl md:px-14">
+            <div className="absolute -right-10 -top-20 h-72 w-72 rounded-full border-[32px] border-[#00F5D4]/10" />
+            <div className="relative max-w-2xl">
+              <h2 className="text-3xl font-bold md:text-5xl">Let&apos;s Build the Future with AI.</h2>
+              <p className="mt-4 text-white/65">Ready to transform your business with intelligent solutions?</p>
+              <a href="/contact" className="mt-7 inline-flex items-center gap-2 rounded-lg border border-[#00F5D4]/60 bg-[#00F5D4] px-6 py-3 font-bold text-[#071126] transition hover:bg-white">
+                Book a Free Consultation <ArrowUpRight size={18} />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {false && <>
       {/* Get To Know Us */}
       <section id="about-us" className="get-to-know">
         <div className="section-title-left">
@@ -437,6 +618,7 @@ export default function Home() {
           <button className="slider-btn next" onClick={handleNext}><i className="fas fa-chevron-right"></i></button>
         </div>
       </section>
+      </>}
 
       <CompactFooter />
     </main>

@@ -1,16 +1,16 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Play, Search, MapPin, CheckCircle2, Heart, Zap, Users, GraduationCap, Briefcase } from "lucide-react";
+import { Search, MapPin, CheckCircle2, Heart, Zap, Users, GraduationCap, Briefcase } from "lucide-react";
 import Link from "next/link";
 
 export default function CareersPage() {
   // 1. Dynamic Core Values Carousel State
   const coreValues = ["We Code for People", "We Design for People", "We Create for People"];
-  const coreImages = [
-    "/images/celebso_logo.png", // Placeholder
-    "/images/event/big_picture_img.webp",
-    "/images/event/collaboration/Retail Brands.webp"
+  const coreVideos = [
+    "/videos/career-circle-code.mp4",
+    "/videos/career-circle-design.mp4",
+    "/videos/career-circle-code.mp4"
   ];
   const [activeValue, setActiveValue] = useState(0);
 
@@ -23,6 +23,7 @@ export default function CareersPage() {
 
   // 2. Orbital Navigator State
   const [activeOrbitNode, setActiveOrbitNode] = useState(0);
+  const [orbitRotation, setOrbitRotation] = useState(0);
   const orbitNodes = [
     { title: "Cultivate Wellbeing", icon: <Heart size={24}/>, desc: "We prioritize your physical and mental health above all. Full benefits, wellness stipends, and ergonomic setups." },
     { title: "Competitive Perks", icon: <Zap size={24}/>, desc: "Top-tier compensation, massive equity pools, performance bonuses, and unlimited PTO." },
@@ -30,6 +31,12 @@ export default function CareersPage() {
     { title: "Career Progression", icon: <GraduationCap size={24}/>, desc: "Dedicated budgets for certifications, continuous learning, and structured growth tracks." },
     { title: "Innovation", icon: <Briefcase size={24}/>, desc: "Work on the cutting edge of AI, cloud architecture, and enterprise digital transformation." },
   ];
+
+  const selectOrbitNode = (nextNode) => {
+    const forwardSteps = (nextNode - activeOrbitNode + orbitNodes.length) % orbitNodes.length;
+    setOrbitRotation((rotation) => rotation + forwardSteps * (360 / orbitNodes.length));
+    setActiveOrbitNode(nextNode);
+  };
 
   // 3. Job Board State
   const [activeTab, setActiveTab] = useState("View All");
@@ -63,7 +70,7 @@ export default function CareersPage() {
     <main className="min-h-screen bg-white dark:bg-[#0B132B] transition-colors duration-300">
       
       {/* 1. Hero Header & Dynamic Core Values Carousel */}
-      <section className="relative w-full pt-32 pb-24 overflow-hidden border-b border-[#E2E8F0] dark:border-[#1C2541]">
+      <section className="relative w-full pt-28 pb-16 overflow-hidden border-b border-[#E2E8F0] dark:border-[#1C2541]">
         <div className="absolute inset-0 bg-gradient-to-b from-[#3A86FF]/5 to-white dark:from-[#3A86FF]/5 dark:to-[#0B132B] -z-10"></div>
         <div className="max-w-[1400px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
@@ -91,12 +98,17 @@ export default function CareersPage() {
           {/* Circular Clipping Frame */}
           <div className="relative w-full aspect-square max-w-[500px] mx-auto z-10">
              <div className="absolute inset-0 rounded-full border border-gray-200 dark:border-gray-700 overflow-hidden shadow-2xl bg-white dark:bg-slate-800">
-                {coreImages.map((img, i) => (
-                  <img 
-                    key={i} 
-                    src={img} 
-                    alt="Culture" 
-                    className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${i === activeValue ? 'opacity-100 z-10' : 'opacity-0 z-0'} ${i === 0 ? 'p-16 object-contain dark:invert dark:brightness-0 opacity-50' : 'object-cover'}`}
+                {coreVideos.map((video, i) => (
+                  <video
+                    key={i}
+                    src={video}
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${i === activeValue ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                    aria-label={i === 1 ? "Antellay team designing together" : "Antellay team coding together"}
                   />
                 ))}
              </div>
@@ -108,17 +120,17 @@ export default function CareersPage() {
       </section>
 
       {/* 2. The Orbital Orbit Perks Navigator */}
-      <section className="py-32 bg-[#F4F7FA] dark:bg-[#0B132B] relative overflow-hidden">
-         <div className="text-center mb-16 relative z-10">
+      <section className="pt-12 pb-6 md:pt-16 md:pb-8 bg-[#F4F7FA] dark:bg-[#0B132B] relative overflow-hidden">
+         <div className="text-center mb-8 relative z-10 px-6">
             <h2 className="text-4xl md:text-5xl font-bold text-[#0B132B] dark:text-white mb-4">Life at Antellay</h2>
             <p className="text-lg text-slate-600 dark:text-slate-400">Everything you need to do the best work of your life.</p>
          </div>
 
-         {/* Height allocated for orbit mobile/desktop */}
-         <div className="relative w-full max-w-[600px] lg:max-w-[800px] h-[400px] lg:h-[700px] mx-auto flex items-center justify-center mt-10">
+         {/* A square container keeps the dashed orbit perfectly circular. */}
+         <div className="relative w-[85%] max-w-[560px] aspect-square mx-auto flex items-center justify-center">
             
             {/* The Central Hub */}
-            <div className="relative z-20 w-64 h-64 lg:w-96 lg:h-96 bg-white dark:bg-[#1C2541] rounded-full shadow-2xl border border-[#E2E8F0] dark:border-[#2D3A54] flex flex-col items-center justify-center p-6 lg:p-12 text-center transition-all duration-500 transform hover:scale-105">
+            <div className="relative z-20 w-64 h-64 lg:w-80 lg:h-80 bg-white dark:bg-[#1C2541] rounded-full shadow-2xl border border-[#E2E8F0] dark:border-[#2D3A54] flex flex-col items-center justify-center p-6 lg:p-10 text-center transition-all duration-500 transform hover:scale-105">
                <div className="text-[#3A86FF] dark:text-[#00F5D4] mb-4 scale-110 lg:scale-150 transition-transform">
                  {orbitNodes[activeOrbitNode].icon}
                </div>
@@ -128,31 +140,26 @@ export default function CareersPage() {
 
             {/* Orbit Ring Container */}
             <div 
-              className="absolute inset-0 lg:inset-10 border border-gray-300 border-dashed dark:border-gray-700 rounded-full transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]" 
-              style={{ transform: `rotate(${activeOrbitNode * (360 / orbitNodes.length)}deg)`}}
+              className="absolute inset-3 md:inset-6 border border-gray-300 border-dashed dark:border-gray-700 rounded-full transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)]"
+              style={{ transform: `rotate(${orbitRotation}deg)`}}
             >
                {/* Nodes */}
                {orbitNodes.map((node, i) => {
                  const angle = (i * (360 / orbitNodes.length)) * (Math.PI / 180);
-                 // Dynamically calculate radius based on CSS - this uses percentage or viewport logic, but inline styles need pixels. We'll use a responsive trick.
-                 // For desktop lg:inset-10 is used, radius ~ 350px. For mobile inset-0, radius ~ 200px.
-                 // To avoid complex window math in Next.js SSR, we'll use CSS calc for positioning.
                  return (
                    <button 
                      key={i}
-                     onClick={() => setActiveOrbitNode(i)}
+                     onClick={() => selectOrbitNode(i)}
                      className={`absolute top-1/2 left-1/2 w-12 h-12 lg:w-16 lg:h-16 -ml-6 -mt-6 lg:-ml-8 lg:-mt-8 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 ${activeOrbitNode === i ? 'bg-[#3A86FF] dark:bg-[#00F5D4] text-white dark:text-[#0B132B] scale-125 z-30 ring-4 ring-[#3A86FF]/20 dark:ring-[#00F5D4]/20' : 'bg-white dark:bg-[#1C2541] text-[#0B132B]/40 dark:text-white/40 hover:bg-[#3A86FF]/10 dark:hover:bg-[#00F5D4]/10 hover:text-[#3A86FF] dark:hover:text-[#00F5D4] border border-[#E2E8F0] dark:border-[#2D3A54] z-10'}`}
-                     style={{ 
-                        transform: `rotate(${-angle}rad) translateX(50vw) rotate(${angle}rad) rotate(${-activeOrbitNode * (360 / orbitNodes.length)}deg)`, // Fallback
-                        // More robust CSS transform using percentages:
+                     style={{
                         left: `${50 + 50 * Math.cos(angle)}%`,
                         top: `${50 + 50 * Math.sin(angle)}%`,
-                        transform: `rotate(${-activeOrbitNode * (360 / orbitNodes.length)}deg)` 
+                        transform: `rotate(${-orbitRotation}deg)`
                      }}
                      aria-label={node.title}
                    >
                      {/* We counter-rotate the icon so it stays upright */}
-                     <div style={{ transform: `rotate(${-activeOrbitNode * (360 / orbitNodes.length) * -1}deg)` }}>
+                     <div>
                        {node.icon}
                      </div>
                    </button>
@@ -163,7 +170,7 @@ export default function CareersPage() {
       </section>
 
       {/* 3. Current Openings Dashboard with Live Filter Tabs */}
-      <section id="openings" className="py-32 max-w-[1400px] mx-auto px-8">
+      <section id="openings" className="pt-8 pb-16 md:pt-10 md:pb-20 max-w-[1400px] mx-auto px-8">
          <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-8">
             <div>
                <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">Current Openings</h2>
@@ -218,65 +225,90 @@ export default function CareersPage() {
                   </div>
                </div>
             )) : (
-               <div className="col-span-full text-center py-32 text-slate-500 text-lg">No jobs found matching your criteria. Try adjusting your filters.</div>
+               <div className="col-span-full text-center py-20 text-slate-500 text-lg">No jobs found matching your criteria. Try adjusting your filters.</div>
             )}
          </div>
       </section>
 
       {/* 4 & 5. Humans of Antellay & Scattered Gallery */}
-      <section className="py-32 bg-[#F4F7FA] dark:bg-[#0B132B] overflow-hidden relative">
+      <section className="py-16 md:py-20 bg-[#F4F7FA] dark:bg-[#0B132B] overflow-hidden relative">
          <div className="max-w-[1400px] mx-auto px-8">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 text-center">Our Daily Vibe</h2>
-            <p className="text-center text-slate-600 dark:text-slate-400 mb-20 text-lg">A sneak peek into the life, culture, and chaos of building the future.</p>
+            <p className="text-center text-slate-600 dark:text-slate-400 mb-12 text-lg">A sneak peek into the life, culture, and chaos of building the future.</p>
             
             {/* Scattered Scrapbook */}
             <div className="relative w-full h-[600px] flex items-center justify-center perspective-[1000px]">
-               {/* Image 1 */}
+               {/* Culture video 1 */}
                <div className="absolute z-10 hover:z-50 -rotate-6 hover:rotate-0 hover:scale-110 transition-all duration-500 shadow-xl border-8 border-white dark:border-slate-800 rounded-lg overflow-hidden w-64 h-56 md:w-80 md:h-64 left-[5%] top-[10%] bg-slate-200 group">
-                  <img src="/images/event/big_picture_img.webp" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" alt="Vibe 1"/>
+                  <video
+                    src="/videos/career-circle-code.mp4"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                    aria-label="Antellay team coding together"
+                  />
                </div>
                
-               {/* Image 2 */}
+               {/* Culture video 2 */}
                <div className="absolute z-20 hover:z-50 rotate-3 hover:rotate-0 hover:scale-110 transition-all duration-500 shadow-xl border-8 border-white dark:border-slate-800 rounded-lg overflow-hidden w-72 h-64 md:w-96 md:h-72 right-[5%] top-[5%] bg-slate-200 group">
-                  <img src="/images/event/collaboration/Retail Brands.webp" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" alt="Vibe 2"/>
+                  <video
+                    src="/videos/career-circle-design.mp4"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                    aria-label="Antellay team designing together"
+                  />
                </div>
                
-               {/* Image 3 (Video Mask/Thumbnail) */}
-               <div className="absolute z-30 hover:z-50 -rotate-2 hover:rotate-0 hover:scale-110 transition-all duration-500 shadow-2xl border-8 border-white dark:border-slate-800 rounded-lg overflow-hidden w-80 h-72 md:w-[450px] md:h-80 left-[50%] -translate-x-1/2 top-[20%] bg-slate-900 group cursor-pointer">
-                  <img src="/images/celebso_logo.png" className="w-full h-full object-contain p-8 opacity-40 group-hover:opacity-20 transition-all" alt="Video Thumb"/>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                     <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center group-hover:scale-110 group-hover:bg-[#3A86FF]/80 dark:group-hover:bg-[#00F5D4]/80 transition-all duration-300 shadow-2xl">
-                        <Play size={36} className="text-white fill-white ml-2" />
-                     </div>
-                  </div>
-                  <div className="absolute bottom-4 left-4 right-4 text-white text-center font-bold">Watch The Untold Stories</div>
+               {/* Image 3 (looping culture video inspired by the supplied reference) */}
+               <div className="absolute z-30 hover:z-50 -rotate-2 hover:rotate-0 hover:scale-110 transition-all duration-500 shadow-2xl border-8 border-white dark:border-slate-800 rounded-lg overflow-hidden w-80 h-72 md:w-[450px] md:h-80 left-[50%] -translate-x-1/2 top-[20%] bg-slate-900 group">
+                  <video
+                    src="/videos/antellay-careers.mp4"
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                    aria-label="A day at Antellay"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/80 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 text-white text-center font-bold">A Day at Antellay</div>
                </div>
                
                {/* Image 4 */}
                <div className="absolute z-10 hover:z-50 rotate-12 hover:rotate-0 hover:scale-110 transition-all duration-500 shadow-xl border-8 border-white dark:border-slate-800 rounded-lg overflow-hidden w-56 h-56 md:w-72 md:h-72 left-[15%] bottom-[5%] bg-slate-200 group">
-                  <img src="/images/event/collaboration/re-Architecting Enterprise Agility.webp" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" alt="Vibe 4"/>
+                  <img src="/images/careers/strategy-meeting.png" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" alt="Colleagues collaborating on a strategy"/>
                </div>
                
                {/* Image 5 */}
                <div className="absolute z-20 hover:z-50 -rotate-12 hover:rotate-0 hover:scale-110 transition-all duration-500 shadow-xl border-8 border-white dark:border-slate-800 rounded-lg overflow-hidden w-64 h-56 md:w-80 md:h-64 right-[15%] bottom-[10%] bg-slate-200 group">
-                  <img src="/images/event/big_picture_img.webp" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" alt="Vibe 5"/>
+                  <img src="/images/careers/team-presentation.png" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" alt="A presentation in progress"/>
                </div>
             </div>
          </div>
       </section>
 
-      {/* 6. Giant Text Video Mask Section */}
-      <section className="relative w-full h-[50vh] md:h-[70vh] bg-white dark:bg-[#0B132B] flex items-center justify-center overflow-hidden border-y border-[#E2E8F0] dark:border-[#1C2541] pointer-events-none">
-         <h2 
-           className="text-[20vw] md:text-[18vw] font-black tracking-tighter text-transparent bg-clip-text leading-none select-none z-10 px-4 text-center w-full"
-           style={{
-             backgroundImage: "url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=2000')", // Placeholder high-tech texture acting as a pseudo-video
-             backgroundSize: "cover",
-             backgroundPosition: "center",
-             WebkitBackgroundClip: "text",
-             WebkitTextFillColor: "transparent"
-           }}
-         >
+      {/* 6. Full-width culture video */}
+      <section className="relative w-full h-[50vh] md:h-[70vh] bg-[#0B132B] flex items-center justify-center overflow-hidden border-y border-[#E2E8F0] dark:border-[#1C2541]">
+         <video
+           src="/videos/antellay-careers.mp4"
+           className="absolute inset-0 h-full w-full object-cover"
+           autoPlay
+           loop
+           muted
+           playsInline
+           preload="metadata"
+           aria-label="Antellay team culture"
+         />
+         <div className="absolute inset-0 bg-[#0B132B]/55" />
+         <h2 className="relative text-[20vw] md:text-[18vw] font-black tracking-tighter text-white/90 leading-none select-none z-10 px-4 text-center w-full mix-blend-screen">
             ANTELLAY
          </h2>
          <div className="absolute bottom-10 right-10 text-xs md:text-sm font-bold text-slate-400 dark:text-slate-600 uppercase tracking-[0.5em] z-20">
@@ -285,8 +317,8 @@ export default function CareersPage() {
       </section>
 
       {/* 7. Proactive FAQ Accordion */}
-      <section className="max-w-[900px] mx-auto px-8 py-32">
-        <div className="text-center mb-16">
+      <section className="max-w-[900px] mx-auto px-8 py-16 md:py-20">
+        <div className="text-center mb-10 md:mb-12">
            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">Recruitment FAQ</h2>
            <p className="text-slate-500 dark:text-slate-400 text-lg">Everything you need to know about joining our mission.</p>
         </div>
