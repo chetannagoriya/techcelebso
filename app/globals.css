@@ -387,9 +387,254 @@ a.contact-option-card:hover {
   }
 }
 
+/* Seamless right-to-left loop for the homepage industry cards. */
+.industries-slider {
+  overflow: hidden;
+  padding-block: 4px 12px;
+  mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent);
+}
+
+.industries-slider-track {
+  display: flex;
+  width: max-content;
+  gap: 12px;
+  animation: industries-card-scroll 32s linear infinite;
+  will-change: transform;
+}
+
+.industries-slider-group {
+  display: flex;
+  flex-shrink: 0;
+  gap: 12px;
+}
+
+.industries-slider-group > a {
+  width: clamp(150px, 16vw, 190px);
+  flex-shrink: 0;
+}
+
+@keyframes industries-card-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 6px));
+  }
+}
+
+/* Same seamless motion as the industry carousel, reversed left-to-right. */
+.ecosystem-slider {
+  overflow: hidden;
+  padding-block: 4px 12px;
+  mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent);
+}
+
+.ecosystem-slider-track {
+  display: flex;
+  width: max-content;
+  gap: 12px;
+  animation: ecosystem-card-scroll 32s linear infinite;
+  will-change: transform;
+}
+
+.ecosystem-slider-group {
+  display: flex;
+  flex-shrink: 0;
+  gap: 12px;
+}
+
+.ecosystem-slider-group > div {
+  width: clamp(160px, 16vw, 190px);
+  min-height: 150px;
+  flex-shrink: 0;
+}
+
+@keyframes ecosystem-card-scroll {
+  from {
+    transform: translateX(calc(-50% - 6px));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .client-logos-track {
     animation-play-state: paused;
+  }
+
+  .industries-slider-track {
+    animation-play-state: paused;
+  }
+
+  .ecosystem-slider-track {
+    animation-play-state: paused;
+  }
+}
+
+/* Landing intro directly below the header */
+.landing-intro {
+  display: grid;
+  grid-template-columns: minmax(360px, 46.5%) minmax(0, 53.5%);
+  min-height: 530px;
+  overflow: hidden;
+  background: #fff;
+  color: #2d2d2d;
+}
+
+.dark .landing-page {
+  background: #0b132b;
+}
+
+.dark .landing-intro {
+  background: transparent;
+  color: #f4f4f4;
+}
+
+.landing-intro-copy {
+  display: flex;
+  align-items: center;
+  padding: 20px 48px 20px clamp(48px, 8.9vw, 120px);
+}
+
+.landing-intro-copy h1 {
+  margin: 0;
+  font-family: var(--font-body), Arial, sans-serif;
+  font-size: clamp(30px, 2.45vw, 36px);
+  font-weight: 400;
+  line-height: 1.52;
+  letter-spacing: -0.02em;
+}
+
+.landing-intro-visual {
+  position: relative;
+  min-height: 530px;
+}
+
+.landing-intro-image {
+  z-index: 1;
+  object-fit: contain;
+  object-position: right top;
+}
+
+.landing-intro-bar {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 23px;
+  left: -82px;
+  display: flex;
+  height: 72px;
+  align-items: stretch;
+  background: rgba(226, 226, 226, 0.86);
+}
+
+.dark .landing-intro-bar {
+  background: rgba(103, 103, 103, 0.82);
+}
+
+.landing-intro-button {
+  display: inline-flex;
+  width: 164px;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: #737373;
+  font-size: 16px;
+  font-weight: 400;
+  box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.25);
+  transition: color 180ms ease, background-color 180ms ease;
+}
+
+.dark .landing-intro-button {
+  background: #202020;
+  color: #d6d6d6;
+  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.dark .home-navbar {
+  background: #0b132b !important;
+  border-color: #1c2541 !important;
+}
+
+.dark .home-navbar nav,
+.dark .home-navbar nav button {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.dark .home-navbar > div:last-child > a {
+  border: 1px solid #626262;
+  background: transparent;
+  color: #f3f3f3;
+  box-shadow: none;
+}
+
+.dark .home-navbar > div:last-child > a:hover {
+  border-color: #f3f3f3;
+  background: #f3f3f3;
+  color: #0b132b;
+}
+
+.landing-intro-button:hover,
+.landing-intro-button:focus-visible {
+  background: #0b132b;
+  color: #fff;
+}
+
+.landing-intro-button:focus-visible {
+  outline: 3px solid #3a86ff;
+  outline-offset: -3px;
+}
+
+@media (max-width: 900px) {
+  .landing-intro {
+    grid-template-columns: 40% 60%;
+    min-height: 440px;
+  }
+
+  .landing-intro-copy {
+    padding: 24px;
+  }
+
+  .landing-intro-copy h1 {
+    font-size: clamp(25px, 3.2vw, 31px);
+  }
+
+  .landing-intro-visual {
+    min-height: 440px;
+  }
+}
+
+@media (max-width: 640px) {
+  .landing-intro {
+    display: flex;
+    min-height: 0;
+    flex-direction: column;
+  }
+
+  .landing-intro-copy {
+    min-height: 210px;
+    padding: 48px 24px 34px;
+  }
+
+  .landing-intro-copy h1 {
+    font-size: clamp(28px, 8vw, 34px);
+    line-height: 1.4;
+  }
+
+  .landing-intro-visual {
+    min-height: min(72vw, 430px);
+  }
+
+  .landing-intro-bar {
+    bottom: 0;
+    left: 20px;
+    height: 62px;
+  }
+
+  .landing-intro-button {
+    width: 144px;
+    font-size: 15px;
   }
 }
 

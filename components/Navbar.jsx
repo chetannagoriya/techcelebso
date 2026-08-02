@@ -9,6 +9,7 @@ import { industriesData, generateSlug as generateIndustrySlug } from "../data/in
 
 export default function Navbar() {
   const pathname = usePathname();
+  const isHomePage = pathname === "/";
   const isConsumerTechnologyPage = pathname === "/industries/consumer-technology";
   const isShowcasePage = ["/industries/agriculture", "/industries/automotive", "/industries/healthcare", "/industries/banking-finance", "/industries/insurance", "/industries/manufacturing", "/industries/retail-ecommerce", "/industries/construction-infrastructure", "/industries/environment-climate", "/industries/pharmaceutical-life-sciences", "/industries/quick-commerce-delivery", "/industries/robotics", "/industries/security-surveillance", "/industries/education", "/industries/energy-utilities", "/industries/logistics-supply-chain", "/industries/government-smart-cities", "/industries/telecom", "/industries/aviation-aerospace", "/industries/maritime-ports", "/industries/hospitality-travel", "/industries/consumer-technology", "/industries/real-estate", "/services/data-annotation", "/services/gis-geospatial"].includes(pathname);
   const { theme, toggleTheme, mounted } = useTheme();
@@ -49,7 +50,7 @@ export default function Navbar() {
   if (["/products/byizon-ai", "/products/grehni-ai", "/products/nxtfund-capital", "/products/celebso-production"].includes(pathname)) return null;
 
   return (
-    <header className={`navbar w-full flex items-center justify-between px-8 py-4 bg-white dark:bg-[#0B132B] border-b border-[#E2E8F0] dark:border-[#1C2541] z-50 transition-colors duration-300 ${isShowcasePage ? "showcase-navbar" : ""} ${isConsumerTechnologyPage ? "consumer-tech-navbar" : ""}`}>
+    <header className={`navbar w-full flex items-center justify-between px-8 py-4 bg-white dark:bg-[#0B132B] border-b border-[#E2E8F0] dark:border-[#1C2541] z-50 transition-colors duration-300 ${isHomePage ? "home-navbar" : ""} ${isShowcasePage ? "showcase-navbar" : ""} ${isConsumerTechnologyPage ? "consumer-tech-navbar" : ""}`}>
       <div className="logo flex-shrink-0">
         <Link href="/" aria-label="Antellay home" className="flex items-center text-2xl font-black tracking-[0.12em]">
           <span className="nav-logo-mark transition-colors duration-300" aria-hidden="true">

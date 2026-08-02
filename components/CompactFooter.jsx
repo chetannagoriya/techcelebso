@@ -12,8 +12,19 @@ const socialLinks = [
 
 export default function CompactFooter() {
   return (
-    <footer className="border-t border-white/10 bg-[#071126] text-white">
-      <div className="mx-auto max-w-[1400px] px-6 py-10 sm:px-10 lg:px-16">
+    <footer className="relative overflow-hidden border-t border-white/10 bg-[#071126] text-white">
+      <video
+        className="pointer-events-none absolute inset-0 h-full w-full scale-[1.01] object-cover contrast-[1.12] saturate-[1.08]"
+        src="/videos/footer-background.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden="true"
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#071126]/78 via-[#071126]/66 to-[#071126]/76" />
+      <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-10 sm:px-10 lg:px-16">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-[1.45fr_repeat(4,1fr)]">
           <div className="lg:pr-10">
             <Link href="/" aria-label="Antellay home" className="inline-flex items-center text-3xl font-black tracking-[0.16em] text-white">

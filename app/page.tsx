@@ -7,12 +7,9 @@ import {
   Bot,
   Boxes,
   BrainCircuit,
-  Building2,
   Code2,
-  Factory,
   Globe2,
   GraduationCap,
-  HeartPulse,
   HomeIcon,
   Landmark,
   Network,
@@ -20,9 +17,7 @@ import {
   Pause,
   Play,
   Rocket,
-  ShoppingCart,
   Tags,
-  Truck,
   Volume2,
   VolumeX,
 } from "lucide-react";
@@ -44,17 +39,6 @@ const flagshipProducts = [
   { title: "NxtFund Capital", subtitle: "Venture and growth platform", image: "/images/products/nxtfund-capital.jpeg", href: "/products/nxtfund-capital" },
   { title: "Celebso Production", subtitle: "Media and creative technology", image: "/images/products/celebso-production.jpeg", href: "/products/celebso-production" },
 ];
-
-const industries = [
-  ["Healthcare", HeartPulse],
-  ["Finance", Landmark],
-  ["Retail", ShoppingCart],
-  ["Manufacturing", Factory],
-  ["Government", Building2],
-  ["Education", GraduationCap],
-  ["Logistics", Truck],
-  ["Smart Cities", Network],
-] as const;
 
 const ecosystemCompanies = [
   ["Antellay", "AI, GIS & Engineering", BrainCircuit],
@@ -124,11 +108,33 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen bg-white dark:bg-[#0B132B] text-[#0B132B] dark:text-white transition-colors duration-300">
+    <main className="landing-page min-h-screen bg-white text-[#0B132B] dark:text-white transition-colors duration-300">
 
+      {/* Landing Intro */}
+      <section className="landing-intro" aria-labelledby="landing-intro-title">
+        <div className="landing-intro-copy">
+          <h1 id="landing-intro-title">
+            Leading the Charge in IT<br />Consulting &amp; Services
+          </h1>
+        </div>
+
+        <div className="landing-intro-visual">
+          <Image
+            src="/images/vr-consulting-hero.png"
+            alt="A woman exploring immersive technology with a virtual reality headset"
+            fill
+            priority
+            sizes="(max-width: 767px) 100vw, 58vw"
+            className="landing-intro-image"
+          />
+          <div className="landing-intro-bar">
+            <a href="#about" className="landing-intro-button">Know More</a>
+          </div>
+        </div>
+      </section>
 
       {/* Hero Section */}
-      <section id="about" className="hero-section bg-white pb-20 pt-32 transition-colors duration-300 dark:bg-[#0B132B]">
+      <section id="about" className="hero-section bg-white pb-20 pt-32 transition-colors duration-300 dark:bg-transparent">
         <div className="flex justify-center w-full px-6 my-12 cursor-pointer">
           <img 
             src="/images/Antellay_name.jpeg" 
@@ -139,19 +145,25 @@ export default function Home() {
 
         <div className="mx-auto mt-16 max-w-[1400px] px-6 md:px-10">
           <div className="relative left-1/2 w-screen -translate-x-1/2 px-6 md:px-10">
-            <h1 className="font-[family-name:var(--font-heading)] text-3xl font-medium tracking-[-0.025em] text-[#0B132B] dark:text-white md:text-4xl">
+            <h1 className="font-[family-name:var(--font-body)] text-3xl font-medium tracking-[-0.025em] text-[#0B132B] dark:text-white md:text-4xl">
               Welcome To Antellay
             </h1>
-            <p className="mt-8 text-base leading-8 text-slate-600 dark:text-slate-300 md:text-lg">
+            <p
+              className="mt-8 text-base leading-8 text-slate-600 dark:text-slate-300 md:text-lg"
+              style={{ fontFamily: "var(--font-body), Arial, sans-serif" }}
+            >
               Antellay is your trusted partner in all things IT. As a premier IT consulting company, we provide bespoke IT solutions tailored to your business ethos, requirements, and vision. Our experienced professionals guide you through your digital transformation journey, turning complex business challenges into meaningful opportunities. With Antellay, success is not just a destination—it is a journey we step on with you.
             </p>
           </div>
 
           <div className="relative left-1/2 mt-20 w-screen -translate-x-1/2 px-6 md:px-10">
-            <h2 className="font-[family-name:var(--font-heading)] text-3xl font-medium tracking-[-0.025em] text-[#0B132B] dark:text-white md:text-4xl">
+            <h2 className="font-[family-name:var(--font-body)] text-3xl font-medium tracking-[-0.025em] text-[#0B132B] dark:text-white md:text-4xl">
               Our Valued Customers
             </h2>
-            <p className="mt-8 text-base leading-8 text-slate-600 dark:text-slate-300 md:text-lg">
+            <p
+              className="mt-8 text-base leading-8 text-slate-600 dark:text-slate-300 md:text-lg"
+              style={{ fontFamily: "var(--font-body), Arial, sans-serif" }}
+            >
               We are trusted by ambitious brands and growing businesses across industries because we focus on real value—simplifying complex processes and delivering technology that works for the people who use it.
             </p>
           </div>
@@ -178,7 +190,7 @@ export default function Home() {
           <video
             ref={landingVideoRef}
             className="absolute inset-0 h-full w-full object-cover"
-            src="/videos/landing-routine.mp4"
+            src="/videos/our-valued-customers.mp4"
             autoPlay
             muted
             loop
@@ -220,29 +232,63 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Leading the Charge Section */}
-      <section id="resources" className="leading-charge">
-        <div className="leading-left-panel">
-          <h2>Leading the Charge in IT<br />Consulting & Services</h2>
-          <h3 className="welcome-text">Welcome to Antellay</h3>
-        </div>
-        <div className="leading-image-container">
-          <div className="vr-image"></div>
-          <div className="know-more-bar">
-            <a href="#" className="know-more-btn">Know More</a>
+      {/* Mind Activation Showcase */}
+      <section className="bg-white px-4 pb-12 dark:bg-[#0B132B] md:px-8 md:pb-20">
+        <div className="relative mx-auto grid w-full max-w-[1100px] items-center gap-8 overflow-hidden md:grid-cols-[minmax(170px,1fr)_420px_minmax(170px,1fr)]">
+          <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(58,134,255,0.12),transparent_38%)] dark:bg-[radial-gradient(circle_at_center,rgba(0,245,212,0.09),transparent_40%)]" />
+
+          <div className="relative z-10 hidden flex-col gap-12 md:flex">
+            <div className="ml-auto flex w-full max-w-[210px] items-center gap-3 rounded-2xl border border-blue-100 bg-white/85 p-4 shadow-[0_16px_45px_rgba(58,134,255,0.10)] backdrop-blur-sm dark:border-white/10 dark:bg-[#111d3a]/85">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[#3A86FF]/10 text-[#3A86FF] dark:bg-[#00F5D4]/10 dark:text-[#00F5D4]"><BrainCircuit size={22} /></span>
+              <div><p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400">Smarter</p><p className="mt-1 font-semibold">Intelligence</p></div>
+            </div>
+            <div className="flex w-full max-w-[210px] items-center gap-3 rounded-2xl border border-blue-100 bg-white/85 p-4 shadow-[0_16px_45px_rgba(58,134,255,0.10)] backdrop-blur-sm dark:border-white/10 dark:bg-[#111d3a]/85">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[#3A86FF]/10 text-[#3A86FF] dark:bg-[#00F5D4]/10 dark:text-[#00F5D4]"><Code2 size={22} /></span>
+              <div><p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400">Built for</p><p className="mt-1 font-semibold">Engineering</p></div>
+            </div>
           </div>
-          <div className="vr-circles">
-            <div className="vr-circle vr-circle-lg"></div>
-            <div className="vr-circle vr-circle-md"></div>
-            <div className="vr-circle vr-circle-sm"></div>
+
+          <div className="relative z-10 w-full max-w-[420px] overflow-hidden">
+            <img
+              src="/images/mind-activation-transparent.png"
+              alt="Mind activation and usable knowledge concept"
+              className="block h-[460px] w-full object-cover object-center sm:h-[520px]"
+            />
+            <div aria-hidden="true" className="absolute inset-x-0 top-0 h-10 bg-white dark:bg-[#0B132B]" />
+            <div aria-hidden="true" className="absolute left-0 top-[58%] h-10 w-16 bg-white dark:bg-[#0B132B]" />
+          </div>
+
+          <div className="relative z-10 hidden flex-col gap-12 md:flex">
+            <div className="flex w-full max-w-[210px] items-center gap-3 rounded-2xl border border-blue-100 bg-white/85 p-4 shadow-[0_16px_45px_rgba(58,134,255,0.10)] backdrop-blur-sm dark:border-white/10 dark:bg-[#111d3a]/85">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[#3A86FF]/10 text-[#3A86FF] dark:bg-[#00F5D4]/10 dark:text-[#00F5D4]"><Globe2 size={22} /></span>
+              <div><p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400">Always</p><p className="mt-1 font-semibold">Connected</p></div>
+            </div>
+            <div className="ml-auto flex w-full max-w-[210px] items-center gap-3 rounded-2xl border border-blue-100 bg-white/85 p-4 shadow-[0_16px_45px_rgba(58,134,255,0.10)] backdrop-blur-sm dark:border-white/10 dark:bg-[#111d3a]/85">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[#3A86FF]/10 text-[#3A86FF] dark:bg-[#00F5D4]/10 dark:text-[#00F5D4]"><Rocket size={22} /></span>
+              <div><p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400">Ready for</p><p className="mt-1 font-semibold">Growth</p></div>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Antellay Product Logos */}
+      <section className="bg-white px-4 pb-12 transition-colors duration-300 dark:bg-[#0B132B] md:px-8 md:pb-20">
+        <img
+          src="/images/antellay-product-logos-transparent.png"
+          alt="Byizon, Celebso, Space, Grehni and NxtFund products"
+          className="mx-auto block h-auto w-full max-w-[998px] object-contain dark:brightness-0 dark:invert"
+        />
+      </section>
+
       {/* Trusted Partner Section */}
       <section id="events" className="trusted-partner">
-        <div className="w-full max-w-[1200px] mx-auto">
-          <img src="/images/page_3.jpg" alt="Trusted Partner Journey" className="w-full h-auto object-contain" />
+        <div className="relative mx-auto aspect-[2048/578] w-full max-w-[1200px] overflow-hidden">
+          <img
+            src="/images/personalized-journey-transparent.png"
+            alt="Start your personalized IT journey"
+            className="absolute left-0 top-0 h-auto w-full"
+            style={{ transform: "translateY(-24.74%)" }}
+          />
         </div>
       </section>
 
@@ -297,62 +343,47 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#f7f9fc] px-6 py-16 dark:bg-[#0d1730] md:px-10">
-        <div className="mx-auto max-w-[1400px]">
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Industries We Serve</h2>
-          <div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-8">
-            {industries.map(([label, Icon]) => (
-              <a key={label} href="/industries" className="group flex min-h-32 flex-col items-center justify-center rounded-xl border border-slate-200 bg-white px-3 text-center shadow-sm transition hover:-translate-y-1 hover:border-[#3A86FF] dark:border-white/10 dark:bg-[#111d3a]">
-                <Icon className="text-slate-500 transition group-hover:text-[#3A86FF] dark:text-slate-400 dark:group-hover:text-[#00F5D4]" size={27} strokeWidth={1.7} />
-                <span className="mt-4 text-sm font-semibold">{label}</span>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="bg-white px-6 py-20 dark:bg-[#0B132B] md:px-10">
         <div className="mx-auto max-w-[1400px]">
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Part of Celebso Group Ecosystem</h2>
-          <div className="mt-9 grid gap-3 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8">
-            {ecosystemCompanies.map(([name, description, Icon]) => (
-              <div key={name} className="rounded-xl border border-slate-200 bg-[#f8fafc] p-5 text-center dark:border-white/10 dark:bg-[#111d3a]">
-                {name === "Antellay" ? (
-                  <Image
-                    src="/images/ecosystem/antellay-logo.png"
-                    alt="Antellay logo"
-                    width={42}
-                    height={40}
-                    className="mx-auto h-10 w-10 object-contain"
-                  />
-                ) : name === "Grehni AI" ? (
-                  <Image
-                    src="/images/ecosystem/grehni-logo.svg"
-                    alt="Grehni AI logo"
-                    width={40}
-                    height={40}
-                    className="mx-auto h-10 w-10 rounded-lg object-cover"
-                  />
-                ) : name === "NXTFUND" ? (
-                  <Image
-                    src="/images/ecosystem/nxtfund-logo.png"
-                    alt="NXTFUND logo"
-                    width={78}
-                    height={32}
-                    className="mx-auto h-10 w-[78px] object-contain"
-                  />
-                ) : (
-                  <Icon size={25} className="mx-auto text-[#3A86FF] dark:text-[#00F5D4]" />
-                )}
-                <h3 className="mt-3 text-sm font-bold">{name}</h3>
-                <p className="mt-1 text-xs leading-5 text-slate-500 dark:text-slate-400">{description}</p>
-              </div>
-            ))}
+          <div className="ecosystem-slider mt-9">
+            <div className="ecosystem-slider-track">
+              {[true, false].map((isDuplicate) => (
+                <div key={isDuplicate ? "duplicate" : "primary"} className="ecosystem-slider-group" aria-hidden={isDuplicate || undefined}>
+                  {ecosystemCompanies.map(([name, description, Icon]) => (
+                    <div key={name} className="rounded-xl border border-slate-200 bg-[#f8fafc] p-5 text-center dark:border-white/10 dark:bg-[#111d3a]">
+                      {name === "Antellay" ? (
+                        <Image src="/images/ecosystem/antellay-logo.png" alt="Antellay logo" width={42} height={40} className="mx-auto h-10 w-10 object-contain" />
+                      ) : name === "Grehni AI" ? (
+                        <Image src="/images/ecosystem/grehni-logo.svg" alt="Grehni AI logo" width={40} height={40} className="mx-auto h-10 w-10 rounded-lg object-cover" />
+                      ) : name === "NXTFUND" ? (
+                        <Image src="/images/ecosystem/nxtfund-logo.png" alt="NXTFUND logo" width={78} height={32} className="mx-auto h-10 w-[78px] object-contain" />
+                      ) : (
+                        <Icon size={25} className="mx-auto text-[#3A86FF] dark:text-[#00F5D4]" />
+                      )}
+                      <h3 className="mt-3 text-sm font-bold">{name}</h3>
+                      <p className="mt-1 text-xs leading-5 text-slate-500 dark:text-slate-400">{description}</p>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className="relative mt-12 overflow-hidden rounded-3xl bg-gradient-to-r from-[#06173c] via-[#102e78] to-[#32118a] px-8 py-12 text-white shadow-2xl md:px-14">
+          <div className="relative mt-12 overflow-hidden rounded-3xl bg-[#06173c] px-8 py-12 text-white shadow-2xl md:px-14">
+            <video
+              className="absolute inset-0 h-full w-full object-cover"
+              src="/videos/future-ai-card-v2.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-hidden="true"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#06173c]/95 via-[#102e78]/75 to-[#140836]/45" />
             <div className="absolute -right-10 -top-20 h-72 w-72 rounded-full border-[32px] border-[#00F5D4]/10" />
-            <div className="relative max-w-2xl">
+            <div className="relative z-10 max-w-2xl">
               <h2 className="text-3xl font-bold md:text-5xl">Let&apos;s Build the Future with AI.</h2>
               <p className="mt-4 text-white/65">Ready to transform your business with intelligent solutions?</p>
               <a href="/contact" className="mt-7 inline-flex items-center gap-2 rounded-lg border border-[#00F5D4]/60 bg-[#00F5D4] px-6 py-3 font-bold text-[#071126] transition hover:bg-white">
