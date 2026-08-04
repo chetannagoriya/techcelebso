@@ -506,6 +506,67 @@ a.contact-option-card:hover {
   letter-spacing: -0.02em;
 }
 
+.landing-title-motion {
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  color: transparent;
+  background: linear-gradient(90deg, #0b132b 0%, #3a86ff 38%, #00a896 58%, #0b132b 100%);
+  background-size: 220% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: landing-title-float 3.6s ease-in-out infinite, landing-title-color 5s linear infinite;
+  will-change: transform, background-position;
+}
+
+.landing-title-motion::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -12px;
+  left: 0;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #3a86ff, #00f5d4);
+  transform-origin: left center;
+  animation: landing-title-line 2.8s ease-in-out infinite;
+}
+
+.dark .landing-title-motion {
+  background-image: linear-gradient(90deg, #ffffff 0%, #70eeff 38%, #00f5d4 58%, #ffffff 100%);
+}
+
+@keyframes landing-title-float {
+  0%,
+  100% {
+    transform: translate3d(0, 4px, 0);
+  }
+  50% {
+    transform: translate3d(10px, -7px, 0);
+  }
+}
+
+@keyframes landing-title-color {
+  from {
+    background-position: 200% 50%;
+  }
+  to {
+    background-position: -20% 50%;
+  }
+}
+
+@keyframes landing-title-line {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scaleX(0.35);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
 .landing-intro-visual {
   position: relative;
   min-height: 530px;
@@ -742,6 +803,102 @@ a.contact-option-card:hover {
 }
 
 /* Trusted Partner */
+.product-logo-image {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.logo-hotspot {
+  background-image: url("/images/antellay-product-logos-transparent.png");
+  background-repeat: no-repeat;
+  transition: transform 280ms ease;
+  will-change: transform;
+}
+
+.logo-hotspot:hover,
+.logo-hotspot:focus-visible {
+  z-index: 10;
+  transform: scale(1.1);
+}
+
+.dark .logo-hotspot {
+  filter: brightness(0) invert(1);
+}
+
+.logo-byizon {
+  background-position: 2.41% 42.857%;
+  background-size: 588.235% auto;
+}
+
+.logo-celebso {
+  background-position: 24.359% 40%;
+  background-size: 454.545% auto;
+}
+
+.logo-space {
+  background-position: 50% 50%;
+  background-size: 714.286% auto;
+}
+
+.logo-grehni {
+  background-position: 68.235% 42.857%;
+  background-size: 666.667% auto;
+}
+
+.logo-nxtfund {
+  background-position: 94.937% 39.474%;
+  background-size: 476.19% auto;
+}
+
+.mind-motion {
+  --mind-drift-x: 12px;
+  --mind-tilt: 1deg;
+  --mind-motion-duration: 3.8s;
+  animation: mind-card-float var(--mind-motion-duration) ease-in-out infinite !important;
+  will-change: transform;
+}
+
+.mind-motion-one {
+  animation-delay: -0.6s;
+}
+
+.mind-motion-two {
+  --mind-drift-x: -14px;
+  --mind-tilt: -1.2deg;
+  --mind-motion-duration: 4.2s;
+  animation-delay: -2.2s;
+}
+
+.mind-motion-three {
+  --mind-drift-x: -12px;
+  --mind-tilt: -1deg;
+  --mind-motion-duration: 3.9s;
+  animation-delay: -1.4s;
+}
+
+.mind-motion-four {
+  --mind-drift-x: 14px;
+  --mind-tilt: 1.2deg;
+  --mind-motion-duration: 4.4s;
+  animation-delay: -3.1s;
+}
+
+.mind-motion:hover {
+  animation-play-state: paused;
+}
+
+@keyframes mind-card-float {
+  0%,
+  100% {
+    transform: translate3d(0, 6px, 0) rotate(calc(var(--mind-tilt) * -1));
+    filter: drop-shadow(0 8px 14px rgba(58, 134, 255, 0.08));
+  }
+  50% {
+    transform: translate3d(var(--mind-drift-x), -18px, 0) rotate(var(--mind-tilt));
+    filter: drop-shadow(0 18px 22px rgba(58, 134, 255, 0.24));
+  }
+}
+
 .trusted-partner {
   padding: 80px 10%;
   text-align: center;

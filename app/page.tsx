@@ -4,7 +4,6 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import {
   ArrowUpRight,
-  Bot,
   Boxes,
   BrainCircuit,
   Code2,
@@ -17,28 +16,10 @@ import {
   Pause,
   Play,
   Rocket,
-  Tags,
   Volume2,
   VolumeX,
 } from "lucide-react";
 import CompactFooter from "../components/CompactFooter";
-
-const coreServices = [
-  { title: "AI Infrastructure", description: "Scalable, secure, high-performance AI infrastructure for modern enterprises.", icon: BrainCircuit },
-  { title: "AI Agents", description: "Intelligent agents that automate workflows and improve productivity.", icon: Bot },
-  { title: "Dynamic AI Interfaces", description: "Next-generation user experiences powered by AI that adapt in real time.", icon: PanelsTopLeft },
-  { title: "GIS & Geospatial", description: "Location intelligence, mapping, and spatial analytics solutions.", icon: Globe2 },
-  { title: "Data Annotation", description: "High-quality training data for AI and ML models with human accuracy.", icon: Tags },
-  { title: "Enterprise Software", description: "Custom platforms and dashboards built for scale and efficiency.", icon: Code2 },
-];
-
-const flagshipProducts = [
-  { title: "ByiZon AI", subtitle: "Dynamic AI Interface System", image: "/images/products/byizon-ai.jpeg", href: "/products/byizon-ai" },
-  { title: "Grehni AI", subtitle: "AI OS for smart homes", image: "/images/products/grehni-ai.jpeg", href: "/products/grehni-ai" },
-  { title: "CelebsoX", subtitle: "Professional social network", image: "/images/products/celebsox.jpeg", href: "/products/celebsox" },
-  { title: "NxtFund Capital", subtitle: "Venture and growth platform", image: "/images/products/nxtfund-capital.jpeg", href: "/products/nxtfund-capital" },
-  { title: "Celebso Production", subtitle: "Media and creative technology", image: "/images/products/celebso-production.jpeg", href: "/products/celebso-production" },
-];
 
 const ecosystemCompanies = [
   ["Antellay", "AI, GIS & Engineering", BrainCircuit],
@@ -97,24 +78,14 @@ export default function Home() {
     video.muted = !video.muted;
     setIsVideoMuted(video.muted);
   };
-  const featuredLogos = [
-    { src: "/images/forbes.jpg", alt: "Forbes" },
-    { src: "/images/yourstory.jpg", alt: "YourStory" },
-    { src: "/images/news18.jpg", alt: "News 18" },
-    { src: "/images/inc42.jpg", alt: "Inc 42" },
-    { src: "/images/theEconomicTimes.jpg", alt: "The Economic Times" },
-    { src: "/images/keells_logo.png", alt: "Keells" },
-    { src: "/images/Antellay_logo.jpeg", alt: "Antellay" }
-  ];
-
   return (
     <main className="landing-page min-h-screen bg-white text-[#0B132B] dark:text-white transition-colors duration-300">
 
       {/* Landing Intro */}
       <section className="landing-intro" aria-labelledby="landing-intro-title">
         <div className="landing-intro-copy">
-          <h1 id="landing-intro-title">
-            Leading the Charge in IT<br />Consulting &amp; Services
+          <h1 id="landing-intro-title" className="landing-title-motion">
+            AI Infrastructure<br />for Modern Enterprises
           </h1>
         </div>
 
@@ -144,43 +115,18 @@ export default function Home() {
         </div>
 
         <div className="mx-auto mt-16 max-w-[1400px] px-6 md:px-10">
-          <div className="relative left-1/2 w-screen -translate-x-1/2 px-6 md:px-10">
-            <h1 className="font-[family-name:var(--font-body)] text-3xl font-medium tracking-[-0.025em] text-[#0B132B] dark:text-white md:text-4xl">
+          <div className="relative left-1/2 w-screen -translate-x-1/2 px-6 text-left md:px-10">
+            <h1 className="text-center font-[family-name:var(--font-body)] text-3xl font-normal tracking-[-0.025em] text-[#0B132B] dark:text-white md:text-4xl">
               Welcome To Antellay
             </h1>
             <p
               className="mt-8 text-base leading-8 text-slate-600 dark:text-slate-300 md:text-lg"
               style={{ fontFamily: "var(--font-body), Arial, sans-serif" }}
             >
-              Antellay is your trusted partner in all things IT. As a premier IT consulting company, we provide bespoke IT solutions tailored to your business ethos, requirements, and vision. Our experienced professionals guide you through your digital transformation journey, turning complex business challenges into meaningful opportunities. With Antellay, success is not just a destination—it is a journey we step on with you.
+              <strong>ANTELLAY</strong>, the technology arm of <strong>Celebso Group</strong>, is an AI-first Technology, GIS, and Engineering company delivering scalable AI solutions for modern businesses. We build intelligent software, AI infrastructure, dynamic AI interface systems, enterprise automation, geospatial solutions, and AI training platforms for startups, enterprises, and governments worldwide.
             </p>
           </div>
 
-          <div className="relative left-1/2 mt-20 w-screen -translate-x-1/2 px-6 md:px-10">
-            <h2 className="font-[family-name:var(--font-body)] text-3xl font-medium tracking-[-0.025em] text-[#0B132B] dark:text-white md:text-4xl">
-              Our Valued Customers
-            </h2>
-            <p
-              className="mt-8 text-base leading-8 text-slate-600 dark:text-slate-300 md:text-lg"
-              style={{ fontFamily: "var(--font-body), Arial, sans-serif" }}
-            >
-              We are trusted by ambitious brands and growing businesses across industries because we focus on real value—simplifying complex processes and delivering technology that works for the people who use it.
-            </p>
-          </div>
-        </div>
-
-        <div id="industries" className="client-logos mt-16" aria-label="Featured brands">
-          <div className="client-logos-track">
-            {[...featuredLogos, ...featuredLogos].map((logo, index) => (
-              <div
-                className="client-logo-wrapper"
-                aria-hidden={index >= featuredLogos.length}
-                key={`${logo.alt}-${index}`}
-              >
-                <img src={logo.src} alt={index < featuredLogos.length ? logo.alt : ""} />
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -238,11 +184,11 @@ export default function Home() {
           <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(58,134,255,0.12),transparent_38%)] dark:bg-[radial-gradient(circle_at_center,rgba(0,245,212,0.09),transparent_40%)]" />
 
           <div className="relative z-10 hidden flex-col gap-12 md:flex">
-            <div className="ml-auto flex w-full max-w-[210px] items-center gap-3 rounded-2xl border border-blue-100 bg-white/85 p-4 shadow-[0_16px_45px_rgba(58,134,255,0.10)] backdrop-blur-sm dark:border-white/10 dark:bg-[#111d3a]/85">
+            <div className="mind-motion mind-motion-one ml-auto flex w-full max-w-[210px] items-center gap-3 rounded-2xl border border-blue-100 bg-white/85 p-4 shadow-[0_16px_45px_rgba(58,134,255,0.10)] backdrop-blur-sm dark:border-white/10 dark:bg-[#111d3a]/85">
               <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[#3A86FF]/10 text-[#3A86FF] dark:bg-[#00F5D4]/10 dark:text-[#00F5D4]"><BrainCircuit size={22} /></span>
               <div><p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400">Smarter</p><p className="mt-1 font-semibold">Intelligence</p></div>
             </div>
-            <div className="flex w-full max-w-[210px] items-center gap-3 rounded-2xl border border-blue-100 bg-white/85 p-4 shadow-[0_16px_45px_rgba(58,134,255,0.10)] backdrop-blur-sm dark:border-white/10 dark:bg-[#111d3a]/85">
+            <div className="mind-motion mind-motion-two flex w-full max-w-[210px] items-center gap-3 rounded-2xl border border-blue-100 bg-white/85 p-4 shadow-[0_16px_45px_rgba(58,134,255,0.10)] backdrop-blur-sm dark:border-white/10 dark:bg-[#111d3a]/85">
               <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[#3A86FF]/10 text-[#3A86FF] dark:bg-[#00F5D4]/10 dark:text-[#00F5D4]"><Code2 size={22} /></span>
               <div><p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400">Built for</p><p className="mt-1 font-semibold">Engineering</p></div>
             </div>
@@ -259,11 +205,11 @@ export default function Home() {
           </div>
 
           <div className="relative z-10 hidden flex-col gap-12 md:flex">
-            <div className="flex w-full max-w-[210px] items-center gap-3 rounded-2xl border border-blue-100 bg-white/85 p-4 shadow-[0_16px_45px_rgba(58,134,255,0.10)] backdrop-blur-sm dark:border-white/10 dark:bg-[#111d3a]/85">
+            <div className="mind-motion mind-motion-three flex w-full max-w-[210px] items-center gap-3 rounded-2xl border border-blue-100 bg-white/85 p-4 shadow-[0_16px_45px_rgba(58,134,255,0.10)] backdrop-blur-sm dark:border-white/10 dark:bg-[#111d3a]/85">
               <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[#3A86FF]/10 text-[#3A86FF] dark:bg-[#00F5D4]/10 dark:text-[#00F5D4]"><Globe2 size={22} /></span>
               <div><p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400">Always</p><p className="mt-1 font-semibold">Connected</p></div>
             </div>
-            <div className="ml-auto flex w-full max-w-[210px] items-center gap-3 rounded-2xl border border-blue-100 bg-white/85 p-4 shadow-[0_16px_45px_rgba(58,134,255,0.10)] backdrop-blur-sm dark:border-white/10 dark:bg-[#111d3a]/85">
+            <div className="mind-motion mind-motion-four ml-auto flex w-full max-w-[210px] items-center gap-3 rounded-2xl border border-blue-100 bg-white/85 p-4 shadow-[0_16px_45px_rgba(58,134,255,0.10)] backdrop-blur-sm dark:border-white/10 dark:bg-[#111d3a]/85">
               <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[#3A86FF]/10 text-[#3A86FF] dark:bg-[#00F5D4]/10 dark:text-[#00F5D4]"><Rocket size={22} /></span>
               <div><p className="text-xs font-bold uppercase tracking-[0.12em] text-slate-400">Ready for</p><p className="mt-1 font-semibold">Growth</p></div>
             </div>
@@ -273,11 +219,18 @@ export default function Home() {
 
       {/* Antellay Product Logos */}
       <section className="bg-white px-4 pb-12 transition-colors duration-300 dark:bg-[#0B132B] md:px-8 md:pb-20">
-        <img
-          src="/images/antellay-product-logos-transparent.png"
-          alt="Byizon, Celebso, Space, Grehni and NxtFund products"
-          className="mx-auto block h-auto w-full max-w-[998px] object-contain dark:brightness-0 dark:invert"
-        />
+        <div className="product-logo-map relative mx-auto w-full max-w-[998px]">
+          <img
+            src="/images/antellay-product-logos-transparent.png"
+            alt="Byizon, Celebso, Space, Grehni and NxtFund products"
+            className="product-logo-image block h-auto w-full object-contain dark:brightness-0 dark:invert"
+          />
+          <a href="/products/byizon-ai" aria-label="Open Byizon AI product page" title="Byizon AI" className="logo-hotspot logo-byizon absolute left-[2%] top-[18%] h-[58%] w-[17%] cursor-pointer rounded-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00F5D4]" />
+          <a href="/products/celebsox" aria-label="Open CelebsoX product page" title="CelebsoX" className="logo-hotspot logo-celebso absolute left-[19%] top-[16%] h-[60%] w-[22%] cursor-pointer rounded-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00F5D4]" />
+          <a href="/products" aria-label="Explore Space and all Antellay products" title="Explore products" className="logo-hotspot logo-space absolute left-[43%] top-[5%] h-[90%] w-[14%] cursor-pointer rounded-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00F5D4]" />
+          <a href="/products/grehni-ai" aria-label="Open Grehni AI product page" title="Grehni AI" className="logo-hotspot logo-grehni absolute left-[58%] top-[18%] h-[58%] w-[15%] cursor-pointer rounded-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00F5D4]" />
+          <a href="/products/nxtfund-capital" aria-label="Open NXTFund Capital product page" title="NXTFund Capital" className="logo-hotspot logo-nxtfund absolute left-[75%] top-[15%] h-[62%] w-[21%] cursor-pointer rounded-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00F5D4]" />
+        </div>
       </section>
 
       {/* Trusted Partner Section */}
@@ -289,57 +242,6 @@ export default function Home() {
             className="absolute left-0 top-0 h-auto w-full"
             style={{ transform: "translateY(-24.74%)" }}
           />
-        </div>
-      </section>
-
-      {/* Business overview — begins after the personalized IT journey */}
-      <section className="bg-[#f7f9fc] px-6 py-20 dark:bg-[#0d1730] md:px-10">
-        <div className="mx-auto max-w-[1400px]">
-          <div className="mb-10">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#3A86FF] dark:text-[#00F5D4]">What we build</p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-5xl">Our Core Services</h2>
-            <p className="mt-4 max-w-2xl text-slate-600 dark:text-slate-300">End-to-end AI, data, and engineering solutions designed to accelerate your business growth.</p>
-          </div>
-          <div className="grid gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 shadow-sm dark:border-white/10 dark:bg-white/10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
-            {coreServices.map(({ title, description, icon: Icon }) => (
-              <article key={title} className="group min-h-64 bg-white p-6 transition hover:-translate-y-1 hover:shadow-xl dark:bg-[#111d3a]">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#3A86FF]/10 text-[#3A86FF] transition group-hover:bg-[#3A86FF] group-hover:text-white dark:bg-[#00F5D4]/10 dark:text-[#00F5D4]">
-                  <Icon size={25} strokeWidth={1.8} />
-                </div>
-                <h3 className="mt-6 text-lg font-bold">{title}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-500 dark:text-slate-400">{description}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white px-6 py-20 dark:bg-[#0B132B] md:px-10">
-        <div className="mx-auto max-w-[1400px]">
-          <div className="mb-10">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#3A86FF] dark:text-[#00F5D4]">Built by Antellay</p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-5xl">Our Flagship Products</h2>
-            <p className="mt-4 text-slate-600 dark:text-slate-300">Innovative products built to solve real-world problems.</p>
-          </div>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
-            {flagshipProducts.map((product) => (
-              <a key={product.title} href={product.href} className="group relative min-h-[340px] overflow-hidden rounded-2xl border border-white/15 bg-[#071b46] p-6 text-white shadow-xl ring-1 ring-slate-900/5 transition duration-300 hover:-translate-y-2 hover:border-[#3A86FF]/70 hover:shadow-2xl hover:shadow-[#3A86FF]/15">
-                <Image
-                  src={product.image}
-                  alt={`${product.title} product preview`}
-                  fill
-                  sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 20vw"
-                  className="object-cover object-top transition duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-black/95 via-black/60 to-transparent" />
-                <div className="relative flex h-full flex-col justify-end drop-shadow-md">
-                  <h3 className="text-xl font-bold tracking-tight">{product.title}</h3>
-                  <p className="mt-2 text-sm font-medium leading-6 text-white/85">{product.subtitle}</p>
-                  <span className="mt-5 inline-flex items-center gap-1 text-sm font-bold text-[#00F5D4]">Explore product <ArrowUpRight size={15} /></span>
-                </div>
-              </a>
-            ))}
-          </div>
         </div>
       </section>
 
