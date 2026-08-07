@@ -107,10 +107,10 @@ export default function Home() {
       {/* Hero Section */}
       <section id="about" className="hero-section bg-white pb-20 pt-32 transition-colors duration-300 dark:bg-transparent">
         <div className="flex justify-center w-full px-6 my-12 cursor-pointer">
-          <img 
-            src="/images/Antellay_name.jpeg" 
-            alt="Antellay" 
-            className="w-full max-w-xl mx-auto block object-contain mix-blend-multiply dark:invert dark:mix-blend-screen transition-all duration-500 ease-out transform hover:scale-[1.03] hover:filter hover:drop-shadow-[0_0_15px_rgba(58,134,255,0.3)] dark:hover:drop-shadow-[0_0_15px_rgba(0,245,212,0.5)]"
+          <img
+            src="/images/antellay-name-tagline.jpeg"
+            alt="Antellay — AI, GIS, Engineering and Innovation"
+            className="mx-auto block w-full max-w-4xl object-contain mix-blend-multiply transition-transform duration-300 ease-out hover:scale-[1.02] dark:invert dark:mix-blend-screen"
           />
         </div>
 
@@ -218,7 +218,7 @@ export default function Home() {
       </section>
 
       {/* Antellay Product Logos */}
-      <section className="bg-white px-4 pb-12 transition-colors duration-300 dark:bg-[#0B132B] md:px-8 md:pb-20">
+      <section className="bg-white px-4 pb-2 transition-colors duration-300 dark:bg-[#0B132B] md:px-8 md:pb-3">
         <div className="product-logo-map relative mx-auto w-full max-w-[998px]">
           <img
             src="/images/antellay-product-logos-transparent.png"
@@ -234,13 +234,13 @@ export default function Home() {
       </section>
 
       {/* Trusted Partner Section */}
-      <section id="events" className="trusted-partner">
-        <div className="relative mx-auto aspect-[2048/578] w-full max-w-[1200px] overflow-hidden">
+      <section id="events" className="trusted-partner bg-white transition-colors duration-300 dark:bg-[#0B132B]">
+        <div className="journey-banner mx-auto w-full max-w-[1227px]">
+          <span className="journey-connector" aria-hidden="true" />
           <img
-            src="/images/personalized-journey-transparent.png"
+            src="/images/personalized-it-journey-transparent.png"
             alt="Start your personalized IT journey"
-            className="absolute left-0 top-0 h-auto w-full"
-            style={{ transform: "translateY(-24.74%)" }}
+            className="journey-banner-image block h-auto w-full object-contain"
           />
         </div>
       </section>

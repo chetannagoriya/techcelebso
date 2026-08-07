@@ -900,8 +900,56 @@ a.contact-option-card:hover {
 }
 
 .trusted-partner {
-  padding: 80px 10%;
+  padding: 12px 10% 32px;
   text-align: center;
+  overflow: hidden;
+}
+
+.journey-banner {
+  position: relative;
+}
+
+.journey-connector {
+  position: absolute;
+  left: 2%;
+  right: 10%;
+  top: 75.67%;
+  z-index: 2;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f57fa3 0%, #ff9a91 52%, #ffba86 100%);
+  pointer-events: none;
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: journey-line-travel 3s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.journey-banner-image {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes journey-line-travel {
+  0%, 8% {
+    opacity: 1;
+    transform: scaleX(0);
+  }
+  65%, 92% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-connector {
+    animation: none;
+    opacity: 1;
+    transform: scaleX(1);
+  }
 }
 
 .partner-text {
