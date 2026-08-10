@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { 
   CheckCircle, 
@@ -10,10 +10,7 @@ import {
   Compass, 
   Activity, 
   Globe, 
-  Plus, 
-  Minus, 
   MousePointer,
-  HelpCircle,
   Shield,
   Layers3,
   Sparkles,
@@ -25,7 +22,9 @@ import {
   Cpu,
   Tv,
   Settings,
-  FileText
+  FileText,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
 
 // --- Trusted Partner Vector Logos ---
@@ -210,18 +209,47 @@ const AzureLogo = () => (
   </svg>
 );
 
-export default function GISGeospatialPage() {
-  const [activeFaq, setActiveFaq] = useState(null);
-  const [sliderPos, setSliderPos] = useState(50);
+const trustedGisLogos = [
+  ["1spatial-transparent.png", "1Spatial"],
+  ["caliper-maptitude-transparent.png", "Caliper Maptitude"],
+  ["cyclomedia-transparent.png", "Cyclomedia"],
+  ["genesys-international-transparent.png", "Genesys International"],
+  ["supermap-transparent.png", "SuperMap"],
+  ["woolpert-transparent.png", "Woolpert"],
+  ["blacksky-transparent.png", "BlackSky"],
+  ["blue-marble-geographics-transparent.png", "Blue Marble Geographics"],
+  ["cyient-transparent.png", "Cyient"],
+  ["hexagon-transparent.png", "Hexagon"],
+  ["magnasoft-transparent.png", "Magnasoft"],
+  ["maxar-intelligence-transparent.png", "Maxar Intelligence"],
+  ["nearmap-transparent.png", "Nearmap"],
+  ["nv5-transparent.png", "NV5"],
+  ["precisely-transparent.png", "Precisely"],
+  ["rmsi-transparent.png", "RMSI"],
+  ["safe-software-transparent.png", "Safe Software"],
+  ["vexcel-imaging-transparent.png", "Vexcel Imaging"],
+];
 
-  const toggleFaq = (index) => {
-    setActiveFaq(activeFaq === index ? null : index);
+export default function GISGeospatialPage() {
+  const [sliderPos, setSliderPos] = useState(50);
+  const [selectedCoreService, setSelectedCoreService] = useState(null);
+  const industriesCarouselRef = useRef(null);
+
+  const scrollIndustries = (direction) => {
+    const carousel = industriesCarouselRef.current;
+    if (!carousel) return;
+    carousel.scrollBy({
+      left: direction * Math.max(280, carousel.clientWidth * 0.78),
+      behavior: "smooth",
+    });
   };
 
   const coreServices = [
     {
       title: "GIS & Mapping",
+      image: "/images/gis-core-services/gis-mapping.webp",
       description: "High-accuracy maps and spatial databases for better decision-making and planning.",
+      detail: "We create dependable digital maps and location databases that bring field, infrastructure, terrain, and asset information into one clear operational view. The result is easier planning, faster collaboration, and confident location-based decisions.",
       bullets: [
         "2D & 3D Mapping",
         "Topographic Mapping",
@@ -233,7 +261,7 @@ export default function GISGeospatialPage() {
       visual: () => (
         <div className="relative w-full h-36 bg-slate-950 rounded-sm flex flex-col justify-between overflow-hidden border border-[#E2E8F0] dark:border-[#2D3A54] p-3 shadow-inner">
           <div className="flex flex-col gap-1.5 w-full relative z-10">
-            <div className="h-4 bg-[#3A86FF]/40 rounded-sm skew-x-12 w-full flex items-center px-2 text-[8px] font-bold text-white">Layer 3: Infrastructure Vectors</div>
+            <div className="h-4 bg-[#00F5D4]/40 rounded-sm skew-x-12 w-full flex items-center px-2 text-[8px] font-bold text-white">Layer 3: Infrastructure Vectors</div>
             <div className="h-4 bg-[#00F5D4]/30 rounded-sm skew-x-12 w-11/12 flex items-center px-2 text-[8px] font-bold text-white">Layer 2: Hydrology Raster</div>
             <div className="h-4 bg-slate-700/40 rounded-sm skew-x-12 w-10/12 flex items-center px-2 text-[8px] font-bold text-white">Layer 1: Digital Elevation model</div>
           </div>
@@ -246,7 +274,9 @@ export default function GISGeospatialPage() {
     },
     {
       title: "Geospatial Intelligence",
+      image: "/images/gis-core-services/geospatial-intelligence.webp",
       description: "Extract meaningful insights from geospatial data to understand patterns, risks, and opportunities.",
+      detail: "Our geospatial intelligence solutions combine location data, business information, and AI-assisted analysis to reveal relationships that are difficult to see in traditional reports. Teams can monitor change, identify risk, and prioritize opportunities through actionable spatial insight.",
       bullets: [
         "Location Intelligence",
         "Spatial Data Analysis",
@@ -257,16 +287,16 @@ export default function GISGeospatialPage() {
       icon: Compass,
       visual: () => (
         <div className="relative w-full h-36 bg-slate-950 rounded-sm flex items-center justify-center overflow-hidden border border-[#E2E8F0] dark:border-[#2D3A54] shadow-inner">
-          <div className="absolute w-24 h-24 rounded-full border border-dashed border-[#3A86FF]/30 animate-spin" style={{ animationDuration: "12s" }}></div>
+          <div className="absolute w-24 h-24 rounded-full border border-dashed border-[#00F5D4]/30 animate-spin" style={{ animationDuration: "12s" }}></div>
           <div className="absolute w-16 h-16 rounded-full border border-dashed border-[#00F5D4]/20 animate-spin" style={{ animationDuration: "6s", animationDirection: "reverse" }}></div>
           
           {/* Constellation Network */}
           <svg className="absolute inset-0 w-full h-full opacity-60" viewBox="0 0 100 80">
-            <line x1="20" y1="20" x2="50" y2="40" stroke="#3A86FF" strokeWidth="0.5" />
-            <line x1="50" y1="40" x2="80" y2="20" stroke="#3A86FF" strokeWidth="0.5" />
+            <line x1="20" y1="20" x2="50" y2="40" stroke="#00F5D4" strokeWidth="0.5" />
+            <line x1="50" y1="40" x2="80" y2="20" stroke="#00F5D4" strokeWidth="0.5" />
             <line x1="50" y1="40" x2="50" y2="70" stroke="#00F5D4" strokeWidth="0.5" />
-            <circle cx="20" cy="20" r="1.5" fill="#3A86FF" />
-            <circle cx="80" cy="20" r="1.5" fill="#3A86FF" />
+            <circle cx="20" cy="20" r="1.5" fill="#00F5D4" />
+            <circle cx="80" cy="20" r="1.5" fill="#00F5D4" />
             <circle cx="50" cy="40" r="2.5" fill="#00F5D4" className="animate-pulse" />
             <circle cx="50" cy="70" r="1.5" fill="#00F5D4" />
           </svg>
@@ -276,7 +306,9 @@ export default function GISGeospatialPage() {
     },
     {
       title: "Remote Sensing",
+      image: "/images/gis-core-services/remote-sensing.webp",
       description: "Collect, process, and analyze satellite and aerial imagery for real-world applications.",
+      detail: "We transform satellite, drone, and aerial imagery into usable information for monitoring land, infrastructure, agriculture, natural resources, and environmental change. Our workflows support repeatable analysis across large and hard-to-access areas.",
       bullets: [
         "Satellite Imagery Analysis",
         "Land Use / Land Cover",
@@ -301,7 +333,9 @@ export default function GISGeospatialPage() {
     },
     {
       title: "Spatial Analytics",
+      image: "/images/gis-core-services/spatial-analytics.webp",
       description: "Advanced spatial analysis to solve complex problems and optimize resources.",
+      detail: "Spatial analytics helps organizations understand where events happen, why patterns emerge, and what action should come next. We build models for accessibility, suitability, networks, hotspots, visibility, and resource allocation around real operational questions.",
       bullets: [
         "Spatial Modeling",
         "Network Analysis",
@@ -314,9 +348,9 @@ export default function GISGeospatialPage() {
         <div className="relative w-full h-36 bg-slate-950 rounded-sm flex items-center justify-center overflow-hidden border border-[#E2E8F0] dark:border-[#2D3A54] p-4 shadow-inner">
           <div className="flex items-end justify-between w-full h-full max-w-[150px] gap-2">
             <div className="w-4 bg-slate-800 rounded-t-sm" style={{ height: "45%" }}></div>
-            <div className="w-4 bg-[#3A86FF]/70 rounded-t-sm" style={{ height: "70%" }}></div>
+            <div className="w-4 bg-[#00F5D4]/70 rounded-t-sm" style={{ height: "70%" }}></div>
             <div className="w-4 bg-[#00F5D4] rounded-t-sm" style={{ height: "90%" }}></div>
-            <div className="w-4 bg-[#3A86FF] rounded-t-sm" style={{ height: "55%" }}></div>
+            <div className="w-4 bg-[#00F5D4] rounded-t-sm" style={{ height: "55%" }}></div>
             <div className="w-4 bg-slate-700 rounded-t-sm" style={{ height: "30%" }}></div>
           </div>
         </div>
@@ -348,12 +382,12 @@ export default function GISGeospatialPage() {
     { 
       name: "Disaster Management", 
       desc: "Flood, fire & hazard monitoring.", 
-      image: "https://images.unsplash.com/photo-1608976478511-b7d159df1890?w=400&q=80" 
+      image: "/images/gis-industries/disaster-management.webp"
     },
     { 
       name: "Infrastructure", 
       desc: "Roads, utilities & asset mapping.", 
-      image: "https://images.unsplash.com/photo-1506546300728-4986a45e7be9?w=400&q=80" 
+      image: "/images/gis-industries/infrastructure.webp"
     },
     { 
       name: "Mining & Energy", 
@@ -363,54 +397,38 @@ export default function GISGeospatialPage() {
     { 
       name: "Defense & Security", 
       desc: "Surveillance & border monitoring.", 
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&q=80" 
-    }
-  ];
-
-  const faqs = [
-    {
-      q: "What types of geospatial data do you work with?",
-      a: "We work with a wide range of geospatial data formats, including vector data (Shapefiles, GeoJSON, KML), raster datasets (satellite imagery, DEM, orthophotos), LiDAR point clouds, GPS tracking logs, and tabular data with spatial attributes. We support integrations with Esri databases, PostGIS, and standard cloud buckets."
-    },
-    {
-      q: "Can you provide real-time monitoring solutions?",
-      a: "Yes. By utilizing webhooks and APIs connected to satellite constellations or IoT telemetry sensors, we build real-time spatial pipelines. These feed live data into custom geospatial dashboards to monitor parameters like vegetation health, flood propagation, traffic, or asset locations."
-    },
-    {
-      q: "Do you offer custom GIS dashboards?",
-      a: "Absolutely. We design and build tailor-made, interactive web GIS applications and administrative dashboards using React, Mapbox, Leaflet, or OpenLayers. These platforms feature interactive layering, spatial query filters, time-series sliders, and analytical reporting metrics."
-    },
-    {
-      q: "Which industries can benefit from GIS solutions?",
-      a: "GIS and mapping benefit numerous sectors, including urban planning, environmental monitoring, agriculture (precision farming), logistics and asset tracking, telecom (utility routing), disaster management, defense, and real estate market analysis."
-    },
-    {
-      q: "How accurate is your spatial data?",
-      a: "We achieve sub-meter data accuracy for orthophoto mapping and remote sensing depending on input imagery quality. Our team follows rigorous validation checks, topographic references, and standard coordinate conversions (WGS84, UTM, EPSG grids) to ensure compliance with survey-grade requirements."
+      image: "/images/gis-industries/defense-security.webp"
     }
   ];
 
   return (
-    <main className="min-h-screen bg-white transition-colors duration-300 font-[family-name:var(--font-sans)]">
+    <main className="gis-geospatial-page min-h-screen bg-white font-[family-name:var(--font-sans)] transition-colors duration-300">
       
       {/* 1. Hero Section */}
-      <section className="relative pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden bg-[#0A1128]">
-        {/* Glow Effects */}
-        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#3A86FF]/10 blur-[120px] pointer-events-none"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-[#00F5D4]/10 blur-[100px] pointer-events-none"></div>
+      <section className="relative overflow-hidden bg-[#0A1128] pb-12 pt-10 md:pb-16 md:pt-14">
+        <div className="absolute inset-0">
+          <img
+            src="/images/geospatial-solutions-bg.png"
+            alt=""
+            aria-hidden="true"
+            className="h-full w-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-[#050817]/45"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#050817]/90 via-[#050817]/55 to-[#050817]/15"></div>
+        </div>
         
-        <div className="max-w-[1400px] mx-auto px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="max-w-[1240px] mx-auto px-8 relative z-10">
+          <div className="grid grid-cols-1 items-center">
             
             {/* Left Column: Context Text */}
-            <div className="lg:col-span-6 flex flex-col gap-6">
+            <div className="flex max-w-3xl flex-col gap-6">
               <div>
-                <span className="text-[#3A86FF] text-xs font-bold uppercase tracking-widest block mb-3">
+                <span className="text-[#00F5D4] text-xs font-bold uppercase tracking-widest block mb-3">
                   Geospatial Solutions
                 </span>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.08] tracking-tight font-[family-name:var(--font-heading)]">
                   GIS & Mapping <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3A86FF] via-[#70EEFF] to-[#00F5D4]">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00F5D4] via-[#00F5D4] to-[#00F5D4]">
                     Geospatial Intelligence
                   </span>
                 </h1>
@@ -420,11 +438,11 @@ export default function GISGeospatialPage() {
               </p>
               
               <div className="flex flex-wrap gap-4 mt-2">
-                <Link href="/contact" className="px-6 py-3.5 bg-[#3A86FF] hover:bg-[#3A86FF]/90 text-white text-sm font-bold rounded-sm shadow-lg shadow-[#3A86FF]/20 transition-all hover:-translate-y-0.5">
+                <Link href="/contact" className="px-6 py-3.5 bg-[#00F5D4] hover:bg-[#00F5D4]/90 text-[#0B132B] text-sm font-bold rounded-sm shadow-lg shadow-[#00F5D4]/20 transition-all hover:-translate-y-0.5">
                   Book Free Consultation
                 </Link>
-                <Link href="/contact" className="group flex items-center gap-2 px-6 py-3.5 bg-transparent border border-slate-500 hover:border-white text-white text-sm font-bold rounded-sm transition-all hover:bg-white/5">
-                  <svg className="w-4 h-4 text-slate-400 group-hover:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <Link href="/contact" className="group flex items-center gap-2 rounded-sm border border-white bg-white px-6 py-3.5 text-sm font-bold text-[#0B132B] transition-all hover:border-[#00F5D4] hover:bg-[#00F5D4] dark:border-slate-500 dark:bg-transparent dark:text-white dark:hover:border-white dark:hover:bg-white/5">
+                  <svg className="h-4 w-4 text-[#0B132B]/65 transition-colors group-hover:text-[#0B132B] dark:text-slate-400 dark:group-hover:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 1 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                   Talk to GIS Expert
                 </Link>
               </div>
@@ -448,111 +466,15 @@ export default function GISGeospatialPage() {
               </div>
             </div>
 
-            {/* Right Column: Visual Mockup */}
-            <div className="lg:col-span-6 relative">
-              <div className="relative mx-auto max-w-[550px] aspect-[4/3] bg-slate-950 border border-slate-800 rounded-sm shadow-2xl p-4 overflow-hidden group">
-                
-                {/* Top Titlebar */}
-                <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-3">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                    <span className="text-[10px] font-bold text-slate-300 tracking-wider uppercase">Live Geospatial Dashboard</span>
-                  </div>
-                  <span className="text-[9px] font-bold text-slate-400 bg-slate-900 px-2.5 py-0.5 rounded-sm">• Live</span>
-                </div>
 
-                {/* KPIs Row */}
-                <div className="grid grid-cols-4 gap-2 mb-3">
-                  {[
-                    { label: "Total Layers", value: "128" },
-                    { label: "Active Projects", value: "24" },
-                    { label: "Data Accuracy", value: "98.7%" },
-                    { label: "Area Analyzed", value: "12,458", unit: "km²" }
-                  ].map((kpi, idx) => (
-                    <div key={idx} className="bg-slate-900 border border-slate-800/80 p-2 rounded-sm text-center">
-                      <p className="text-[8px] text-slate-400 font-bold truncate uppercase">{kpi.label}</p>
-                      <h4 className="text-xs font-black text-white mt-0.5">
-                        {kpi.value} <span className="text-[8px] font-medium">{kpi.unit}</span>
-                      </h4>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Map Interface Area */}
-                <div className="grid grid-cols-12 gap-3 h-[calc(100%-100px)]">
-                  {/* Left: Map Vector Graphic */}
-                  <div className="col-span-8 bg-slate-900 border border-slate-800 rounded-sm relative overflow-hidden flex items-center justify-center p-1">
-                    {/* Background Sat Map Image */}
-                    <img 
-                      src="/images/gis_hero_map.jpg" 
-                      alt="GIS Map Visualization"
-                      className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-700"
-                    />
-                    
-                    {/* Floating Vector Overlay */}
-                    <div className="absolute inset-0 bg-[#0F172A]/30"></div>
-                    <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-90" viewBox="0 0 200 150">
-                      <path d="M 0,50 L 200,50 M 0,100 L 200,100 M 50,0 L 50,150 M 100,0 L 100,150 M 150,0 L 150,150" stroke="rgba(58, 134, 255, 0.15)" strokeWidth="0.5" />
-                      <path d="M 20,40 Q 60,60 80,30 T 140,80 T 180,50" fill="none" stroke="#3A86FF" strokeWidth="1" strokeDasharray="3 2" />
-                      <path d="M 70,80 Q 90,110 120,90 T 160,110 L 140,130 L 80,120 Z" fill="rgba(0, 245, 212, 0.08)" stroke="#00F5D4" strokeWidth="1" />
-                      <circle cx="80" cy="30" r="2" fill="#3A86FF" />
-                      <circle cx="140" cy="80" r="2" fill="#3A86FF" />
-                      <circle cx="120" cy="90" r="1.5" fill="#00F5D4" />
-                      <line x1="0" y1="10" x2="200" y2="10" stroke="rgba(0, 245, 212, 0.4)" strokeWidth="1.5" />
-                    </svg>
-
-                    <div className="absolute bottom-2 left-2 bg-slate-900/90 border border-slate-800 p-1.5 rounded-sm text-[8px]">
-                      <p className="text-white font-bold mb-1">Land Use Classification</p>
-                      <div className="grid grid-cols-2 gap-x-2 gap-y-0.5 text-slate-400">
-                        <div className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>Urban</div>
-                        <div className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>Forest</div>
-                        <div className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>Water</div>
-                        <div className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-yellow-500"></span>Barren</div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Right: Side Statistics */}
-                  <div className="col-span-4 flex flex-col gap-2">
-                    {/* Donut Chart Panel */}
-                    <div className="bg-slate-900 border border-slate-800 rounded-sm p-2 flex-1 flex flex-col justify-between">
-                      <p className="text-[7.5px] text-slate-400 font-bold uppercase">Area Distribution</p>
-                      <div className="flex items-center justify-center py-1">
-                        <div className="relative w-12 h-12 rounded-full border-4 border-slate-800 flex items-center justify-center" style={{ borderTopColor: "#3A86FF", borderRightColor: "#00F5D4", borderBottomColor: "#FBBC05" }}>
-                          <span className="text-[7.5px] font-bold text-white">GIS</span>
-                        </div>
-                      </div>
-                      <div className="text-[7.5px] text-slate-400 space-y-0.5">
-                        <div className="flex justify-between"><span>Forest</span><span className="text-white font-medium">38%</span></div>
-                        <div className="flex justify-between"><span>Urban</span><span className="text-white font-medium">20%</span></div>
-                        <div className="flex justify-between"><span>Water</span><span className="text-white font-medium">10%</span></div>
-                      </div>
-                    </div>
-                    {/* NDVI Panel */}
-                    <div className="bg-slate-900 border border-slate-800 rounded-sm p-1.5 text-center">
-                      <p className="text-[7px] text-slate-400 font-bold uppercase font-mono">NDVI Analysis</p>
-                      <h5 className="text-xs font-black text-emerald-400 mt-0.5">0.72</h5>
-                      <span className="text-[6.5px] text-slate-400">Healthy Vegetation</span>
-                    </div>
-                    {/* Elevation Panel */}
-                    <div className="bg-slate-900 border border-slate-800 rounded-sm p-1.5 text-center">
-                      <p className="text-[7px] text-slate-400 font-bold uppercase font-mono">Elevation Model</p>
-                      <h5 className="text-xs font-black text-[#70EEFF] mt-0.5">1,245 m</h5>
-                      <span className="text-[6.5px] text-slate-400">Average Elevation</span>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
 
           </div>
         </div>
       </section>
 
       {/* 2. Trusted By Section */}
-      <section className="bg-white py-10 border-b border-[#E2E8F0] transition-colors duration-300">
-        <div className="max-w-[1400px] mx-auto px-8">
+      <section className="overflow-hidden bg-white py-10 border-b border-[#E2E8F0] transition-colors duration-300">
+        <div className="mx-auto max-w-[1240px] px-8">
           <div className="flex items-center justify-center gap-4 mb-8">
             <span className="h-[1px] bg-slate-300 flex-1"></span>
             <span className="text-[#0B132B] text-xs font-extrabold uppercase tracking-widest text-center shrink-0">
@@ -560,23 +482,21 @@ export default function GISGeospatialPage() {
             </span>
             <span className="h-[1px] bg-slate-300 flex-1"></span>
           </div>
-          <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-6 opacity-85">
-            <EsriLogo />
-            <TrimbleLogo />
-            <NasaLogo />
-            <UsgsLogo />
-            <GoogleEarthLogo />
-            <SpaceLensLogo />
-            <DigitalGlobeLogo />
-            <HexagonLogo />
-            <MaxarLogo />
+        </div>
+        <div className="gis-logo-marquee" aria-label="Trusted GIS companies">
+          <div className="gis-logo-marquee-track">
+            {[...trustedGisLogos, ...trustedGisLogos].map(([src, name], index) => (
+              <div className="gis-logo-marquee-item" key={`${name}-${index}`} aria-hidden={index >= trustedGisLogos.length}>
+                <img src={`/images/gis-company-logos/${src}`} alt={index < trustedGisLogos.length ? `${name} logo` : ""} />
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* 3. Core Services Section */}
       <section className="py-16 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="max-w-[1400px] mx-auto px-8">
+        <div className="max-w-[1240px] mx-auto px-8">
           <div className="flex items-center justify-center gap-4 mb-12">
             <span className="h-[1px] bg-slate-300 flex-1"></span>
             <h2 className="text-[#0B132B] text-xl md:text-2xl font-black uppercase tracking-wider shrink-0 font-[family-name:var(--font-heading)]">
@@ -588,47 +508,90 @@ export default function GISGeospatialPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {coreServices.map((service, idx) => {
               const Icon = service.icon;
-              const Visual = service.visual;
               return (
-                <div key={idx} className="bg-white border border-[#E2E8F0] p-6 rounded-sm flex flex-col justify-between hover:shadow-lg hover:border-[#3A86FF] transition-all duration-300 group">
-                  <div>
-                    <div className="w-10 h-10 bg-[#3A86FF] text-white flex items-center justify-center rounded-sm mb-4">
-                      <Icon size={20} />
+                <article key={idx} className="group flex h-full flex-col overflow-hidden rounded-xl border border-[#E2E8F0] bg-white transition-all duration-300 hover:-translate-y-1.5 hover:border-[#00F5D4]/60 hover:shadow-[0_20px_45px_rgba(11,19,43,0.14)] dark:border-[#2D3A54] dark:bg-[#111D36] dark:hover:shadow-[0_20px_45px_rgba(0,0,0,0.3)]">
+                  <div className="relative h-44 overflow-hidden bg-[#071127]">
+                    <img
+                      src={service.image}
+                      alt={`${service.title} visualization`}
+                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#071127]/80 via-transparent to-transparent"></div>
+                    <div className="absolute bottom-4 left-4 flex h-11 w-11 items-center justify-center rounded-lg border border-white/15 bg-[#071127]/75 text-[#00F5D4] shadow-lg backdrop-blur-md">
+                      <Icon size={21} />
                     </div>
-                    <h3 className="text-base font-extrabold text-[#0B132B] mb-2">{service.title}</h3>
-                    <p className="text-xs text-[#0B132B]/60 leading-relaxed mb-4">{service.description}</p>
-                    
-                    <ul className="space-y-1.5 mb-6">
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-5">
+                    <h3 className="mb-2 text-lg font-extrabold text-[#0B132B] dark:text-white">{service.title}</h3>
+                    <p className="mb-5 text-xs leading-relaxed text-[#0B132B]/60 dark:text-white/60">{service.description}</p>
+                    <ul className="mb-6 space-y-2">
                       {service.bullets.map((bullet, i) => (
-                        <li key={i} className="flex items-center gap-2 text-xs text-[#0B132B]/80 font-medium">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#3A86FF]"></span>
+                        <li key={i} className="flex items-center gap-2.5 text-xs font-medium text-[#0B132B]/80 dark:text-white/75">
+                          <CheckCircle size={14} className="shrink-0 text-[#00F5D4]" />
                           {bullet}
                         </li>
                       ))}
                     </ul>
-                  </div>
-                  
-                  <div className="space-y-4">
-                    <Visual />
-                    <Link href="/contact" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#3A86FF] hover:underline group-hover:gap-2 transition-all mt-2">
+                    <button
+                      type="button"
+                      onClick={() => setSelectedCoreService(selectedCoreService === idx ? null : idx)}
+                      aria-expanded={selectedCoreService === idx}
+                      className="mt-auto inline-flex cursor-pointer items-center gap-1.5 border-t border-[#E2E8F0] pt-4 text-left text-xs font-bold text-[#00A98F] transition-all group-hover:gap-2 dark:border-[#2D3A54] dark:text-[#00F5D4]"
+                    >
                       Learn More <ArrowRight size={14} />
-                    </Link>
+                    </button>
                   </div>
-                </div>
+                </article>
               );
             })}
           </div>
+
+          {selectedCoreService !== null && (() => {
+            const service = coreServices[selectedCoreService];
+            const DetailIcon = service.icon;
+            return (
+              <div className="mt-8 rounded-xl border border-[#00F5D4]/30 bg-white p-6 shadow-[0_18px_45px_rgba(11,19,43,0.1)] dark:bg-[#111D36] dark:shadow-[0_18px_45px_rgba(0,0,0,0.28)] md:p-8">
+                <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+                  <div className="flex max-w-4xl gap-4">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#00F5D4]/15 text-[#00A98F] dark:text-[#00F5D4]">
+                      <DetailIcon size={22} />
+                    </div>
+                    <div>
+                      <p className="mb-1 text-xs font-black uppercase tracking-widest text-[#00A98F] dark:text-[#00F5D4]">Service Details</p>
+                      <h3 className="mb-3 text-2xl font-black text-[#0B132B] dark:text-white">{service.title}</h3>
+                      <p className="text-sm leading-7 text-[#0B132B]/65 dark:text-white/65">{service.detail}</p>
+                      <div className="mt-5 flex flex-wrap gap-2">
+                        {service.bullets.map((bullet) => (
+                          <span key={bullet} className="rounded-full border border-[#E2E8F0] bg-[#F8FAFC] px-3 py-1.5 text-xs font-semibold text-[#0B132B]/80 dark:border-[#2D3A54] dark:bg-[#0B132B] dark:text-white/75">
+                            {bullet}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedCoreService(null)}
+                    className="shrink-0 cursor-pointer rounded-sm border border-[#E2E8F0] px-4 py-2 text-xs font-bold text-[#0B132B] transition-colors hover:border-[#00F5D4] dark:border-[#2D3A54] dark:text-white"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            );
+          })()}
         </div>
       </section>
 
       {/* 4. Split Dashboard & Image Slider Section */}
       <section className="py-16 bg-[#F1F5F9] border-b border-[#E2E8F0]">
-        <div className="max-w-[1400px] mx-auto px-8">
+        <div className="max-w-[1240px] mx-auto px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             
             {/* Left: Geospatial Analytics Dashboard Mockup (Col-span 7) */}
             <div className="lg:col-span-7 bg-[#0F172A] border border-slate-800 rounded-sm shadow-2xl p-6 flex flex-col justify-between text-white relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-48 h-48 bg-[#3A86FF]/5 rounded-full blur-2xl pointer-events-none"></div>
+              <div className="absolute top-0 left-0 w-48 h-48 bg-[#00F5D4]/5 rounded-full blur-2xl pointer-events-none"></div>
               
               <div>
                 <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
@@ -647,7 +610,7 @@ export default function GISGeospatialPage() {
                   <div className="col-span-3 border-r border-slate-800/80 pr-2 space-y-2">
                     <span className="text-[9px] font-bold text-slate-500 block uppercase">Filters</span>
                     {["Overview", "Layers", "Analysis", "Imagery", "Projects", "Reports", "Settings"].map((opt, i) => (
-                      <button key={i} className={`w-full text-left text-[10px] px-2 py-1 rounded-sm block ${i === 0 ? "bg-[#3A86FF] text-white font-bold" : "text-slate-400 hover:text-white"}`}>
+                      <button key={i} className={`w-full text-left text-[10px] px-2 py-1 rounded-sm block ${i === 0 ? "bg-[#00F5D4] text-[#0B132B] font-bold" : "text-slate-400 hover:text-white"}`}>
                         {opt}
                       </button>
                     ))}
@@ -659,16 +622,16 @@ export default function GISGeospatialPage() {
                       <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#3a86ff_1px,transparent_1px)] [background-size:16px_16px]"></div>
                       {/* Abstract Vector Map shapes */}
                       <svg className="w-full h-full opacity-80" viewBox="0 0 300 150">
-                        <path d="M20 20 C80 60, 150 10, 280 90 L280 150 L20 150 Z" fill="rgba(58, 134, 255, 0.05)" stroke="#3A86FF" strokeWidth="1" />
+                        <path d="M20 20 C80 60, 150 10, 280 90 L280 150 L20 150 Z" fill="rgba(0, 245, 212, 0.05)" stroke="#00F5D4" strokeWidth="1" />
                         <path d="M100 80 Q130 50, 180 100 T260 70" fill="none" stroke="#00F5D4" strokeWidth="1.5" strokeDasharray="4 3" />
                         {/* Heat clusters */}
                         <circle cx="120" cy="70" r="15" fill="rgba(239, 68, 68, 0.15)" />
                         <circle cx="120" cy="70" r="8" fill="rgba(239, 68, 68, 0.3)" />
                         <circle cx="120" cy="70" r="3" fill="#ef4444" />
                         
-                        <circle cx="200" cy="90" r="20" fill="rgba(58, 134, 255, 0.12)" />
-                        <circle cx="200" cy="90" r="10" fill="rgba(58, 134, 255, 0.25)" />
-                        <circle cx="200" cy="90" r="3" fill="#3A86FF" />
+                        <circle cx="200" cy="90" r="20" fill="rgba(0, 245, 212, 0.12)" />
+                        <circle cx="200" cy="90" r="10" fill="rgba(0, 245, 212, 0.25)" />
+                        <circle cx="200" cy="90" r="3" fill="#00F5D4" />
                       </svg>
                       
                       <div className="absolute top-2 right-2 bg-slate-900/90 border border-slate-700/80 px-2 py-0.5 rounded-sm text-[9px] text-slate-300">
@@ -680,7 +643,7 @@ export default function GISGeospatialPage() {
                     <div className="grid grid-cols-2 gap-4">
                       {/* Donut Data Sources */}
                       <div className="bg-slate-950 border border-slate-800 p-2.5 rounded-sm flex items-center justify-between gap-2">
-                        <div className="w-10 h-10 rounded-full border-4 border-slate-800 flex items-center justify-center" style={{ borderTopColor: "#3A86FF", borderRightColor: "#00F5D4" }}>
+                        <div className="w-10 h-10 rounded-full border-4 border-slate-800 flex items-center justify-center" style={{ borderTopColor: "#00F5D4", borderRightColor: "#00F5D4" }}>
                           <span className="text-[7.5px] font-bold">SRC</span>
                         </div>
                         <div className="text-[8px] text-slate-400 space-y-0.5 flex-1">
@@ -696,7 +659,7 @@ export default function GISGeospatialPage() {
                         <svg className="w-full h-8 overflow-visible mt-1" viewBox="0 0 100 30">
                           <path d="M0 25 Q15 5, 30 18 T60 8 T90 20" fill="none" stroke="#00F5D4" strokeWidth="2" strokeLinecap="round" />
                           <path d="M0 25 Q15 5, 30 18 T60 8 T90 20 L90 30 L0 30 Z" fill="rgba(0, 245, 212, 0.05)" />
-                          <circle cx="60" cy="8" r="2.5" fill="#3A86FF" />
+                          <circle cx="60" cy="8" r="2.5" fill="#00F5D4" />
                         </svg>
                       </div>
                     </div>
@@ -723,7 +686,7 @@ export default function GISGeospatialPage() {
             {/* Right: High Resolution Imagery Before/After Slider (Col-span 5) */}
             <div className="lg:col-span-5 bg-white border border-[#E2E8F0] rounded-sm p-6 flex flex-col justify-between hover:shadow-lg transition-all duration-300">
               <div>
-                <span className="text-[#3A86FF] text-xs font-bold uppercase tracking-wider block mb-1">Image Analysis</span>
+                <span className="text-[#00F5D4] text-xs font-bold uppercase tracking-wider block mb-1">Image Analysis</span>
                 <h3 className="text-lg font-black text-[#0B132B] mb-2">High Resolution Imagery</h3>
                 <p className="text-xs text-[#0B132B]/60 leading-relaxed mb-6">
                   Slide to compare satellite imagery captured at different dates (Before / After) to track changes in land cover, coastal erosion, or infrastructure development.
@@ -752,7 +715,7 @@ export default function GISGeospatialPage() {
                   style={{ clipPath: `polygon(0 0, ${sliderPos}% 0, ${sliderPos}% 100%, 0 100%)` }}
                 >
                   <div className="absolute inset-0 bg-[#0F172A]/15 pointer-events-none"></div>
-                  <div className="absolute top-3 right-3 bg-[#3A86FF] text-white font-bold text-[9px] px-2.5 py-0.5 rounded-sm z-20 shadow-sm">
+                  <div className="absolute top-3 right-3 bg-[#00F5D4] text-[#0B132B] font-bold text-[9px] px-2.5 py-0.5 rounded-sm z-20 shadow-sm">
                     After
                   </div>
                   <img 
@@ -784,7 +747,7 @@ export default function GISGeospatialPage() {
               </div>
 
               <div className="flex items-center gap-2 mt-4 text-[10px] text-[#0B132B]/50 font-semibold">
-                <MousePointer size={14} className="text-[#3A86FF]" />
+                <MousePointer size={14} className="text-[#00F5D4]" />
                 Drag the divider above to dynamically wipe satellite history layers.
               </div>
             </div>
@@ -795,7 +758,7 @@ export default function GISGeospatialPage() {
 
       {/* 5. Industries & Use Cases Section */}
       <section className="py-16 bg-white border-b border-[#E2E8F0]">
-        <div className="max-w-[1400px] mx-auto px-8">
+        <div className="max-w-[1240px] mx-auto px-8">
           <div className="flex items-center justify-center gap-4 mb-12">
             <span className="h-[1px] bg-slate-300 flex-1"></span>
             <h2 className="text-[#0B132B] text-xl md:text-2xl font-black uppercase tracking-wider shrink-0 font-[family-name:var(--font-heading)]">
@@ -804,40 +767,60 @@ export default function GISGeospatialPage() {
             <span className="h-[1px] bg-slate-300 flex-1"></span>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
-            {industries.map((ind, idx) => (
-              <div key={idx} className="bg-[#F8FAFC] border border-[#E2E8F0] overflow-hidden rounded-sm hover:-translate-y-1 hover:shadow-md hover:border-[#3A86FF] transition-all duration-300 flex flex-col h-full group">
-                <div className="w-full aspect-[4/3] overflow-hidden bg-slate-200 relative">
-                  <img 
-                    src={ind.image} 
-                    alt={ind.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-[#0B132B]/10"></div>
-                </div>
-                <div className="p-3 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-[11px] font-bold text-[#0B132B] leading-tight mb-1">{ind.name}</h3>
-                    <p className="text-[9px] text-[#0B132B]/60 leading-normal">{ind.desc}</p>
+          <div className="relative">
+            <button
+              type="button"
+              onClick={() => scrollIndustries(-1)}
+              aria-label="Previous industries"
+              className="absolute -left-5 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-[#E2E8F0] bg-white text-[#0B132B] shadow-lg transition-all hover:border-[#00F5D4] hover:bg-[#00F5D4] disabled:opacity-40 dark:border-[#2D3A54] dark:bg-[#111D36] dark:text-white dark:hover:bg-[#00F5D4] dark:hover:text-[#0B132B]"
+            >
+              <ChevronLeft size={22} />
+            </button>
+
+            <div ref={industriesCarouselRef} className="gis-industries-carousel flex snap-x snap-mandatory gap-6 overflow-x-auto px-1 py-3">
+              {industries.map((ind, idx) => (
+                <article key={idx} className="group min-w-[82%] snap-start overflow-hidden rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] transition-all duration-300 hover:-translate-y-1 hover:border-[#00F5D4]/60 hover:shadow-[0_16px_35px_rgba(11,19,43,0.12)] dark:border-[#2D3A54] dark:bg-[#111D36] sm:min-w-[46%] lg:min-w-[calc((100%-72px)/4)]">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-slate-200">
+                    <img
+                      src={ind.image}
+                      alt={ind.name}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#071127]/80 via-[#071127]/10 to-transparent"></div>
                   </div>
-                </div>
-              </div>
-            ))}
+                  <div className="p-5">
+                    <h3 className="mb-2 text-base font-extrabold leading-tight text-[#0B132B] dark:text-white">{ind.name}</h3>
+                    <p className="text-xs leading-relaxed text-[#0B132B]/60 dark:text-white/60">{ind.desc}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <button
+              type="button"
+              onClick={() => scrollIndustries(1)}
+              aria-label="Next industries"
+              className="absolute -right-5 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-[#E2E8F0] bg-white text-[#0B132B] shadow-lg transition-all hover:border-[#00F5D4] hover:bg-[#00F5D4] dark:border-[#2D3A54] dark:bg-[#111D36] dark:text-white dark:hover:bg-[#00F5D4] dark:hover:text-[#0B132B]"
+            >
+              <ChevronRight size={22} />
+            </button>
           </div>
         </div>
       </section>
 
       {/* 6. Technology & Workflow Section */}
       <section className="py-16 bg-[#F8FAFC] border-b border-[#E2E8F0] transition-colors duration-300">
-        <div className="max-w-[1400px] mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="max-w-[1240px] mx-auto px-8">
+          <div className="flex flex-col gap-12">
             
-            {/* Tech Stack Grid (Col span 6) */}
-            <div className="lg:col-span-6 bg-white border border-[#E2E8F0] p-6 rounded-sm shadow-sm">
-              <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-6">
-                <h3 className="text-base font-extrabold text-[#0B132B] uppercase tracking-wide">
+            {/* Tech Stack Grid */}
+            <div>
+              <div className="mb-12 flex items-center justify-center gap-4">
+                <span className="h-[1px] flex-1 bg-slate-300"></span>
+                <h2 className="shrink-0 text-center text-xl font-black uppercase tracking-wider text-[#0B132B] font-[family-name:var(--font-heading)] md:text-2xl">
                   Technologies We Use
-                </h3>
+                </h2>
+                <span className="h-[1px] flex-1 bg-slate-300"></span>
               </div>
               
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
@@ -868,19 +851,21 @@ export default function GISGeospatialPage() {
               </div>
             </div>
 
-            {/* Workflow Pipeline (Col span 6) */}
-            <div className="lg:col-span-6">
-              <div className="flex items-center justify-between border-b border-slate-200 pb-3 mb-8">
-                <h3 className="text-base font-extrabold text-[#0B132B] uppercase tracking-wide">
+            {/* Workflow Pipeline */}
+            <div>
+              <div className="mb-12 flex items-center justify-center gap-4">
+                <span className="h-[1px] flex-1 bg-slate-300"></span>
+                <h2 className="shrink-0 text-center text-xl font-black uppercase tracking-wider text-[#0B132B] font-[family-name:var(--font-heading)] md:text-2xl">
                   Our Geospatial Workflow
-                </h3>
+                </h2>
+                <span className="h-[1px] flex-1 bg-slate-300"></span>
               </div>
 
               {/* Horizontal steps on desktop, vertical stack on mobile */}
               <div className="relative flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
                 
                 {/* Dashed Connecting Line (Desktop) */}
-                <div className="absolute top-[28px] left-[5%] right-[5%] h-[1.5px] border-t border-dashed border-[#3A86FF]/40 hidden md:block -z-10"></div>
+                <div className="absolute top-[28px] left-[5%] right-[5%] h-[1.5px] border-t border-dashed border-[#00F5D4]/40 hidden md:block -z-10"></div>
                 
                 {[
                   { step: "01", icon: Compass, label: "Data Collection", sub: "Satellite, Aerial, Drone, Survey" },
@@ -892,10 +877,10 @@ export default function GISGeospatialPage() {
                   const WfIcon = wf.icon;
                   return (
                     <div key={idx} className="flex flex-col items-center text-center max-w-[130px] relative z-10 flex-1">
-                      <div className="w-14 h-14 rounded-full bg-white border border-[#E2E8F0] shadow-sm flex items-center justify-center text-[#3A86FF] hover:border-[#3A86FF] transition-colors duration-300">
+                      <div className="w-14 h-14 rounded-full bg-white border border-[#E2E8F0] shadow-sm flex items-center justify-center text-[#00F5D4] hover:border-[#00F5D4] transition-colors duration-300">
                         <WfIcon size={22} />
                       </div>
-                      <span className="text-[9px] font-black text-[#3A86FF] mt-3">STEP {wf.step}</span>
+                      <span className="text-[9px] font-black text-[#00F5D4] mt-3">STEP {wf.step}</span>
                       <h4 className="text-xs font-bold text-[#0B132B] mt-1">{wf.label}</h4>
                       <p className="text-[9px] text-[#0B132B]/50 mt-1 leading-normal">{wf.sub}</p>
                     </div>
@@ -908,93 +893,10 @@ export default function GISGeospatialPage() {
         </div>
       </section>
 
-      {/* 7. Stats / Impact Section */}
-      <section className="py-16 bg-white border-b border-[#E2E8F0]">
-        <div className="max-w-[1400px] mx-auto px-8">
-          <div className="flex items-center justify-center gap-4 mb-16">
-            <span className="h-[1px] bg-slate-300 flex-1"></span>
-            <h2 className="text-[#0B132B] text-xl md:text-2xl font-black uppercase tracking-wider shrink-0 font-[family-name:var(--font-heading)]">
-              Real Impact with Geospatial Intelligence
-            </h2>
-            <span className="h-[1px] bg-slate-300 flex-1"></span>
-          </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            {/* Stats Grid (Col span 7) */}
-            <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-6">
-              {[
-                { val: "95%", label: "Data Accuracy" },
-                { val: "60%", label: "Faster Decision Making" },
-                { val: "80%", label: "Cost Efficiency" },
-                { val: "70%", label: "Operational Efficiency" },
-                { val: "100+", label: "Projects Delivered" },
-                { val: "25K+ km²", label: "Area Analyzed" }
-              ].map((stat, idx) => (
-                <div key={idx} className="bg-[#F8FAFC] border border-[#E2E8F0] p-5 rounded-sm text-center shadow-sm">
-                  <h3 className="text-2xl md:text-3xl font-black text-[#3A86FF] tracking-tight">{stat.val}</h3>
-                  <p className="text-[9px] text-[#0B132B]/50 font-extrabold uppercase mt-1 leading-tight">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Wireframe Globe Graphic (Col span 5) */}
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="relative w-64 h-64 rounded-full border border-dashed border-[#3A86FF]/25 flex items-center justify-center animate-spin" style={{ animationDuration: "35s" }}>
-                <div className="absolute w-48 h-48 rounded-full border border-dashed border-[#70EEFF]/30 animate-spin" style={{ animationDuration: "18s", animationDirection: "reverse" }}></div>
-                <div className="absolute w-36 h-36 rounded-full border border-slate-200 flex items-center justify-center shadow-inner">
-                  <svg className="w-20 h-20 text-[#3A86FF]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z" />
-                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10zM2 12h20" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* 8. FAQs Section */}
-      <section className="py-16 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="max-w-[1400px] mx-auto px-8">
-          <div className="flex items-center justify-center gap-4 mb-12">
-            <span className="h-[1px] bg-slate-300 flex-1"></span>
-            <h2 className="text-[#0B132B] text-xl md:text-2xl font-black uppercase tracking-wider shrink-0 font-[family-name:var(--font-heading)]">
-              Frequently Asked Questions
-            </h2>
-            <span className="h-[1px] bg-slate-300 flex-1"></span>
-          </div>
-
-          <div className="max-w-4xl mx-auto space-y-4">
-            {faqs.map((faq, idx) => (
-              <div key={idx} className="border border-[#E2E8F0] rounded-sm overflow-hidden bg-white shadow-sm">
-                <button 
-                  onClick={() => toggleFaq(idx)}
-                  className="w-full flex items-center justify-between p-5 text-left text-sm font-bold text-[#0B132B] hover:bg-slate-50 transition-colors"
-                >
-                  <span className="flex items-center gap-3">
-                    <HelpCircle size={18} className="text-[#3A86FF]" />
-                    {faq.q}
-                  </span>
-                  {activeFaq === idx ? <Minus size={16} className="text-[#3A86FF]" /> : <Plus size={16} />}
-                </button>
-                
-                {activeFaq === idx && (
-                  <div className="p-5 border-t border-[#E2E8F0] text-xs text-[#0B132B]/75 leading-relaxed bg-[#F8FAFC] transition-all">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* 9. CTA Banner Section */}
       <section className="py-12 bg-white">
-        <div className="max-w-[1400px] mx-auto px-8">
-          <div className="bg-[#0A1128] border border-slate-800 rounded-sm relative overflow-hidden p-8 md:p-12 flex flex-col md:flex-row justify-between items-center gap-8 shadow-2xl">
+        <div className="max-w-[1240px] mx-auto px-8">
+          <div className="relative flex flex-col items-center justify-between gap-8 overflow-hidden rounded-2xl border border-slate-800 bg-[#0A1128] p-8 shadow-2xl md:flex-row md:p-12">
             
             {/* Visual satellite background map */}
             <div className="absolute inset-0 -z-10 opacity-30">
@@ -1017,10 +919,10 @@ export default function GISGeospatialPage() {
             </div>
 
             <div className="flex flex-wrap gap-4 shrink-0">
-              <Link href="/contact" className="px-6 py-3.5 bg-[#3A86FF] hover:bg-[#3A86FF]/90 text-white text-sm font-bold rounded-sm shadow-lg shadow-[#3A86FF]/20 transition-all hover:-translate-y-0.5">
+              <Link href="/contact" className="cursor-pointer rounded-lg bg-[#00F5D4] px-6 py-3.5 text-sm font-bold text-[#0B132B] shadow-lg shadow-[#00F5D4]/20 transition-all hover:-translate-y-0.5 hover:bg-[#00F5D4]/90">
                 Book Free Consultation
               </Link>
-              <Link href="/contact" className="px-6 py-3.5 bg-transparent border border-slate-600 hover:border-white text-white text-sm font-bold rounded-sm transition-all hover:bg-white/5">
+              <Link href="/contact" className="cursor-pointer rounded-lg border border-white bg-white px-6 py-3.5 text-sm font-bold text-[#0B132B] transition-all hover:-translate-y-0.5 hover:border-[#00F5D4] hover:bg-[#00F5D4] dark:border-slate-600 dark:bg-transparent dark:text-white dark:hover:border-white dark:hover:bg-white/5">
                 Schedule a Demo
               </Link>
             </div>

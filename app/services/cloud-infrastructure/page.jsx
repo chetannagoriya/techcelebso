@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { 
   CheckCircle2, 
@@ -15,9 +15,6 @@ import {
   Layers, 
   Server, 
   Network,
-  HelpCircle,
-  Plus, 
-  Minus,
   Check,
   TrendingUp,
   Clock,
@@ -109,12 +106,6 @@ const RedisLogo = () => (
 );
 
 export default function CloudInfrastructurePage() {
-  const [activeFaq, setActiveFaq] = useState(null);
-
-  const toggleFaq = (index) => {
-    setActiveFaq(activeFaq === index ? null : index);
-  };
-
   const coreServices = [
     {
       title: "Cloud Infrastructure",
@@ -185,25 +176,6 @@ export default function CloudInfrastructurePage() {
     { val: "24/7/365", label: "Monitoring" },
     { val: "15 Min", label: "Response Time" },
     { val: "200+", label: "Servers Managed" }
-  ];
-
-  const faqs = [
-    {
-      q: "Which cloud providers do you support?",
-      a: "We support AWS, Microsoft Azure, Google Cloud Platform (GCP), DigitalOcean, Vultr, and Linode. We also deploy hybrid architectures spanning private clouds and on-premise physical servers."
-    },
-    {
-      q: "How do you achieve cost optimization?",
-      a: "We perform automated right-sizing audits, configure smart auto-scaling, implement serverless functions, utilize spot instances, and set up database connection caching. Most clients reduce cloud spend by 30% to 50%."
-    },
-    {
-      q: "Can you migrate legacy applications to Kubernetes?",
-      a: "Yes. Our team containerizes legacy systems with Docker, drafts Terraform templates, builds Jenkins or GitHub CI pipelines, and orchestrates deployment on EKS, AKS, GKE, or custom Kubernetes clusters."
-    },
-    {
-      q: "What monitoring tools do you configure?",
-      a: "We deploy Prometheus, Grafana, the ELK Stack, Jaeger tracing, AWS CloudWatch, and Datadog depending on architecture needs. These pipelines trigger email and PagerDuty notifications for critical system updates."
-    }
   ];
 
   return (
@@ -521,42 +493,6 @@ export default function CloudInfrastructurePage() {
               </div>
             </div>
 
-          </div>
-        </div>
-      </section>
-
-      {/* 7. FAQs */}
-      <section className="py-16 bg-white border-b border-[#E2E8F0]">
-        <div className="max-w-[1400px] mx-auto px-8">
-          <div className="flex items-center justify-center gap-4 mb-12">
-            <span className="h-[1px] bg-slate-200 flex-1"></span>
-            <h2 className="text-[#0B132B] text-xl md:text-2xl font-black uppercase tracking-wider shrink-0 font-[family-name:var(--font-heading)]">
-              Frequently Asked Questions
-            </h2>
-            <span className="h-[1px] bg-slate-200 flex-1"></span>
-          </div>
-
-          <div className="max-w-4xl mx-auto space-y-4">
-            {faqs.map((faq, idx) => (
-              <div key={idx} className="border border-[#E2E8F0] rounded-sm overflow-hidden bg-white shadow-sm">
-                <button 
-                  onClick={() => toggleFaq(idx)}
-                  className="w-full flex items-center justify-between p-5 text-left text-sm font-bold text-[#0B132B] hover:bg-slate-50 transition-colors"
-                >
-                  <span className="flex items-center gap-3">
-                    <HelpCircle size={18} className="text-[#3A86FF]" />
-                    {faq.q}
-                  </span>
-                  {activeFaq === idx ? <Minus size={16} className="text-[#3A86FF]" /> : <Plus size={16} />}
-                </button>
-                
-                {activeFaq === idx && (
-                  <div className="p-5 border-t border-[#E2E8F0] text-xs text-[#0B132B]/75 leading-relaxed bg-[#F8FAFC] transition-all">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
-            ))}
           </div>
         </div>
       </section>

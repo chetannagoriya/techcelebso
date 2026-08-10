@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { 
   CheckCircle2, 
@@ -10,9 +10,6 @@ import {
   Users, 
   Clock, 
   Sparkles,
-  HelpCircle,
-  Plus, 
-  Minus,
   Check,
   TrendingUp,
   Brain,
@@ -99,12 +96,6 @@ const K8sLogo = () => (
 );
 
 export default function ConsultingPage() {
-  const [activeFaq, setActiveFaq] = useState(null);
-
-  const toggleFaq = (index) => {
-    setActiveFaq(activeFaq === index ? null : index);
-  };
-
   const coreServices = [
     {
       title: "AI Strategy Consulting",
@@ -200,33 +191,6 @@ export default function ConsultingPage() {
     "End-to-end support from strategy to execution",
     "Agile, collaborative, and transparent approach",
     "Focused on measurable business impact"
-  ];
-
-  const faqs = [
-    {
-      q: "What types of consulting services do you offer?",
-      a: "We offer comprehensive services including AI Strategy, Digital Transformation, Enterprise Architecture design, Tech Stack advisory, Product Management consulting, and rapid MVP engineering for startups."
-    },
-    {
-      q: "How do you approach a consulting engagement?",
-      a: "We follow a structured 6-step approach: Discover, Analyze, Strategize, Design, Execute, and Optimize. This ensures we thoroughly understand your challenges before suggesting any architectural modifications."
-    },
-    {
-      q: "Can you help startups with product strategy?",
-      a: "Yes. We help startups draft GTM roadmaps, define MVP scopes, build interactive prototypes, validate product market fit, and prepare technical pitch decks for prospective investors."
-    },
-    {
-      q: "How long does a typical consulting project take?",
-      a: "Engagements typically range from 4 weeks (for targeted stack audits or AI roadmap assessments) to 3-6 months (for end-to-end digital transformation and process modernization)."
-    },
-    {
-      q: "Do you offer ongoing support after project completion?",
-      a: "Yes. We provide continuous support programs including monthly review audits, KPI optimization tracking, and developer hand-off training sessions."
-    },
-    {
-      q: "How do you ensure measurable results?",
-      a: "We establish clear ROI goals at the start, mapping telemetry milestones to concrete metrics such as cost reductions, operational speed-ups, or conversion hikes."
-    }
   ];
 
   return (
@@ -534,42 +498,6 @@ export default function ConsultingPage() {
               </div>
             </div>
 
-          </div>
-        </div>
-      </section>
-
-      {/* 6. FAQs */}
-      <section className="py-16 bg-[#F8FAFC] border-b border-[#E2E8F0]">
-        <div className="max-w-[1400px] mx-auto px-8">
-          <div className="flex items-center justify-center gap-4 mb-12">
-            <span className="h-[1px] bg-slate-200 flex-1"></span>
-            <h2 className="text-[#0B132B] text-xl md:text-2xl font-black uppercase tracking-wider shrink-0 font-[family-name:var(--font-heading)]">
-              Frequently Asked Questions
-            </h2>
-            <span className="h-[1px] bg-slate-200 flex-1"></span>
-          </div>
-
-          <div className="max-w-4xl mx-auto space-y-4">
-            {faqs.map((faq, idx) => (
-              <div key={idx} className="border border-[#E2E8F0] rounded-sm overflow-hidden bg-white shadow-sm">
-                <button 
-                  onClick={() => toggleFaq(idx)}
-                  className="w-full flex items-center justify-between p-5 text-left text-xs font-bold text-[#0B132B] hover:bg-slate-50 transition-colors"
-                >
-                  <span className="flex items-center gap-3">
-                    <HelpCircle size={16} className="text-[#3A86FF]" />
-                    {faq.q}
-                  </span>
-                  {activeFaq === idx ? <Minus size={14} className="text-[#3A86FF]" /> : <Plus size={14} />}
-                </button>
-                
-                {activeFaq === idx && (
-                  <div className="p-4 border-t border-[#E2E8F0] text-[11px] text-[#0B132B]/75 leading-relaxed bg-[#F8FAFC] transition-all">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
-            ))}
           </div>
         </div>
       </section>

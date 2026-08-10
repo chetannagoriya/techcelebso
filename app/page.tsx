@@ -32,8 +32,20 @@ const ecosystemCompanies = [
   ["Celebso Production", "Media & Events", Boxes],
 ] as const;
 
+const partnershipStrengths = [
+  ["Vendor-agnostic thinking", "/images/why-choose/strength-01.png"],
+  ["Collaborative culture", "/images/why-choose/strength-02.png"],
+  ["Ethical practices", "/images/why-choose/strength-03.png"],
+  ["Scalable solutions", "/images/why-choose/strength-04.png"],
+  ["Long-term partnerships", "/images/why-choose/strength-05.png"],
+  ["Continuous improvement", "/images/why-choose/strength-06.png"],
+  ["Cost-effective solutions", "/images/why-choose/strength-07.png"],
+  ["Data-driven decisions", "/images/why-choose/strength-08.png"],
+] as const;
+
 export default function Home() {
   const [currentTestimonial, setCurrentTestimonial] = useState(1);
+  const [activeStrength, setActiveStrength] = useState(3);
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
   const [isVideoMuted, setIsVideoMuted] = useState(true);
   const landingVideoRef = useRef<HTMLVideoElement>(null);
@@ -114,19 +126,42 @@ export default function Home() {
           />
         </div>
 
-        <div className="mx-auto mt-16 max-w-[1400px] px-6 md:px-10">
-          <div className="relative left-1/2 w-screen -translate-x-1/2 px-6 text-left md:px-10">
-            <h1 className="text-center font-[family-name:var(--font-body)] text-3xl font-normal tracking-[-0.025em] text-[#0B132B] dark:text-white md:text-4xl">
-              Welcome To Antellay
-            </h1>
-            <p
-              className="mt-8 text-base leading-8 text-slate-600 dark:text-slate-300 md:text-lg"
-              style={{ fontFamily: "var(--font-body), Arial, sans-serif" }}
-            >
-              <strong>ANTELLAY</strong>, the technology arm of <strong>Celebso Group</strong>, is an AI-first Technology, GIS, and Engineering company delivering scalable AI solutions for modern businesses. We build intelligent software, AI infrastructure, dynamic AI interface systems, enterprise automation, geospatial solutions, and AI training platforms for startups, enterprises, and governments worldwide.
-            </p>
-          </div>
+      </section>
 
+      {/* Trusted Client Logo Marquee */}
+      <section
+        className="group overflow-hidden bg-white py-5 transition-colors duration-300 dark:bg-[#0B132B] md:py-7"
+        aria-label="Organizations we have worked with"
+      >
+        <div
+          className="flex w-max will-change-transform group-hover:[animation-play-state:paused] motion-reduce:![animation:none]"
+          style={{ animation: "ecosystem-card-scroll 24s linear infinite" }}
+        >
+          {[false, true].map((isDuplicate) => (
+            <div
+              key={isDuplicate ? "duplicate" : "primary"}
+              className="w-[max(900px,100vw)] shrink-0 bg-white dark:bg-[#0B132B]"
+              aria-hidden={isDuplicate || undefined}
+            >
+              <img
+                src="/images/trusted-client-logos.png"
+                alt={isDuplicate ? "" : "AntCare, SAN Florida, Teach For India, Twig Health and University of Maryland"}
+                className="block h-auto w-full mix-blend-multiply dark:opacity-80 dark:invert dark:grayscale dark:brightness-150 dark:mix-blend-screen"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Personalized IT Journey */}
+      <section id="events" className="bg-white px-4 pb-12 pt-4 transition-colors duration-300 dark:bg-[#0B132B] md:px-8 md:pb-20 md:pt-6">
+        <div className="journey-banner mx-auto w-full max-w-[1227px]">
+          <span className="journey-connector" aria-hidden="true" />
+          <img
+            src="/images/personalized-it-journey-transparent.png"
+            alt="Start your personalized IT journey"
+            className="journey-banner-image block h-auto w-full object-contain"
+          />
         </div>
       </section>
 
@@ -233,15 +268,49 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trusted Partner Section */}
-      <section id="events" className="trusted-partner bg-white transition-colors duration-300 dark:bg-[#0B132B]">
-        <div className="journey-banner mx-auto w-full max-w-[1227px]">
-          <span className="journey-connector" aria-hidden="true" />
-          <img
-            src="/images/personalized-it-journey-transparent.png"
-            alt="Start your personalized IT journey"
-            className="journey-banner-image block h-auto w-full object-contain"
-          />
+      {/* Why Choose Antellay */}
+      <section className="bg-white px-6 py-16 transition-colors duration-300 dark:bg-[#0B132B] md:px-10 md:py-24">
+        <div className="mx-auto max-w-[1400px]">
+          <div className="max-w-4xl">
+            <h2 className="text-3xl font-semibold tracking-tight text-[#0B132B] dark:text-white md:text-4xl">
+              Why Choose Antellay: Your Technology Partner?
+            </h2>
+            <p className="mt-5 text-base leading-7 text-slate-600 dark:text-slate-300 md:text-lg">
+              From strategy to scale, we combine practical innovation, collaborative execution, and measurable outcomes to build technology that keeps your business moving forward.
+            </p>
+          </div>
+
+          <div className="mt-12 grid grid-cols-2 gap-x-3 gap-y-8 md:grid-cols-4 md:gap-x-4 xl:flex xl:items-start xl:gap-4">
+            {partnershipStrengths.map(([label, imageSrc], index) => (
+              <article
+                key={label}
+                tabIndex={0}
+                onMouseEnter={() => setActiveStrength(index)}
+                onFocus={() => setActiveStrength(index)}
+                className={`group/strength min-w-0 cursor-pointer outline-none transition-[flex-basis] duration-500 ease-in-out xl:flex-[0_0_7rem] ${
+                  activeStrength === index ? "xl:flex-[1_1_22rem]" : ""
+                }`}
+              >
+                <div className={`relative h-56 overflow-hidden rounded-[2px] transition-colors duration-500 md:h-64 xl:h-72 ${
+                  activeStrength === index ? "bg-slate-50 dark:bg-[#111d3a]" : "bg-[#8f67a8] dark:bg-[#533d72]"
+                }`}>
+                  <Image
+                    src={imageSrc}
+                    alt=""
+                    fill
+                    loading="eager"
+                    unoptimized
+                    sizes="(max-width: 767px) 50vw, (max-width: 1279px) 25vw, 13vw"
+                    className={`object-contain object-bottom transition duration-500 ${activeStrength === index ? "grayscale-0" : "grayscale"}`}
+                  />
+                  <div className={`absolute inset-0 transition-colors duration-500 ${activeStrength === index ? "bg-transparent" : "bg-[#8954aa]/35 mix-blend-color dark:bg-[#7b5aaa]/30"}`} />
+                </div>
+                <h3 className="mt-3 text-sm font-medium leading-5 text-slate-800 dark:text-slate-100">
+                  {label}
+                </h3>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 

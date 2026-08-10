@@ -11,7 +11,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   const isConsumerTechnologyPage = pathname === "/industries/consumer-technology";
-  const isShowcasePage = ["/industries/agriculture", "/industries/automotive", "/industries/healthcare", "/industries/banking-finance", "/industries/insurance", "/industries/manufacturing", "/industries/retail-ecommerce", "/industries/construction-infrastructure", "/industries/environment-climate", "/industries/pharmaceutical-life-sciences", "/industries/quick-commerce-delivery", "/industries/robotics", "/industries/security-surveillance", "/industries/education", "/industries/energy-utilities", "/industries/logistics-supply-chain", "/industries/government-smart-cities", "/industries/telecom", "/industries/aviation-aerospace", "/industries/maritime-ports", "/industries/hospitality-travel", "/industries/consumer-technology", "/industries/real-estate", "/services/data-annotation", "/services/gis-geospatial"].includes(pathname);
+  const isShowcasePage = ["/industries/agriculture", "/industries/automotive", "/industries/healthcare", "/industries/banking-finance", "/industries/insurance", "/industries/manufacturing", "/industries/retail-ecommerce", "/industries/construction-infrastructure", "/industries/environment-climate", "/industries/pharmaceutical-life-sciences", "/industries/quick-commerce-delivery", "/industries/robotics", "/industries/security-surveillance", "/industries/education", "/industries/energy-utilities", "/industries/logistics-supply-chain", "/industries/government-smart-cities", "/industries/telecom", "/industries/aviation-aerospace", "/industries/maritime-ports", "/industries/hospitality-travel", "/industries/consumer-technology", "/industries/real-estate"].includes(pathname);
   const { theme, toggleTheme, mounted } = useTheme();
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
@@ -223,47 +223,7 @@ export default function Navbar() {
         </div>
 
         <Link href="/products" className={linkClass("/products")}>Products</Link>
-        <div className="relative group">
-          <Link href="/resources/blog" className={`flex items-center gap-1 hover:text-[#3A86FF] dark:hover:text-[#00F5D4] transition-colors ${pathname.startsWith('/resources') ? 'text-[#3A86FF] dark:text-[#00F5D4] font-semibold' : ''}`}>
-            Resources <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:rotate-180 transition-transform"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </Link>
-          <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50">
-            <div className="bg-white dark:bg-[#1C2541] border border-[#E2E8F0] dark:border-[#2D3A54] shadow-xl rounded-sm p-2 w-60 flex flex-col">
-              <Link href="/resources/impact" className="px-4 py-2 text-sm text-[#0B132B]/70 dark:text-white/70 hover:bg-[#F4F7FA] dark:hover:bg-[#0B132B] hover:text-[#3A86FF] dark:hover:text-[#00F5D4] rounded-sm transition-colors">
-                Our Impact
-              </Link>
-              <Link href="/resources/blog" className="px-4 py-2 text-sm text-[#0B132B]/70 dark:text-white/70 hover:bg-[#F4F7FA] dark:hover:bg-[#0B132B] hover:text-[#3A86FF] dark:hover:text-[#00F5D4] rounded-sm transition-colors">
-                Our Blog
-              </Link>
-              <Link href="/resources/case-studies" className="px-4 py-2 text-sm text-[#0B132B]/70 dark:text-white/70 hover:bg-[#F4F7FA] dark:hover:bg-[#0B132B] hover:text-[#3A86FF] dark:hover:text-[#00F5D4] rounded-sm transition-colors">
-                Case Studies
-              </Link>
-              <Link href="/resources/press-release" className="px-4 py-2 text-sm text-[#0B132B]/70 dark:text-white/70 hover:bg-[#F4F7FA] dark:hover:bg-[#0B132B] hover:text-[#3A86FF] dark:hover:text-[#00F5D4] rounded-sm transition-colors">
-                Press Release
-              </Link>
-              <Link href="/resources/newsletter" className="px-4 py-2 text-sm text-[#0B132B]/70 dark:text-white/70 hover:bg-[#F4F7FA] dark:hover:bg-[#0B132B] hover:text-[#3A86FF] dark:hover:text-[#00F5D4] rounded-sm transition-colors">
-                Newsletter
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className="relative group">
-          <Link href="/events" className={`flex items-center gap-1 hover:text-[#3A86FF] dark:hover:text-[#00F5D4] transition-colors ${pathname === '/events' ? 'text-[#3A86FF] dark:text-[#00F5D4] font-semibold' : ''}`}>
-            Events <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:rotate-180 transition-transform"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </Link>
-          <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50">
-            <div className="bg-white dark:bg-[#1C2541] border border-[#E2E8F0] dark:border-[#2D3A54] shadow-xl rounded-sm p-2 w-56 flex flex-col">
-              <Link href="/events?tab=footprints" className="px-4 py-2 text-sm text-[#0B132B]/70 dark:text-white/70 hover:bg-[#F4F7FA] dark:hover:bg-[#0B132B] hover:text-[#3A86FF] dark:hover:text-[#00F5D4] rounded-sm transition-colors">
-                Events Footprints
-              </Link>
-              <Link href="/events?tab=collaborations" className="px-4 py-2 text-sm text-[#0B132B]/70 dark:text-white/70 hover:bg-[#F4F7FA] dark:hover:bg-[#0B132B] hover:text-[#3A86FF] dark:hover:text-[#00F5D4] rounded-sm transition-colors">
-                Collaborations
-              </Link>
-            </div>
-          </div>
-        </div>
         <Link href="/about" className={linkClass("/about")}>About</Link>
-        <Link href="/careers" className={linkClass("/careers")}>Careers</Link>
         <Link href="/contact" className={linkClass("/contact")}>Contact Us</Link>
       </nav>
       <div className="flex-shrink-0 flex items-center gap-4">

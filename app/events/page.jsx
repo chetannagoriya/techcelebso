@@ -1,8 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
-import Link from "next/link";
+import React, { useState } from "react";
 
 const faqs = [
   { q: "Who are the founders of Antellay?", a: "Antellay was founded in a modest residential basement by visionary enterprise architects Shrey Sharma and Vishwajeet Srivastava in 2018. Since then, we have grown into a global provider with over 400+ certified engineers." },
@@ -28,10 +26,10 @@ function FootprintsView() {
         <div className="max-w-[1400px] mx-auto w-full px-8 lg:px-20 z-10 flex flex-col md:flex-row items-center justify-between h-full">
           <div className="max-w-xl">
             <h1 className="text-5xl lg:text-6xl font-light text-slate-800 dark:text-white mb-6 leading-tight">
-              Industry Solutions We Offer
+              Events That Move Ideas Forward
             </h1>
             <p className="text-lg text-slate-600 dark:text-slate-300 mb-10 leading-relaxed">
-              Founded in 2018 by Shrey Sharma & Vishwajeet Srivastava, our 400+ engineers lead the frontier of enterprise architecture and multi-cloud delivery.
+              Explore Antellay meetups, investor connects, technology conversations, and the moments that bring our growing innovation community together.
             </p>
             <button className="px-8 py-4 bg-[#3A86FF] text-white rounded-sm font-medium hover:bg-[#2563EB] transition-colors shadow-lg">
               Schedule a free consultation
@@ -204,48 +202,15 @@ function CollaborationsView() {
 }
 
 function EventsContent() {
-  const searchParams = useSearchParams();
-  const [activeTab, setActiveTab] = useState("footprints");
-  
-  useEffect(() => {
-    const tab = searchParams.get("tab");
-    if (tab === "collaborations" || tab === "footprints") {
-      setActiveTab(tab);
-    }
-  }, [searchParams]);
-
   return (
     <main className="min-h-screen bg-white dark:bg-[#0B132B] transition-colors duration-300">
-       {/* Tab Switcher */}
-       <div className="w-full border-b border-[#E2E8F0] dark:border-[#1C2541] bg-[#F4F7FA] dark:bg-[#0B132B] sticky top-0 z-40">
-         <div className="max-w-[1400px] mx-auto px-8 flex gap-8">
-            <button 
-              onClick={() => setActiveTab("footprints")}
-              className={`py-4 font-semibold text-sm transition-colors border-b-2 ${activeTab === 'footprints' ? 'border-[#3A86FF] dark:border-[#00F5D4] text-[#3A86FF] dark:text-[#00F5D4]' : 'border-transparent text-gray-500 hover:text-[#0B132B] dark:hover:text-white'}`}
-            >
-              Events Footprints
-            </button>
-            <button 
-              onClick={() => setActiveTab("collaborations")}
-              className={`py-4 font-semibold text-sm transition-colors border-b-2 ${activeTab === 'collaborations' ? 'border-[#3A86FF] dark:border-[#00F5D4] text-[#3A86FF] dark:text-[#00F5D4]' : 'border-transparent text-gray-500 hover:text-[#0B132B] dark:hover:text-white'}`}
-            >
-              Collaborations
-            </button>
-         </div>
-       </div>
-
-       {/* Dynamic Content */}
-       <div className="relative min-h-[800px]">
-         {activeTab === "footprints" ? <FootprintsView /> : <CollaborationsView />}
-       </div>
+      <div className="relative min-h-[800px]">
+        <FootprintsView />
+      </div>
     </main>
   );
 }
 
 export default function EventsPage() {
-  return (
-    <Suspense fallback={<div className="min-h-screen bg-white dark:bg-[#0B132B]" />}>
-      <EventsContent />
-    </Suspense>
-  );
+  return <EventsContent />;
 }

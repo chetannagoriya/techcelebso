@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
+import NextImage from "next/image";
 import { 
   CheckCircle2, 
   ArrowRight, 
@@ -11,9 +12,6 @@ import {
   Users, 
   Clock, 
   Sparkles,
-  HelpCircle,
-  Plus, 
-  Minus, 
   Check,
   TrendingUp,
   Brain,
@@ -117,47 +115,46 @@ const SnowflakeLogo = () => (
 );
 
 export default function AIDataServicesPage() {
-  const [activeFaq, setActiveFaq] = useState(null);
-
-  const toggleFaq = (index) => {
-    setActiveFaq(activeFaq === index ? null : index);
-  };
-
   const coreServices = [
     {
       title: "Dataset Collection",
       description: "Collect diverse and high-quality data from multiple sources including web, sensors, APIs, databases, and real-world environments.",
       color: "border-blue-500",
       iconColor: "bg-blue-500",
-      icon: Database
+      icon: Database,
+      image: "/images/ai_data_hero.jpg"
     },
     {
       title: "Dataset Cleaning",
       description: "Remove duplicates, noise, inconsistencies, irrelevant records and prepare clean, structured, and model-ready datasets.",
       color: "border-emerald-500",
       iconColor: "bg-emerald-500",
-      icon: Filter
+      icon: Filter,
+      image: "/images/data-annotation-workspace.png"
     },
     {
       title: "Data Validation",
       description: "Multi-level validation with automated checks and human-in-the-loop review to ensure accuracy and completeness.",
       color: "border-purple-500",
       iconColor: "bg-purple-500",
-      icon: ShieldCheck
+      icon: ShieldCheck,
+      image: "/images/document-annotation-example.png"
     },
     {
       title: "Data Labeling",
       description: "High-quality annotation for images, videos, text, audio, LiDAR, and documents across multiple AI/ML use cases.",
       color: "border-orange-500",
       iconColor: "bg-orange-500",
-      icon: Sparkles
+      icon: Sparkles,
+      image: "/images/text-annotation-example.png"
     },
     {
       title: "AI Model Evaluation",
       description: "Evaluate, benchmark and improve model performance using robust evaluation frameworks and metrics.",
       color: "border-teal-500",
       iconColor: "bg-teal-500",
-      icon: Brain
+      icon: Brain,
+      image: "/images/robot_ai_head.jpg"
     }
   ];
 
@@ -185,13 +182,13 @@ export default function AIDataServicesPage() {
   ];
 
   const lifecycleSteps = [
-    { num: "1", label: "Data Collection", icon: Database },
-    { num: "2", label: "Cleaning", icon: Filter },
-    { num: "3", label: "Validation", icon: ShieldCheck },
-    { num: "4", label: "Labeling", icon: Sparkles },
-    { num: "5", label: "Quality Assurance", icon: CheckCircle2 },
-    { num: "6", label: "AI Model Evaluation", icon: Brain },
-    { num: "7", label: "Deployment Ready Dataset", icon: Check }
+    { num: "01", label: "Data Collection", desc: "Gather diverse, consented data from trusted digital and real-world sources.", icon: Database },
+    { num: "02", label: "Cleaning", desc: "Remove duplicates, noise and inconsistencies while standardizing every record.", icon: Filter },
+    { num: "03", label: "Validation", desc: "Verify completeness, formats and business rules through automated checks.", icon: ShieldCheck },
+    { num: "04", label: "Labeling", desc: "Apply accurate, domain-aware labels across every supported data modality.", icon: Sparkles },
+    { num: "05", label: "Quality Assurance", desc: "Run multi-level human and AI reviews to achieve reliable quality targets.", icon: CheckCircle2 },
+    { num: "06", label: "Model Evaluation", desc: "Benchmark performance, identify data gaps and refine difficult edge cases.", icon: Brain },
+    { num: "07", label: "Deployment Ready", desc: "Deliver secure, versioned datasets with documentation and clear metadata.", icon: Check }
   ];
 
   const whyChooseUs = [
@@ -203,32 +200,25 @@ export default function AIDataServicesPage() {
     { title: "Enterprise Ready", desc: "Trusted by top-tier startups and Fortune 500 corporations.", icon: Sparkles }
   ];
 
-  const faqs = [
-    {
-      q: "How do you ensure 99%+ data annotation quality?",
-      a: "We implement a strict multi-tiered quality control system. This includes automated syntax and rule checks, peer reviews, consensus labeling, and final validation by domain-expert Quality Assurance leads. Only datasets passing our 99%+ accuracy threshold are delivered."
-    },
-    {
-      q: "Which data annotation formats do you support?",
-      a: "We support all industry-standard formats including COCO, YOLO, Pascal VOC, TFRecord, GeoJSON, CSV, JSON, and custom formats. We can directly export annotation files ready to load into CVAT, Label Studio, Darwin, or your custom ML pipeline."
-    },
-    {
-      q: "How do you handle sensitive or private data?",
-      a: "Security is our highest priority. We operate under strict NDA policies and offer secure, air-gapped on-premise infrastructure setups. We are SOC2 and GDPR compliant, ensuring your IP and sensitive user data remain fully secure."
-    },
-    {
-      q: "Can you source custom datasets for us?",
-      a: "Yes. Our Dataset Collection services cover web scraping, sensor recordings, custom audio datasets, high-resolution photography, and specialized remote sensing imagery tailored to your ML model's targeted domain."
-    }
+  const technologies = [
+    { name: "CVAT", category: "Computer Vision", logo: "/images/annotation-tools/cvat.png" },
+    { name: "Label Studio", category: "Multi-Modal Labeling", logo: "/images/annotation-tools/label-studio.png" },
+    { name: "V7 Darwin", category: "AI Data Platform", logo: "/images/annotation-tools/v7-darwin.png" },
+    { name: "SuperAnnotate", category: "Annotation Platform", logo: "/images/annotation-tools/superannotate.png" },
+    { name: "Roboflow", category: "Vision Datasets", logo: "/images/annotation-tools/roboflow.png" },
+    { name: "Dataloop", category: "Data Operations", logo: "/images/annotation-tools/dataloop.png" },
+    { name: "Scale AI", category: "Training Data", logo: "/images/annotation-tools/scale-ai.png" },
+    { name: "Amazon SageMaker", category: "Machine Learning", logo: "/images/annotation-tools/amazon-sagemaker.png" }
   ];
 
   return (
-    <main className="min-h-screen bg-white transition-colors duration-300 font-[family-name:var(--font-sans)]">
+    <main className="ai-data-services-page min-h-screen bg-white transition-colors duration-300 font-[family-name:var(--font-sans)] dark:bg-[#081126]">
       
       {/* 1. Hero Section */}
-      <section className="relative pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden bg-[#0A1128]">
+      <section className="relative overflow-hidden bg-[#0A1128] pb-12 pt-8 md:pb-16 md:pt-12">
+        <NextImage src="/images/ai-data-services-hero-chip.png" alt="" fill priority sizes="100vw" className="object-cover object-center" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,12,32,.82)_0%,rgba(5,12,32,.58)_45%,rgba(5,12,32,.28)_100%)]"></div>
         {/* Gradients */}
-        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#3A86FF]/10 blur-[120px] pointer-events-none"></div>
         <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-[#00F5D4]/10 blur-[100px] pointer-events-none"></div>
         
         <div className="max-w-[1400px] mx-auto px-8 relative z-10">
@@ -416,22 +406,24 @@ export default function AIDataServicesPage() {
             <span className="h-[1px] bg-slate-300 flex-1"></span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-5">
             {coreServices.map((service, idx) => {
               const Icon = service.icon;
               return (
-                <div key={idx} className={`bg-white border-t-4 ${service.color} border-x border-b border-[#E2E8F0] p-6 rounded-sm flex flex-col justify-between hover:shadow-lg transition-all duration-300 group`}>
-                  <div>
-                    <div className={`w-10 h-10 ${service.iconColor} text-white flex items-center justify-center rounded-sm mb-4`}>
-                      <Icon size={20} />
-                    </div>
-                    <h3 className="text-base font-extrabold text-[#0B132B] mb-2">{service.title}</h3>
-                    <p className="text-xs text-[#0B132B]/60 leading-relaxed mb-6">{service.description}</p>
+                <article key={idx} className="group flex min-h-[390px] flex-col overflow-hidden rounded-xl border border-[#E2E8F0] bg-white transition-all duration-300 hover:-translate-y-1.5 hover:border-[#00F5D4]/65 hover:shadow-[0_20px_42px_rgba(11,19,43,.14)]">
+                  <div className="relative h-40 overflow-hidden bg-slate-900">
+                    <NextImage src={service.image} alt={`${service.title} service`} fill sizes="(max-width: 768px) 90vw, (max-width: 1280px) 45vw, 260px" className="object-cover transition-transform duration-700 group-hover:scale-105"/>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#081126]/85 via-[#081126]/15 to-transparent"></div>
+                    <span className="absolute bottom-4 left-4 grid h-11 w-11 place-items-center rounded-lg border border-white/20 bg-[#081126]/85 text-[#00F5D4] backdrop-blur-md"><Icon size={21}/></span>
                   </div>
-                  <Link href="/contact" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#3A86FF] hover:underline group-hover:gap-2 transition-all">
+                  <div className="flex flex-1 flex-col p-5">
+                    <h3 className="mb-2 text-lg font-extrabold text-[#0B132B]">{service.title}</h3>
+                    <p className="mb-6 text-sm leading-6 text-[#0B132B]/60">{service.description}</p>
+                    <Link href="/contact" className="mt-auto inline-flex items-center gap-1.5 border-t border-[#E2E8F0] pt-4 text-sm font-bold text-[#3A86FF] transition-all group-hover:gap-2">
                     Learn more <ArrowRight size={14} />
-                  </Link>
-                </div>
+                    </Link>
+                  </div>
+                </article>
               );
             })}
           </div>
@@ -441,12 +433,12 @@ export default function AIDataServicesPage() {
       {/* 3. AI Domains We Support */}
       <section className="py-16 bg-white border-b border-[#E2E8F0]">
         <div className="max-w-[1400px] mx-auto px-8">
-          <div className="flex items-center justify-center gap-4 mb-12">
-            <span className="h-[1px] bg-slate-200 flex-1"></span>
-            <h2 className="text-[#0B132B] text-sm font-black uppercase tracking-wider shrink-0">
+          <div className="mb-12 flex items-center justify-center gap-4">
+            <span className="h-[1px] flex-1 bg-slate-300"></span>
+            <h2 className="shrink-0 text-center text-xl font-black uppercase tracking-wider text-[#0B132B] md:text-2xl">
               AI Domains We Support
             </h2>
-            <span className="h-[1px] bg-slate-200 flex-1"></span>
+            <span className="h-[1px] flex-1 bg-slate-300"></span>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
@@ -468,20 +460,20 @@ export default function AIDataServicesPage() {
       {/* 4. Data Types We Work With */}
       <section className="py-12 bg-[#F8FAFC] border-b border-[#E2E8F0]">
         <div className="max-w-[1400px] mx-auto px-8">
-          <div className="flex items-center justify-center gap-4 mb-10">
-            <span className="h-[1px] bg-slate-300 flex-1"></span>
-            <h3 className="text-[#0B132B] text-xs font-black uppercase tracking-wider shrink-0">
+          <div className="mb-10 flex items-center justify-center gap-4">
+            <span className="h-[1px] flex-1 bg-slate-300"></span>
+            <h2 className="shrink-0 text-center text-xl font-black uppercase tracking-wider text-[#0B132B] md:text-2xl">
               Data Types We Work With
-            </h3>
-            <span className="h-[1px] bg-slate-300 flex-1"></span>
+            </h2>
+            <span className="h-[1px] flex-1 bg-slate-300"></span>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-3.5 max-w-5xl mx-auto">
+          <div className="mx-auto flex max-w-6xl flex-wrap gap-3 pt-2 lg:flex-nowrap">
             {dataTypes.map((dt, idx) => {
               const DtIcon = dt.icon;
               return (
-                <div key={idx} className="flex items-center gap-2.5 bg-white border border-[#E2E8F0] px-4.5 py-2.5 rounded-sm text-xs font-bold text-[#0B132B] hover:shadow-sm hover:border-[#3A86FF] transition-all cursor-default">
-                  <DtIcon size={16} className="text-[#3A86FF]" />
+                <div key={idx} className="group flex min-h-[76px] w-[calc(50%-6px)] min-w-0 items-center justify-center gap-2 rounded-xl border border-[#E2E8F0] bg-white px-3 py-4 text-center text-sm font-bold text-[#0B132B] shadow-sm transition-all hover:-translate-y-1 hover:border-[#00F5D4] hover:shadow-md sm:w-[calc(33.333%-8px)] lg:flex-1">
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-[#00F5D4]/12 text-[#00A98F] transition group-hover:bg-[#00F5D4] group-hover:text-[#0B132B]"><DtIcon size={19}/></span>
                   {dt.name}
                 </div>
               );
@@ -493,28 +485,25 @@ export default function AIDataServicesPage() {
       {/* 5. End-To-End Data Lifecycle */}
       <section className="py-16 bg-white border-b border-[#E2E8F0]">
         <div className="max-w-[1400px] mx-auto px-8">
-          <div className="flex items-center justify-center gap-4 mb-14">
-            <span className="h-[1px] bg-slate-200 flex-1"></span>
-            <h2 className="text-[#0B132B] text-base font-black uppercase tracking-wider shrink-0">
+          <div className="mb-14 flex items-center justify-center gap-4">
+            <span className="h-[1px] flex-1 bg-slate-300"></span>
+            <h2 className="shrink-0 text-center text-xl font-black uppercase tracking-wider text-[#0B132B] md:text-2xl">
               Our End-to-End Data Lifecycle
             </h2>
-            <span className="h-[1px] bg-slate-200 flex-1"></span>
+            <span className="h-[1px] flex-1 bg-slate-300"></span>
           </div>
 
-          <div className="relative flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4 max-w-6xl mx-auto">
-            {/* Connection Line */}
-            <div className="absolute top-[28px] left-[5%] right-[5%] h-[1.5px] border-t border-dashed border-[#3A86FF]/40 hidden md:block -z-10"></div>
-            
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {lifecycleSteps.map((step, idx) => {
               const StepIcon = step.icon;
               return (
-                <div key={idx} className="flex flex-col items-center text-center max-w-[130px] flex-1 relative z-10">
-                  <div className="w-14 h-14 rounded-full bg-white border border-[#E2E8F0] shadow-sm flex items-center justify-center text-[#3A86FF] hover:border-[#3A86FF] hover:scale-105 transition-all duration-300">
-                    <StepIcon size={22} />
-                  </div>
-                  <span className="text-[9px] font-black text-[#3A86FF] mt-3">{step.num}</span>
-                  <h4 className="text-xs font-bold text-[#0B132B] mt-1">{step.label}</h4>
-                </div>
+                <article key={idx} className="group relative min-h-[210px] overflow-hidden rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#00F5D4]/70 hover:bg-white hover:shadow-lg">
+                  <span className="absolute right-4 top-3 text-4xl font-black text-[#00F5D4]/15">{step.num}</span>
+                  <div className="grid h-12 w-12 place-items-center rounded-xl bg-[#081126] text-[#00F5D4] transition group-hover:bg-[#00F5D4] group-hover:text-[#081126]"><StepIcon size={21}/></div>
+                  <h4 className="mt-5 text-base font-extrabold text-[#0B132B]">{step.label}</h4>
+                  <p className="mt-2 text-sm leading-6 text-[#0B132B]/60">{step.desc}</p>
+                  <span className="mt-5 block h-0.5 w-9 rounded-full bg-[#00F5D4] transition-all group-hover:w-16"></span>
+                </article>
               );
             })}
           </div>
@@ -524,98 +513,57 @@ export default function AIDataServicesPage() {
       {/* 6. Why Choose Us & Technologies (Side-by-Side) */}
       <section className="py-16 bg-[#F8FAFC] border-b border-[#E2E8F0]">
         <div className="max-w-[1400px] mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div className="flex flex-col gap-10">
             
             {/* Why Choose Us */}
-            <div className="lg:col-span-6">
-              <div className="flex items-center gap-3 border-b border-slate-200 pb-3 mb-6">
-                <h3 className="text-base font-extrabold text-[#0B132B] uppercase tracking-wide">
+            <div className="order-2">
+              <div className="mb-8 flex items-center justify-center gap-4">
+                <span className="h-[1px] flex-1 bg-slate-300"></span>
+                <h2 className="shrink-0 text-center text-xl font-black uppercase tracking-wider text-[#0B132B] md:text-2xl">
                   Why Choose Antellay
-                </h3>
+                </h2>
+                <span className="h-[1px] flex-1 bg-slate-300"></span>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="flex flex-wrap gap-4 pt-2 lg:flex-nowrap">
                 {whyChooseUs.map((item, idx) => {
                   const ItemIcon = item.icon;
                   return (
-                    <div key={idx} className="flex gap-3 text-left">
-                      <div className="w-8 h-8 rounded-sm bg-white border border-[#E2E8F0] flex items-center justify-center text-[#3A86FF] shrink-0 shadow-sm">
-                        <ItemIcon size={16} />
+                    <article key={idx} className="group relative flex min-h-[215px] w-full flex-col overflow-hidden rounded-xl border border-[#E2E8F0] bg-white p-5 text-left transition-all duration-300 hover:-translate-y-1.5 hover:border-[#00F5D4]/70 hover:shadow-[0_18px_38px_rgba(11,19,43,.12)] sm:w-[calc(50%-8px)] lg:min-w-0 lg:flex-1">
+                      <span className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-[#00F5D4]/10 transition-transform duration-500 group-hover:scale-150"></span>
+                      <div className="relative grid h-12 w-12 place-items-center rounded-xl bg-[#081126] text-[#00F5D4] shadow-md transition-colors duration-300 group-hover:bg-[#00F5D4] group-hover:text-[#081126]">
+                        <ItemIcon size={21}/>
                       </div>
-                      <div>
-                        <h4 className="text-xs font-black text-[#0B132B]">{item.title}</h4>
-                        <p className="text-[10px] text-[#0B132B]/60 leading-relaxed mt-1 font-medium">{item.desc}</p>
-                      </div>
-                    </div>
+                      <h3 className="relative mt-5 text-base font-extrabold text-[#0B132B]">{item.title}</h3>
+                      <p className="relative mt-2 text-sm font-medium leading-6 text-[#0B132B]/60">{item.desc}</p>
+                      <span className="relative mt-auto block h-0.5 w-9 rounded-full bg-[#00F5D4] pt-0 transition-all duration-300 group-hover:w-16"></span>
+                    </article>
                   );
                 })}
               </div>
             </div>
 
             {/* Tech Stack */}
-            <div className="lg:col-span-6 bg-white border border-[#E2E8F0] p-6 rounded-sm shadow-sm">
-              <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-6">
-                <h3 className="text-base font-extrabold text-[#0B132B] uppercase tracking-wide">
+            <div className="order-1 bg-white border border-[#E2E8F0] p-6 rounded-sm shadow-sm md:p-8">
+              <div className="mb-8 flex items-center justify-center gap-4">
+                <span className="h-[1px] flex-1 bg-slate-300"></span>
+                <h2 className="shrink-0 text-center text-xl font-black uppercase tracking-wider text-[#0B132B] md:text-2xl">
                   Technologies & Platforms We Use
-                </h3>
+                </h2>
+                <span className="h-[1px] flex-1 bg-slate-300"></span>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                {[
-                  CVATLogo,
-                  LabelStudioLogo,
-                  SuperAnnotateLogo,
-                  DarwinLogo,
-                  PythonLogo,
-                  OpenCVLogo,
-                  TensorFlowLogo,
-                  PyTorchLogo,
-                  AWSLogo,
-                  AzureLogo,
-                  GoogleCloudLogo,
-                  SnowflakeLogo
-                ].map((LogoComp, idx) => (
-                  <div key={idx} className="flex items-center justify-center border border-[#E2E8F0] bg-[#F8FAFC] p-3 rounded-sm hover:scale-[1.03] transition-transform">
-                    <LogoComp />
-                  </div>
+              <div className="flex flex-wrap gap-4 pt-2 lg:flex-nowrap">
+                {technologies.map((technology) => (
+                  <article key={technology.name} className="group flex min-h-[165px] w-[calc(50%-8px)] min-w-0 flex-col items-center justify-center rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] p-4 text-center transition-all duration-300 hover:-translate-y-1 hover:border-[#00F5D4]/70 hover:bg-white hover:shadow-lg sm:w-[calc(33.333%-11px)] lg:flex-1">
+                    <span className="ai-platform-logo grid h-16 w-24 place-items-center overflow-hidden rounded-lg bg-white p-2.5 shadow-sm ring-1 ring-slate-100 transition-transform duration-300 group-hover:scale-105">
+                      <NextImage src={technology.logo} alt={`${technology.name} logo`} width={88} height={56} className="h-full w-full object-contain"/>
+                    </span>
+                    <h3 className="mt-4 text-sm font-extrabold text-[#0B132B]">{technology.name}</h3>
+                    <p className="mt-1 text-[10px] font-bold uppercase tracking-wide text-[#00A98F]">{technology.category}</p>
+                  </article>
                 ))}
               </div>
             </div>
 
-          </div>
-        </div>
-      </section>
-
-      {/* 7. FAQs */}
-      <section className="py-16 bg-white border-b border-[#E2E8F0]">
-        <div className="max-w-[1400px] mx-auto px-8">
-          <div className="flex items-center justify-center gap-4 mb-12">
-            <span className="h-[1px] bg-slate-200 flex-1"></span>
-            <h2 className="text-[#0B132B] text-xl md:text-2xl font-black uppercase tracking-wider shrink-0 font-[family-name:var(--font-heading)]">
-              Frequently Asked Questions
-            </h2>
-            <span className="h-[1px] bg-slate-200 flex-1"></span>
-          </div>
-
-          <div className="max-w-4xl mx-auto space-y-4">
-            {faqs.map((faq, idx) => (
-              <div key={idx} className="border border-[#E2E8F0] rounded-sm overflow-hidden bg-white shadow-sm">
-                <button 
-                  onClick={() => toggleFaq(idx)}
-                  className="w-full flex items-center justify-between p-5 text-left text-sm font-bold text-[#0B132B] hover:bg-slate-50 transition-colors"
-                >
-                  <span className="flex items-center gap-3">
-                    <HelpCircle size={18} className="text-[#3A86FF]" />
-                    {faq.q}
-                  </span>
-                  {activeFaq === idx ? <Minus size={16} className="text-[#3A86FF]" /> : <Plus size={16} />}
-                </button>
-                
-                {activeFaq === idx && (
-                  <div className="p-5 border-t border-[#E2E8F0] text-xs text-[#0B132B]/75 leading-relaxed bg-[#F8FAFC] transition-all">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
-            ))}
           </div>
         </div>
       </section>

@@ -1,28 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { servicesData, generateSlug } from "../../data/services";
 
 export default function ServicesPage() {
-  const [openFaq, setOpenFaq] = useState(-1);
-
-  const faqs = [
-    {
-      q: "How do you scope a new enterprise implementation project?",
-      a: "We begin with a comprehensive technical discovery phase, assessing your current architecture, defining clear KPIs, and providing a detailed roadmap before any development begins."
-    },
-    {
-      q: "Can you augment our existing internal engineering team?",
-      a: "Absolutely. We offer flexible engagement models, including dedicated pods that integrate directly with your internal sprints, Slack channels, and version control systems."
-    },
-    {
-      q: "What is your approach to security and compliance?",
-      a: "Security is built into our CI/CD pipelines from day one. We adhere to SOC2, HIPAA, and GDPR standards, conducting regular automated and manual penetration testing."
-    }
-  ];
-
   return (
     <main className="min-h-screen bg-white dark:bg-[#0B132B] transition-colors duration-300 pb-20">
       
@@ -84,36 +67,6 @@ export default function ServicesPage() {
               </div>
             );
           })}
-        </div>
-      </section>
-
-      {/* Universal FAQ Accordion */}
-      <section className="max-w-[800px] mx-auto px-8 py-20 bg-[#F4F7FA] dark:bg-[#1C2541] rounded-sm border border-[#E2E8F0] dark:border-[#2D3A54] shadow-sm mb-20">
-        <div className="text-center mb-12">
-           <h2 className="text-3xl font-bold text-[#0B132B] dark:text-white mb-4 font-[family-name:var(--font-heading)]">Frequently Asked Questions</h2>
-           <p className="text-[#0B132B]/50 dark:text-white/40">Everything you need to know about partnering with Antellay.</p>
-        </div>
-        <div className="flex flex-col gap-4">
-          {faqs.map((faq, index) => (
-            <div key={index} className="bg-white dark:bg-[#0B132B] rounded-sm shadow-sm border border-[#E2E8F0] dark:border-[#2D3A54] overflow-hidden">
-              <button 
-                onClick={() => setOpenFaq(openFaq === index ? -1 : index)}
-                className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none hover:bg-[#F4F7FA] dark:hover:bg-[#1C2541] transition-colors"
-              >
-                <span className="font-semibold text-[#0B132B] dark:text-white pr-4">
-                  {faq.q}
-                </span>
-                <div className={`w-8 h-8 rounded-sm bg-[#3A86FF]/10 dark:bg-[#00F5D4]/10 flex items-center justify-center text-[#3A86FF] dark:text-[#00F5D4] shrink-0 transition-transform duration-300 ${openFaq === index ? "rotate-45" : ""}`}>
-                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                </div>
-              </button>
-              <div className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${openFaq === index ? "max-h-96 pb-5 opacity-100" : "max-h-0 opacity-0"}`}>
-                <p className="text-[#0B132B]/70 dark:text-white/70 leading-relaxed border-t border-[#E2E8F0] dark:border-[#2D3A54] pt-4">
-                  {faq.a}
-                </p>
-              </div>
-            </div>
-          ))}
         </div>
       </section>
 

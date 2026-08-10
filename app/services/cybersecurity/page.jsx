@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { 
   CheckCircle2, 
@@ -10,9 +10,6 @@ import {
   Users, 
   Clock, 
   Sparkles,
-  HelpCircle,
-  Plus, 
-  Minus,
   Check,
   TrendingUp,
   Monitor,
@@ -50,12 +47,6 @@ const SplunkLogo = () => <span className="text-[10px] font-bold text-slate-800 d
 const SOCLogo = () => <span className="text-[10px] font-bold text-red-500">SOC</span>;
 
 export default function CybersecurityPage() {
-  const [activeFaq, setActiveFaq] = useState(null);
-
-  const toggleFaq = (index) => {
-    setActiveFaq(activeFaq === index ? null : index);
-  };
-
   const coreServices = [
     {
       title: "Security Assessment",
@@ -128,29 +119,6 @@ export default function CybersecurityPage() {
     { title: "Compliance Ready", desc: "We support global security and compliance standards." },
     { title: "24/7 Monitoring", desc: "Round-the-clock monitoring and threat detection." },
     { title: "Rapid Incident Response", desc: "Quick action to minimize risk and impact." }
-  ];
-
-  const faqs = [
-    {
-      q: "Do you perform penetration testing?",
-      a: "Yes. We offer standard external, internal, API, mobile, and web application penetration testing using black-box, gray-box, and white-box methodologies to uncover security vulnerabilities."
-    },
-    {
-      q: "Can you secure cloud infrastructure?",
-      a: "Absolutely. We specialize in Cloud Security Posture Management (CSPM), configuring AWS IAM policies, KMS encryption, Kubernetes network policies, and multi-region secure firewalls."
-    },
-    {
-      q: "Do you implement IAM & SSO?",
-      a: "Yes. We integrate enterprise identity providers (Okta, Azure AD, Auth0) with custom authentication schemes, multi-factor authentication (MFA), and RBAC least-privilege configurations."
-    },
-    {
-      q: "Which compliance standards do you support?",
-      a: "We support audits and alignments for major compliance standards including SOC2 Type II, ISO/IEC 27001, GDPR, HIPAA, PCI-DSS, and OWASP ASVS guidelines."
-    },
-    {
-      q: "How do you handle security incidents?",
-      a: "We deploy proactive SIEM monitoring, log analyzers, and maintain a 24/7 incident response hot-line to block and isolate infected assets within a 15-minute SLA window."
-    }
   ];
 
 
@@ -483,13 +451,13 @@ export default function CybersecurityPage() {
         </div>
       </section>
 
-      {/* 7. Why Choose Us & FAQs (Side-by-Side) */}
+      {/* 7. Why Choose Us */}
       <section className="py-16 bg-[#F8FAFC] border-b border-[#E2E8F0]">
         <div className="max-w-[1400px] mx-auto px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             
             {/* Why Choose Us */}
-            <div className="lg:col-span-6 space-y-6">
+            <div className="lg:col-span-12 space-y-6">
               <div className="flex items-center gap-3 border-b border-slate-200 pb-3 mb-6">
                 <h3 className="text-base font-extrabold text-[#0B132B] uppercase tracking-wide">
                   Why Choose Antellay
@@ -505,38 +473,6 @@ export default function CybersecurityPage() {
                       <h4 className="text-xs font-black text-[#0B132B]">{item.title}</h4>
                       <p className="text-[10px] text-[#0B132B]/60 leading-relaxed mt-1 font-medium">{item.desc}</p>
                     </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* FAQs */}
-            <div className="lg:col-span-6 bg-white border border-[#E2E8F0] p-6 rounded-sm shadow-sm">
-              <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-6">
-                <h3 className="text-base font-extrabold text-[#0B132B] uppercase tracking-wide">
-                  Frequently Asked Questions
-                </h3>
-              </div>
-              
-              <div className="space-y-4">
-                {faqs.map((faq, idx) => (
-                  <div key={idx} className="border border-[#E2E8F0] rounded-sm overflow-hidden bg-white shadow-sm">
-                    <button 
-                      onClick={() => toggleFaq(idx)}
-                      className="w-full flex items-center justify-between p-4 text-left text-xs font-bold text-[#0B132B] hover:bg-slate-50 transition-colors"
-                    >
-                      <span className="flex items-center gap-3">
-                        <HelpCircle size={16} className="text-[#3A86FF]" />
-                        {faq.q}
-                      </span>
-                      {activeFaq === idx ? <Minus size={14} className="text-[#3A86FF]" /> : <Plus size={14} />}
-                    </button>
-                    
-                    {activeFaq === idx && (
-                      <div className="p-4 border-t border-[#E2E8F0] text-[11px] text-[#0B132B]/75 leading-relaxed bg-[#F8FAFC] transition-all">
-                        {faq.a}
-                      </div>
-                    )}
                   </div>
                 ))}
               </div>

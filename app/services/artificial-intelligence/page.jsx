@@ -21,10 +21,7 @@ import {
   Activity,
   Users,
   Clock,
-  CheckCircle,
-  HelpCircle,
-  Plus,
-  Minus
+  CheckCircle
 } from "lucide-react";
 
 // Original Technology SVGs
@@ -62,8 +59,8 @@ const LangChainLogo = () => (
 const PythonLogo = () => (
   <svg className="w-5 h-5" viewBox="0 0 128 128" fill="none">
     <defs>
-      <linearGradient id="python-original-a" gradientUnits="userSpaceOnUse" x1="70.252" y1="1237.476" x2="170.659" y2="1151.089" gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)"><stop offset="0" stop-color="#5A9FD4"/><stop offset="1" stop-color="#306998"/></linearGradient>
-      <linearGradient id="python-original-b" gradientUnits="userSpaceOnUse" x1="209.474" y1="1098.811" x2="173.62" y2="1149.537" gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)"><stop offset="0" stop-color="#FFD43B"/><stop offset="1" stop-color="#FFE873"/></linearGradient>
+      <linearGradient id="python-original-a" gradientUnits="userSpaceOnUse" x1="70.252" y1="1237.476" x2="170.659" y2="1151.089" gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)"><stop offset="0" stopColor="#5A9FD4"/><stop offset="1" stopColor="#306998"/></linearGradient>
+      <linearGradient id="python-original-b" gradientUnits="userSpaceOnUse" x1="209.474" y1="1098.811" x2="173.62" y2="1149.537" gradientTransform="matrix(.563 0 0 -.568 -29.215 707.817)"><stop offset="0" stopColor="#FFD43B"/><stop offset="1" stopColor="#FFE873"/></linearGradient>
     </defs>
     <path fill="url(#python-original-a)" d="M63.391 1.988c-4.222.02-8.252.379-11.8 1.007-10.45 1.846-12.346 5.71-12.346 12.837v9.411h24.693v3.137H29.977c-7.176 0-13.46 4.313-15.426 12.521-2.268 9.405-2.368 15.275 0 25.096 1.755 7.311 5.947 12.519 13.124 12.519h8.491V67.234c0-8.151 7.051-15.34 15.426-15.34h24.665c6.866 0 12.346-5.654 12.346-12.548V15.833c0-6.693-5.646-11.72-12.346-12.837-4.244-.706-8.645-1.027-12.866-1.008zM50.037 9.557c2.55 0 4.634 2.117 4.634 4.721 0 2.593-2.083 4.69-4.634 4.69-2.56 0-4.633-2.097-4.633-4.69-.001-2.604 2.073-4.721 4.633-4.721z" transform="translate(0 10.26)"/>
     <path fill="url(#python-original-b)" d="M91.682 28.38v10.966c0 8.5-7.208 15.655-15.426 15.655H51.591c-6.756 0-12.346 5.783-12.346 12.549v23.515c0 6.691 5.818 10.628 12.346 12.547 7.816 2.297 15.312 2.713 24.665 0 6.216-1.801 12.346-5.423 12.346-12.547v-9.412H63.938v-3.138h37.012c7.176 0 9.852-5.005 12.348-12.519 2.578-7.735 2.467-15.174 0-25.096-1.774-7.145-5.161-12.521-12.348-12.521h-9.268zM77.809 87.927c2.561 0 4.634 2.097 4.634 4.692 0 2.602-2.074 4.719-4.634 4.719-2.55 0-4.633-2.117-4.633-4.719 0-2.595 2.083-4.692 4.633-4.692z" transform="translate(0 10.26)"/>
@@ -94,9 +91,9 @@ const AWSLogo = () => (
 const AzureLogo = () => (
   <svg className="w-5 h-5" viewBox="0 0 128 128" fill="none">
     <defs>
-      <linearGradient id="azure-original-a" x1="60.919" y1="9.602" x2="18.667" y2="134.423" gradientUnits="userSpaceOnUse"><stop stop-color="#114A8B"/><stop offset="1" stop-color="#0669BC"/></linearGradient>
-      <linearGradient id="azure-original-b" x1="74.117" y1="67.772" x2="64.344" y2="71.076" gradientUnits="userSpaceOnUse"><stop stop-opacity=".3"/><stop offset=".071" stop-opacity=".2"/><stop offset=".321" stop-opacity=".1"/><stop offset=".623" stop-opacity=".05"/><stop offset="1" stop-opacity="0"/></linearGradient>
-      <linearGradient id="azure-original-c" x1="68.742" y1="5.961" x2="115.122" y2="129.525" gradientUnits="userSpaceOnUse"><stop stop-color="#3CCBF4"/><stop offset="1" stop-color="#2892DF"/></linearGradient>
+      <linearGradient id="azure-original-a" x1="60.919" y1="9.602" x2="18.667" y2="134.423" gradientUnits="userSpaceOnUse"><stop stopColor="#114A8B"/><stop offset="1" stopColor="#0669BC"/></linearGradient>
+      <linearGradient id="azure-original-b" x1="74.117" y1="67.772" x2="64.344" y2="71.076" gradientUnits="userSpaceOnUse"><stop stopOpacity=".3"/><stop offset=".071" stopOpacity=".2"/><stop offset=".321" stopOpacity=".1"/><stop offset=".623" stopOpacity=".05"/><stop offset="1" stopOpacity="0"/></linearGradient>
+      <linearGradient id="azure-original-c" x1="68.742" y1="5.961" x2="115.122" y2="129.525" gradientUnits="userSpaceOnUse"><stop stopColor="#3CCBF4"/><stop offset="1" stopColor="#2892DF"/></linearGradient>
     </defs>
     <path d="M46.09.002h40.685L44.541 125.137a6.485 6.485 0 01-6.146 4.413H6.733a6.482 6.482 0 01-5.262-2.699 6.474 6.474 0 01-.876-5.848L39.944 4.414A6.488 6.488 0 0146.09 0z" fill="url(#azure-original-a)" transform="translate(.587 4.468) scale(.91904)"/>
     <path d="M97.28 81.607H37.987a2.743 2.743 0 00-1.874 4.751l38.1 35.562a5.991 5.991 0 004.087 1.61h33.574z" fill="#0078d4"/>
@@ -106,40 +103,46 @@ const AzureLogo = () => (
 );
 
 export default function ArtificialIntelligencePage() {
-  const [activeFaq, setActiveFaq] = useState(null);
-
-  const toggleFaq = (index) => {
-    setActiveFaq(activeFaq === index ? null : index);
-  };
+  const [selectedService, setSelectedService] = useState(null);
 
   const services = [
     {
       title: "AI Agents Development",
       description: "Build custom AI agents that act, learn, and automate complex business processes.",
+      detail: "We design goal-driven AI agents that connect with your business tools, reason through multi-step tasks, and complete workflows with clear controls and human oversight.",
+      benefits: ["Tool and API orchestration", "Human-in-the-loop approvals", "Monitoring, guardrails, and audit trails"],
       icon: Bot,
       slug: "ai-agents-development"
     },
     {
       title: "AI Chatbots",
       description: "Create intelligent chatbots for websites, WhatsApp, and customer support systems.",
+      detail: "Our conversational AI solutions understand context, answer from approved knowledge, qualify leads, and hand complex conversations to your team without losing history.",
+      benefits: ["Website and WhatsApp integration", "Knowledge-grounded responses", "Live-agent handoff and analytics"],
       icon: MessageSquare,
       slug: "ai-chatbots"
     },
     {
       title: "Enterprise AI Automation",
       description: "Automate CRM, HR, finance, workflows and repetitive tasks across your organization.",
+      detail: "We connect AI with your enterprise systems to reduce manual work, standardize decisions, and keep high-volume operational processes moving accurately around the clock.",
+      benefits: ["Cross-system workflow automation", "Document and data processing", "Role-based controls and reporting"],
       icon: Settings,
       slug: "enterprise-enterprise-ai-automation" // Wait, let's verify exact slug in servicesData: "Enterprise AI Automation" is "enterprise-ai-automation"
     },
     {
       title: "Custom AI Solutions",
       description: "Tailor-made AI solutions built to solve your unique business challenges.",
+      detail: "From discovery through deployment, we build AI products around your data, users, compliance needs, and measurable business outcomes—not a one-size-fits-all template.",
+      benefits: ["Custom model and RAG architecture", "Secure enterprise integrations", "Production deployment and optimization"],
       icon: Brain,
       slug: "custom-ai-solutions"
     },
     {
       title: "Voice AI Assistants",
       description: "Human-like voice AI assistants for calls, support, appointments and more.",
+      detail: "Our voice assistants handle natural, real-time conversations for support, bookings, reminders, and outbound workflows while preserving escalation paths to human teams.",
+      benefits: ["Natural multilingual conversations", "Call routing and appointment workflows", "Transcripts, summaries, and quality insights"],
       icon: Mic,
       slug: "voice-ai-assistants"
     }
@@ -218,50 +221,32 @@ export default function ArtificialIntelligencePage() {
     }
   ];
 
-  const faqs = [
-    {
-      question: "What is an AI Agent?",
-      answer: "An AI Agent is an autonomous software system powered by large language models that can perceive its environment, make decisions, use tools, and execute workflows to achieve specific goals with minimal human intervention."
-    },
-    {
-      question: "Can AI integrate with my existing CRM or software?",
-      answer: "Yes, our AI solutions are built to integrate seamlessly with standard enterprise platforms like Salesforce, HubSpot, ServiceNow, as well as proprietary databases and custom internal APIs."
-    },
-    {
-      question: "Do you build custom AI solutions?",
-      answer: "Absolutely. We specialize in designing and developing bespoke AI models, fine-tuning open-source models (like Llama or Mistral), and building custom retrieval-augmented generation (RAG) applications tailored to your specific datasets and operations."
-    },
-    {
-      question: "Which AI models do you support?",
-      answer: "We work with leading commercial and open-source models, including OpenAI GPT-4, Google Gemini, Anthropic Claude, Meta Llama, Mistral AI, and custom fine-tuned transformer architectures based on project requirements."
-    },
-    {
-      question: "How long does it take to build an AI solution?",
-      answer: "A typical Proof of Concept (PoC) takes 4-6 weeks. Full-scale production deployment of an enterprise AI solution usually ranges between 3 to 6 months depending on system complexity, data availability, and integration requirements."
-    },
-    {
-      question: "Is my data secure with ANTELLAY?",
-      answer: "Data security is our top priority. We implement end-to-end encryption, strict access controls, and comply with standard compliance frameworks (GDPR, HIPAA, SOC 2). We also support on-premise or private cloud deployments to ensure your sensitive business data never leaves your secure infrastructure."
-    }
-  ];
-
   // Fix slug for Enterprise AI Automation to match generating scheme
   services[2].slug = "enterprise-ai-automation";
+  const selectedServiceDetails = selectedService === null ? null : services[selectedService];
+  const SelectedServiceIcon = selectedServiceDetails?.icon;
 
   return (
     <main className="min-h-screen bg-white dark:bg-[#0B132B] text-[#0B132B] dark:text-white transition-colors duration-300">
       
       {/* 1. Hero Section (Dark Theme) */}
-      <section className="relative w-full bg-[#0B132B] pt-32 pb-24 overflow-hidden border-b border-[#1C2541]">
-        {/* Glow Effects */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#3A86FF]/10 dark:bg-[#00F5D4]/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#3A86FF]/5 dark:bg-[#3A86FF]/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
-        
-        <div className="max-w-[1400px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section className="relative w-full bg-[#0B132B] pt-12 pb-24 overflow-hidden border-b border-[#1C2541] md:pt-16">
+        {/* AI hero background */}
+        <div className="absolute inset-0">
+          <img
+            src="/images/ai-powered-future-bg.png"
+            alt=""
+            aria-hidden="true"
+            className="h-full w-full object-cover object-center opacity-90"
+          />
+          <div className="absolute inset-0 bg-black/25"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#071127]/75 via-[#071127]/35 to-transparent"></div>
+        </div>
+        <div className="relative z-10 mx-auto grid max-w-[1400px] grid-cols-1 items-center gap-16 px-8 lg:grid-cols-2">
           
           {/* Left Content */}
           <div className="flex flex-col">
-            <span className="text-[#3A86FF] dark:text-[#00F5D4] text-xs font-bold tracking-wider mb-4 uppercase">
+            <span className="text-[#00F5D4] dark:text-[#00F5D4] text-sm font-bold tracking-wider mb-4 uppercase">
               AI Powered Future
             </span>
             <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-[1.1] font-[family-name:var(--font-heading)]">
@@ -272,11 +257,11 @@ export default function ArtificialIntelligencePage() {
             </p>
             
             <div className="flex flex-wrap gap-4 mb-12">
-              <Link href="/contact" className="px-8 py-4 bg-[#3A86FF] dark:bg-[#00F5D4] text-white dark:text-[#0B132B] font-bold rounded-sm hover:opacity-90 transition-opacity flex items-center gap-2 group text-sm shadow-lg shadow-[#3A86FF]/20 dark:shadow-[#00F5D4]/10">
+              <Link href="/contact" className="px-8 py-4 bg-[#00F5D4] text-[#0B132B] font-bold rounded-sm hover:opacity-90 transition-opacity flex items-center gap-2 group text-sm">
                 Get Free Consultation
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link href="/contact" className="px-8 py-4 border border-white/20 text-white font-bold rounded-sm hover:bg-white/5 transition-colors text-sm">
+              <Link href="/contact" className="rounded-sm border border-white bg-white px-8 py-4 text-sm font-bold text-[#0B132B] transition-colors hover:border-[#00F5D4] hover:bg-[#00F5D4] dark:border-white/20 dark:bg-transparent dark:text-white dark:hover:border-white/20 dark:hover:bg-white/5">
                 Talk to AI Expert
               </Link>
             </div>
@@ -284,128 +269,86 @@ export default function ArtificialIntelligencePage() {
             {/* 4 Attributes */}
             <div className="grid grid-cols-2 gap-6 pt-8 border-t border-white/10">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-[#3A86FF]/10 dark:bg-[#00F5D4]/10 rounded-sm flex items-center justify-center text-[#3A86FF] dark:text-[#00F5D4] shrink-0">
+                <div className="w-10 h-10 bg-[#00F5D4]/10 dark:bg-[#00F5D4]/10 rounded-sm flex items-center justify-center text-[#00F5D4] dark:text-[#00F5D4] shrink-0">
                   <Users size={18} />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-white uppercase tracking-wider">AI Experts</h4>
-                  <p className="text-[11px] text-white/50">Certified Team</p>
+                  <h4 className="text-sm font-bold text-white uppercase tracking-wider">AI Experts</h4>
+                  <p className="text-sm text-white/50">Certified Team</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-[#3A86FF]/10 dark:bg-[#00F5D4]/10 rounded-sm flex items-center justify-center text-[#3A86FF] dark:text-[#00F5D4] shrink-0">
+                <div className="w-10 h-10 bg-[#00F5D4]/10 dark:bg-[#00F5D4]/10 rounded-sm flex items-center justify-center text-[#00F5D4] dark:text-[#00F5D4] shrink-0">
                   <Settings size={18} />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-white uppercase tracking-wider">Enterprise Ready</h4>
-                  <p className="text-[11px] text-white/50">Scalable Solutions</p>
+                  <h4 className="text-sm font-bold text-white uppercase tracking-wider">Enterprise Ready</h4>
+                  <p className="text-sm text-white/50">Scalable Solutions</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-[#3A86FF]/10 dark:bg-[#00F5D4]/10 rounded-sm flex items-center justify-center text-[#3A86FF] dark:text-[#00F5D4] shrink-0">
+                <div className="w-10 h-10 bg-[#00F5D4]/10 dark:bg-[#00F5D4]/10 rounded-sm flex items-center justify-center text-[#00F5D4] dark:text-[#00F5D4] shrink-0">
                   <Shield size={18} />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-white uppercase tracking-wider">Secure & Reliable</h4>
-                  <p className="text-[11px] text-white/50">Data Protection</p>
+                  <h4 className="text-sm font-bold text-white uppercase tracking-wider">Secure & Reliable</h4>
+                  <p className="text-sm text-white/50">Data Protection</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-[#3A86FF]/10 dark:bg-[#00F5D4]/10 rounded-sm flex items-center justify-center text-[#3A86FF] dark:text-[#00F5D4] shrink-0">
+                <div className="w-10 h-10 bg-[#00F5D4]/10 dark:bg-[#00F5D4]/10 rounded-sm flex items-center justify-center text-[#00F5D4] dark:text-[#00F5D4] shrink-0">
                   <Clock size={18} />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-white uppercase tracking-wider">24/7 Support</h4>
-                  <p className="text-[11px] text-white/50">Always Available</p>
+                  <h4 className="text-sm font-bold text-white uppercase tracking-wider">24/7 Support</h4>
+                  <p className="text-sm text-white/50">Always Available</p>
                 </div>
               </div>
             </div>
           </div>
-          
-          {/* Right Visual Graphic (Glassmorphism Mockup overlay on Robot Head) */}
-          <div className="relative w-full aspect-square max-w-[550px] mx-auto rounded-sm overflow-hidden flex items-center justify-center group shadow-2xl">
-            {/* Robot Image Background */}
-            <div className="absolute inset-0 bg-[#070b19] select-none">
-              <img 
-                src="/images/robot_ai_head.jpg" 
-                alt="AI Robot Face" 
-                className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700 ease-out" 
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B] via-transparent to-transparent"></div>
-            </div>
-            
-            {/* AI Assistant Chat Box Mockup */}
-            <div className="absolute top-6 left-6 w-[280px] bg-slate-950/75 backdrop-blur-md border border-white/10 rounded-sm p-4 text-white shadow-xl">
-              <div className="flex items-center gap-2 mb-3 border-b border-white/5 pb-2">
-                <div className="w-2.5 h-2.5 rounded-full bg-[#00F5D4] animate-pulse"></div>
-                <span className="text-xs font-bold tracking-wide uppercase">AI Assistant</span>
+
+          {/* AI dashboard cards without the robot/person image */}
+          <div className="relative mx-auto flex aspect-square w-full max-w-[550px] items-center justify-center">
+            <div className="absolute left-6 top-6 w-[280px] rounded-sm border border-white/10 bg-slate-950/80 p-4 text-white shadow-xl backdrop-blur-md">
+              <div className="mb-3 flex items-center gap-2 border-b border-white/5 pb-2">
+                <div className="h-2.5 w-2.5 animate-pulse rounded-full bg-[#00F5D4]"></div>
+                <span className="text-sm font-bold uppercase tracking-wide">AI Assistant</span>
               </div>
-              <p className="text-xs text-white/90 mb-4 leading-relaxed font-semibold">How can I help you today?</p>
+              <p className="mb-4 text-sm font-semibold leading-relaxed text-white/90">How can I help you today?</p>
               <div className="flex flex-col gap-2">
-                <button className="w-full text-left text-[11px] bg-white/5 hover:bg-white/10 border border-white/10 p-2.5 rounded-sm transition-colors text-white/80 hover:text-white font-medium cursor-default">
-                  Analyze sales data
-                </button>
-                <button className="w-full text-left text-[11px] bg-white/5 hover:bg-white/10 border border-white/10 p-2.5 rounded-sm transition-colors text-white/80 hover:text-white font-medium cursor-default">
-                  Generate report
-                </button>
-                <button className="w-full text-left text-[11px] bg-white/5 hover:bg-white/10 border border-white/10 p-2.5 rounded-sm transition-colors text-white/80 hover:text-white font-medium cursor-default">
-                  Automate workflow
-                </button>
+                {["Analyze sales data", "Generate report", "Automate workflow"].map((action) => (
+                  <button key={action} className="w-full cursor-default rounded-sm border border-white/10 bg-white/5 p-2.5 text-left text-sm font-medium text-white/80 transition-colors hover:bg-white/10 hover:text-white">
+                    {action}
+                  </button>
+                ))}
               </div>
             </div>
 
-            {/* Analytics Overview and Circular Gauge Box Mockup */}
-            <div className="absolute bottom-6 right-6 left-6 md:left-auto md:w-[320px] bg-slate-950/75 backdrop-blur-md border border-white/10 rounded-sm p-4 text-white shadow-xl flex gap-4">
-              <div className="flex-1 flex flex-col justify-between">
-                <div>
-                  <span className="text-[10px] text-white/40 uppercase tracking-widest font-bold block mb-2">Analytics Overview</span>
-                  <div className="flex flex-col gap-2.5">
-                    <div>
-                      <span className="text-[10px] text-white/50 block">Total Automation</span>
-                      <span className="text-sm font-black text-[#3A86FF]">1,248</span>
+            <div className="absolute bottom-6 left-6 right-6 flex gap-4 rounded-sm border border-white/10 bg-slate-950/80 p-4 text-white shadow-xl backdrop-blur-md md:left-auto md:w-[320px]">
+              <div className="flex flex-1 flex-col justify-between">
+                <span className="mb-2 block text-sm font-bold uppercase tracking-widest text-white/40">Analytics Overview</span>
+                <div className="flex flex-col gap-2.5">
+                  {[["Total Automation", "1,248"], ["Tasks Completed", "8,567"], ["Time Saved", "2,340 hrs"]].map(([label, value], index) => (
+                    <div key={label}>
+                      <span className="block text-sm text-white/50">{label}</span>
+                      <span className={`text-sm font-black ${index === 0 ? "text-[#00F5D4]" : "text-white"}`}>{value}</span>
                     </div>
-                    <div>
-                      <span className="text-[10px] text-white/50 block">Tasks Completed</span>
-                      <span className="text-sm font-black text-white">8,567</span>
-                    </div>
-                    <div>
-                      <span className="text-[10px] text-white/50 block">Time Saved</span>
-                      <span className="text-sm font-black text-white">2,340 hrs</span>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
-              
-              <div className="w-[100px] shrink-0 flex flex-col items-center justify-center border-l border-white/5 pl-4">
-                <div className="relative w-16 h-16 flex items-center justify-center">
-                  <svg className="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
-                    <path
-                      className="text-white/10"
-                      strokeWidth="3.5"
-                      stroke="currentColor"
-                      fill="none"
-                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                    />
-                    <path
-                      className="text-[#00F5D4]"
-                      strokeDasharray="78, 100"
-                      strokeWidth="3.5"
-                      strokeLinecap="round"
-                      stroke="currentColor"
-                      fill="none"
-                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                    />
+              <div className="flex w-[100px] shrink-0 flex-col items-center justify-center border-l border-white/5 pl-4">
+                <div className="relative flex h-16 w-16 items-center justify-center">
+                  <svg className="h-full w-full -rotate-90" viewBox="0 0 36 36">
+                    <path className="text-white/10" strokeWidth="3.5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                    <path className="text-[#00F5D4]" strokeDasharray="78, 100" strokeWidth="3.5" strokeLinecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
                   </svg>
                   <div className="absolute text-[12px] font-black">78%</div>
                 </div>
-                <span className="text-[10px] text-white/50 mt-2 font-bold tracking-wide">Efficiency</span>
+                <span className="mt-2 text-sm font-bold tracking-wide text-white/50">Efficiency</span>
               </div>
             </div>
-            
-            {/* Grid overlay */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:40px_40px] opacity-[0.03] pointer-events-none"></div>
+
           </div>
-          
         </div>
       </section>
 
@@ -413,7 +356,7 @@ export default function ArtificialIntelligencePage() {
       <section className="bg-white dark:bg-[#0B132B] pt-16 pb-12 border-b border-[#E2E8F0] dark:border-[#1C2541] transition-colors duration-300">
         <div className="max-w-[1400px] mx-auto px-8">
           <div className="text-center mb-16">
-            <span className="text-[#3A86FF] dark:text-[#00F5D4] text-xs font-bold uppercase tracking-wider block mb-2">Our AI Services</span>
+            <span className="text-[#00F5D4] dark:text-[#00F5D4] text-sm font-bold uppercase tracking-wider block mb-2">Our AI Services</span>
             <h2 className="text-3xl md:text-4xl font-black text-[#0B132B] dark:text-white tracking-tight leading-tight font-[family-name:var(--font-heading)]">
               Intelligent Solutions for Modern Businesses
             </h2>
@@ -425,24 +368,64 @@ export default function ArtificialIntelligencePage() {
               return (
                 <div key={index} className="group bg-white dark:bg-[#1C2541] rounded-sm p-6 border border-[#E2E8F0] dark:border-[#2D3A54] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
                   <div>
-                    <div className="w-12 h-12 bg-[#3A86FF]/10 dark:bg-[#00F5D4]/10 rounded-sm flex items-center justify-center text-[#3A86FF] dark:text-[#00F5D4] mb-6 group-hover:scale-110 transition-transform shrink-0">
+                    <div className="w-12 h-12 bg-[#00F5D4]/10 dark:bg-[#00F5D4]/10 rounded-sm flex items-center justify-center text-[#00F5D4] dark:text-[#00F5D4] mb-6 group-hover:scale-110 transition-transform shrink-0">
                       <IconComp size={24} />
                     </div>
                     <h3 className="text-lg font-bold text-[#0B132B] dark:text-white mb-4 leading-snug">
                       {service.title}
                     </h3>
-                    <p className="text-xs text-[#0B132B]/60 dark:text-white/60 leading-relaxed mb-6">
+                    <p className="text-sm text-[#0B132B]/60 dark:text-white/60 leading-relaxed mb-6">
                       {service.description}
                     </p>
                   </div>
-                  <Link href={`/services_pg/${service.slug}`} className="text-xs font-bold text-[#3A86FF] dark:text-[#00F5D4] flex items-center gap-1 hover:opacity-85 transition-opacity group/link">
-                    Learn more
-                    <ArrowRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
-                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedService(selectedService === index ? null : index)}
+                    aria-expanded={selectedService === index}
+                    className="text-sm font-bold text-[#00F5D4] dark:text-[#00F5D4] flex items-center gap-1 hover:opacity-85 transition-opacity group/link text-left"
+                  >
+                    {selectedService === index ? "Hide details" : "Learn more"}
+                    <ArrowRight size={14} className={`transition-transform ${selectedService === index ? "rotate-90" : "group-hover/link:translate-x-1"}`} />
+                  </button>
                 </div>
               );
             })}
           </div>
+
+          {selectedServiceDetails && SelectedServiceIcon && (
+            <div
+              className="mt-8 rounded-sm border border-[#00F5D4]/25 bg-[#F4F7FA] p-6 shadow-lg shadow-[#00F5D4]/5 dark:border-[#00F5D4]/20 dark:bg-[#1C2541] dark:shadow-[#00F5D4]/5 md:p-8"
+              aria-live="polite"
+            >
+              <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+                <div className="flex max-w-3xl gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-sm bg-[#00F5D4]/10 text-[#00F5D4] dark:bg-[#00F5D4]/10 dark:text-[#00F5D4]">
+                    <SelectedServiceIcon size={24} />
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#00F5D4] dark:text-[#00F5D4]">Service details</p>
+                    <h3 className="mt-1 text-2xl font-black text-[#0B132B] dark:text-white">{selectedServiceDetails.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-[#0B132B]/65 dark:text-white/65">{selectedServiceDetails.detail}</p>
+                    <ul className="mt-5 grid gap-3 text-sm text-[#0B132B]/75 dark:text-white/75 sm:grid-cols-3">
+                      {selectedServiceDetails.benefits.map((benefit) => (
+                        <li key={benefit} className="flex items-start gap-2">
+                          <CheckCircle size={16} className="mt-0.5 shrink-0 text-[#00F5D4] dark:text-[#00F5D4]" />
+                          <span>{benefit}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setSelectedService(null)}
+                  className="shrink-0 rounded-sm border border-[#0B132B]/10 px-4 py-2 text-sm font-bold text-[#0B132B] transition hover:border-[#00F5D4] hover:text-[#00F5D4] dark:border-white/15 dark:text-white dark:hover:border-[#00F5D4] dark:hover:text-[#00F5D4]"
+                >
+                  Close details
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -450,7 +433,7 @@ export default function ArtificialIntelligencePage() {
       <section className="bg-white dark:bg-[#0B132B] pt-16 pb-12 border-b border-[#E2E8F0] dark:border-[#1C2541] transition-colors duration-300">
         <div className="max-w-[1400px] mx-auto px-8">
           <div className="text-center mb-16">
-            <span className="text-[#3A86FF] dark:text-[#00F5D4] text-xs font-bold uppercase tracking-wider block mb-2">Industries We Serve</span>
+            <span className="text-[#00F5D4] dark:text-[#00F5D4] text-sm font-bold uppercase tracking-wider block mb-2">Industries We Serve</span>
             <h2 className="text-3xl md:text-4xl font-black text-[#0B132B] dark:text-white tracking-tight leading-tight font-[family-name:var(--font-heading)]">
               AI Solutions for Every Industry
             </h2>
@@ -460,18 +443,18 @@ export default function ArtificialIntelligencePage() {
             {industries.map((ind, index) => {
               const IndIcon = ind.icon;
               return (
-                <div key={index} className="flex flex-col items-center justify-center bg-white dark:bg-[#1C2541] border border-[#E2E8F0] dark:border-[#2D3A54] rounded-sm py-8 px-4 text-center hover:border-[#3A86FF] dark:hover:border-[#00F5D4] hover:shadow-lg transition-all group cursor-pointer">
-                  <div className="text-[#3A86FF] dark:text-[#00F5D4] mb-4 group-hover:scale-110 transition-transform">
+                <div key={index} className="flex flex-col items-center justify-center bg-white dark:bg-[#1C2541] border border-[#E2E8F0] dark:border-[#2D3A54] rounded-sm py-8 px-4 text-center hover:border-[#00F5D4] dark:hover:border-[#00F5D4] hover:shadow-lg transition-all group cursor-pointer">
+                  <div className="text-[#00F5D4] dark:text-[#00F5D4] mb-4 group-hover:scale-110 transition-transform">
                     <IndIcon size={28} />
                   </div>
-                  <span className="text-xs font-bold text-[#0B132B] dark:text-white">{ind.name}</span>
+                  <span className="text-sm font-bold text-[#0B132B] dark:text-white">{ind.name}</span>
                 </div>
               );
             })}
           </div>
           
           <div className="flex justify-center">
-            <Link href="/industries" className="px-6 py-3 border border-[#0B132B]/10 dark:border-white/10 hover:border-[#3A86FF] dark:hover:border-[#00F5D4] hover:text-[#3A86FF] dark:hover:text-[#00F5D4] rounded-sm text-xs font-bold text-[#0B132B] dark:text-white transition-all flex items-center gap-2 group">
+            <Link href="/industries" className="px-6 py-3 border border-[#0B132B]/10 dark:border-white/10 hover:border-[#00F5D4] dark:hover:border-[#00F5D4] hover:text-[#00F5D4] dark:hover:text-[#00F5D4] rounded-sm text-sm font-bold text-[#0B132B] dark:text-white transition-all flex items-center gap-2 group">
               View All Industries
               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </Link>
@@ -483,7 +466,7 @@ export default function ArtificialIntelligencePage() {
       <section className="bg-white dark:bg-[#0B132B] py-12 border-b border-[#E2E8F0] dark:border-[#1C2541] transition-colors duration-300">
         <div className="max-w-[1400px] mx-auto px-8">
           <div className="text-center mb-12">
-            <span className="text-[#3A86FF] dark:text-[#00F5D4] text-xs font-bold uppercase tracking-wider block mb-2">Technologies We Use</span>
+            <span className="text-[#00F5D4] dark:text-[#00F5D4] text-sm font-bold uppercase tracking-wider block mb-2">Technologies We Use</span>
             <h2 className="text-2xl md:text-3xl font-black text-[#0B132B] dark:text-white tracking-tight leading-tight font-[family-name:var(--font-heading)]">
               Powered by Leading AI Technologies
             </h2>
@@ -505,7 +488,7 @@ export default function ArtificialIntelligencePage() {
               return (
                 <div key={index} className="flex items-center gap-2.5 bg-[#F4F7FA] dark:bg-[#1C2541] border border-[#E2E8F0] dark:border-[#2D3A54] px-4 py-2.5 rounded-sm hover:scale-105 transition-transform duration-300 shadow-sm">
                   <LogoComponent />
-                  <span className="text-xs font-bold text-[#0B132B] dark:text-white">{tech.name}</span>
+                  <span className="text-sm font-bold text-[#0B132B] dark:text-white">{tech.name}</span>
                 </div>
               );
             })}
@@ -517,7 +500,7 @@ export default function ArtificialIntelligencePage() {
       <section className="bg-white dark:bg-[#0B132B] pt-16 pb-12 border-b border-[#E2E8F0] dark:border-[#1C2541] transition-colors duration-300">
         <div className="max-w-[1400px] mx-auto px-8">
           <div className="text-center mb-16">
-            <span className="text-[#3A86FF] dark:text-[#00F5D4] text-xs font-bold uppercase tracking-wider block mb-2">Why Choose Antellay</span>
+            <span className="text-[#00F5D4] dark:text-[#00F5D4] text-sm font-bold uppercase tracking-wider block mb-2">Why Choose Antellay</span>
             <h2 className="text-3xl md:text-4xl font-black text-[#0B132B] dark:text-white tracking-tight leading-tight font-[family-name:var(--font-heading)]">
               Why Businesses Choose Us
             </h2>
@@ -528,12 +511,12 @@ export default function ArtificialIntelligencePage() {
               const ReasonIcon = reason.icon;
               return (
                 <div key={index} className="flex gap-4 p-6 bg-white dark:bg-[#1C2541] border border-[#E2E8F0] dark:border-[#2D3A54] rounded-sm hover:shadow-lg transition-shadow">
-                  <div className="w-12 h-12 rounded-sm bg-[#3A86FF]/10 dark:bg-[#00F5D4]/10 text-[#3A86FF] dark:text-[#00F5D4] flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 rounded-sm bg-[#00F5D4]/10 dark:bg-[#00F5D4]/10 text-[#00F5D4] dark:text-[#00F5D4] flex items-center justify-center shrink-0">
                     <ReasonIcon size={24} />
                   </div>
                   <div>
                     <h3 className="font-bold text-base text-[#0B132B] dark:text-white mb-2">{reason.title}</h3>
-                    <p className="text-xs text-[#0B132B]/60 dark:text-white/60 leading-relaxed">{reason.description}</p>
+                    <p className="text-sm text-[#0B132B]/60 dark:text-white/60 leading-relaxed">{reason.description}</p>
                   </div>
                 </div>
               );
@@ -546,7 +529,7 @@ export default function ArtificialIntelligencePage() {
       <section className="bg-white dark:bg-[#0B132B] pt-16 pb-12 border-b border-[#E2E8F0] dark:border-[#1C2541] transition-colors duration-300">
         <div className="max-w-[1400px] mx-auto px-8">
           <div className="text-center mb-16">
-            <span className="text-[#3A86FF] dark:text-[#00F5D4] text-xs font-bold uppercase tracking-wider block mb-2">Our Process</span>
+            <span className="text-[#00F5D4] dark:text-[#00F5D4] text-sm font-bold uppercase tracking-wider block mb-2">Our Process</span>
             <h2 className="text-3xl md:text-4xl font-black text-[#0B132B] dark:text-white tracking-tight leading-tight font-[family-name:var(--font-heading)]">
               Our Proven AI Development Process
             </h2>
@@ -555,15 +538,15 @@ export default function ArtificialIntelligencePage() {
           {/* Timeline Pipeline layout */}
           <div className="relative flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-4 max-w-6xl mx-auto">
             {/* Horizontal Line connector (Visible on large screens) */}
-            <div className="absolute top-12 left-6 right-6 h-[2px] bg-gradient-to-r from-[#3A86FF]/10 via-[#3A86FF]/30 to-[#00F5D4]/20 hidden lg:block -z-10"></div>
+            <div className="absolute top-12 left-6 right-6 h-[2px] bg-gradient-to-r from-[#00F5D4]/10 via-[#00F5D4]/30 to-[#00F5D4]/20 hidden lg:block -z-10"></div>
             
             {processSteps.map((step, index) => {
               const StepIcon = step.icon;
               return (
                 <div key={index} className="flex lg:flex-col items-start lg:items-center gap-4 lg:gap-6 flex-1 text-left lg:text-center w-full group">
                   {/* Circular step badge */}
-                  <div className="relative w-16 h-16 rounded-full bg-white dark:bg-[#1C2541] border-2 border-[#3A86FF] dark:border-[#00F5D4] flex items-center justify-center text-[#3A86FF] dark:text-[#00F5D4] shadow-lg shrink-0 group-hover:scale-110 transition-transform">
-                    <span className="absolute -top-1.5 -right-1.5 bg-[#3A86FF] dark:bg-[#00F5D4] text-white dark:text-[#0B132B] text-[9px] font-black w-5 h-5 rounded-full flex items-center justify-center">
+                  <div className="relative w-16 h-16 rounded-full bg-white dark:bg-[#1C2541] border-2 border-[#00F5D4] dark:border-[#00F5D4] flex items-center justify-center text-[#00F5D4] dark:text-[#00F5D4] shadow-lg shrink-0 group-hover:scale-110 transition-transform">
+                    <span className="absolute -top-1.5 -right-1.5 bg-[#00F5D4] text-[#0B132B] text-[9px] font-black w-5 h-5 rounded-full flex items-center justify-center">
                       {step.number}
                     </span>
                     <StepIcon size={22} />
@@ -572,7 +555,7 @@ export default function ArtificialIntelligencePage() {
                   {/* Step Description */}
                   <div className="flex flex-col lg:items-center">
                     <h3 className="font-bold text-sm text-[#0B132B] dark:text-white mb-2">{step.title}</h3>
-                    <p className="text-[11px] text-[#0B132B]/60 dark:text-white/60 leading-relaxed max-w-[160px]">
+                    <p className="text-sm text-[#0B132B]/60 dark:text-white/60 leading-relaxed max-w-[160px]">
                       {step.description}
                     </p>
                   </div>
@@ -583,79 +566,11 @@ export default function ArtificialIntelligencePage() {
         </div>
       </section>
 
-      {/* 7. FAQ Section */}
-      <section className="bg-white dark:bg-[#0B132B] pt-16 pb-12 border-b border-[#E2E8F0] dark:border-[#1C2541] transition-colors duration-300">
-        <div className="max-w-[1000px] mx-auto px-8">
-          <div className="text-center mb-16">
-            <span className="text-[#3A86FF] dark:text-[#00F5D4] text-xs font-bold uppercase tracking-wider block mb-2">FAQ</span>
-            <h2 className="text-3xl md:text-4xl font-black text-[#0B132B] dark:text-white tracking-tight leading-tight font-[family-name:var(--font-heading)]">
-              Frequently Asked Questions
-            </h2>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-            <div className="flex flex-col gap-4">
-              {faqs.slice(0, 3).map((faq, index) => {
-                const globalIndex = index;
-                const isOpen = activeFaq === globalIndex;
-                return (
-                  <div key={globalIndex} className="bg-white dark:bg-[#1C2541] border border-[#E2E8F0] dark:border-[#2D3A54] rounded-sm overflow-hidden transition-all shadow-sm">
-                    <button 
-                      onClick={() => toggleFaq(globalIndex)}
-                      className="w-full px-6 py-5 text-left flex justify-between items-center gap-4 hover:bg-[#F4F7FA] dark:hover:bg-[#1c2541]/50 transition-colors"
-                    >
-                      <span className="text-xs font-bold text-[#0B132B] dark:text-white leading-snug">{faq.question}</span>
-                      <div className="w-5 h-5 rounded-sm bg-[#3A86FF]/10 dark:bg-[#00F5D4]/10 text-[#3A86FF] dark:text-[#00F5D4] flex items-center justify-center shrink-0">
-                        {isOpen ? <Minus size={12} /> : <Plus size={12} />}
-                      </div>
-                    </button>
-                    {isOpen && (
-                      <div className="px-6 pb-6 pt-2 border-t border-[#E2E8F0]/30 dark:border-[#2D3A54]/30">
-                        <p className="text-[11px] text-[#0B132B]/60 dark:text-white/60 leading-relaxed font-semibold">
-                          {faq.answer}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-            
-            <div className="flex flex-col gap-4">
-              {faqs.slice(3).map((faq, index) => {
-                const globalIndex = index + 3;
-                const isOpen = activeFaq === globalIndex;
-                return (
-                  <div key={globalIndex} className="bg-white dark:bg-[#1C2541] border border-[#E2E8F0] dark:border-[#2D3A54] rounded-sm overflow-hidden transition-all shadow-sm">
-                    <button 
-                      onClick={() => toggleFaq(globalIndex)}
-                      className="w-full px-6 py-5 text-left flex justify-between items-center gap-4 hover:bg-[#F4F7FA] dark:hover:bg-[#1c2541]/50 transition-colors"
-                    >
-                      <span className="text-xs font-bold text-[#0B132B] dark:text-white leading-snug">{faq.question}</span>
-                      <div className="w-5 h-5 rounded-sm bg-[#3A86FF]/10 dark:bg-[#00F5D4]/10 text-[#3A86FF] dark:text-[#00F5D4] flex items-center justify-center shrink-0">
-                        {isOpen ? <Minus size={12} /> : <Plus size={12} />}
-                      </div>
-                    </button>
-                    {isOpen && (
-                      <div className="px-6 pb-6 pt-2 border-t border-[#E2E8F0]/30 dark:border-[#2D3A54]/30">
-                        <p className="text-[11px] text-[#0B132B]/60 dark:text-white/60 leading-relaxed font-semibold">
-                          {faq.answer}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* 8. Call to Action Banner Section */}
       <section className="bg-white dark:bg-[#0B132B] py-12 px-8 transition-colors duration-300">
-        <div className="max-w-[1400px] mx-auto bg-gradient-to-r from-[#030712] via-[#0B132B] to-[#1E293B] rounded-sm border border-[#1E293B] dark:border-[#2D3A54] p-8 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12 relative overflow-hidden shadow-2xl">
+        <div className="max-w-[1400px] mx-auto bg-gradient-to-r from-[#030712] via-[#0B132B] to-[#1E293B] rounded-2xl md:rounded-3xl border border-[#1E293B] dark:border-[#2D3A54] p-8 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12 relative overflow-hidden shadow-2xl">
           {/* Ambient Glows */}
-          <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-[#3A86FF]/10 rounded-full blur-[80px] pointer-events-none"></div>
+          <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-[#00F5D4]/10 rounded-full blur-[80px] pointer-events-none"></div>
           
           <div className="flex flex-col max-w-2xl relative z-10">
             <h2 className="text-3xl md:text-5xl font-black text-white mb-4 tracking-tight leading-tight font-[family-name:var(--font-heading)]">
@@ -665,11 +580,11 @@ export default function ArtificialIntelligencePage() {
               Let's transform your business with intelligent automation and AI-powered innovation.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/contact" className="px-8 py-4 bg-[#3A86FF] dark:bg-[#00F5D4] text-white dark:text-[#0B132B] font-bold rounded-sm hover:opacity-90 transition-opacity flex items-center gap-2 group text-sm shadow-lg shadow-[#3A86FF]/20 dark:shadow-[#00F5D4]/10">
+              <Link href="/contact" className="px-8 py-4 bg-[#00F5D4] text-[#0B132B] font-bold rounded-sm hover:opacity-90 transition-opacity flex items-center gap-2 group text-sm shadow-lg shadow-[#00F5D4]/20">
                 Book Free Consultation
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link href="/contact" className="px-8 py-4 border border-white/20 text-white font-bold rounded-sm hover:bg-white/5 transition-colors text-sm">
+              <Link href="/contact" className="rounded-sm border border-white bg-white px-8 py-4 text-sm font-bold text-[#0B132B] transition-colors hover:border-[#00F5D4] hover:bg-[#00F5D4] dark:border-white/20 dark:bg-transparent dark:text-white dark:hover:border-white/20 dark:hover:bg-white/5">
                 Talk to AI Expert
               </Link>
             </div>
@@ -677,7 +592,7 @@ export default function ArtificialIntelligencePage() {
           
           {/* SVG Brain Neural Graphic */}
           <div className="w-[300px] h-[300px] shrink-0 relative z-10 flex items-center justify-center opacity-80 md:opacity-100">
-            <svg viewBox="0 0 200 200" className="w-full h-full text-[#3A86FF] dark:text-[#00F5D4]">
+            <svg viewBox="0 0 200 200" className="w-full h-full text-[#00F5D4] dark:text-[#00F5D4]">
               {/* Left Hemisphere */}
               <path d="M100,30 C50,30 30,50 30,100 C30,150 50,170 100,170" fill="none" stroke="currentColor" strokeWidth="2.5" strokeDasharray="3 3" />
               {/* Right Hemisphere */}

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { 
   CheckCircle2, 
@@ -10,9 +10,6 @@ import {
   Users, 
   Clock, 
   Sparkles,
-  HelpCircle,
-  Plus, 
-  Minus,
   Check,
   TrendingUp,
   Cpu,
@@ -97,12 +94,6 @@ const NodejsLogo = () => <span className="text-[10px] font-bold text-emerald-600
 const ReactLogo = () => <span className="text-[10px] font-bold text-cyan-400">⚛ React</span>;
 
 export default function BlockchainPage() {
-  const [activeFaq, setActiveFaq] = useState(null);
-
-  const toggleFaq = (index) => {
-    setActiveFaq(activeFaq === index ? null : index);
-  };
-
   const coreServices = [
     {
       title: "Smart Contract Development",
@@ -175,29 +166,6 @@ export default function BlockchainPage() {
     { title: "Scalable Solutions", desc: "High-performance and scalable blockchain applications.", icon: Cpu },
     { title: "Transparent Process", desc: "Agile methodology with clear communication and updates.", icon: Workflow },
     { title: "On-time Delivery", desc: "Committed to quality and timely project delivery.", icon: Clock }
-  ];
-
-  const faqs = [
-    {
-      q: "Which blockchains do you support?",
-      a: "We support major public networks like Ethereum, Polygon, Solana, BNB Chain, Avalanche, Arbitrum, and Optimism. We also build private/consortium setups using Hyperledger Fabric and Enterprise Ethereum."
-    },
-    {
-      q: "Do you develop custom smart contracts?",
-      a: "Yes. We develop customized Solidity and Rust smart contracts tailored to specific workflows. All contracts go through rigorous testing and unit coverage checks before audits."
-    },
-    {
-      q: "Can you build NFT marketplaces?",
-      a: "Absolutely. We construct end-to-end NFT marketplaces containing minting engines, royalty structures, lazy minting configurations, IPFS metadata integration, and custom bids database listings."
-    },
-    {
-      q: "Do you provide tokenization and DeFi solutions?",
-      a: "Yes. We engineer customized tokenomics frameworks, token staking protocols, decentralized liquidity pools, yield-farming systems, and assets tokenization dashboards."
-    },
-    {
-      q: "Do you offer blockchain consulting services?",
-      a: "Yes. Our team assists with feasibility studies, tokenomics consulting, security validation, architecture draft designs, and standard migration paths into Web3 systems."
-    }
   ];
 
   return (
@@ -510,42 +478,6 @@ export default function BlockchainPage() {
                 </div>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* 7. FAQs */}
-      <section className="py-16 bg-white border-b border-[#E2E8F0]">
-        <div className="max-w-[1400px] mx-auto px-8">
-          <div className="flex items-center justify-center gap-4 mb-12">
-            <span className="h-[1px] bg-slate-200 flex-1"></span>
-            <h2 className="text-[#0B132B] text-xl md:text-2xl font-black uppercase tracking-wider shrink-0 font-[family-name:var(--font-heading)]">
-              Frequently Asked Questions
-            </h2>
-            <span className="h-[1px] bg-slate-200 flex-1"></span>
-          </div>
-
-          <div className="max-w-4xl mx-auto space-y-4">
-            {faqs.map((faq, idx) => (
-              <div key={idx} className="border border-[#E2E8F0] rounded-sm overflow-hidden bg-white shadow-sm">
-                <button 
-                  onClick={() => toggleFaq(idx)}
-                  className="w-full flex items-center justify-between p-5 text-left text-sm font-bold text-[#0B132B] hover:bg-slate-50 transition-colors"
-                >
-                  <span className="flex items-center gap-3">
-                    <HelpCircle size={18} className="text-[#3A86FF]" />
-                    {faq.q}
-                  </span>
-                  {activeFaq === idx ? <Minus size={16} className="text-[#3A86FF]" /> : <Plus size={16} />}
-                </button>
-                
-                {activeFaq === idx && (
-                  <div className="p-5 border-t border-[#E2E8F0] text-xs text-[#0B132B]/75 leading-relaxed bg-[#F8FAFC] transition-all">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
-            ))}
           </div>
         </div>
       </section>

@@ -25,7 +25,7 @@ export default function CompactFooter() {
       />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#071126]/78 via-[#071126]/66 to-[#071126]/76" />
       <div className="relative z-10 mx-auto max-w-[1400px] px-6 py-10 sm:px-10 lg:px-16">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-[1.45fr_repeat(4,1fr)]">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-[1.45fr_repeat(4,minmax(0,1fr))]">
           <div className="lg:pr-10">
             <Link href="/" aria-label="Antellay home" className="inline-flex items-center text-3xl font-black tracking-[0.16em] text-white">
               <span className="text-[#00F5D4]" aria-hidden="true">Λ</span>
@@ -71,18 +71,7 @@ export default function CompactFooter() {
               </li>
               <li><Link href="/industries" className="transition hover:text-white">Industries</Link></li>
               <li><Link href="/products" className="transition hover:text-white">Products</Link></li>
-              <li>
-                <details className="group">
-                  <summary className="flex w-fit cursor-pointer list-none items-center gap-1.5 rounded-sm outline-none transition hover:text-white focus-visible:ring-2 focus-visible:ring-[#00F5D4]">
-                    Events
-                    <ChevronDown size={15} strokeWidth={2.25} className="transition-transform duration-200 group-open:rotate-180" aria-hidden="true" />
-                  </summary>
-                  <div className="mt-3 space-y-2 border-l border-white/15 pl-3 text-xs">
-                    <Link href="/events?tab=footprints" className="block hover:text-[#00F5D4]">Event Footprints</Link>
-                    <Link href="/events?tab=collaborations" className="block hover:text-[#00F5D4]">Collaborations</Link>
-                  </div>
-                </details>
-              </li>
+              <li><Link href="/events" className="transition hover:text-white">Events</Link></li>
             </ul>
           </div>
 
@@ -114,6 +103,7 @@ export default function CompactFooter() {
               <li><Link href="/resources/newsletter" className="transition hover:text-white">Newsletter</Link></li>
             </ul>
           </div>
+
         </div>
 
         <div className="mt-8 flex flex-col gap-3 border-t border-white/10 pt-5 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
