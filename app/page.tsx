@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   ArrowUpRight,
   Boxes,
@@ -41,6 +42,18 @@ const partnershipStrengths = [
   ["Continuous improvement", "/images/why-choose/strength-06.png"],
   ["Cost-effective solutions", "/images/why-choose/strength-07.png"],
   ["Data-driven decisions", "/images/why-choose/strength-08.png"],
+] as const;
+
+const trustedClients = [
+  ["Upwork", "/images/trusted-clients/upwork.png"],
+  ["Deloitte", "/images/trusted-clients/deloitte.png"],
+  ["PwC", "/images/trusted-clients/pwc.png"],
+  ["EY", "/images/trusted-clients/ey.png"],
+  ["Forbes", "/images/trusted-clients/forbes.png"],
+  ["Infosys", "/images/trusted-clients/infosys.png"],
+  ["Scale", "/images/trusted-clients/scale.png"],
+  ["Appen", "/images/trusted-clients/appen.png"],
+  ["iMerit", "/images/trusted-clients/imerit.png"],
 ] as const;
 
 export default function Home() {
@@ -130,24 +143,34 @@ export default function Home() {
 
       {/* Trusted Client Logo Marquee */}
       <section
-        className="group overflow-hidden bg-white py-5 transition-colors duration-300 dark:bg-[#0B132B] md:py-7"
+        className="group overflow-hidden bg-white py-7 transition-colors duration-300 dark:bg-[#0B132B] md:py-9"
         aria-label="Organizations we have worked with"
       >
         <div
-          className="flex w-max will-change-transform group-hover:[animation-play-state:paused] motion-reduce:![animation:none]"
-          style={{ animation: "ecosystem-card-scroll 24s linear infinite" }}
+          className="flex w-max gap-3 will-change-transform group-hover:[animation-play-state:paused] motion-reduce:![animation:none]"
+          style={{ animation: "ecosystem-card-scroll 30s linear infinite" }}
         >
           {[false, true].map((isDuplicate) => (
             <div
               key={isDuplicate ? "duplicate" : "primary"}
-              className="w-[max(900px,100vw)] shrink-0 bg-white dark:bg-[#0B132B]"
+              className="flex shrink-0 gap-3"
               aria-hidden={isDuplicate || undefined}
             >
-              <img
-                src="/images/trusted-client-logos.png"
-                alt={isDuplicate ? "" : "AntCare, SAN Florida, Teach For India, Twig Health and University of Maryland"}
-                className="block h-auto w-full mix-blend-multiply dark:opacity-80 dark:invert dark:grayscale dark:brightness-150 dark:mix-blend-screen"
-              />
+              {trustedClients.map(([name, src]) => (
+                <div
+                  key={name}
+                  className="flex h-[92px] w-[210px] shrink-0 items-center justify-center overflow-hidden bg-transparent px-5 py-4 sm:w-[230px]"
+                >
+                  <Image
+                    src={src}
+                    alt={isDuplicate ? "" : `${name} logo`}
+                    width={190}
+                    height={60}
+                    sizes="(max-width: 639px) 170px, 190px"
+                    className="h-full w-full object-contain transition-[filter] duration-300 dark:brightness-0 dark:invert"
+                  />
+                </div>
+              ))}
             </div>
           ))}
         </div>
@@ -162,6 +185,14 @@ export default function Home() {
             alt="Start your personalized IT journey"
             className="journey-banner-image block h-auto w-full object-contain"
           />
+          <Link
+            href="/careers"
+            aria-label="Let's Talk — view careers at Antellay"
+            title="View careers at Antellay"
+            className="absolute left-[84%] top-[55%] z-[3] h-[22%] w-[16%] rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00F5D4] focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#0B132B]"
+          >
+            <span className="sr-only">Let&apos;s Talk — view careers</span>
+          </Link>
         </div>
       </section>
 
@@ -171,7 +202,7 @@ export default function Home() {
           <video
             ref={landingVideoRef}
             className="absolute inset-0 h-full w-full object-cover"
-            src="/videos/our-valued-customers.mp4"
+            src="/videos/home-showcase-2026-08-10.mp4"
             autoPlay
             muted
             loop
@@ -215,7 +246,7 @@ export default function Home() {
 
       {/* Mind Activation Showcase */}
       <section className="bg-white px-4 pb-12 dark:bg-[#0B132B] md:px-8 md:pb-20">
-        <div className="relative mx-auto grid w-full max-w-[1100px] items-center gap-8 overflow-hidden md:grid-cols-[minmax(170px,1fr)_420px_minmax(170px,1fr)]">
+        <div className="relative mx-auto grid w-full max-w-[1100px] items-center gap-8 overflow-visible md:grid-cols-[minmax(170px,1fr)_420px_minmax(170px,1fr)]">
           <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(58,134,255,0.12),transparent_38%)] dark:bg-[radial-gradient(circle_at_center,rgba(0,245,212,0.09),transparent_40%)]" />
 
           <div className="relative z-10 hidden flex-col gap-12 md:flex">
@@ -323,15 +354,7 @@ export default function Home() {
                 <div key={isDuplicate ? "duplicate" : "primary"} className="ecosystem-slider-group" aria-hidden={isDuplicate || undefined}>
                   {ecosystemCompanies.map(([name, description, Icon]) => (
                     <div key={name} className="rounded-xl border border-slate-200 bg-[#f8fafc] p-5 text-center dark:border-white/10 dark:bg-[#111d3a]">
-                      {name === "Antellay" ? (
-                        <Image src="/images/ecosystem/antellay-logo.png" alt="Antellay logo" width={42} height={40} className="mx-auto h-10 w-10 object-contain" />
-                      ) : name === "Grehni AI" ? (
-                        <Image src="/images/ecosystem/grehni-logo.svg" alt="Grehni AI logo" width={40} height={40} className="mx-auto h-10 w-10 rounded-lg object-cover" />
-                      ) : name === "NXTFUND" ? (
-                        <Image src="/images/ecosystem/nxtfund-logo.png" alt="NXTFUND logo" width={78} height={32} className="mx-auto h-10 w-[78px] object-contain" />
-                      ) : (
-                        <Icon size={25} className="mx-auto text-[#3A86FF] dark:text-[#00F5D4]" />
-                      )}
+                      <Icon size={25} className="mx-auto text-[#3A86FF] dark:text-[#00F5D4]" />
                       <h3 className="mt-3 text-sm font-bold">{name}</h3>
                       <p className="mt-1 text-xs leading-5 text-slate-500 dark:text-slate-400">{description}</p>
                     </div>
@@ -357,9 +380,12 @@ export default function Home() {
             <div className="relative z-10 max-w-2xl">
               <h2 className="text-3xl font-bold md:text-5xl">Let&apos;s Build the Future with AI.</h2>
               <p className="mt-4 text-white/65">Ready to transform your business with intelligent solutions?</p>
-              <a href="/contact" className="mt-7 inline-flex items-center gap-2 rounded-lg border border-[#00F5D4]/60 bg-[#00F5D4] px-6 py-3 font-bold text-[#071126] transition hover:bg-white">
+              <Link
+                href="/contact"
+                className="future-ai-cta-button mt-7 inline-flex min-h-12 items-center justify-center gap-2 rounded-lg px-6 py-3 font-bold transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#06173c]"
+              >
                 Book a Free Consultation <ArrowUpRight size={18} />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -583,7 +609,7 @@ export default function Home() {
         <div id="contact" className="cta-banner">
           <div className="cta-content">
             <h2>Make The Move</h2>
-            <button className="btn btn-accent-outline">LET'S COLLABORATE</button>
+            <Link href="/contact" className="btn btn-accent-outline">LET&apos;S COLLABORATE</Link>
           </div>
           <div className="cta-text">
             <span className="reach-out">REACH OUT</span>

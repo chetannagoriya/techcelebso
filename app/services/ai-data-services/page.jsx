@@ -119,8 +119,8 @@ export default function AIDataServicesPage() {
     {
       title: "Dataset Collection",
       description: "Collect diverse and high-quality data from multiple sources including web, sensors, APIs, databases, and real-world environments.",
-      color: "border-blue-500",
-      iconColor: "bg-blue-500",
+      color: "border-[#00F5D4]",
+      iconColor: "bg-[#00F5D4]",
       icon: Database,
       image: "/images/ai_data_hero.jpg"
     },
@@ -170,15 +170,15 @@ export default function AIDataServicesPage() {
   ];
 
   const dataTypes = [
-    { name: "Image Data", icon: ImageIcon },
-    { name: "Video Data", icon: Video },
-    { name: "Text Data", icon: FileText },
-    { name: "Audio Data", icon: Volume2 },
-    { name: "Documents", icon: FileSpreadsheet },
-    { name: "LiDAR Data", icon: Layers },
-    { name: "Satellite Imagery", icon: Globe },
-    { name: "Time-Series Data", icon: Activity },
-    { name: "Sensor Data", icon: Cpu }
+    { name: "Image Data", desc: "Photos, medical scans and visual datasets.", icon: ImageIcon },
+    { name: "Video Data", desc: "Frames, object tracks and activity footage.", icon: Video },
+    { name: "Text Data", desc: "Documents, conversations and language corpora.", icon: FileText },
+    { name: "Audio Data", desc: "Speech, sound events and voice recordings.", icon: Volume2 },
+    { name: "Documents", desc: "Forms, invoices, PDFs and structured records.", icon: FileSpreadsheet },
+    { name: "LiDAR Data", desc: "3D point clouds and spatial measurements.", icon: Layers },
+    { name: "Satellite Imagery", desc: "Earth observation and remote-sensing data.", icon: Globe },
+    { name: "Time-Series Data", desc: "Sequential metrics, trends and telemetry.", icon: Activity },
+    { name: "Sensor Data", desc: "IoT, automotive and industrial device streams.", icon: Cpu }
   ];
 
   const lifecycleSteps = [
@@ -227,13 +227,13 @@ export default function AIDataServicesPage() {
             {/* Left text column */}
             <div className="lg:col-span-5 flex flex-col gap-6">
               <div>
-                <span className="text-[#3A86FF] text-xs font-bold uppercase tracking-widest block mb-3 bg-[#3A86FF]/10 px-3 py-1 rounded-full w-fit">
+                <span className="mb-3 block w-fit rounded-full bg-[#00F5D4]/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-[#00F5D4]">
                   AI Data Services
                 </span>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.08] tracking-tight font-[family-name:var(--font-heading)]">
                   AI Data Services
                 </h1>
-                <h2 className="text-lg md:text-xl font-bold text-[#70EEFF] mt-3 leading-snug">
+                <h2 className="mt-3 text-lg font-bold leading-snug text-[#00F5D4] md:text-xl">
                   Build High-Quality AI Datasets That Power Smarter Machine Learning Models
                 </h2>
               </div>
@@ -242,10 +242,10 @@ export default function AIDataServicesPage() {
               </p>
               
               <div className="flex flex-wrap gap-4 mt-2">
-                <Link href="/contact" className="px-6 py-3.5 bg-[#3A86FF] hover:bg-[#3A86FF]/90 text-white text-sm font-bold rounded-sm shadow-lg shadow-[#3A86FF]/20 transition-all hover:-translate-y-0.5">
+                <Link href="/contact" className="rounded-sm bg-[#00F5D4] px-6 py-3.5 text-sm font-bold text-[#0B132B] shadow-lg shadow-[#00F5D4]/20 transition-all hover:-translate-y-0.5 hover:bg-white">
                   Get Free Consultation →
                 </Link>
-                <Link href="/contact" className="px-6 py-3.5 bg-transparent border border-slate-500 hover:border-white text-white text-sm font-bold rounded-sm transition-all hover:bg-white/5">
+                <Link href="/contact" className="ai-data-request-button rounded-sm border border-white bg-white px-6 py-3.5 text-sm font-bold text-[#0B132B] shadow-lg transition-all hover:-translate-y-0.5 hover:border-[#00F5D4] hover:bg-[#00F5D4]">
                   Request Sample Dataset
                 </Link>
               </div>
@@ -272,7 +272,7 @@ export default function AIDataServicesPage() {
 
             {/* Right mockup column: Dataset Pipeline */}
             <div className="lg:col-span-7">
-              <div className="bg-[#0F172A] border border-slate-800 rounded-sm shadow-2xl p-4 md:p-6 text-white overflow-hidden group">
+              <div className="group overflow-hidden rounded-sm border border-white/15 bg-[rgba(15,23,42,.72)] p-4 text-white shadow-2xl backdrop-blur-sm md:p-6">
                 
                 {/* Title */}
                 <div className="flex items-center justify-between border-b border-slate-850 pb-3 mb-4">
@@ -294,7 +294,7 @@ export default function AIDataServicesPage() {
                     ].map((step, idx) => (
                       <div key={idx} className="flex gap-2 items-start text-left">
                         <span className={`w-3.5 h-3.5 rounded-full shrink-0 flex items-center justify-center text-[8px] mt-0.5 font-bold ${
-                          step.status === "done" ? "bg-[#3A86FF] text-white" :
+                          step.status === "done" ? "bg-[#00F5D4] text-[#0B132B]" :
                           step.status === "active" ? "bg-[#00F5D4] text-slate-900" : "bg-slate-800 text-slate-500"
                         }`}>
                           {step.status === "done" ? "✓" : idx + 1}
@@ -329,14 +329,14 @@ export default function AIDataServicesPage() {
                       <span className="text-[7.5px] text-slate-400 font-bold block uppercase">Data Growth</span>
                       <svg className="w-full h-14 mt-1 overflow-visible" viewBox="0 0 100 40">
                         <path d="M 0 35 Q 15 15, 30 25 T 60 10 T 95 5 L 95 40 L 0 40 Z" fill="rgba(58, 134, 255, 0.08)" />
-                        <path d="M 0 35 Q 15 15, 30 25 T 60 10 T 95 5" fill="none" stroke="#3A86FF" strokeWidth="1.5" />
+                        <path d="M 0 35 Q 15 15, 30 25 T 60 10 T 95 5" fill="none" stroke="#00F5D4" strokeWidth="1.5" />
                         <circle cx="60" cy="10" r="2" fill="#00F5D4" />
                       </svg>
                     </div>
 
                     {/* Donut distribution */}
                     <div className="bg-slate-900 border border-slate-800 p-2 rounded-sm flex items-center justify-between gap-2">
-                      <div className="relative w-10 h-10 rounded-full border-4 border-slate-800 flex items-center justify-center" style={{ borderTopColor: "#3A86FF", borderRightColor: "#00F5D4", borderBottomColor: "#FBBC05" }}>
+                      <div className="relative w-10 h-10 rounded-full border-4 border-slate-800 flex items-center justify-center" style={{ borderTopColor: "#00F5D4", borderRightColor: "#00A98F", borderBottomColor: "#FBBC05" }}>
                         <span className="text-[7px] font-bold text-white">MOD</span>
                       </div>
                       <div className="text-[7px] text-slate-400 flex-1 grid grid-cols-2 gap-x-2 gap-y-0.5 leading-normal">
@@ -373,8 +373,8 @@ export default function AIDataServicesPage() {
                     {/* Bar evaluation */}
                     <div className="flex items-end justify-between h-10 gap-1.5 px-1 py-1">
                       <div className="w-1.5 bg-slate-800 h-[40%] rounded-t-sm"></div>
-                      <div className="w-1.5 bg-[#3A86FF] h-[65%] rounded-t-sm"></div>
-                      <div className="w-1.5 bg-[#3A86FF] h-[80%] rounded-t-sm"></div>
+                      <div className="w-1.5 bg-[#00A98F] h-[65%] rounded-t-sm"></div>
+                      <div className="w-1.5 bg-[#00F5D4] h-[80%] rounded-t-sm"></div>
                       <div className="w-1.5 bg-[#00F5D4] h-[95%] rounded-t-sm"></div>
                     </div>
 
@@ -419,7 +419,7 @@ export default function AIDataServicesPage() {
                   <div className="flex flex-1 flex-col p-5">
                     <h3 className="mb-2 text-lg font-extrabold text-[#0B132B]">{service.title}</h3>
                     <p className="mb-6 text-sm leading-6 text-[#0B132B]/60">{service.description}</p>
-                    <Link href="/contact" className="mt-auto inline-flex items-center gap-1.5 border-t border-[#E2E8F0] pt-4 text-sm font-bold text-[#3A86FF] transition-all group-hover:gap-2">
+                    <Link href="/contact" className="mt-auto inline-flex items-center gap-1.5 border-t border-[#E2E8F0] pt-4 text-sm font-bold text-[#00A98F] transition-all group-hover:gap-2 dark:text-[#00F5D4]">
                     Learn more <ArrowRight size={14} />
                     </Link>
                   </div>
@@ -445,8 +445,8 @@ export default function AIDataServicesPage() {
             {domains.map((dom, idx) => {
               const DomIcon = dom.icon;
               return (
-                <div key={idx} className="bg-[#F8FAFC] border border-[#E2E8F0] p-4 rounded-sm text-center flex flex-col items-center gap-3 hover:border-[#3A86FF] hover:bg-white hover:shadow-md transition-all duration-200">
-                  <div className="text-[#3A86FF]">
+                <div key={idx} className="bg-[#F8FAFC] border border-[#E2E8F0] p-4 rounded-sm text-center flex flex-col items-center gap-3 hover:border-[#00F5D4] hover:bg-white hover:shadow-md transition-all duration-200">
+                  <div className="text-[#00A98F] dark:text-[#00F5D4]">
                     <DomIcon size={22} />
                   </div>
                   <h4 className="text-[11px] font-bold text-[#0B132B] leading-tight">{dom.name}</h4>
@@ -468,14 +468,19 @@ export default function AIDataServicesPage() {
             <span className="h-[1px] flex-1 bg-slate-300"></span>
           </div>
 
-          <div className="mx-auto flex max-w-6xl flex-wrap gap-3 pt-2 lg:flex-nowrap">
+          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-5 pt-2 sm:grid-cols-2 lg:grid-cols-3">
             {dataTypes.map((dt, idx) => {
               const DtIcon = dt.icon;
               return (
-                <div key={idx} className="group flex min-h-[76px] w-[calc(50%-6px)] min-w-0 items-center justify-center gap-2 rounded-xl border border-[#E2E8F0] bg-white px-3 py-4 text-center text-sm font-bold text-[#0B132B] shadow-sm transition-all hover:-translate-y-1 hover:border-[#00F5D4] hover:shadow-md sm:w-[calc(33.333%-8px)] lg:flex-1">
-                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-[#00F5D4]/12 text-[#00A98F] transition group-hover:bg-[#00F5D4] group-hover:text-[#0B132B]"><DtIcon size={19}/></span>
-                  {dt.name}
-                </div>
+                <article key={idx} className="group relative flex min-h-[165px] items-start gap-4 overflow-hidden rounded-xl border border-[#E2E8F0] bg-white p-5 text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#00F5D4]/75 hover:shadow-lg">
+                  <span className="absolute -right-8 -top-8 h-20 w-20 rounded-full bg-[#00F5D4]/10 transition-transform duration-500 group-hover:scale-150"></span>
+                  <span className="relative grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-[#081126] text-[#00F5D4] transition group-hover:bg-[#00F5D4] group-hover:text-[#0B132B]"><DtIcon size={21}/></span>
+                  <div className="relative pt-1">
+                    <h3 className="text-base font-extrabold text-[#0B132B]">{dt.name}</h3>
+                    <p className="mt-2 text-sm font-medium leading-6 text-[#0B132B]/60">{dt.desc}</p>
+                    <span className="mt-4 block h-0.5 w-8 rounded-full bg-[#00F5D4] transition-all group-hover:w-14"></span>
+                  </div>
+                </article>
               );
             })}
           </div>
@@ -543,7 +548,7 @@ export default function AIDataServicesPage() {
             </div>
 
             {/* Tech Stack */}
-            <div className="order-1 bg-white border border-[#E2E8F0] p-6 rounded-sm shadow-sm md:p-8">
+            <div className="order-1 rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-sm md:p-8">
               <div className="mb-8 flex items-center justify-center gap-4">
                 <span className="h-[1px] flex-1 bg-slate-300"></span>
                 <h2 className="shrink-0 text-center text-xl font-black uppercase tracking-wider text-[#0B132B] md:text-2xl">
@@ -551,11 +556,11 @@ export default function AIDataServicesPage() {
                 </h2>
                 <span className="h-[1px] flex-1 bg-slate-300"></span>
               </div>
-              <div className="flex flex-wrap gap-4 pt-2 lg:flex-nowrap">
+              <div className="grid grid-cols-2 gap-4 pt-2 md:grid-cols-4">
                 {technologies.map((technology) => (
-                  <article key={technology.name} className="group flex min-h-[165px] w-[calc(50%-8px)] min-w-0 flex-col items-center justify-center rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] p-4 text-center transition-all duration-300 hover:-translate-y-1 hover:border-[#00F5D4]/70 hover:bg-white hover:shadow-lg sm:w-[calc(33.333%-11px)] lg:flex-1">
-                    <span className="ai-platform-logo grid h-16 w-24 place-items-center overflow-hidden rounded-lg bg-white p-2.5 shadow-sm ring-1 ring-slate-100 transition-transform duration-300 group-hover:scale-105">
-                      <NextImage src={technology.logo} alt={`${technology.name} logo`} width={88} height={56} className="h-full w-full object-contain"/>
+                  <article key={technology.name} className="group flex min-h-[195px] min-w-0 flex-col items-center justify-center rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-[#00F5D4]/70 hover:bg-white hover:shadow-lg">
+                    <span className="ai-platform-logo grid h-20 w-full max-w-[180px] place-items-center overflow-hidden rounded-xl bg-white p-3 shadow-sm ring-1 ring-slate-100 transition-transform duration-300 group-hover:scale-[1.03]">
+                      <NextImage src={technology.logo} alt={`${technology.name} logo`} width={128} height={128} className="max-h-14 w-auto max-w-full object-contain"/>
                     </span>
                     <h3 className="mt-4 text-sm font-extrabold text-[#0B132B]">{technology.name}</h3>
                     <p className="mt-1 text-[10px] font-bold uppercase tracking-wide text-[#00A98F]">{technology.category}</p>
@@ -571,7 +576,7 @@ export default function AIDataServicesPage() {
       {/* 8. CTA Banner */}
       <section className="py-12 bg-white">
         <div className="max-w-[1400px] mx-auto px-8">
-          <div className="bg-[#0A1128] border border-slate-800 rounded-sm relative overflow-hidden p-8 md:p-12 flex flex-col md:flex-row justify-between items-center gap-8 shadow-2xl">
+          <div className="relative isolate flex min-h-[275px] flex-col items-center justify-between gap-8 overflow-hidden rounded-2xl border border-slate-800 bg-[#0A1128] p-8 shadow-2xl md:min-h-[310px] md:flex-row md:p-12">
             
             {/* Visual background */}
             <div className="absolute inset-0 -z-10 opacity-30">
@@ -593,10 +598,10 @@ export default function AIDataServicesPage() {
             </div>
 
             <div className="flex flex-wrap gap-4 shrink-0">
-              <Link href="/contact" className="px-6 py-3.5 bg-[#3A86FF] hover:bg-[#3A86FF]/90 text-white text-sm font-bold rounded-sm shadow-lg shadow-[#3A86FF]/20 transition-all hover:-translate-y-0.5">
+              <Link href="/contact" className="rounded-sm bg-[#00F5D4] px-6 py-3.5 text-sm font-bold text-[#0B132B] shadow-lg shadow-[#00F5D4]/20 transition-all hover:-translate-y-0.5 hover:bg-white">
                 Book Free Consultation →
               </Link>
-              <Link href="/contact" className="px-6 py-3.5 bg-transparent border border-slate-600 hover:border-white text-white text-sm font-bold rounded-sm transition-all hover:bg-white/5">
+              <Link href="/contact" className="ai-data-cta-secondary rounded-sm border border-white bg-white px-6 py-3.5 text-sm font-bold text-[#0B132B] transition-all hover:-translate-y-0.5 hover:bg-[#00F5D4]">
                 Contact AI Data Team
               </Link>
             </div>

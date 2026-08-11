@@ -179,12 +179,12 @@ export default function CloudInfrastructurePage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white transition-colors duration-300 font-[family-name:var(--font-sans)]">
+    <main className="service-modern-page min-h-screen bg-white transition-colors duration-300 font-[family-name:var(--font-sans)]">
       
       {/* 1. Hero Section */}
-      <section className="relative pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden bg-[#0A1128]">
+      <section className="relative pt-10 pb-12 md:pt-14 md:pb-16 overflow-hidden bg-[#0A1128]">
         {/* Glow pathways */}
-        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#3A86FF]/10 blur-[120px] pointer-events-none"></div>
+        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#00A98F]/10 blur-[120px] pointer-events-none"></div>
         <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-[#00F5D4]/10 blur-[100px] pointer-events-none"></div>
         
         <div className="max-w-[1400px] mx-auto px-8 relative z-10">
@@ -193,12 +193,12 @@ export default function CloudInfrastructurePage() {
             {/* Left text context */}
             <div className="lg:col-span-6 flex flex-col gap-6">
               <div>
-                <span className="text-[#3A86FF] text-xs font-bold uppercase tracking-widest block mb-3 bg-[#3A86FF]/10 px-3 py-1 rounded-full w-fit">
+                <span className="text-[#00A98F] text-xs font-bold uppercase tracking-widest block mb-3 bg-[#00A98F]/10 px-3 py-1 rounded-full w-fit">
                   Cloud & Infrastructure Services
                 </span>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.08] tracking-tight font-[family-name:var(--font-heading)]">
                   Cloud & Infrastructure <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3A86FF] via-[#70EEFF] to-[#00F5D4]">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00A98F] via-[#70EEFF] to-[#00F5D4]">
                     Services
                   </span>
                 </h1>
@@ -211,7 +211,7 @@ export default function CloudInfrastructurePage() {
               </p>
               
               <div className="flex flex-wrap gap-4 mt-2">
-                <Link href="/contact" className="px-6 py-3.5 bg-[#3A86FF] hover:bg-[#3A86FF]/90 text-white text-sm font-bold rounded-sm shadow-lg shadow-[#3A86FF]/20 transition-all hover:-translate-y-0.5">
+                <Link href="/contact" className="px-6 py-3.5 bg-[#00A98F] hover:bg-[#00A98F]/90 text-white text-sm font-bold rounded-sm shadow-lg shadow-[#00A98F]/20 transition-all hover:-translate-y-0.5">
                   Book Free Consultation
                 </Link>
                 <Link href="/contact" className="group flex items-center gap-2 px-6 py-3.5 bg-transparent border border-slate-500 hover:border-white text-white text-sm font-bold rounded-sm transition-all hover:bg-white/5">
@@ -266,22 +266,22 @@ export default function CloudInfrastructurePage() {
 
                   {/* SVG Nodes */}
                   <svg className="absolute inset-0 w-full h-full z-10 pointer-events-none" viewBox="0 0 200 150">
-                    <circle cx="100" cy="75" r="22" fill="none" stroke="#3A86FF" strokeWidth="1.5" className="animate-pulse" />
-                    <circle cx="100" cy="75" r="16" fill="rgba(58, 134, 255, 0.15)" stroke="#3A86FF" strokeWidth="2" />
+                    <circle cx="100" cy="75" r="22" fill="none" stroke="#00A98F" strokeWidth="1.5" className="animate-pulse" />
+                    <circle cx="100" cy="75" r="16" fill="rgba(58, 134, 255, 0.15)" stroke="#00A98F" strokeWidth="2" />
                     <path d="M93 75 Q100 68 107 75" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
                     <path d="M96 78 H104" fill="none" stroke="#fff" strokeWidth="2" />
 
                     {/* Nodes lines */}
                     <line x1="100" y1="53" x2="100" y2="25" stroke="#00F5D4" strokeWidth="1" strokeDasharray="3 2" />
                     <line x1="100" y1="97" x2="100" y2="125" stroke="#00F5D4" strokeWidth="1" strokeDasharray="3 2" />
-                    <line x1="78" y1="75" x2="35" y2="75" stroke="#3A86FF" strokeWidth="1" />
-                    <line x1="122" y1="75" x2="165" y2="75" stroke="#3A86FF" strokeWidth="1" />
+                    <line x1="78" y1="75" x2="35" y2="75" stroke="#00A98F" strokeWidth="1" />
+                    <line x1="122" y1="75" x2="165" y2="75" stroke="#00A98F" strokeWidth="1" />
 
                     {/* Outer Node circles */}
                     <circle cx="100" cy="25" r="8" fill="#0F172A" stroke="#00F5D4" strokeWidth="1.5" />
                     <circle cx="100" cy="125" r="8" fill="#0F172A" stroke="#00F5D4" strokeWidth="1.5" />
-                    <circle cx="35" cy="75" r="8" fill="#0F172A" stroke="#3A86FF" strokeWidth="1.5" />
-                    <circle cx="165" cy="75" r="8" fill="#0F172A" stroke="#3A86FF" strokeWidth="1.5" />
+                    <circle cx="35" cy="75" r="8" fill="#0F172A" stroke="#00A98F" strokeWidth="1.5" />
+                    <circle cx="165" cy="75" r="8" fill="#0F172A" stroke="#00A98F" strokeWidth="1.5" />
 
                     {/* Symbols inside outer nodes */}
                     <path d="M98 25 H102" stroke="#fff" strokeWidth="1" />
@@ -347,13 +347,13 @@ export default function CloudInfrastructurePage() {
                     <ul className="space-y-1.5 mb-6">
                       {service.bullets.map((bullet, i) => (
                         <li key={i} className="flex items-center gap-2 text-xs text-[#0B132B]/85 font-medium">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#3A86FF]"></span>
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#00A98F]"></span>
                           {bullet}
                         </li>
                       ))}
                     </ul>
                   </div>
-                  <Link href="/contact" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#3A86FF] hover:underline group-hover:gap-2 transition-all">
+                  <Link href="/contact" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00A98F] hover:underline group-hover:gap-2 transition-all">
                     Learn more <ArrowRight size={14} />
                   </Link>
                 </div>
@@ -434,11 +434,11 @@ export default function CloudInfrastructurePage() {
             {workflowSteps.map((wf, idx) => {
               const WfIcon = wf.icon;
               return (
-                <div key={idx} className="flex flex-col items-center text-center bg-[#F8FAFC] border border-[#E2E8F0] p-4 rounded-sm hover:border-[#3A86FF] hover:bg-white hover:shadow-md transition-all duration-200 group">
-                  <div className="w-10 h-10 rounded-full bg-white border border-[#E2E8F0] shadow-sm flex items-center justify-center text-[#3A86FF] group-hover:bg-[#3A86FF] group-hover:text-white transition-colors duration-300">
+                <div key={idx} className="flex flex-col items-center text-center bg-[#F8FAFC] border border-[#E2E8F0] p-4 rounded-sm hover:border-[#00A98F] hover:bg-white hover:shadow-md transition-all duration-200 group">
+                  <div className="w-10 h-10 rounded-full bg-white border border-[#E2E8F0] shadow-sm flex items-center justify-center text-[#00A98F] group-hover:bg-[#00A98F] group-hover:text-white transition-colors duration-300">
                     <WfIcon size={18} />
                   </div>
-                  <span className="text-[9px] font-black text-[#3A86FF] mt-3">STEP {wf.step}</span>
+                  <span className="text-[9px] font-black text-[#00A98F] mt-3">STEP {wf.step}</span>
                   <h4 className="text-xs font-bold text-[#0B132B] mt-1">{wf.name}</h4>
                   <p className="text-[9px] text-[#0B132B]/50 mt-1 leading-normal">{wf.desc}</p>
                 </div>
@@ -463,7 +463,7 @@ export default function CloudInfrastructurePage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {whyChooseUs.map((item, idx) => (
                   <div key={idx} className="flex gap-3 text-left">
-                    <div className="w-8 h-8 rounded-sm bg-white border border-[#E2E8F0] flex items-center justify-center text-[#3A86FF] shrink-0 shadow-sm">
+                    <div className="w-8 h-8 rounded-sm bg-white border border-[#E2E8F0] flex items-center justify-center text-[#00A98F] shrink-0 shadow-sm">
                       <CheckCircle2 size={16} />
                     </div>
                     <div>
@@ -485,8 +485,8 @@ export default function CloudInfrastructurePage() {
               
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
                 {stats.map((stat, idx) => (
-                  <div key={idx} className="bg-[#F8FAFC] border border-[#E2E8F0] p-5 rounded-sm text-center shadow-sm hover:border-[#3A86FF] transition-all">
-                    <h3 className="text-2xl md:text-3xl font-black text-[#3A86FF] tracking-tight">{stat.val}</h3>
+                  <div key={idx} className="bg-[#F8FAFC] border border-[#E2E8F0] p-5 rounded-sm text-center shadow-sm hover:border-[#00A98F] transition-all">
+                    <h3 className="text-2xl md:text-3xl font-black text-[#00A98F] tracking-tight">{stat.val}</h3>
                     <p className="text-[9px] text-[#0B132B]/50 font-extrabold uppercase mt-1 leading-tight">{stat.label}</p>
                   </div>
                 ))}
@@ -522,7 +522,7 @@ export default function CloudInfrastructurePage() {
             </div>
 
             <div className="flex flex-wrap gap-4 shrink-0">
-              <Link href="/contact" className="px-6 py-3.5 bg-[#3A86FF] hover:bg-[#3A86FF]/90 text-white text-sm font-bold rounded-sm shadow-lg shadow-[#3A86FF]/20 transition-all hover:-translate-y-0.5">
+              <Link href="/contact" className="px-6 py-3.5 bg-[#00A98F] hover:bg-[#00A98F]/90 text-white text-sm font-bold rounded-sm shadow-lg shadow-[#00A98F]/20 transition-all hover:-translate-y-0.5">
                 Book Free Consultation
               </Link>
               <Link href="/contact" className="px-6 py-3.5 bg-transparent border border-slate-600 hover:border-white text-white text-sm font-bold rounded-sm transition-all hover:bg-white/5">

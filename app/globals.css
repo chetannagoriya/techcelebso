@@ -148,6 +148,22 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(0, 245, 212, 0.1);
 }
 
+.future-ai-cta-button,
+.dark .future-ai-cta-button {
+  border: 1px solid #00d9bc !important;
+  background: #00f5d4 !important;
+  color: #071126 !important;
+  box-shadow: 0 12px 28px rgba(0, 168, 145, 0.25);
+}
+
+.future-ai-cta-button:hover,
+.dark .future-ai-cta-button:hover {
+  border-color: #ffffff !important;
+  background: #ffffff !important;
+  color: #071126 !important;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.24);
+}
+
 
 /* Header */
 .navbar {
@@ -2090,6 +2106,31 @@ a.contact-option-card:hover {
   --tw-ring-color: rgba(255, 255, 255, 0.12);
 }
 
+.dark .ai-data-services-page .ai-data-cta-secondary {
+  border-color: rgba(255, 255, 255, 0.55);
+  background: transparent;
+  color: #fff;
+}
+
+.dark .ai-data-services-page .ai-data-cta-secondary:hover {
+  border-color: #00f5d4;
+  background: #00f5d4;
+  color: #0b132b;
+}
+
+.dark .ai-data-services-page .ai-data-request-button {
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(8, 17, 38, 0.45);
+  color: #fff;
+  backdrop-filter: blur(8px);
+}
+
+.dark .ai-data-services-page .ai-data-request-button:hover {
+  border-color: #00f5d4;
+  background: #00f5d4;
+  color: #0b132b;
+}
+
 /* Keep the dense dashboard aesthetic readable without a zoomed-out feel. */
 .ai-data-services-page section:not(:first-child) .text-xs {
   font-size: 0.875rem;
@@ -2121,5 +2162,120 @@ a.contact-option-card:hover {
 @media (prefers-reduced-motion: reduce) {
   .gis-logo-marquee-track {
     animation-play-state: paused;
+  }
+}
+
+/* Shared finish for the remaining service detail pages. */
+.service-modern-page {
+  color: #0b132b;
+}
+
+.service-modern-page > section:first-child {
+  border-bottom: 1px solid rgba(0, 245, 212, 0.22);
+}
+
+.service-modern-page > section:not(:first-child) {
+  transition: background-color 300ms ease, border-color 300ms ease;
+}
+
+.service-modern-page > section:not(:first-child) .text-xs {
+  font-size: 0.875rem;
+  line-height: 1.35rem;
+}
+
+.service-modern-page > section:not(:first-child) [class~="text-[9px]"],
+.service-modern-page > section:not(:first-child) [class~="text-[10px]"],
+.service-modern-page > section:not(:first-child) [class~="text-[11px]"] {
+  font-size: 0.8125rem;
+  line-height: 1.2rem;
+}
+
+.service-modern-page > section:not(:first-child) [class~="bg-white"][class*="border"] {
+  box-shadow: 0 1px 2px rgb(15 23 42 / 0.04);
+}
+
+.service-modern-page > section:not(:first-child) [class~="bg-white"][class*="border"]:hover {
+  box-shadow: 0 16px 34px rgb(15 23 42 / 0.09);
+}
+
+.dark .service-modern-page,
+.dark .service-modern-page [class~="bg-white"] {
+  background-color: #0b132b;
+  color: #fff;
+}
+
+.dark .service-modern-page [class~="bg-[#F8FAFC]"] {
+  background-color: #111d36;
+}
+
+.dark .service-modern-page [class~="text-[#0B132B]"] {
+  color: #f8fafc;
+}
+
+.dark .service-modern-page [class~="text-[#0B132B]/50"] {
+  color: rgb(226 232 240 / 0.62);
+}
+
+.dark .service-modern-page [class~="text-[#0B132B]/60"] {
+  color: rgb(226 232 240 / 0.72);
+}
+
+.dark .service-modern-page [class~="text-[#0B132B]/80"],
+.dark .service-modern-page [class~="text-[#0B132B]/85"] {
+  color: rgb(241 245 249 / 0.88);
+}
+
+.dark .service-modern-page [class~="border-[#E2E8F0]"],
+.dark .service-modern-page .border-slate-100,
+.dark .service-modern-page .border-slate-200,
+.dark .service-modern-page .border-slate-300 {
+  border-color: #2d3a54;
+}
+
+.dark .service-modern-page .bg-slate-100,
+.dark .service-modern-page .bg-slate-200,
+.dark .service-modern-page .bg-slate-300 {
+  background-color: #24314a;
+}
+
+.dark .service-modern-page > section:not(:first-child) [class~="bg-white"][class*="border"] {
+  background-color: #111d36;
+  box-shadow: inset 0 1px rgb(255 255 255 / 0.025);
+}
+
+.dark .service-modern-page > section:not(:first-child) [class~="bg-white"][class*="border"]:hover {
+  border-color: rgb(0 245 212 / 0.65);
+  background-color: #14243e;
+  box-shadow: 0 16px 34px rgb(0 0 0 / 0.28);
+}
+
+.dark .service-modern-page [class~="hover:bg-white"]:hover {
+  background-color: #14243e;
+}
+
+.dark .service-modern-page [class~="text-[#3A86FF]"] {
+  color: #00f5d4;
+}
+
+.dark .service-modern-page [class~="text-[#00A98F]"] {
+  color: #00f5d4;
+}
+
+.dark .service-modern-page [class~="bg-[#00A98F]"] {
+  background-color: #00f5d4;
+  color: #0b132b;
+}
+
+.dark .service-modern-page [class~="border-[#00A98F]"] {
+  border-color: #00f5d4;
+}
+
+.dark .service-modern-page [class~="hover:border-[#00A98F]"]:hover {
+  border-color: #00f5d4;
+}
+
+@media (max-width: 767px) {
+  .service-modern-page > section:first-child {
+    padding-top: 2.5rem;
   }
 }

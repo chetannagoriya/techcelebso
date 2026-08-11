@@ -194,12 +194,12 @@ export default function ConsultingPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white transition-colors duration-300 font-[family-name:var(--font-sans)]">
+    <main className="service-modern-page min-h-screen bg-white transition-colors duration-300 font-[family-name:var(--font-sans)]">
       
       {/* 1. Hero Section */}
-      <section className="relative pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden bg-[#0A1128]">
+      <section className="relative pt-10 pb-12 md:pt-14 md:pb-16 overflow-hidden bg-[#0A1128]">
         {/* Glow pathways */}
-        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#3A86FF]/10 blur-[120px] pointer-events-none"></div>
+        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#00A98F]/10 blur-[120px] pointer-events-none"></div>
         <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-[#00F5D4]/10 blur-[100px] pointer-events-none"></div>
         
         <div className="max-w-[1400px] mx-auto px-8 relative z-10">
@@ -208,12 +208,12 @@ export default function ConsultingPage() {
             {/* Left text column */}
             <div className="lg:col-span-5 flex flex-col gap-6">
               <div>
-                <span className="text-[#3A86FF] text-xs font-bold uppercase tracking-widest block mb-3 bg-[#3A86FF]/10 px-3 py-1 rounded-full w-fit">
+                <span className="text-[#00A98F] text-xs font-bold uppercase tracking-widest block mb-3 bg-[#00A98F]/10 px-3 py-1 rounded-full w-fit">
                   Strategy • Innovation • Growth
                 </span>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.08] tracking-tight font-[family-name:var(--font-heading)]">
                   Consulting That <br />Drives Real Business <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3A86FF] via-[#70EEFF] to-[#00F5D4]">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00A98F] via-[#70EEFF] to-[#00F5D4]">
                     Transformation
                   </span>
                 </h1>
@@ -223,7 +223,7 @@ export default function ConsultingPage() {
               </p>
               
               <div className="flex flex-wrap gap-4 mt-2">
-                <Link href="/contact" className="px-6 py-3.5 bg-[#3A86FF] hover:bg-[#3A86FF]/90 text-white text-sm font-bold rounded-sm shadow-lg shadow-[#3A86FF]/20 transition-all hover:-translate-y-0.5">
+                <Link href="/contact" className="px-6 py-3.5 bg-[#00A98F] hover:bg-[#00A98F]/90 text-white text-sm font-bold rounded-sm shadow-lg shadow-[#00A98F]/20 transition-all hover:-translate-y-0.5">
                   Get Free Consultation →
                 </Link>
                 <Link href="/contact" className="group flex items-center gap-2 px-6 py-3.5 bg-transparent border border-slate-500 hover:border-white text-white text-sm font-bold rounded-sm transition-all hover:bg-white/5">
@@ -291,7 +291,7 @@ export default function ConsultingPage() {
                         <div className="absolute top-[8px] left-[5%] right-[5%] h-[1px] bg-slate-800 -z-10"></div>
                         {["Discover", "Strategy", "Design", "Build", "Scale"].map((step, idx) => (
                           <div key={idx} className="flex flex-col items-center gap-1.5">
-                            <span className="w-4 h-4 rounded-full bg-[#3A86FF] text-white flex items-center justify-center text-[7px] font-black">
+                            <span className="w-4 h-4 rounded-full bg-[#00A98F] text-white flex items-center justify-center text-[7px] font-black">
                               {idx + 1}
                             </span>
                             <span className="text-[7px] text-slate-400">{step}</span>
@@ -315,11 +315,11 @@ export default function ConsultingPage() {
 
                   {/* Right: Circular Growth Model */}
                   <div className="col-span-12 md:col-span-4 bg-slate-900 border border-slate-800 p-4 rounded-sm flex flex-col items-center justify-center text-center">
-                    <div className="relative w-28 h-28 rounded-full border border-dashed border-[#3A86FF]/30 flex items-center justify-center">
+                    <div className="relative w-28 h-28 rounded-full border border-dashed border-[#00A98F]/30 flex items-center justify-center">
                       <div className="absolute w-20 h-20 rounded-full border border-dashed border-[#00F5D4]/20 animate-spin" style={{ animationDuration: "12s" }}></div>
                       
                       {/* Central growth badge */}
-                      <div className="relative z-10 w-16 h-16 rounded-full bg-[#3A86FF] flex flex-col items-center justify-center p-1 text-center shadow-lg">
+                      <div className="relative z-10 w-16 h-16 rounded-full bg-[#00A98F] flex flex-col items-center justify-center p-1 text-center shadow-lg">
                         <span className="text-[8px] font-black text-white leading-tight">Business Growth</span>
                       </div>
 
@@ -365,13 +365,13 @@ export default function ConsultingPage() {
                     <ul className="space-y-1.5 mb-6">
                       {service.bullets.map((bullet, i) => (
                         <li key={i} className="flex items-center gap-2 text-xs text-[#0B132B]/85 font-medium">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#3A86FF]"></span>
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#00A98F]"></span>
                           {bullet}
                         </li>
                       ))}
                     </ul>
                   </div>
-                  <Link href="/contact" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#3A86FF] hover:underline group-hover:gap-2 transition-all">
+                  <Link href="/contact" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00A98F] hover:underline group-hover:gap-2 transition-all">
                     Learn More <ArrowRight size={14} />
                   </Link>
                 </div>
@@ -394,16 +394,16 @@ export default function ConsultingPage() {
 
           <div className="relative flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4 max-w-5xl mx-auto">
             {/* Connecting dashed line */}
-            <div className="absolute top-[28px] left-[5%] right-[5%] h-[1.5px] border-t border-dashed border-[#3A86FF]/40 hidden md:block -z-10"></div>
+            <div className="absolute top-[28px] left-[5%] right-[5%] h-[1.5px] border-t border-dashed border-[#00A98F]/40 hidden md:block -z-10"></div>
             
             {approachSteps.map((wf, idx) => {
               const StepIcon = wf.icon;
               return (
                 <div key={idx} className="flex flex-col items-center text-center max-w-[130px] flex-1 relative z-10">
-                  <div className="w-14 h-14 rounded-full bg-white border border-[#E2E8F0] shadow-sm flex items-center justify-center text-[#3A86FF] hover:border-[#3A86FF] hover:scale-105 transition-all duration-300">
+                  <div className="w-14 h-14 rounded-full bg-white border border-[#E2E8F0] shadow-sm flex items-center justify-center text-[#00A98F] hover:border-[#00A98F] hover:scale-105 transition-all duration-300">
                     <StepIcon size={22} />
                   </div>
-                  <span className="text-[9px] font-black text-[#3A86FF] mt-3">0{idx + 1} • {wf.step}</span>
+                  <span className="text-[9px] font-black text-[#00A98F] mt-3">0{idx + 1} • {wf.step}</span>
                   <p className="text-[9px] text-[#0B132B]/50 mt-1.5 leading-normal">{wf.desc}</p>
                 </div>
               );
@@ -427,8 +427,8 @@ export default function ConsultingPage() {
             {industries.map((ind, idx) => {
               const IndIcon = ind.icon;
               return (
-                <div key={idx} className="bg-white border border-[#E2E8F0] p-4 rounded-sm text-center flex flex-col items-center gap-3 hover:border-[#3A86FF] transition-all">
-                  <div className="text-[#3A86FF]">
+                <div key={idx} className="bg-white border border-[#E2E8F0] p-4 rounded-sm text-center flex flex-col items-center gap-3 hover:border-[#00A98F] transition-all">
+                  <div className="text-[#00A98F]">
                     <IndIcon size={22} />
                   </div>
                   <h4 className="text-[11px] font-bold text-[#0B132B] leading-tight">{ind.name}</h4>
@@ -438,7 +438,7 @@ export default function ConsultingPage() {
           </div>
 
           <div className="text-center">
-            <Link href="/industries" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#3A86FF] hover:underline">
+            <Link href="/industries" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00A98F] hover:underline">
               View All Industries <ArrowRight size={14} />
             </Link>
           </div>
@@ -460,7 +460,7 @@ export default function ConsultingPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {whyChooseUs.map((item, idx) => (
                   <div key={idx} className="flex gap-3 text-left">
-                    <div className="w-8 h-8 rounded-sm bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center text-[#3A86FF] shrink-0 shadow-sm">
+                    <div className="w-8 h-8 rounded-sm bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center text-[#00A98F] shrink-0 shadow-sm">
                       <CheckCircle2 size={16} />
                     </div>
                     <div>
@@ -527,7 +527,7 @@ export default function ConsultingPage() {
             </div>
 
             <div className="flex flex-wrap gap-4 shrink-0">
-              <Link href="/contact" className="px-6 py-3.5 bg-[#3A86FF] hover:bg-[#3A86FF]/90 text-white text-sm font-bold rounded-sm shadow-lg shadow-[#3A86FF]/20 transition-all hover:-translate-y-0.5">
+              <Link href="/contact" className="px-6 py-3.5 bg-[#00A98F] hover:bg-[#00A98F]/90 text-white text-sm font-bold rounded-sm shadow-lg shadow-[#00A98F]/20 transition-all hover:-translate-y-0.5">
                 Book Free Consultation →
               </Link>
               <Link href="/contact" className="px-6 py-3.5 bg-transparent border border-slate-600 hover:border-white text-white text-sm font-bold rounded-sm transition-all hover:bg-white/5">

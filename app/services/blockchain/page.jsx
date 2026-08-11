@@ -169,12 +169,12 @@ export default function BlockchainPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-white transition-colors duration-300 font-[family-name:var(--font-sans)]">
+    <main className="service-modern-page min-h-screen bg-white transition-colors duration-300 font-[family-name:var(--font-sans)]">
       
       {/* 1. Hero Section */}
-      <section className="relative pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden bg-[#0A1128]">
+      <section className="relative pt-10 pb-12 md:pt-14 md:pb-16 overflow-hidden bg-[#0A1128]">
         {/* Glow pathways */}
-        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#3A86FF]/10 blur-[120px] pointer-events-none"></div>
+        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#00A98F]/10 blur-[120px] pointer-events-none"></div>
         <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-[#00F5D4]/10 blur-[100px] pointer-events-none"></div>
         
         <div className="max-w-[1400px] mx-auto px-8 relative z-10">
@@ -183,7 +183,7 @@ export default function BlockchainPage() {
             {/* Left text column */}
             <div className="lg:col-span-5 flex flex-col gap-6">
               <div>
-                <span className="text-[#3A86FF] text-xs font-bold uppercase tracking-widest block mb-3 bg-[#3A86FF]/10 px-3 py-1 rounded-full w-fit">
+                <span className="text-[#00A98F] text-xs font-bold uppercase tracking-widest block mb-3 bg-[#00A98F]/10 px-3 py-1 rounded-full w-fit">
                   Decentralize - Build - Innovate
                 </span>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.08] tracking-tight font-[family-name:var(--font-heading)]">
@@ -196,7 +196,7 @@ export default function BlockchainPage() {
               </p>
               
               <div className="flex flex-wrap gap-4 mt-2">
-                <Link href="/contact" className="px-6 py-3.5 bg-[#3A86FF] hover:bg-[#3A86FF]/90 text-white text-sm font-bold rounded-sm shadow-lg shadow-[#3A86FF]/20 transition-all hover:-translate-y-0.5">
+                <Link href="/contact" className="px-6 py-3.5 bg-[#00A98F] hover:bg-[#00A98F]/90 text-white text-sm font-bold rounded-sm shadow-lg shadow-[#00A98F]/20 transition-all hover:-translate-y-0.5">
                   Get Free Consultation →
                 </Link>
                 <Link href="/contact" className="group flex items-center gap-2 px-6 py-3.5 bg-transparent border border-slate-500 hover:border-white text-white text-sm font-bold rounded-sm transition-all hover:bg-white/5">
@@ -273,12 +273,12 @@ export default function BlockchainPage() {
                     <div className="bg-slate-900 border border-slate-800 p-3.5 rounded-sm flex flex-col justify-between">
                       <div className="flex justify-between items-center text-[9px] text-slate-400 font-bold uppercase">
                         <span>My Wallet</span>
-                        <Wallet size={12} className="text-[#3A86FF]" />
+                        <Wallet size={12} className="text-[#00A98F]" />
                       </div>
                       <h4 className="text-sm font-black text-white mt-2">12.45 ETH</h4>
                       <p className="text-[9px] text-slate-400 font-medium">$24,650.35 USD</p>
                       <div className="grid grid-cols-2 gap-2 mt-3">
-                        <button className="bg-[#3A86FF] text-white font-bold text-[9px] py-1.5 rounded-sm hover:opacity-90">Send</button>
+                        <button className="bg-[#00A98F] text-white font-bold text-[9px] py-1.5 rounded-sm hover:opacity-90">Send</button>
                         <button className="bg-slate-800 text-white font-bold text-[9px] py-1.5 rounded-sm hover:bg-slate-700">Receive</button>
                       </div>
                     </div>
@@ -346,13 +346,13 @@ export default function BlockchainPage() {
                     <ul className="space-y-1.5 mb-6">
                       {service.bullets.map((bullet, i) => (
                         <li key={i} className="flex items-center gap-2 text-xs text-[#0B132B]/80 font-medium">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#3A86FF]"></span>
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#00A98F]"></span>
                           {bullet}
                         </li>
                       ))}
                     </ul>
                   </div>
-                  <Link href="/contact" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#3A86FF] hover:underline group-hover:gap-2 transition-all">
+                  <Link href="/contact" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00A98F] hover:underline group-hover:gap-2 transition-all">
                     Learn More <ArrowRight size={14} />
                   </Link>
                 </div>
@@ -433,16 +433,16 @@ export default function BlockchainPage() {
 
           <div className="relative flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4 max-w-6xl mx-auto">
             {/* Connecting lines */}
-            <div className="absolute top-[28px] left-[5%] right-[5%] h-[1.5px] border-t border-dashed border-[#3A86FF]/40 hidden md:block -z-10"></div>
+            <div className="absolute top-[28px] left-[5%] right-[5%] h-[1.5px] border-t border-dashed border-[#00A98F]/40 hidden md:block -z-10"></div>
             
             {processSteps.map((wf, idx) => {
               const StepIcon = wf.icon;
               return (
                 <div key={idx} className="flex flex-col items-center text-center max-w-[130px] flex-1 relative z-10">
-                  <div className="w-14 h-14 rounded-full bg-white border border-[#E2E8F0] shadow-sm flex items-center justify-center text-[#3A86FF] hover:border-[#3A86FF] hover:scale-105 transition-all duration-300">
+                  <div className="w-14 h-14 rounded-full bg-white border border-[#E2E8F0] shadow-sm flex items-center justify-center text-[#00A98F] hover:border-[#00A98F] hover:scale-105 transition-all duration-300">
                     <StepIcon size={22} />
                   </div>
-                  <span className="text-[9px] font-black text-[#3A86FF] mt-3">{wf.num}</span>
+                  <span className="text-[9px] font-black text-[#00A98F] mt-3">{wf.num}</span>
                   <h4 className="text-xs font-bold text-[#0B132B] mt-1">{wf.name}</h4>
                   <p className="text-[9px] text-[#0B132B]/50 mt-1 leading-normal">{wf.desc}</p>
                 </div>
@@ -468,7 +468,7 @@ export default function BlockchainPage() {
               const ItemIcon = item.icon;
               return (
                 <div key={idx} className="bg-white border border-[#E2E8F0] p-6 rounded-sm flex gap-4 hover:shadow-md transition-all duration-200">
-                  <div className="w-10 h-10 rounded-sm bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center text-[#3A86FF] shrink-0">
+                  <div className="w-10 h-10 rounded-sm bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center text-[#00A98F] shrink-0">
                     <ItemIcon size={20} />
                   </div>
                   <div>
@@ -507,7 +507,7 @@ export default function BlockchainPage() {
             </div>
 
             <div className="flex flex-wrap gap-4 shrink-0">
-              <Link href="/contact" className="px-6 py-3.5 bg-[#3A86FF] hover:bg-[#3A86FF]/90 text-white text-sm font-bold rounded-sm shadow-lg shadow-[#3A86FF]/20 transition-all hover:-translate-y-0.5">
+              <Link href="/contact" className="px-6 py-3.5 bg-[#00A98F] hover:bg-[#00A98F]/90 text-white text-sm font-bold rounded-sm shadow-lg shadow-[#00A98F]/20 transition-all hover:-translate-y-0.5">
                 Book Free Consultation →
               </Link>
               <Link href="/contact" className="px-6 py-3.5 bg-transparent border border-slate-600 hover:border-white text-white text-sm font-bold rounded-sm transition-all hover:bg-white/5">
