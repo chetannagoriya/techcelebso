@@ -1829,6 +1829,134 @@ a.contact-option-card:hover {
   line-height: 1.25rem;
 }
 
+.cloud-logo-marquee {
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+/* The Cloud page is intentionally more spacious than the other dense service dashboards. */
+.cloud-infrastructure-page > section:not(:first-child) .text-xs {
+  font-size: 0.95rem;
+  line-height: 1.45rem;
+}
+
+.cloud-infrastructure-page > section:not(:first-child) .text-sm {
+  font-size: 1.05rem;
+  line-height: 1.65rem;
+}
+
+.cloud-infrastructure-page > section:not(:first-child) [class~="text-[9px]"],
+.cloud-infrastructure-page > section:not(:first-child) [class~="text-[10px]"],
+.cloud-infrastructure-page > section:not(:first-child) [class~="text-[11px]"] {
+  font-size: 0.875rem;
+  line-height: 1.3rem;
+}
+
+.blockchain-modern-page > section:not(:first-child) .text-xs { font-size: 0.95rem; line-height: 1.45rem; }
+.blockchain-modern-page > section:not(:first-child) .text-sm { font-size: 1.05rem; line-height: 1.65rem; }
+
+.blockchain-image-service-card {
+  transition: transform 280ms ease, border-color 280ms ease, box-shadow 280ms ease, background-color 280ms ease;
+  box-shadow: 0 14px 38px rgba(15, 23, 42, 0.07);
+}
+.blockchain-image-service-card:hover { transform: translateY(-6px); border-color: color-mix(in srgb, var(--service-accent) 50%, #e2e8f0); box-shadow: 0 28px 60px rgba(15, 23, 42, 0.14); }
+.blockchain-service-check { background: color-mix(in srgb, var(--service-accent) 13%, transparent); color: var(--service-accent); }
+.dark .service-modern-page .blockchain-image-service-card { border-color: rgba(255,255,255,.1); background: #111d36; box-shadow: 0 16px 42px rgba(0,0,0,.25); }
+
+.blockchain-logo-marquee { mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent); }
+.blockchain-logo-track { display: flex; width: max-content; gap: 16px; animation: blockchain-logo-scroll-ltr 26s linear infinite; will-change: transform; }
+.blockchain-logo-track-slow { animation-duration: 38s; }
+.blockchain-logo-group { display: flex; flex-shrink: 0; gap: 16px; }
+.blockchain-logo-card { display: flex; width: 180px; height: 82px; flex-shrink: 0; align-items: center; justify-content: center; border: 1px solid #e2e8f0; border-radius: 14px; background: #fff; padding: 16px; box-shadow: 0 8px 24px rgba(15,23,42,.06); }
+.dark .blockchain-logo-card { border-color: rgba(255,255,255,.12); background: #111d35; box-shadow: 0 10px 28px rgba(0,0,0,.24); }
+@keyframes blockchain-logo-scroll-ltr { from { transform: translateX(calc(-50% - 8px)); } to { transform: translateX(0); } }
+@media (prefers-reduced-motion: reduce) { .blockchain-logo-track { animation: none; } }
+
+.cloud-image-service-card {
+  transition: transform 280ms ease, border-color 280ms ease, box-shadow 280ms ease, background-color 280ms ease;
+  box-shadow: 0 14px 38px rgba(15, 23, 42, 0.07);
+}
+
+.cloud-image-service-card:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--service-accent) 50%, #e2e8f0);
+  box-shadow: 0 28px 60px rgba(15, 23, 42, 0.14);
+}
+
+.cloud-service-image-check {
+  background: color-mix(in srgb, var(--service-accent) 13%, transparent);
+  color: var(--service-accent);
+}
+
+.dark .service-modern-page .cloud-image-service-card {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: #111d36;
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.25);
+}
+
+.dark .service-modern-page .cloud-image-service-card:hover {
+  border-color: color-mix(in srgb, var(--service-accent) 60%, #334155);
+  background: #15243e;
+  box-shadow: 0 28px 62px rgba(0, 0, 0, 0.38);
+}
+
+.cloud-logo-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 16px;
+  will-change: transform;
+  animation: cloud-logo-scroll-ltr 22s linear infinite;
+}
+
+.cloud-logo-marquee-track-slow {
+  animation-duration: 36s;
+}
+
+.cloud-logo-marquee-group {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 16px;
+}
+
+.cloud-logo-card {
+  display: flex;
+  width: 180px;
+  height: 82px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #ffffff;
+  padding: 16px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+}
+
+.cloud-logo-card:hover {
+  transform: translateY(-2px);
+  border-color: #00a98f;
+  box-shadow: 0 12px 30px rgba(0, 169, 143, 0.14);
+}
+
+.dark .cloud-logo-card {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: #111d35;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.24);
+}
+
+@keyframes cloud-logo-scroll-ltr {
+  from { transform: translateX(calc(-50% - 8px)); }
+  to { transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cloud-logo-marquee-track {
+    animation: none;
+  }
+}
+
 /* The GIS page uses dense data visuals; give its supporting copy a closer scale. */
 .gis-geospatial-page .text-xs {
   font-size: 1rem;
@@ -2278,4 +2406,198 @@ a.contact-option-card:hover {
   .service-modern-page > section:first-child {
     padding-top: 2.5rem;
   }
+}
+
+/* Cybersecurity service page: image-led hero and continuous security stacks. */
+.cybersecurity-modern-page > section:not(:first-child) > div {
+  max-width: 1500px;
+}
+
+.cybersecurity-modern-page > section:not(:first-child) h2,
+.cybersecurity-modern-page > section:not(:first-child) h3 {
+  letter-spacing: 0.035em;
+}
+
+.cybersecurity-modern-page > section:not(:first-child) .text-xs {
+  font-size: 0.95rem;
+  line-height: 1.45rem;
+}
+
+.cybersecurity-modern-page > section:not(:first-child) .text-sm {
+  font-size: 1.05rem;
+  line-height: 1.65rem;
+}
+
+.cyber-image-service-card {
+  transition: transform 280ms ease, border-color 280ms ease, box-shadow 280ms ease, background-color 280ms ease;
+  box-shadow: 0 14px 38px rgba(15, 23, 42, 0.07);
+}
+
+.cyber-image-service-card:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--service-accent) 50%, #e2e8f0);
+  box-shadow: 0 28px 60px rgba(15, 23, 42, 0.14);
+}
+
+.cyber-service-check {
+  background: color-mix(in srgb, var(--service-accent) 13%, transparent);
+  color: var(--service-accent);
+}
+
+.dark .service-modern-page .cyber-image-service-card {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: #111d36;
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.25);
+}
+
+.dark .service-modern-page .cyber-image-service-card:hover {
+  border-color: color-mix(in srgb, var(--service-accent) 60%, #334155);
+  background: #15243e;
+  box-shadow: 0 28px 62px rgba(0, 0, 0, 0.38);
+}
+
+.cyber-logo-marquee {
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+
+.cyber-logo-track {
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+  animation: cyber-logo-scroll 25s linear infinite;
+}
+
+.cyber-logo-track-slow {
+  animation-duration: 36s;
+}
+
+.cyber-logo-marquee:hover .cyber-logo-track {
+  animation-play-state: paused;
+}
+
+.cyber-logo-card {
+  display: flex;
+  min-width: 180px;
+  height: 82px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.9rem;
+  background: #fff;
+  box-shadow: 0 8px 24px rgb(15 23 42 / 0.05);
+  transition: transform 200ms ease, border-color 200ms ease, background-color 200ms ease;
+}
+
+.cyber-logo-card:hover {
+  transform: translateY(-3px);
+  border-color: rgb(0 169 143 / 0.65);
+}
+
+.cyber-logo-card > span {
+  font-size: 1rem;
+}
+
+.dark .cyber-logo-card {
+  border-color: #2d3a54;
+  background: #111d36;
+  box-shadow: 0 10px 28px rgb(0 0 0 / 0.22);
+}
+
+@keyframes cyber-logo-scroll {
+  from { transform: translateX(calc(-50% - 0.5rem)); }
+  to { transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cyber-logo-track {
+    animation-play-state: paused;
+  }
+}
+
+/* Consulting page follows the spacious service-page system. */
+.consulting-modern-page > section:not(:first-child) .text-xs {
+  font-size: 0.95rem;
+  line-height: 1.45rem;
+}
+
+.consulting-modern-page > section:not(:first-child) .text-sm {
+  font-size: 1.05rem;
+  line-height: 1.65rem;
+}
+
+.consulting-image-service-card {
+  box-shadow: 0 14px 38px rgba(15, 23, 42, 0.07);
+  transition: transform 280ms ease, border-color 280ms ease, box-shadow 280ms ease, background-color 280ms ease;
+}
+
+.consulting-image-service-card:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--service-accent) 50%, #e2e8f0);
+  box-shadow: 0 28px 60px rgba(15, 23, 42, 0.14);
+}
+
+.consulting-service-check {
+  background: color-mix(in srgb, var(--service-accent) 13%, transparent);
+  color: var(--service-accent);
+}
+
+.dark .service-modern-page .consulting-image-service-card {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: #111d36;
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.25);
+}
+
+.consulting-logo-marquee {
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.consulting-logo-track {
+  display: flex;
+  width: max-content;
+  gap: 16px;
+  animation: consulting-logo-scroll-ltr 30s linear infinite;
+  will-change: transform;
+}
+
+.consulting-logo-group {
+  display: flex;
+  flex-shrink: 0;
+  gap: 16px;
+}
+
+.consulting-logo-card {
+  display: flex;
+  width: 180px;
+  height: 82px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #fff;
+  padding: 16px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.consulting-logo-card > span {
+  font-size: 0.95rem;
+}
+
+.dark .consulting-logo-card {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: #111d35;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.24);
+}
+
+@keyframes consulting-logo-scroll-ltr {
+  from { transform: translateX(calc(-50% - 8px)); }
+  to { transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .consulting-logo-track { animation: none; }
 }

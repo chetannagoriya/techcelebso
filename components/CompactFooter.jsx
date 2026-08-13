@@ -87,9 +87,10 @@ export default function CompactFooter() {
           <div>
             <h3 className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-[#00F5D4]">Legal</h3>
             <ul className="space-y-2 text-sm text-white/60">
-              <li><Link href="/privacy-policy" className="transition hover:text-white">Privacy Policy</Link></li>
-              <li><Link href="/client-policy" className="transition hover:text-white">Client Policy</Link></li>
-              <li><Link href="/employee-policy" className="transition hover:text-white">Employee Policy</Link></li>
+              <li><Link href="/legal" className="transition hover:text-white">Legal Centre</Link></li>
+              <li><Link href="/legal/terms-and-conditions" className="transition hover:text-white">Terms &amp; Conditions</Link></li>
+              <li><Link href="/legal/privacy-policy" className="transition hover:text-white">Privacy Policy</Link></li>
+              <li><Link href="/legal/refund-cancellation-policy" className="transition hover:text-white">Refund Policy</Link></li>
             </ul>
           </div>
 

@@ -105,10 +105,35 @@ const RedisLogo = () => (
   </span>
 );
 
+const cloudProviderLogos = [
+  { name: "AWS", Component: AWSLogo },
+  { name: "Microsoft Azure", Component: AzureLogo },
+  { name: "Google Cloud", Component: GCPLogo },
+  { name: "DigitalOcean", Component: () => <span className="text-sm font-black text-[#0080FF]">DigitalOcean</span> },
+  { name: "Linode", Component: () => <span className="text-sm font-bold text-[#00A95C]">Linode</span> },
+  { name: "Vultr", Component: () => <span className="text-sm font-black text-[#007BFC]">Vultr</span> },
+];
+
+const technologyLogos = [
+  { name: "Docker", Component: DockerLogo },
+  { name: "Kubernetes", Component: K8sLogo },
+  { name: "Terraform", Component: TerraformLogo },
+  { name: "Prometheus", Component: PrometheusLogo },
+  { name: "Grafana", Component: GrafanaLogo },
+  { name: "Jenkins", Component: JenkinsLogo },
+  { name: "GitLab", Component: GitLabLogo },
+  { name: "Nginx", Component: NginxLogo },
+  { name: "Redis", Component: RedisLogo },
+  { name: "GitHub Actions", Component: () => <span className="text-sm font-bold text-slate-800 dark:text-slate-200">GitHub Actions</span> },
+  { name: "Ansible", Component: () => <span className="text-sm font-bold text-slate-700 dark:text-slate-200">Ansible</span> },
+  { name: "ELK Stack", Component: () => <span className="text-sm font-bold text-[#E8478B]">ELK Stack</span> },
+];
+
 export default function CloudInfrastructurePage() {
   const coreServices = [
     {
       title: "Cloud Infrastructure",
+      image: "/images/cloud-infrastructure-hero-2026.png",
       description: "Design, deploy and manage highly scalable, secure, and multi-region cloud architectures tailored to your business needs.",
       bullets: ["Multi-Region Setup", "Auto-Scaling", "Load Balancing", "High Availability", "Disaster Recovery"],
       color: "border-blue-500",
@@ -117,6 +142,7 @@ export default function CloudInfrastructurePage() {
     },
     {
       title: "AI Infrastructure",
+      image: "/images/ai_data_hero.jpg",
       description: "Accelerate your AI workloads with specialized high-performance computing, GPU nodes, and optimized dataset orchestration pipelines.",
       bullets: ["GPU Nodes", "Kubeflow Pipelines", "High-Throughput Storage", "Scalable ML Clusters", "Resource Scheduling"],
       color: "border-purple-500",
@@ -125,6 +151,7 @@ export default function CloudInfrastructurePage() {
     },
     {
       title: "DevOps Services",
+      image: "/images/cloud_infra_cta.jpg",
       description: "Standardize application releases, infrastructure testing, and config management with automated pipelines.",
       bullets: ["CI/CD Automation", "Infrastructure-as-Code", "Configuration Management", "Containerization", "Artifact Repositories"],
       color: "border-emerald-500",
@@ -133,6 +160,7 @@ export default function CloudInfrastructurePage() {
     },
     {
       title: "Database Architecture",
+      image: "/images/blockchain_hero.jpg",
       description: "Scale databases under high concurrency with multi-node replication, clustering, caching, and fine-tuned configurations.",
       bullets: ["High Concurrency Scaling", "Replication & Clustering", "Caching (Redis/Memcached)", "Backup & Restore Systems", "Performance Tuning"],
       color: "border-orange-500",
@@ -141,6 +169,7 @@ export default function CloudInfrastructurePage() {
     },
     {
       title: "Server Management",
+      image: "/images/cybersecurity_hero.jpg",
       description: "Keep system resources healthy with round-the-clock monitoring, kernel updates, access audits, and performance tuning.",
       bullets: ["24/7/365 Monitoring", "Patching & OS Upgrades", "Access Audit & IAM", "Performance Profiling", "Security Hardening"],
       color: "border-teal-500",
@@ -169,29 +198,23 @@ export default function CloudInfrastructurePage() {
     { title: "Enterprise Ready", desc: "Deploy container-orchestrated multi-tenant systems designed to scale." }
   ];
 
-  const stats = [
-    { val: "99.99%", label: "Uptime SLA" },
-    { val: "40%", label: "Cost Savings" },
-    { val: "5x", label: "Faster Deployments" },
-    { val: "24/7/365", label: "Monitoring" },
-    { val: "15 Min", label: "Response Time" },
-    { val: "200+", label: "Servers Managed" }
-  ];
-
   return (
-    <main className="service-modern-page min-h-screen bg-white transition-colors duration-300 font-[family-name:var(--font-sans)]">
+    <main className="service-modern-page cloud-infrastructure-page min-h-screen bg-white transition-colors duration-300 font-[family-name:var(--font-sans)]">
       
       {/* 1. Hero Section */}
       <section className="relative pt-10 pb-12 md:pt-14 md:pb-16 overflow-hidden bg-[#0A1128]">
-        {/* Glow pathways */}
-        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#00A98F]/10 blur-[120px] pointer-events-none"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-[#00F5D4]/10 blur-[100px] pointer-events-none"></div>
-        
+        <img
+          src="/images/cloud-infrastructure-hero-2026.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover object-center opacity-80"
+        />
+
         <div className="max-w-[1400px] mx-auto px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Left text context */}
-            <div className="lg:col-span-6 flex flex-col gap-6">
+            <div className="lg:col-span-8 flex flex-col gap-6">
               <div>
                 <span className="text-[#00A98F] text-xs font-bold uppercase tracking-widest block mb-3 bg-[#00A98F]/10 px-3 py-1 rounded-full w-fit">
                   Cloud & Infrastructure Services
@@ -213,10 +236,6 @@ export default function CloudInfrastructurePage() {
               <div className="flex flex-wrap gap-4 mt-2">
                 <Link href="/contact" className="px-6 py-3.5 bg-[#00A98F] hover:bg-[#00A98F]/90 text-white text-sm font-bold rounded-sm shadow-lg shadow-[#00A98F]/20 transition-all hover:-translate-y-0.5">
                   Book Free Consultation
-                </Link>
-                <Link href="/contact" className="group flex items-center gap-2 px-6 py-3.5 bg-transparent border border-slate-500 hover:border-white text-white text-sm font-bold rounded-sm transition-all hover:bg-white/5">
-                  <svg className="w-4 h-4 text-slate-400 group-hover:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                  Talk to Infrastructure Expert
                 </Link>
               </div>
 
@@ -242,121 +261,51 @@ export default function CloudInfrastructurePage() {
               </div>
             </div>
 
-            {/* Right graphic column: Cloud Network Diagram */}
-            <div className="lg:col-span-6 relative">
-              <div className="relative mx-auto max-w-[550px] aspect-[4/3] bg-slate-950 border border-slate-800 rounded-sm shadow-2xl p-4 overflow-hidden flex flex-col justify-between group">
-                
-                {/* Visual Header */}
-                <div className="flex items-center justify-between border-b border-slate-800 pb-2.5">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#00F5D4] animate-pulse"></span>
-                    <span className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">Cluster Topology</span>
-                  </div>
-                  <span className="text-[9px] font-bold text-slate-500">Region: us-east-1</span>
-                </div>
-
-                {/* Cloud Topology Connections Map */}
-                <div className="relative w-full h-[calc(100%-80px)] flex items-center justify-center">
-                  <img 
-                    src="/images/cloud_infra_hero.jpg" 
-                    alt="Cloud Network Grid Topology"
-                    className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-[#0A1128]/45"></div>
-
-                  {/* SVG Nodes */}
-                  <svg className="absolute inset-0 w-full h-full z-10 pointer-events-none" viewBox="0 0 200 150">
-                    <circle cx="100" cy="75" r="22" fill="none" stroke="#00A98F" strokeWidth="1.5" className="animate-pulse" />
-                    <circle cx="100" cy="75" r="16" fill="rgba(58, 134, 255, 0.15)" stroke="#00A98F" strokeWidth="2" />
-                    <path d="M93 75 Q100 68 107 75" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M96 78 H104" fill="none" stroke="#fff" strokeWidth="2" />
-
-                    {/* Nodes lines */}
-                    <line x1="100" y1="53" x2="100" y2="25" stroke="#00F5D4" strokeWidth="1" strokeDasharray="3 2" />
-                    <line x1="100" y1="97" x2="100" y2="125" stroke="#00F5D4" strokeWidth="1" strokeDasharray="3 2" />
-                    <line x1="78" y1="75" x2="35" y2="75" stroke="#00A98F" strokeWidth="1" />
-                    <line x1="122" y1="75" x2="165" y2="75" stroke="#00A98F" strokeWidth="1" />
-
-                    {/* Outer Node circles */}
-                    <circle cx="100" cy="25" r="8" fill="#0F172A" stroke="#00F5D4" strokeWidth="1.5" />
-                    <circle cx="100" cy="125" r="8" fill="#0F172A" stroke="#00F5D4" strokeWidth="1.5" />
-                    <circle cx="35" cy="75" r="8" fill="#0F172A" stroke="#00A98F" strokeWidth="1.5" />
-                    <circle cx="165" cy="75" r="8" fill="#0F172A" stroke="#00A98F" strokeWidth="1.5" />
-
-                    {/* Symbols inside outer nodes */}
-                    <path d="M98 25 H102" stroke="#fff" strokeWidth="1" />
-                    <circle cx="100" cy="125" r="2.5" fill="#00F5D4" />
-                    <path d="M33 75 H37 M35 73 V77" stroke="#fff" strokeWidth="1" />
-                    <path d="M162 77 L168 73" stroke="#fff" strokeWidth="1.5" />
-                  </svg>
-                  
-                  {/* Glowing text boxes */}
-                  <div className="absolute top-2 left-2 bg-[#0F172A]/90 border border-slate-800 p-1.5 rounded-sm text-[8px] text-slate-300">
-                    <p className="font-bold text-white mb-0.5">Ingress Traffic</p>
-                    <span>Load Balancer: 12,450 req/sec</span>
-                  </div>
-                  <div className="absolute bottom-2 right-2 bg-[#0F172A]/90 border border-slate-800 p-1.5 rounded-sm text-[8px] text-slate-300">
-                    <p className="font-bold text-white mb-0.5">CPU Cluster</p>
-                    <span className="text-[#00F5D4]">Load: 42.5%</span>
-                  </div>
-                </div>
-
-                {/* Sub Stats Footer */}
-                <div className="grid grid-cols-3 gap-3 border-t border-slate-800 pt-2.5">
-                  {[
-                    { label: "Active Containers", val: "482" },
-                    { label: "Latency", val: "14ms" },
-                    { label: "Memory Pool", val: "1.2 TB" }
-                  ].map((stat, i) => (
-                    <div key={i} className="text-center bg-slate-900 border border-slate-850 p-1.5 rounded-sm">
-                      <p className="text-[7.5px] text-slate-400 uppercase tracking-wide truncate">{stat.label}</p>
-                      <h4 className="text-xs font-black text-white mt-0.5">{stat.val}</h4>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
           </div>
         </div>
       </section>
 
-      {/* 2. Our Cloud & Infrastructure Services (5 columns) */}
-      <section className="py-16 bg-[#F8FAFC] border-b border-[#E2E8F0]">
+      {/* 2. Our Cloud & Infrastructure Services */}
+      <section className="border-b border-[#E2E8F0] bg-[#F8FAFC] py-16 transition-colors dark:border-white/10 dark:bg-[#0E1930] md:py-20">
         <div className="max-w-[1400px] mx-auto px-8">
-          <div className="flex items-center justify-center gap-4 mb-12">
-            <span className="h-[1px] bg-slate-300 flex-1"></span>
-            <h2 className="text-[#0B132B] text-xl md:text-2xl font-black uppercase tracking-wider shrink-0 font-[family-name:var(--font-heading)]">
+          <div className="mb-12 flex flex-col items-center gap-3 text-center">
+            <div className="flex flex-col items-center">
+              <span className="text-xs font-black uppercase tracking-[0.2em] text-[#00A98F] dark:text-[#00F5D4]">What we deliver</span>
+              <h2 className="mt-2 text-2xl font-black tracking-tight text-[#0B132B] dark:text-white md:text-4xl font-[family-name:var(--font-heading)]">
               Our Cloud & Infrastructure Services
-            </h2>
-            <span className="h-[1px] bg-slate-300 flex-1"></span>
+              </h2>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {coreServices.map((service, idx) => {
-              const Icon = service.icon;
+              const accent = ["#3B82F6", "#8B5CF6", "#10B981", "#F97316", "#06B6D4"][idx];
               return (
-                <div key={idx} className={`bg-white border-t-4 ${service.color} border-x border-b border-[#E2E8F0] p-6 rounded-sm flex flex-col justify-between hover:shadow-lg transition-all duration-300 group`}>
-                  <div>
-                    <div className={`w-10 h-10 ${service.iconColor} text-white flex items-center justify-center rounded-sm mb-4`}>
-                      <Icon size={20} />
-                    </div>
-                    <h3 className="text-base font-extrabold text-[#0B132B] mb-2">{service.title}</h3>
-                    <p className="text-xs text-[#0B132B]/60 leading-relaxed mb-4">{service.description}</p>
-                    
-                    <ul className="space-y-1.5 mb-6">
+                <article
+                  key={service.title}
+                  className="cloud-image-service-card group relative overflow-hidden rounded-3xl border border-slate-200 bg-white"
+                  style={{ "--service-accent": accent }}
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img src={service.image} alt={`${service.title} service`} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#071126]/90 via-[#071126]/25 to-transparent"></div>
+                  </div>
+
+                  <div className="flex min-h-[360px] flex-col p-5">
+                    <h3 className="text-xl font-extrabold leading-tight text-[#0B132B] dark:text-white">{service.title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">{service.description}</p>
+
+                    <ul className="mt-5 grid gap-2.5">
                       {service.bullets.map((bullet, i) => (
-                        <li key={i} className="flex items-center gap-2 text-xs text-[#0B132B]/85 font-medium">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#00A98F]"></span>
-                          {bullet}
+                        <li key={i} className="flex items-center gap-2.5 text-xs font-semibold text-slate-700 dark:text-slate-200">
+                          <span className="cloud-service-image-check grid h-5 w-5 shrink-0 place-items-center rounded-full"><Check size={12} strokeWidth={3} /></span>
+                          <span>{bullet}</span>
                         </li>
                       ))}
                     </ul>
+
                   </div>
-                  <Link href="/contact" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00A98F] hover:underline group-hover:gap-2 transition-all">
-                    Learn more <ArrowRight size={14} />
-                  </Link>
-                </div>
+                </article>
               );
             })}
           </div>
@@ -364,57 +313,51 @@ export default function CloudInfrastructurePage() {
       </section>
 
       {/* 3. Cloud Providers We Support */}
-      <section className="py-16 bg-white border-b border-[#E2E8F0]">
+      <section className="overflow-hidden border-b border-[#E2E8F0] bg-white py-16 transition-colors dark:border-white/10 dark:bg-[#0B132B]">
         <div className="max-w-[1400px] mx-auto px-8">
           <div className="flex items-center justify-center gap-4 mb-12">
             <span className="h-[1px] bg-slate-200 flex-1"></span>
-            <h2 className="text-[#0B132B] text-sm font-black uppercase tracking-wider shrink-0">
+            <h2 className="shrink-0 text-xl font-extrabold uppercase tracking-wide text-[#0B132B] dark:text-white md:text-2xl">
               Cloud Providers We Support
             </h2>
             <span className="h-[1px] bg-slate-200 flex-1"></span>
           </div>
 
-          <div className="flex flex-wrap justify-center items-center gap-16">
-            <AWSLogo />
-            <AzureLogo />
-            <GCPLogo />
-            <span className="text-[10px] font-black text-slate-800 dark:text-slate-200">🌐 DigitalOcean</span>
-            <span className="text-[10px] font-bold text-amber-500">✦ Linode</span>
-            <span className="text-[10px] font-black text-[#D82C20]">Vultr</span>
+          <div className="cloud-logo-marquee group overflow-hidden" aria-label="Supported cloud providers">
+            <div className="cloud-logo-marquee-track group-hover:[animation-play-state:paused] motion-reduce:![animation:none]">
+              {[false, true].map((isDuplicate) => (
+                <div key={isDuplicate ? "duplicate" : "primary"} className="cloud-logo-marquee-group" aria-hidden={isDuplicate || undefined}>
+                  {cloudProviderLogos.map(({ name, Component }) => (
+                    <div key={name} className="cloud-logo-card" title={name}><Component /></div>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* 4. Technologies We Support */}
-      <section className="py-16 bg-[#F8FAFC] border-b border-[#E2E8F0]">
+      <section className="overflow-hidden border-b border-[#E2E8F0] bg-[#F8FAFC] py-16 transition-colors dark:border-white/10 dark:bg-[#101A31]">
         <div className="max-w-[1400px] mx-auto px-8">
           <div className="flex items-center justify-center gap-4 mb-12">
             <span className="h-[1px] bg-slate-300 flex-1"></span>
-            <h2 className="text-[#0B132B] text-xs font-black uppercase tracking-wider shrink-0">
+            <h2 className="shrink-0 text-xl font-extrabold uppercase tracking-wide text-[#0B132B] dark:text-white md:text-2xl">
               Technologies We Support
             </h2>
             <span className="h-[1px] bg-slate-300 flex-1"></span>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {[
-              DockerLogo,
-              K8sLogo,
-              TerraformLogo,
-              PrometheusLogo,
-              GrafanaLogo,
-              JenkinsLogo,
-              GitLabLogo,
-              NginxLogo,
-              RedisLogo,
-              () => <span className="text-[10px] font-bold text-slate-800 dark:text-slate-200">GitHub Actions</span>,
-              () => <span className="text-[10px] font-bold text-slate-700 dark:text-slate-300">Ansible</span>,
-              () => <span className="text-[10px] font-bold text-red-500">ELK Stack</span>
-            ].map((LogoComp, idx) => (
-              <div key={idx} className="flex items-center justify-center border border-[#E2E8F0] bg-white p-3 rounded-sm hover:scale-[1.03] transition-transform shadow-sm">
-                <LogoComp />
-              </div>
-            ))}
+          <div className="cloud-logo-marquee group overflow-hidden" aria-label="Supported infrastructure technologies">
+            <div className="cloud-logo-marquee-track cloud-logo-marquee-track-slow group-hover:[animation-play-state:paused] motion-reduce:![animation:none]">
+              {[false, true].map((isDuplicate) => (
+                <div key={isDuplicate ? "duplicate" : "primary"} className="cloud-logo-marquee-group" aria-hidden={isDuplicate || undefined}>
+                  {technologyLogos.map(({ name, Component }) => (
+                    <div key={name} className="cloud-logo-card" title={name}><Component /></div>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -424,7 +367,7 @@ export default function CloudInfrastructurePage() {
         <div className="max-w-[1400px] mx-auto px-8">
           <div className="flex items-center justify-center gap-4 mb-14">
             <span className="h-[1px] bg-slate-200 flex-1"></span>
-            <h2 className="text-[#0B132B] text-base font-black uppercase tracking-wider shrink-0">
+            <h2 className="shrink-0 text-xl font-extrabold uppercase tracking-wide text-[#0B132B] dark:text-white md:text-2xl">
               Our End-To-End Infrastructure Workflow
             </h2>
             <span className="h-[1px] bg-slate-200 flex-1"></span>
@@ -451,16 +394,16 @@ export default function CloudInfrastructurePage() {
       {/* 6. Why Choose Us & Performance Stats (Side-by-Side) */}
       <section className="py-16 bg-[#F8FAFC] border-b border-[#E2E8F0]">
         <div className="max-w-[1400px] mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div>
             
             {/* Why Choose Us */}
-            <div className="lg:col-span-6 space-y-6">
-              <div className="flex items-center gap-3 border-b border-slate-200 pb-3 mb-6">
-                <h3 className="text-base font-extrabold text-[#0B132B] uppercase tracking-wide">
+            <div className="space-y-6">
+              <div className="mb-8 flex items-center justify-center border-b border-slate-200 pb-4 text-center">
+                <h3 className="text-xl font-extrabold uppercase tracking-wide text-[#0B132B] dark:text-white md:text-2xl">
                   Why Choose Antellay
                 </h3>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {whyChooseUs.map((item, idx) => (
                   <div key={idx} className="flex gap-3 text-left">
                     <div className="w-8 h-8 rounded-sm bg-white border border-[#E2E8F0] flex items-center justify-center text-[#00A98F] shrink-0 shadow-sm">
@@ -475,24 +418,6 @@ export default function CloudInfrastructurePage() {
               </div>
             </div>
 
-            {/* Performance Stats */}
-            <div className="lg:col-span-6 bg-white border border-[#E2E8F0] p-6 rounded-sm shadow-sm">
-              <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-6">
-                <h3 className="text-base font-extrabold text-[#0B132B] uppercase tracking-wide">
-                  Infrastructure Performance & Security Stats
-                </h3>
-              </div>
-              
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
-                {stats.map((stat, idx) => (
-                  <div key={idx} className="bg-[#F8FAFC] border border-[#E2E8F0] p-5 rounded-sm text-center shadow-sm hover:border-[#00A98F] transition-all">
-                    <h3 className="text-2xl md:text-3xl font-black text-[#00A98F] tracking-tight">{stat.val}</h3>
-                    <p className="text-[9px] text-[#0B132B]/50 font-extrabold uppercase mt-1 leading-tight">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
           </div>
         </div>
       </section>
@@ -500,7 +425,7 @@ export default function CloudInfrastructurePage() {
       {/* 8. CTA Banner */}
       <section className="py-12 bg-white">
         <div className="max-w-[1400px] mx-auto px-8">
-          <div className="bg-[#0A1128] border border-slate-800 rounded-sm relative overflow-hidden p-8 md:p-12 flex flex-col md:flex-row justify-between items-center gap-8 shadow-2xl">
+          <div className="relative flex min-h-[260px] flex-col items-center justify-between gap-8 overflow-hidden rounded-3xl border border-slate-700 bg-[#0A1128] p-9 shadow-2xl md:flex-row md:p-12">
             
             {/* Visual background */}
             <div className="absolute inset-0 -z-10 opacity-30">
@@ -524,9 +449,6 @@ export default function CloudInfrastructurePage() {
             <div className="flex flex-wrap gap-4 shrink-0">
               <Link href="/contact" className="px-6 py-3.5 bg-[#00A98F] hover:bg-[#00A98F]/90 text-white text-sm font-bold rounded-sm shadow-lg shadow-[#00A98F]/20 transition-all hover:-translate-y-0.5">
                 Book Free Consultation
-              </Link>
-              <Link href="/contact" className="px-6 py-3.5 bg-transparent border border-slate-600 hover:border-white text-white text-sm font-bold rounded-sm transition-all hover:bg-white/5">
-                Schedule Infrastructure Audit
               </Link>
             </div>
 

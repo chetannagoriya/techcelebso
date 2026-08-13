@@ -50,6 +50,7 @@ export default function CybersecurityPage() {
   const coreServices = [
     {
       title: "Security Assessment",
+      image: "/images/cybersecurity-hero-2026.png",
       description: "Identify vulnerabilities, security gaps, compliance risks, and strengthen your organization's overall security posture.",
       bullets: [
         "Vulnerability Assessment",
@@ -63,6 +64,7 @@ export default function CybersecurityPage() {
     },
     {
       title: "API Security",
+      image: "/images/cybersecurity_hero.jpg",
       description: "Protect REST APIs, GraphQL APIs, authentication systems, rate limiting, API gateways, and secure integrations.",
       bullets: [
         "API Discovery & Testing",
@@ -76,6 +78,7 @@ export default function CybersecurityPage() {
     },
     {
       title: "Cloud Security",
+      image: "/images/cloud-infrastructure-hero-2026.png",
       description: "Secure AWS, Azure, and Google Cloud environments with continuous monitoring, compliance, and threat detection.",
       bullets: [
         "Cloud Security Posture",
@@ -89,6 +92,7 @@ export default function CybersecurityPage() {
     },
     {
       title: "Identity & Access Management (IAM)",
+      image: "/images/cybersecurity_cta.jpg",
       description: "Implement secure authentication, role-based access control (RBAC), Single Sign-On (SSO), Multi-Factor Authentication and more.",
       bullets: [
         "SSO & MFA",
@@ -124,40 +128,42 @@ export default function CybersecurityPage() {
 
 
   return (
-    <main className="service-modern-page min-h-screen bg-white transition-colors duration-300 font-[family-name:var(--font-sans)]">
+    <main className="service-modern-page cybersecurity-modern-page min-h-screen bg-white transition-colors duration-300 font-[family-name:var(--font-sans)]">
       
       {/* 1. Hero Section */}
-      <section className="relative pt-10 pb-12 md:pt-14 md:pb-16 overflow-hidden bg-[#0A1128]">
-        {/* Glow pathways */}
-        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#00A98F]/10 blur-[120px] pointer-events-none"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-[#00F5D4]/10 blur-[100px] pointer-events-none"></div>
+      <section className="relative flex min-h-[560px] items-center overflow-hidden bg-[#07101f] py-16 md:py-20">
+        <img
+          src="/images/cybersecurity-hero-2026.png"
+          alt="Digital cybersecurity lock protecting connected systems"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#07101f]/95 via-[#07101f]/72 to-[#07101f]/15"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#07101f]/55 via-transparent to-[#07101f]/20"></div>
         
-        <div className="max-w-[1400px] mx-auto px-8 relative z-10">
+        <div className="relative z-10 mx-auto w-full max-w-[1600px] px-4 sm:px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Left text column */}
-            <div className="lg:col-span-5 flex flex-col gap-6">
+            <div className="lg:col-span-7 xl:col-span-6 flex flex-col gap-6">
               <div>
                 <span className="text-[#00A98F] text-xs font-bold uppercase tracking-widest block mb-3 bg-[#00A98F]/10 px-3 py-1 rounded-full w-fit">
                   Secure Today, Protect Tomorrow
                 </span>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.08] tracking-tight font-[family-name:var(--font-heading)]">
-                  Enterprise <br />
-                  Cybersecurity <br />
-                  Services
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.03] tracking-tight font-[family-name:var(--font-heading)]">
+                  Enterprise Cybersecurity Services
                 </h1>
               </div>
-              <p className="text-base text-slate-300 leading-relaxed font-light">
-                Protect your business with advanced security assessments, API security protection, cloud security, identity & access management, and enterprise cyber defense solutions.
+              <p className="max-w-2xl text-base md:text-lg text-slate-200 leading-relaxed font-light">
+                Protect every layer of your digital business with proactive security, continuous threat monitoring, resilient cloud defense, and identity-first protection.
               </p>
               
               <div className="flex flex-wrap gap-4 mt-2">
                 <Link href="/contact" className="px-6 py-3.5 bg-[#00A98F] hover:bg-[#00A98F]/90 text-white text-sm font-bold rounded-sm shadow-lg shadow-[#00A98F]/20 transition-all hover:-translate-y-0.5">
                   Get Free Consultation →
                 </Link>
-                <Link href="/contact" className="group flex items-center gap-2 px-6 py-3.5 bg-transparent border border-slate-500 hover:border-white text-white text-sm font-bold rounded-sm transition-all hover:bg-white/5">
+                <Link href="/contact" className="hidden group items-center gap-2 px-6 py-3.5 bg-transparent border border-slate-500 hover:border-white text-white text-sm font-bold rounded-sm transition-all hover:bg-white/5">
                   <svg className="w-4 h-4 text-slate-400 group-hover:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                  Talk to Security Expert
+                  Contact Our Team
                 </Link>
               </div>
 
@@ -182,14 +188,14 @@ export default function CybersecurityPage() {
             </div>
 
             {/* Right mockup column: Security Dashboard */}
-            <div className="lg:col-span-7 relative">
+            <div className="hidden lg:col-span-7 relative">
               <div className="bg-[#0F172A] border border-slate-800 rounded-sm shadow-2xl p-4 md:p-6 text-white overflow-hidden group">
                 
                 {/* Visual Header */}
                 <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                    <span className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">Security Operations Center</span>
+                    <span className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">Live Security Overview</span>
                   </div>
                   <span className="text-[9px] font-bold text-[#00F5D4] bg-emerald-950/40 px-2 py-0.5 rounded-sm border border-emerald-900">• All Systems Secure</span>
                 </div>
@@ -284,41 +290,37 @@ export default function CybersecurityPage() {
       </section>
 
       {/* 2. Our Cybersecurity Services (4 columns) */}
-      <section className="py-16 bg-[#F8FAFC] border-b border-[#E2E8F0]">
+      <section className="border-b border-[#E2E8F0] bg-[#F8FAFC] py-16 transition-colors dark:border-white/10 dark:bg-[#0E1930] md:py-20">
         <div className="max-w-[1400px] mx-auto px-8">
-          <div className="flex items-center justify-center gap-4 mb-12">
-            <span className="h-[1px] bg-slate-300 flex-1"></span>
-            <h2 className="text-[#0B132B] text-xl md:text-2xl font-black uppercase tracking-wider shrink-0 font-[family-name:var(--font-heading)]">
+          <div className="mb-12 flex flex-col items-center text-center">
+            <span className="text-xs font-black uppercase tracking-[0.2em] text-[#00A98F] dark:text-[#00F5D4]">What we deliver</span>
+            <h2 className="mt-2 text-2xl font-black tracking-tight text-[#0B132B] dark:text-white md:text-4xl font-[family-name:var(--font-heading)]">
               Our Cybersecurity Services
             </h2>
-            <span className="h-[1px] bg-slate-300 flex-1"></span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
             {coreServices.map((service, idx) => {
-              const Icon = service.icon;
+              const accent = ["#3B82F6", "#10B981", "#8B5CF6", "#F97316"][idx];
               return (
-                <div key={idx} className={`bg-white border-t-4 ${service.color} border-x border-b border-[#E2E8F0] p-6 rounded-sm flex flex-col justify-between hover:shadow-lg transition-all duration-300 group`}>
-                  <div>
-                    <div className={`w-10 h-10 ${service.iconColor} text-white flex items-center justify-center rounded-sm mb-4`}>
-                      <Icon size={20} />
-                    </div>
-                    <h3 className="text-base font-extrabold text-[#0B132B] mb-2">{service.title}</h3>
-                    <p className="text-xs text-[#0B132B]/60 leading-relaxed mb-4">{service.description}</p>
-                    
-                    <ul className="space-y-1.5 mb-6">
+                <article key={service.title} className="cyber-image-service-card group overflow-hidden rounded-3xl border border-slate-200 bg-white" style={{ "--service-accent": accent }}>
+                  <div className="relative h-48 overflow-hidden">
+                    <img src={service.image} alt={`${service.title} service`} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#071126]/75 via-[#071126]/15 to-transparent"></div>
+                  </div>
+                  <div className="min-h-[310px] p-5">
+                    <h3 className="text-xl font-extrabold leading-tight text-[#0B132B] dark:text-white">{service.title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">{service.description}</p>
+                    <ul className="mt-5 space-y-2.5">
                       {service.bullets.map((bullet, i) => (
-                        <li key={i} className="flex items-center gap-2 text-xs text-[#0B132B]/85 font-medium">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#00A98F]"></span>
+                        <li key={i} className="flex items-center gap-2.5 text-xs font-semibold text-slate-700 dark:text-slate-200">
+                          <span className="cyber-service-check grid h-5 w-5 shrink-0 place-items-center rounded-full"><Check size={12} strokeWidth={3} /></span>
                           {bullet}
                         </li>
                       ))}
                     </ul>
                   </div>
-                  <Link href="/contact" className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00A98F] hover:underline group-hover:gap-2 transition-all">
-                    Learn More <ArrowRight size={14} />
-                  </Link>
-                </div>
+                </article>
               );
             })}
           </div>
@@ -329,11 +331,11 @@ export default function CybersecurityPage() {
       <section className="py-16 bg-white border-b border-[#E2E8F0]">
         <div className="max-w-[1400px] mx-auto px-8">
           <div className="flex items-center justify-center gap-4 mb-12">
-            <span className="h-[1px] bg-slate-200 flex-1"></span>
-            <h2 className="text-[#0B132B] text-sm font-black uppercase tracking-wider shrink-0">
+            <span className="hidden h-[1px] bg-slate-200 flex-1 sm:block"></span>
+            <h2 className="text-center text-2xl font-extrabold uppercase tracking-wide text-[#0B132B] dark:text-white md:text-3xl">
               Security Solutions We Provide
             </h2>
-            <span className="h-[1px] bg-slate-200 flex-1"></span>
+            <span className="hidden h-[1px] bg-slate-200 flex-1 sm:block"></span>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
@@ -349,11 +351,11 @@ export default function CybersecurityPage() {
             ].map((sol, idx) => {
               const SolIcon = sol.icon;
               return (
-                <div key={idx} className="bg-[#F8FAFC] border border-[#E2E8F0] p-4 rounded-sm text-center flex flex-col items-center gap-3 hover:border-[#00A98F] hover:bg-white hover:shadow-md transition-all duration-200">
+                <div key={idx} className="bg-[#F8FAFC] border border-[#E2E8F0] p-5 rounded-lg text-center flex min-h-[132px] flex-col items-center justify-center gap-3 hover:border-[#00A98F] hover:bg-white hover:shadow-md transition-all duration-200">
                   <div className="text-[#00A98F]">
-                    <SolIcon size={22} />
+                    <SolIcon size={26} />
                   </div>
-                  <h4 className="text-[11px] font-bold text-[#0B132B] leading-tight">{sol.name}</h4>
+                  <h4 className="text-sm font-bold text-[#0B132B] leading-tight">{sol.name}</h4>
                 </div>
               );
             })}
@@ -365,22 +367,19 @@ export default function CybersecurityPage() {
       <section className="py-12 bg-[#F8FAFC] border-b border-[#E2E8F0]">
         <div className="max-w-[1400px] mx-auto px-8">
           <div className="flex items-center justify-center gap-4 mb-10">
-            <span className="h-[1px] bg-slate-300 flex-1"></span>
-            <h3 className="text-[#0B132B] text-xs font-black uppercase tracking-wider shrink-0">
+            <span className="hidden h-[1px] bg-slate-300 flex-1 sm:block"></span>
+            <h3 className="text-center text-2xl font-extrabold uppercase tracking-wide text-[#0B132B] dark:text-white md:text-3xl">
               Platforms We Secure
             </h3>
-            <span className="h-[1px] bg-slate-300 flex-1"></span>
+            <span className="hidden h-[1px] bg-slate-300 flex-1 sm:block"></span>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-8 items-center max-w-5xl mx-auto">
-            <AWSLogo />
-            <AzureLogo />
-            <GCPLogo />
-            <CloudflareLogo />
-            <OktaLogo />
-            <DefenderLogo />
-            <CiscoLogo />
-            <PaloAltoLogo />
+          <div className="cyber-logo-marquee">
+            <div className="cyber-logo-track">
+              {[AWSLogo, AzureLogo, GCPLogo, CloudflareLogo, OktaLogo, DefenderLogo, CiscoLogo, PaloAltoLogo, AWSLogo, AzureLogo, GCPLogo, CloudflareLogo, OktaLogo, DefenderLogo, CiscoLogo, PaloAltoLogo].map((LogoComp, idx) => (
+                <div key={idx} className="cyber-logo-card"><LogoComp /></div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -389,15 +388,28 @@ export default function CybersecurityPage() {
       <section className="py-16 bg-white border-b border-[#E2E8F0]">
         <div className="max-w-[1400px] mx-auto px-8">
           <div className="flex items-center justify-center gap-4 mb-12">
-            <span className="h-[1px] bg-slate-200 flex-1"></span>
-            <h2 className="text-[#0B132B] text-xs font-black uppercase tracking-wider shrink-0">
+            <span className="hidden h-[1px] bg-slate-200 flex-1 sm:block"></span>
+            <h2 className="text-center text-2xl font-extrabold uppercase tracking-wide text-[#0B132B] dark:text-white md:text-3xl">
               Technologies & Tools We Use
             </h2>
-            <span className="h-[1px] bg-slate-200 flex-1"></span>
+            <span className="hidden h-[1px] bg-slate-200 flex-1 sm:block"></span>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+          <div className="cyber-logo-marquee">
+            <div className="cyber-logo-track cyber-logo-track-slow">
             {[
+              OWASPLogo,
+              WAFLogo,
+              SIEMLogo,
+              IAMLogo,
+              MFALogo,
+              JWTLogo,
+              OAuthLogo,
+              K8sSecLogo,
+              DockerSecLogo,
+              SSLLogo,
+              SplunkLogo,
+              SOCLogo,
               OWASPLogo,
               WAFLogo,
               SIEMLogo,
@@ -411,10 +423,11 @@ export default function CybersecurityPage() {
               SplunkLogo,
               SOCLogo
             ].map((LogoComp, idx) => (
-              <div key={idx} className="flex items-center justify-center border border-[#E2E8F0] bg-[#F8FAFC] p-3 rounded-sm hover:scale-[1.03] transition-transform shadow-sm">
+              <div key={idx} className="cyber-logo-card">
                 <LogoComp />
               </div>
             ))}
+            </div>
           </div>
         </div>
       </section>
@@ -423,11 +436,11 @@ export default function CybersecurityPage() {
       <section className="py-16 bg-white border-b border-[#E2E8F0]">
         <div className="max-w-[1400px] mx-auto px-8">
           <div className="flex items-center justify-center gap-4 mb-14">
-            <span className="h-[1px] bg-slate-200 flex-1"></span>
-            <h2 className="text-[#0B132B] text-base font-black uppercase tracking-wider shrink-0">
+            <span className="hidden h-[1px] bg-slate-200 flex-1 sm:block"></span>
+            <h2 className="text-center text-2xl font-extrabold uppercase tracking-wide text-[#0B132B] dark:text-white md:text-3xl">
               Our Security Process
             </h2>
-            <span className="h-[1px] bg-slate-200 flex-1"></span>
+            <span className="hidden h-[1px] bg-slate-200 flex-1 sm:block"></span>
           </div>
 
           <div className="relative flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4 max-w-6xl mx-auto">
@@ -437,13 +450,13 @@ export default function CybersecurityPage() {
             {provisionSteps.map((step, idx) => {
               const StepIcon = step.icon;
               return (
-                <div key={idx} className="flex flex-col items-center text-center max-w-[130px] flex-1 relative z-10">
-                  <div className="w-14 h-14 rounded-full bg-white border border-[#E2E8F0] shadow-sm flex items-center justify-center text-[#00A98F] hover:border-[#00A98F] hover:scale-105 transition-all duration-300">
-                    <StepIcon size={22} />
+                <div key={idx} className="flex flex-col items-center text-center max-w-[150px] flex-1 relative z-10">
+                  <div className="w-16 h-16 rounded-full bg-white border border-[#E2E8F0] shadow-sm flex items-center justify-center text-[#00A98F] hover:border-[#00A98F] hover:scale-105 transition-all duration-300">
+                    <StepIcon size={25} />
                   </div>
-                  <span className="text-[9px] font-black text-[#00A98F] mt-3">{step.num}</span>
-                  <h4 className="text-xs font-bold text-[#0B132B] mt-1">{step.name}</h4>
-                  <p className="text-[9px] text-[#0B132B]/50 mt-1 leading-normal">{step.desc}</p>
+                  <span className="text-xs font-black text-[#00A98F] mt-3">{step.num}</span>
+                  <h4 className="text-sm font-bold text-[#0B132B] mt-1">{step.name}</h4>
+                  <p className="text-xs text-[#0B132B]/50 mt-1 leading-normal">{step.desc}</p>
                 </div>
               );
             })}
@@ -458,20 +471,20 @@ export default function CybersecurityPage() {
             
             {/* Why Choose Us */}
             <div className="lg:col-span-12 space-y-6">
-              <div className="flex items-center gap-3 border-b border-slate-200 pb-3 mb-6">
-                <h3 className="text-base font-extrabold text-[#0B132B] uppercase tracking-wide">
+              <div className="flex items-center justify-center border-b border-slate-200 pb-4 mb-8">
+                <h3 className="text-2xl md:text-3xl font-extrabold text-[#0B132B] uppercase tracking-wide text-center">
                   Why Choose Antellay
                 </h3>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {whyChooseUs.map((item, idx) => (
                   <div key={idx} className="flex gap-3 text-left">
-                    <div className="w-8 h-8 rounded-sm bg-white border border-[#E2E8F0] flex items-center justify-center text-[#00A98F] shrink-0 shadow-sm">
-                      <CheckCircle2 size={16} />
+                    <div className="w-10 h-10 rounded-lg bg-white border border-[#E2E8F0] flex items-center justify-center text-[#00A98F] shrink-0 shadow-sm">
+                      <CheckCircle2 size={19} />
                     </div>
                     <div>
-                      <h4 className="text-xs font-black text-[#0B132B]">{item.title}</h4>
-                      <p className="text-[10px] text-[#0B132B]/60 leading-relaxed mt-1 font-medium">{item.desc}</p>
+                      <h4 className="text-sm font-black text-[#0B132B]">{item.title}</h4>
+                      <p className="text-xs text-[#0B132B]/60 leading-relaxed mt-1 font-medium">{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -485,7 +498,7 @@ export default function CybersecurityPage() {
       {/* 8. CTA Banner */}
       <section className="py-12 bg-white">
         <div className="max-w-[1400px] mx-auto px-8">
-          <div className="bg-[#0A1128] border border-slate-800 rounded-sm relative overflow-hidden p-8 md:p-12 flex flex-col md:flex-row justify-between items-center gap-8 shadow-2xl">
+          <div className="bg-[#0A1128] border border-slate-800 rounded-3xl min-h-[260px] relative overflow-hidden p-9 md:p-12 flex flex-col md:flex-row justify-between items-center gap-8 shadow-2xl">
             
             {/* Visual background */}
             <div className="absolute inset-0 -z-10 opacity-30">
@@ -510,7 +523,7 @@ export default function CybersecurityPage() {
               <Link href="/contact" className="px-6 py-3.5 bg-[#00A98F] hover:bg-[#00A98F]/90 text-white text-sm font-bold rounded-sm shadow-lg shadow-[#00A98F]/20 transition-all hover:-translate-y-0.5">
                 Book Free Security Assessment
               </Link>
-              <Link href="/contact" className="px-6 py-3.5 bg-transparent border border-slate-600 hover:border-white text-white text-sm font-bold rounded-sm transition-all hover:bg-white/5">
+              <Link href="/contact" className="hidden px-6 py-3.5 bg-transparent border border-slate-600 hover:border-white text-white text-sm font-bold rounded-sm transition-all hover:bg-white/5">
                 Schedule Consultation
               </Link>
             </div>
