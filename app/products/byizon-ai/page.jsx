@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BarChart3, Bot, Brain, Building2, Check, Database, Lock, MessageSquareText, Mic, Play, ShieldCheck, SlidersHorizontal, Workflow, Zap } from "lucide-react";
+import { ArrowRight, BarChart3, Brain, Building2, Check, Database, Lock, MessageSquareText, Mic, Play, ShieldCheck, SlidersHorizontal, Workflow, Zap } from "lucide-react";
 
 export const metadata = {
   title: "Byizon.ai | AI Business Operating System",
@@ -230,7 +230,6 @@ export default function ByizonAiPage() {
           </div>
           <div className="flex flex-wrap gap-3">
             <Link href="/contact" className="inline-flex items-center gap-2 rounded-xl bg-[#7658ff] px-7 py-4 text-sm font-black">Book a Demo <ArrowRight size={16} /></Link>
-            <Link href="/contact" className="inline-flex items-center gap-2 rounded-xl border border-white/30 px-7 py-4 text-sm font-black">Talk to an Expert <Bot size={16} /></Link>
           </div>
         </div>
       </section>

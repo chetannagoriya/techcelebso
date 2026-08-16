@@ -49,7 +49,6 @@ export default function CaseStudiesPage() {
       <section className="px-7 pb-16 lg:px-14">
         <div className="mx-auto grid max-w-[1320px] gap-6 rounded-3xl bg-[#071124] p-8 text-white md:grid-cols-[1fr_auto] md:items-center">
           <div><h2 className="text-3xl font-black">Have a challenge worth solving?</h2><p className="mt-3 text-white/65">Let’s turn it into the next measurable success story.</p></div>
-          <Link href="/contact" className="inline-flex items-center gap-2 rounded-md bg-[#3A86FF] px-6 py-3 text-sm font-bold">Talk to Experts <ArrowRight size={16} /></Link>
         </div>
       </section>
     </main>

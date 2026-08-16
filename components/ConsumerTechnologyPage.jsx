@@ -63,7 +63,6 @@ export default function ConsumerTechnologyPage() {
             <p className="mt-6 max-w-[500px] text-sm leading-7 text-white/72">We build intelligent Mobile Apps, Scalable SaaS Platforms, and AI-powered Products that users love and businesses trust.</p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link href="/contact" className="inline-flex items-center gap-2 rounded-md bg-[#1264ff] px-5 py-3 text-xs font-bold transition hover:bg-[#347dff]">Book Free Consultation <ArrowRight size={14}/></Link>
-              <Link href="/contact" className="rounded-md border border-white/45 bg-white/5 px-5 py-3 text-xs font-bold backdrop-blur transition hover:bg-white/10">Talk to Product Expert</Link>
             </div>
             <div className="mt-11 grid grid-cols-3 gap-5 sm:grid-cols-6">
               {[[Palette,"User-Centric Design"],[Boxes,"Scalable Architecture"],[Sparkles,"AI-First Approach"],[Cloud,"Cloud Native"],[LockKeyhole,"Secure & Compliant"],[TrendingUp,"Data Driven Insights"]].map(([Icon,label]) => <div key={label} className="text-center"><Icon className="mx-auto text-[#8d7cff]" size={22}/><span className="mt-2 block text-[8px] font-semibold leading-3 text-white/75">{label}</span></div>)}

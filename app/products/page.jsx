@@ -229,9 +229,6 @@ export default function ProductsPage() {
                 Tell us which product you want to launch, adopt or partner with, and our team will walk you through the right demo.
               </p>
             </div>
-            <Link href="/contact" className="inline-flex items-center justify-center gap-2 rounded-md bg-white px-6 py-3 text-sm font-extrabold text-[#071124]">
-              Talk to Product Team <ArrowRight size={16} />
-            </Link>
           </div>
         </div>
       </section>

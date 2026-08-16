@@ -48,6 +48,70 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Keep every industry detail hero close to the shared header. */
+.industries-route-shell > main:not(.industries-index-page) > section:first-child {
+  min-height: 500px !important;
+}
+
+.industries-route-shell > main:not(.industries-index-page) > section:first-child > div.relative.mx-auto {
+  min-height: 500px !important;
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+}
+
+@media (max-width: 767px) {
+  .industries-route-shell > main:not(.industries-index-page) > section:first-child,
+  .industries-route-shell > main:not(.industries-index-page) > section:first-child > div.relative.mx-auto {
+    min-height: 440px !important;
+  }
+
+  .industries-route-shell > main:not(.industries-index-page) > section:first-child > div.relative.mx-auto {
+    padding-top: 1.25rem !important;
+    padding-bottom: 1.25rem !important;
+  }
+}
+
+/* Industry pages use dense dashboards and cards; keep their copy comfortably readable. */
+.industries-route-shell main .text-sm {
+  font-size: 0.975rem !important;
+  line-height: 1.65 !important;
+}
+
+.industries-route-shell main .text-xs {
+  font-size: 0.825rem !important;
+  line-height: 1.5 !important;
+}
+
+.industries-route-shell main [class*="text-[7px]"] {
+  font-size: 0.6rem !important;
+  line-height: 1.4 !important;
+}
+
+.industries-route-shell main [class*="text-[8px]"] {
+  font-size: 0.68rem !important;
+  line-height: 1.45 !important;
+}
+
+.industries-route-shell main [class*="text-[9px]"] {
+  font-size: 0.74rem !important;
+  line-height: 1.5 !important;
+}
+
+.industries-route-shell main [class*="text-[10px]"] {
+  font-size: 0.8rem !important;
+  line-height: 1.5 !important;
+}
+
+.industries-route-shell main [class*="text-[11px]"] {
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+}
+
+.industries-route-shell main [class*="text-[13px]"] {
+  font-size: 0.9rem !important;
+  line-height: 1.55 !important;
+}
+
 /* Reference-led showcase pages always use the light navigation treatment. */
 .dark .showcase-navbar {
   background: #fff !important;
@@ -301,9 +365,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .contact-field:focus {
-  border-color: #3a86ff;
+  border-color: #00a98f;
   background: #fff;
-  box-shadow: 0 0 0 4px rgba(58, 134, 255, 0.1);
+  box-shadow: 0 0 0 4px rgba(0, 245, 212, 0.12);
 }
 
 .contact-option-card {

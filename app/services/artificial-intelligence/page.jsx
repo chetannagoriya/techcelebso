@@ -261,9 +261,6 @@ export default function ArtificialIntelligencePage() {
                 Get Free Consultation
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link href="/contact" className="rounded-sm border border-white bg-white px-8 py-4 text-sm font-bold text-[#0B132B] transition-colors hover:border-[#00F5D4] hover:bg-[#00F5D4] dark:border-white/20 dark:bg-transparent dark:text-white dark:hover:border-white/20 dark:hover:bg-white/5">
-                Talk to AI Expert
-              </Link>
             </div>
             
             {/* 4 Attributes */}
@@ -583,9 +580,6 @@ export default function ArtificialIntelligencePage() {
               <Link href="/contact" className="px-8 py-4 bg-[#00F5D4] text-[#0B132B] font-bold rounded-sm hover:opacity-90 transition-opacity flex items-center gap-2 group text-sm shadow-lg shadow-[#00F5D4]/20">
                 Book Free Consultation
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link href="/contact" className="rounded-sm border border-white bg-white px-8 py-4 text-sm font-bold text-[#0B132B] transition-colors hover:border-[#00F5D4] hover:bg-[#00F5D4] dark:border-white/20 dark:bg-transparent dark:text-white dark:hover:border-white/20 dark:hover:bg-white/5">
-                Talk to AI Expert
               </Link>
             </div>
           </div>

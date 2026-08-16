@@ -3,7 +3,7 @@ import Link from "next/link";
 import {
   ArrowRight, BarChart3, Bot, Building2, CheckCircle2, ClipboardList,
   Database, FileSearch, Layers3, Lightbulb, Map, MapPin, Radar, Satellite,
-  Search, ShieldCheck, Target, TrendingUp,
+  ShieldCheck, Target, TrendingUp,
 } from "lucide-react";
 
 const challenges = [
@@ -40,7 +40,7 @@ export default function RealEstatePage() {
             <p className="mb-3 text-xs font-extrabold tracking-[.08em] text-[#07966d]">INDUSTRY SOLUTIONS</p>
             <h1 className="text-4xl font-bold leading-[1.12] tracking-[-.035em] sm:text-5xl lg:text-[54px]">AI-Powered<br/><span className="text-[#078664]">Real Estate &<br/>Property Intelligence</span></h1>
             <p className="mt-5 max-w-[490px] text-sm leading-6 text-slate-700">Make smarter property decisions using AI, GIS Mapping, satellite imagery, land analytics, and predictive market insights.</p>
-            <div className="mt-6 flex flex-wrap gap-3"><Link href="/contact" className="inline-flex items-center gap-2 rounded-md bg-[#049b67] px-5 py-3 text-xs font-bold text-white">Book Free Consultation <ArrowRight size={14}/></Link><Link href="/contact" className="inline-flex items-center gap-2 rounded-md border border-slate-500 bg-white px-5 py-3 text-xs font-bold">Talk to Real Estate Expert <Search size={14}/></Link></div>
+            <div className="mt-6 flex flex-wrap gap-3"><Link href="/contact" className="inline-flex items-center gap-2 rounded-md bg-[#049b67] px-5 py-3 text-xs font-bold text-white">Book Free Consultation <ArrowRight size={14}/></Link></div>
             <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">{[[Bot,"AI Intelligence"],[MapPin,"GIS Mapping"],[Layers3,"Land Analytics"],[TrendingUp,"Market Insights"]].map(([Icon,label])=><div key={label} className="flex items-center gap-2 text-[9px] font-semibold"><Icon size={20} className="text-[#069c70]"/>{label}</div>)}</div>
           </div>
           <div className="relative min-h-[400px] overflow-hidden rounded-2xl shadow-2xl"><Image src="/images/gis_hero_map.jpg" alt="AI-powered city property intelligence" fill className="object-cover"/><div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(9,64,59,.05),rgba(4,32,41,.45))]"/><div className="absolute right-4 top-5 w-[56%] rounded-xl border border-emerald-300/30 bg-[#07242c]/90 p-4 text-white shadow-xl backdrop-blur"><p className="text-[10px] font-bold">Property Intelligence Overview</p><div className="mt-3 grid grid-cols-4 gap-2">{[["24,568","Total Properties"],["1,245","Active Projects"],["8,963","Land Parcels"],["+12.6%","Market Trend"]].map(([v,l])=><div key={l} className="rounded border border-white/10 bg-white/5 p-2"><b className="text-sm text-emerald-300">{v}</b><span className="mt-1 block text-[7px] text-white/60">{l}</span></div>)}</div><div className="mt-3 grid grid-cols-[1.2fr_.8fr] gap-3"><div className="relative h-28 overflow-hidden rounded"><Image src="/images/gis_hero_map.jpg" alt="" fill className="object-cover"/></div><div className="rounded bg-black/20 p-2 text-[8px] leading-5 text-white/70">Top Investment Zones<br/><span className="text-emerald-300">Bandra Kurla &nbsp; 92</span><br/>Whitefield &nbsp; 88<br/>Gurugram &nbsp; 85<br/>Hinjewadi &nbsp; 82</div></div></div></div>

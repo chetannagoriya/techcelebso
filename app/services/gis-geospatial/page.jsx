@@ -441,10 +441,6 @@ export default function GISGeospatialPage() {
                 <Link href="/contact" className="px-6 py-3.5 bg-[#00F5D4] hover:bg-[#00F5D4]/90 text-[#0B132B] text-sm font-bold rounded-sm shadow-lg shadow-[#00F5D4]/20 transition-all hover:-translate-y-0.5">
                   Book Free Consultation
                 </Link>
-                <Link href="/contact" className="group flex items-center gap-2 rounded-sm border border-white bg-white px-6 py-3.5 text-sm font-bold text-[#0B132B] transition-all hover:border-[#00F5D4] hover:bg-[#00F5D4] dark:border-slate-500 dark:bg-transparent dark:text-white dark:hover:border-white dark:hover:bg-white/5">
-                  <svg className="h-4 w-4 text-[#0B132B]/65 transition-colors group-hover:text-[#0B132B] dark:text-slate-400 dark:group-hover:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 1 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                  Talk to GIS Expert
-                </Link>
               </div>
 
               {/* Grid Features */}

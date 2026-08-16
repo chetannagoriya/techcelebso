@@ -62,7 +62,6 @@ export default function IndustryLandingPage({ config }) {
             <p className="mt-5 max-w-[520px] text-sm leading-7 text-slate-700">{description}</p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link href="/contact" className="inline-flex items-center gap-2 rounded-md bg-[#1264d8] px-5 py-3 text-xs font-bold text-white">Book Free Consultation <ArrowRight size={14} /></Link>
-              <Link href="/contact" className="rounded-md border border-[#1264d8] bg-white px-5 py-3 text-xs font-bold text-[#0b327a]">Talk to Expert</Link>
             </div>
           </div>
           <div className="hidden lg:block">

@@ -59,7 +59,7 @@ export default function ChatBot() {
         </p>
         <button 
           onClick={() => setShowToast(false)} 
-          className="absolute top-2 right-2 text-[#0B132B]/40 dark:text-white/40 hover:text-[#3A86FF] dark:hover:text-[#00F5D4] transition-colors p-2"
+          className="absolute top-2 right-2 text-[#0B132B]/40 dark:text-white/40 hover:text-[#00A98F] dark:hover:text-[#00F5D4] transition-colors p-2"
           aria-label="Close message"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -70,13 +70,13 @@ export default function ChatBot() {
       {/* Mock Chat Panel */}
       {isOpen && (
         <div className="pointer-events-auto w-[calc(100vw-2rem)] sm:w-80 h-[65vh] sm:h-96 max-h-[600px] bg-white dark:bg-[#0B132B] rounded-sm shadow-2xl border border-[#E2E8F0] dark:border-[#2D3A54] flex flex-col overflow-hidden transform origin-bottom-right">
-           <div className="bg-[#3A86FF] dark:bg-[#1C2541] p-4 text-white shrink-0 border-b border-[#3A86FF] dark:border-[#00F5D4]/30">
+           <div className="shrink-0 border-b border-[#00D9BD] bg-[#00F5D4] p-4 text-[#0B132B]">
               <h3 className="font-semibold text-lg font-[family-name:var(--font-heading)]">Antellay Support</h3>
-              <p className="text-xs text-white/70">We typically reply in a few minutes.</p>
+              <p className="text-xs text-[#0B132B]/65">We typically reply in a few minutes.</p>
            </div>
            <div className="flex-1 p-4 bg-[#F4F7FA] dark:bg-[#0B132B] overflow-y-auto flex flex-col gap-3">
               {messages.map((msg, idx) => (
-                <div key={idx} className={`max-w-[85%] rounded-sm p-3 text-sm shadow-sm ${msg.isBot ? 'bg-white dark:bg-[#1C2541] border border-[#E2E8F0] dark:border-[#2D3A54] text-[#0B132B] dark:text-white/80 self-start' : 'bg-[#3A86FF] dark:bg-[#00F5D4] text-white dark:text-[#0B132B] self-end'}`}>
+                <div key={idx} className={`max-w-[85%] rounded-sm p-3 text-sm shadow-sm ${msg.isBot ? 'bg-white dark:bg-[#1C2541] border border-[#E2E8F0] dark:border-[#2D3A54] text-[#0B132B] dark:text-white/80 self-start' : 'bg-[#00F5D4] text-[#0B132B] self-end'}`}>
                   {msg.text}
                 </div>
               ))}
@@ -89,9 +89,9 @@ export default function ChatBot() {
                  value={inputValue}
                  onChange={(e) => setInputValue(e.target.value)}
                  placeholder="Type a message..." 
-                 className="flex-1 w-full bg-[#F4F7FA] dark:bg-[#1C2541] text-sm rounded-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#3A86FF] dark:focus:ring-[#00F5D4] text-[#0B132B] dark:text-white border border-[#E2E8F0] dark:border-[#2D3A54]" 
+                 className="flex-1 w-full bg-[#F4F7FA] dark:bg-[#1C2541] text-sm rounded-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#00F5D4] text-[#0B132B] dark:text-white border border-[#E2E8F0] dark:border-[#2D3A54]"
                />
-               <button type="submit" className="bg-[#3A86FF] dark:bg-[#00F5D4] hover:opacity-90 text-white dark:text-[#0B132B] rounded-sm w-9 h-9 flex items-center justify-center transition-colors shrink-0">
+               <button type="submit" className="bg-[#00F5D4] hover:bg-[#70EEFF] text-[#0B132B] rounded-sm w-9 h-9 flex items-center justify-center transition-colors shrink-0">
                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                </button>
              </form>
@@ -102,7 +102,7 @@ export default function ChatBot() {
       {/* Floating Action Button */}
       <button 
         onClick={() => { setIsOpen(!isOpen); setShowToast(false); }}
-        className="pointer-events-auto w-12 h-12 md:w-16 md:h-16 bg-[#3A86FF] dark:bg-[#00F5D4] hover:opacity-90 text-white dark:text-[#0B132B] rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 z-50 shrink-0"
+        className="pointer-events-auto w-12 h-12 md:w-16 md:h-16 bg-[#00F5D4] hover:bg-[#70EEFF] text-[#0B132B] rounded-full shadow-[0_16px_40px_rgba(0,245,212,.28)] flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 z-50 shrink-0"
       >
         {isOpen ? (
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>

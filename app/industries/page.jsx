@@ -1,126 +1,212 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
-
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Check,
+  ChevronDown,
+  Globe2,
+  Layers3,
+  Sparkles,
+} from "lucide-react";
 import { industriesData, generateSlug as generateIndustrySlug } from "../../data/industries";
-import { ArrowRight } from "lucide-react";
 
-const PlusIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#3A86FF] dark:text-[#00F5D4]"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-);
-
-const MinusIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#0B132B] dark:text-[#00F5D4]"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-);
+const industryLandingRoutes = {
+  Healthcare: "/industries/healthcare",
+  Automotive: "/industries/automotive",
+  "Banking & Finance": "/industries/banking-finance",
+  Insurance: "/industries/insurance",
+  Manufacturing: "/industries/manufacturing",
+  "Retail & E-commerce": "/industries/retail-ecommerce",
+  "Construction & Infrastructure": "/industries/construction-infrastructure",
+  "Environmental & Climate": "/industries/environment-climate",
+  "Pharmaceutical & Life Sciences": "/industries/pharmaceutical-life-sciences",
+  "Quick Commerce & Delivery": "/industries/quick-commerce-delivery",
+  Robotics: "/industries/robotics",
+  "Security & Surveillance": "/industries/security-surveillance",
+  "Real Estate": "/industries/real-estate",
+  Agriculture: "/industries/agriculture",
+  Education: "/industries/education",
+  "Energy & Utilities": "/industries/energy-utilities",
+  "Logistics & Supply Chain": "/industries/logistics-supply-chain",
+  "GIS & Mapping": "/services/gis-geospatial",
+  "Government & Smart Cities": "/industries/government-smart-cities",
+  Telecom: "/industries/telecom",
+  "Aviation & Aerospace": "/industries/aviation-aerospace",
+  "Maritime & Ports": "/industries/maritime-ports",
+  "Hospitality & Travel": "/industries/hospitality-travel",
+  "Consumer Technology": "/industries/consumer-technology",
+};
 
 const faqs = [
-  { q: "Why Should I Choose Antellay for Building Industry-Specific Solutions?", a: "With a strong foundation of forward-thinking, our goal is to provide your business with the most appropriate, up-to-date, and beneficial technology in your industry that you can benefit from. The organizational structure of Antellay is composed of consultants, architects, and developers who leverage industry-specific knowledge to offer bespoke technology-driven solutions that improve productivity, and reduce costs for long-term growth—interested in testing out our expertise serving your industry for free? Let's schedule a consultation as soon as possible." },
-  { q: "How Can I Initiate Digital Transformation Journey With Antellay?", a: "You can initiate your digital transformation journey by reaching out to us for a free consultation. Our team will assess your current systems, understand your business objectives, and create a tailored roadmap that aligns with your industry standards." },
-  { q: "Who Will be My Point of Contact If I Choose to Work With Antellay?", a: "You will be assigned a dedicated Account Manager and a Lead Solutions Architect. They will ensure seamless communication, provide regular project updates, and act as your primary points of contact throughout our engagement." },
-  { q: "Can You Upgrade My Legacy On-Premises System to Cloud?", a: "Absolutely. We specialize in legacy system modernization and seamless cloud migrations (AWS, GCP, Azure, Salesforce). We ensure zero data loss and minimal downtime during the transition." },
-  { q: "What If I Want to Request a Product Improvement in the Future?", a: "We believe in long-term partnerships. After initial deployment, we offer ongoing support and maintenance packages. You can easily request product improvements, scalability updates, or new feature additions at any time." }
+  {
+    q: "Why choose Antellay for industry-specific solutions?",
+    a: "Our consultants, architects, and engineers combine domain knowledge with practical technology expertise. Every solution is shaped around your operating model, compliance needs, customers, and long-term growth goals.",
+  },
+  {
+    q: "How do I start a digital transformation journey with Antellay?",
+    a: "Start with a focused consultation. We assess your current systems, clarify business priorities, identify high-impact opportunities, and create a phased roadmap with measurable outcomes.",
+  },
+  {
+    q: "Who will be my point of contact?",
+    a: "You receive a dedicated Account Manager and Lead Solutions Architect who coordinate communication, delivery updates, risks, and technical decisions throughout the engagement.",
+  },
+  {
+    q: "Can you modernize legacy on-premises systems for the cloud?",
+    a: "Yes. We modernize applications and migrate workloads across AWS, Azure, and Google Cloud with careful planning for security, continuity, data integrity, and minimal downtime.",
+  },
+  {
+    q: "Can the product evolve after launch?",
+    a: "Absolutely. Our support and product evolution models cover maintenance, performance, scalability, security updates, and new features as your organization grows.",
+  },
 ];
 
 export default function Industries() {
   const [openFaq, setOpenFaq] = useState(0);
 
   return (
-    <main className="min-h-screen bg-white dark:bg-[#0B132B] text-[#0B132B] dark:text-white transition-colors duration-300 font-sans">
-      
-      {/* Cyber Executive Hero Section */}
-      <section className="relative w-full py-24 md:py-32 overflow-hidden bg-[#F8FAFC] dark:bg-[#060B19] flex items-center border-b border-[#E2E8F0] dark:border-[#1C2541] transition-colors duration-300">
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none"></div>
-        <div className="absolute left-1/2 top-0 -translate-x-1/2 w-full max-w-[1200px] h-full flex justify-center pointer-events-none z-0">
-          <div className="w-[1px] h-full bg-gradient-to-b from-transparent via-[#3A86FF]/20 dark:via-[#00F5D4]/10 to-transparent"></div>
-          <div className="w-[1px] h-full bg-gradient-to-b from-transparent via-[#3A86FF]/20 dark:via-[#00F5D4]/10 to-transparent ml-[300px]"></div>
-          <div className="w-[1px] h-full bg-gradient-to-b from-transparent via-[#3A86FF]/20 dark:via-[#00F5D4]/10 to-transparent mr-[300px]"></div>
-        </div>
-        
-        <div className="max-w-[1400px] mx-auto w-full px-8 lg:px-20 z-10 text-center">
-          <div className="inline-block px-4 py-1.5 rounded-sm bg-white dark:bg-[#1C2541] border border-[#E2E8F0] dark:border-[#2D3A54] text-xs font-bold tracking-wider text-[#3A86FF] dark:text-[#00F5D4] mb-8">
-            DOMAIN EXPERTISE
+    <main className="industries-index-page min-h-screen bg-[#F6F9F9] text-[#0B132B] transition-colors duration-300 dark:bg-[#071126] dark:text-white">
+      <section className="relative isolate overflow-hidden bg-[#08172A] text-white">
+        <video
+          className="absolute inset-0 h-full w-full object-cover opacity-90"
+          src="/videos/landing-routine.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,15,29,.78)_0%,rgba(4,15,29,.52)_54%,rgba(4,15,29,.30)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(0,245,212,.12),transparent_27%),radial-gradient(circle_at_85%_75%,rgba(112,238,255,.06),transparent_28%)]" />
+        <div className="absolute inset-0 opacity-[.08] [background-image:linear-gradient(rgba(255,255,255,.16)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.16)_1px,transparent_1px)] [background-size:64px_64px]" />
+        <div className="absolute -right-36 -top-36 h-[430px] w-[430px] rounded-full border-[70px] border-[#00F5D4]/[.06]" />
+
+        <div className="relative mx-auto grid max-w-[1400px] gap-10 px-6 pb-16 pt-10 sm:px-8 md:pb-20 md:pt-12 lg:grid-cols-[1.15fr_.85fr] lg:items-end lg:px-12 lg:pb-20 lg:pt-14">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#00F5D4]/25 bg-[#00F5D4]/10 px-4 py-2 text-xs font-bold uppercase tracking-[.18em] text-[#00F5D4]">
+              <Sparkles size={15} /> Domain expertise
+            </div>
+            <h1 className="mt-6 max-w-4xl font-[family-name:var(--font-heading)] text-5xl font-semibold leading-[.98] tracking-[-.05em] sm:text-6xl lg:text-[76px]">
+              Technology built for how your <span className="text-[#00F5D4]">industry works.</span>
+            </h1>
+            <p className="mt-6 max-w-2xl text-base leading-8 text-white/64 sm:text-lg">
+              We combine deep domain understanding with AI, data, cloud, GIS, and product engineering to solve complex industry challenges.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href="#industry-grid" className="inline-flex items-center gap-2 rounded-xl bg-[#00F5D4] px-6 py-3.5 text-sm font-bold text-[#071126] transition hover:-translate-y-0.5 hover:bg-[#70EEFF]">
+                Explore industries <ArrowRight size={17} />
+              </a>
+            </div>
           </div>
-          <h1 className="text-5xl lg:text-7xl font-bold mb-6 tracking-tight font-heading">
-            Industries We <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3A86FF] to-[#00F5D4] dark:from-[#00F5D4] dark:to-[#3A86FF]">Transform</span>
-          </h1>
-          <p className="text-lg lg:text-xl text-[#0B132B]/70 dark:text-white/60 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Architecting intelligent solutions across 24 global domains. We merge deep industry logic with elite engineering.
-          </p>
+
+          <div className="grid grid-cols-3 overflow-hidden rounded-2xl border border-white/10 bg-white/[.06] backdrop-blur-sm">
+            {[
+              ["24", "Industries"],
+              ["6+", "Core capabilities"],
+              ["Global", "Delivery mindset"],
+            ].map(([value, label], index) => (
+              <div key={label} className={`px-3 py-6 text-center sm:px-5 ${index > 0 ? "border-l border-white/10" : ""}`}>
+                <strong className="block font-[family-name:var(--font-heading)] text-2xl text-[#00F5D4] sm:text-3xl">{value}</strong>
+                <span className="mt-2 block text-[10px] font-semibold uppercase tracking-[.12em] text-white/48 sm:text-xs">{label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Industries Matrix */}
-      <section className="py-24 max-w-[1400px] mx-auto px-8 lg:px-20 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
-          {industriesData.map((industry, index) => {
+      <section id="industry-grid" className="mx-auto max-w-[1400px] scroll-mt-24 px-6 py-16 sm:px-8 md:py-20 lg:px-12 lg:py-24">
+        <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[.18em] text-[#008D7A] dark:text-[#00F5D4]">Solutions by sector</p>
+            <h2 className="mt-3 max-w-2xl font-[family-name:var(--font-heading)] text-4xl font-semibold tracking-[-.04em] sm:text-5xl">Expertise across the industries shaping tomorrow.</h2>
+          </div>
+          <p className="max-w-md text-sm leading-7 text-slate-600 dark:text-slate-400">Select an industry to explore specialized capabilities, use cases, and transformation opportunities.</p>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {industriesData.map((industry) => {
             const Icon = industry.icon;
-            const industryLandingRoutes = { "Healthcare": "/industries/healthcare", "Automotive": "/industries/automotive", "Banking & Finance": "/industries/banking-finance", "Insurance": "/industries/insurance", "Manufacturing": "/industries/manufacturing", "Retail & E-commerce": "/industries/retail-ecommerce", "Construction & Infrastructure": "/industries/construction-infrastructure", "Environmental & Climate": "/industries/environment-climate", "Pharmaceutical & Life Sciences": "/industries/pharmaceutical-life-sciences", "Quick Commerce & Delivery": "/industries/quick-commerce-delivery", "Robotics": "/industries/robotics", "Security & Surveillance": "/industries/security-surveillance", "Real Estate": "/industries/real-estate", "Agriculture": "/industries/agriculture", "Education": "/industries/education", "Energy & Utilities": "/industries/energy-utilities", "Logistics & Supply Chain": "/industries/logistics-supply-chain", "GIS & Mapping": "/services/gis-geospatial", "Government & Smart Cities": "/industries/government-smart-cities", "Telecom": "/industries/telecom", "Aviation & Aerospace": "/industries/aviation-aerospace", "Maritime & Ports": "/industries/maritime-ports", "Hospitality & Travel": "/industries/hospitality-travel", "Consumer Technology": "/industries/consumer-technology" };
             const landingRoute = industryLandingRoutes[industry.category];
-            const hasLandingPage = Boolean(landingRoute);
+            const primaryRoute = landingRoute || `/industries/${generateIndustrySlug(industry.items[0])}`;
+
             return (
-              <div key={index} className="group relative bg-white dark:bg-[#111827] border border-[#E2E8F0] dark:border-[#1F2937] p-8 rounded-sm hover:border-[#3A86FF] dark:hover:border-[#00F5D4] transition-all duration-300 hover:shadow-2xl hover:shadow-[#3A86FF]/10 dark:hover:shadow-[#00F5D4]/10 overflow-hidden flex flex-col h-full">
-                {/* Background glow on hover */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#3A86FF]/10 to-transparent dark:from-[#00F5D4]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-bl-full pointer-events-none"></div>
-                
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="p-3 bg-[#F4F7FA] dark:bg-[#1C2541] rounded-sm text-[#3A86FF] dark:text-[#00F5D4] group-hover:bg-[#3A86FF] group-hover:text-white dark:group-hover:bg-[#00F5D4] dark:group-hover:text-[#0B132B] transition-colors duration-300">
-                    <Icon size={24} strokeWidth={1.5} />
-                  </div>
-                  {hasLandingPage ? <Link href={landingRoute} className="text-xl font-bold font-heading hover:text-[#3A86FF] dark:hover:text-[#00F5D4] transition-colors">{industry.category}</Link> : <h3 className="text-xl font-bold font-heading">{industry.category}</h3>}
+              <article key={industry.category} className="group relative flex min-h-[290px] flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-5 shadow-[0_10px_35px_rgba(11,19,43,.045)] transition duration-300 hover:-translate-y-1 hover:border-[#00D9BD] hover:shadow-[0_22px_55px_rgba(0,169,143,.12)] dark:border-white/10 dark:bg-[#101B34]">
+                <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full bg-[#00F5D4]/0 blur-2xl transition duration-500 group-hover:bg-[#00F5D4]/10" />
+                <div className="relative flex items-start justify-between gap-4">
+                  <span className="grid h-10 w-10 place-items-center rounded-xl border border-[#00D9BD]/20 bg-[#00F5D4]/10 text-[#008D7A] transition group-hover:bg-[#00F5D4] group-hover:text-[#071126] dark:text-[#00F5D4]">
+                    <Icon size={20} strokeWidth={1.6} />
+                  </span>
+                  <Link href={primaryRoute} aria-label={`Explore ${industry.category}`} className="grid h-9 w-9 place-items-center rounded-full border border-slate-200 text-slate-400 transition group-hover:border-[#00D9BD] group-hover:bg-[#00F5D4] group-hover:text-[#071126] dark:border-white/10">
+                    <ArrowUpRight size={16} />
+                  </Link>
                 </div>
-                
-                <div className="flex flex-col gap-3 mt-2 flex-grow">
-                  {industry.items.map((sub, idx) => hasLandingPage ? (
-                    <span key={idx} className="flex cursor-default select-none items-center gap-2 text-[15px] text-[#0B132B]/70 dark:text-white/70"><ArrowRight size={14} className="opacity-40" />{sub}</span>
-                  ) : (
-                    <Link
-                      key={idx} 
-                      href={`/industries/${generateIndustrySlug(sub)}`}
-                      className="group/link flex items-center gap-2 text-[15px] text-[#0B132B]/70 dark:text-white/70 hover:text-[#3A86FF] dark:hover:text-[#00F5D4] transition-all duration-300"
-                    >
-                      <ArrowRight size={14} className="opacity-0 -ml-4 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all duration-300" />
-                      <span className="group-hover/link:translate-x-1 transition-transform duration-300">{sub}</span>
-                    </Link>
+
+                <h3 className="relative mt-5 font-[family-name:var(--font-heading)] text-xl font-semibold tracking-[-.025em]">
+                  <Link href={primaryRoute} className="transition hover:text-[#008D7A] dark:hover:text-[#00F5D4]">{industry.category}</Link>
+                </h3>
+
+                <ul className="relative mt-4 space-y-2.5">
+                  {industry.items.slice(0, 4).map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-[13px] leading-5 text-slate-600 dark:text-slate-400">
+                      <Check size={14} className="mt-0.5 shrink-0 text-[#00A98F] dark:text-[#00F5D4]" /> {item}
+                    </li>
                   ))}
-                </div>
-              </div>
+                </ul>
+
+                <Link href={primaryRoute} className="relative mt-auto inline-flex items-center gap-2 border-t border-slate-100 pt-4 text-[13px] font-bold text-[#008D7A] transition group-hover:gap-3 dark:border-white/10 dark:text-[#00F5D4]">
+                  Explore solutions <ArrowRight size={15} />
+                </Link>
+              </article>
             );
           })}
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-24 max-w-[900px] mx-auto px-8 border-t border-gray-100 dark:border-gray-800">
-        <h2 className="text-4xl font-light text-slate-800 dark:text-white mb-12 text-center transition-colors">Frequently Asked Questions</h2>
-        
-        <div className="flex flex-col gap-4">
-          {faqs.map((faq, idx) => (
-            <div key={idx} className="border-b border-gray-200 dark:border-gray-800 pb-4 transition-colors">
-              <button 
-                className="w-full flex items-center gap-4 text-left py-4 focus:outline-none"
-                onClick={() => setOpenFaq(openFaq === idx ? -1 : idx)}
-              >
-                <span className="flex-shrink-0 mt-1">
-                  {openFaq === idx ? <MinusIcon /> : <PlusIcon />}
-                </span>
-                <span className="text-lg font-medium text-slate-700 dark:text-gray-200 transition-colors">
-                  {faq.q}
-                </span>
-              </button>
-              
-              <div 
-                className={`overflow-hidden transition-all duration-300 ease-in-out pl-10 pr-4 ${openFaq === idx ? "max-h-[500px] opacity-100 mb-4" : "max-h-0 opacity-0"}`}
-              >
-                <p className="text-slate-500 dark:text-slate-400 leading-relaxed transition-colors text-[15px]">
-                  {faq.a}
-                </p>
-              </div>
-            </div>
-          ))}
+      <section className="border-y border-slate-200 bg-white dark:border-white/10 dark:bg-white/[.025]">
+        <div className="mx-auto grid max-w-[1240px] gap-10 px-6 py-16 sm:px-8 md:py-20 lg:grid-cols-[.7fr_1.3fr] lg:px-12">
+          <div>
+            <span className="grid h-12 w-12 place-items-center rounded-xl bg-[#00F5D4] text-[#071126]"><Layers3 size={23} /></span>
+            <p className="mt-6 text-xs font-bold uppercase tracking-[.18em] text-[#008D7A] dark:text-[#00F5D4]">Frequently asked questions</p>
+            <h2 className="mt-3 font-[family-name:var(--font-heading)] text-4xl font-semibold tracking-[-.04em]">Good questions deserve clear answers.</h2>
+            <p className="mt-4 max-w-sm text-sm leading-7 text-slate-600 dark:text-slate-400">Learn how we approach transformation, delivery, modernization, and long-term product partnerships.</p>
+          </div>
+
+          <div className="space-y-3">
+            {faqs.map((faq, index) => {
+              const isOpen = openFaq === index;
+              return (
+                <div key={faq.q} className={`overflow-hidden rounded-xl border bg-[#F8FAFC] transition dark:bg-[#101B34] ${isOpen ? "border-[#00D9BD] dark:border-[#00F5D4]/50" : "border-slate-200 dark:border-white/10"}`}>
+                  <button type="button" onClick={() => setOpenFaq(isOpen ? -1 : index)} aria-expanded={isOpen} className="flex w-full items-center justify-between gap-5 px-5 py-5 text-left sm:px-6">
+                    <span className="font-semibold leading-6">{faq.q}</span>
+                    <ChevronDown size={19} className={`shrink-0 text-[#00A98F] transition-transform duration-300 dark:text-[#00F5D4] ${isOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  <div className={`grid transition-[grid-template-rows] duration-300 ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
+                    <div className="overflow-hidden"><p className="px-5 pb-5 text-sm leading-7 text-slate-600 dark:text-slate-400 sm:px-6 sm:pb-6">{faq.a}</p></div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
+      <section className="mx-auto max-w-[1400px] px-6 py-16 sm:px-8 md:py-20 lg:px-12">
+        <div className="relative overflow-hidden rounded-3xl bg-[#08172A] px-6 py-10 text-white sm:px-10 md:px-14 md:py-14">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_50%,rgba(0,245,212,.24),transparent_30%)]" />
+          <Globe2 className="absolute -bottom-14 -right-8 h-56 w-56 text-[#00F5D4]/10" strokeWidth={.7} />
+          <div className="relative flex flex-col gap-7 md:flex-row md:items-center md:justify-between">
+            <div className="max-w-2xl">
+              <p className="text-xs font-bold uppercase tracking-[.18em] text-[#00F5D4]">Your industry. Your advantage.</p>
+              <h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-semibold tracking-[-.035em] sm:text-4xl">Ready to solve your next industry challenge?</h2>
+              <p className="mt-3 text-sm leading-7 text-white/60">Let&apos;s identify the highest-impact opportunity and create a practical path forward.</p>
+            </div>
+            <Link href="/contact" className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-[#00F5D4] px-7 py-4 text-sm font-bold text-[#071126] transition hover:-translate-y-0.5 hover:bg-[#70EEFF]">Book a consultation <ArrowUpRight size={17} /></Link>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
