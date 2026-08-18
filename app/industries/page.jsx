@@ -1,14 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
   ArrowUpRight,
   Check,
-  ChevronDown,
   Globe2,
-  Layers3,
   Sparkles,
 } from "lucide-react";
 import { industriesData, generateSlug as generateIndustrySlug } from "../../data/industries";
@@ -40,32 +37,7 @@ const industryLandingRoutes = {
   "Consumer Technology": "/industries/consumer-technology",
 };
 
-const faqs = [
-  {
-    q: "Why choose Antellay for industry-specific solutions?",
-    a: "Our consultants, architects, and engineers combine domain knowledge with practical technology expertise. Every solution is shaped around your operating model, compliance needs, customers, and long-term growth goals.",
-  },
-  {
-    q: "How do I start a digital transformation journey with Antellay?",
-    a: "Start with a focused consultation. We assess your current systems, clarify business priorities, identify high-impact opportunities, and create a phased roadmap with measurable outcomes.",
-  },
-  {
-    q: "Who will be my point of contact?",
-    a: "You receive a dedicated Account Manager and Lead Solutions Architect who coordinate communication, delivery updates, risks, and technical decisions throughout the engagement.",
-  },
-  {
-    q: "Can you modernize legacy on-premises systems for the cloud?",
-    a: "Yes. We modernize applications and migrate workloads across AWS, Azure, and Google Cloud with careful planning for security, continuity, data integrity, and minimal downtime.",
-  },
-  {
-    q: "Can the product evolve after launch?",
-    a: "Absolutely. Our support and product evolution models cover maintenance, performance, scalability, security updates, and new features as your organization grows.",
-  },
-];
-
 export default function Industries() {
-  const [openFaq, setOpenFaq] = useState(0);
-
   return (
     <main className="industries-index-page min-h-screen bg-[#F6F9F9] text-[#0B132B] transition-colors duration-300 dark:bg-[#071126] dark:text-white">
       <section className="relative isolate overflow-hidden bg-[#08172A] text-white">
@@ -162,34 +134,6 @@ export default function Industries() {
               </article>
             );
           })}
-        </div>
-      </section>
-
-      <section className="border-y border-slate-200 bg-white dark:border-white/10 dark:bg-white/[.025]">
-        <div className="mx-auto grid max-w-[1240px] gap-10 px-6 py-16 sm:px-8 md:py-20 lg:grid-cols-[.7fr_1.3fr] lg:px-12">
-          <div>
-            <span className="grid h-12 w-12 place-items-center rounded-xl bg-[#00F5D4] text-[#071126]"><Layers3 size={23} /></span>
-            <p className="mt-6 text-xs font-bold uppercase tracking-[.18em] text-[#008D7A] dark:text-[#00F5D4]">Frequently asked questions</p>
-            <h2 className="mt-3 font-[family-name:var(--font-heading)] text-4xl font-semibold tracking-[-.04em]">Good questions deserve clear answers.</h2>
-            <p className="mt-4 max-w-sm text-sm leading-7 text-slate-600 dark:text-slate-400">Learn how we approach transformation, delivery, modernization, and long-term product partnerships.</p>
-          </div>
-
-          <div className="space-y-3">
-            {faqs.map((faq, index) => {
-              const isOpen = openFaq === index;
-              return (
-                <div key={faq.q} className={`overflow-hidden rounded-xl border bg-[#F8FAFC] transition dark:bg-[#101B34] ${isOpen ? "border-[#00D9BD] dark:border-[#00F5D4]/50" : "border-slate-200 dark:border-white/10"}`}>
-                  <button type="button" onClick={() => setOpenFaq(isOpen ? -1 : index)} aria-expanded={isOpen} className="flex w-full items-center justify-between gap-5 px-5 py-5 text-left sm:px-6">
-                    <span className="font-semibold leading-6">{faq.q}</span>
-                    <ChevronDown size={19} className={`shrink-0 text-[#00A98F] transition-transform duration-300 dark:text-[#00F5D4] ${isOpen ? "rotate-180" : ""}`} />
-                  </button>
-                  <div className={`grid transition-[grid-template-rows] duration-300 ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
-                    <div className="overflow-hidden"><p className="px-5 pb-5 text-sm leading-7 text-slate-600 dark:text-slate-400 sm:px-6 sm:pb-6">{faq.a}</p></div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
         </div>
       </section>
 

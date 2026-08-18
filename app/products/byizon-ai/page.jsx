@@ -69,7 +69,7 @@ function WhiteCard({ children, className = "" }) {
 
 export default function ByizonAiPage() {
   return (
-    <main className="bg-white text-[#07152f] dark:bg-white dark:text-[#07152f]">
+    <main className="bg-white text-[#07152f] dark:bg-[#071126] dark:text-white">
       <section className="relative overflow-hidden bg-[#051025] text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_7%_48%,rgba(30,103,255,.72),transparent_31%),radial-gradient(circle_at_90%_48%,rgba(150,54,255,.66),transparent_32%)]" />
         <div className="absolute inset-0 opacity-70 [background:linear-gradient(105deg,transparent_8%,rgba(83,129,255,.55)_24%,transparent_42%,transparent_57%,rgba(172,55,255,.48)_76%,transparent_94%)]" />

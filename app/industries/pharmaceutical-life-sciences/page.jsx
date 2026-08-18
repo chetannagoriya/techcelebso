@@ -9,7 +9,7 @@ const config = {
   hero: "/images/pharma-life-sciences/pharma-hero.png",
   challengeImage: "/images/healthcare/healthcare-hero.png",
   dashboardImage: "/images/healthcare/healthcare-dashboard.png",
-  ctaImage: "/images/ai_data_cta.jpg",
+  ctaImage: "/images/pharma-life-sciences/pharma-hero.png",
   dashboardTitle: "Research Data Dashboard",
   stats: [["24,568", "Datasets"], ["15,678", "Annotations"], ["96.8%", "Model Accuracy"], ["128", "Active Projects"]],
   badges: [[FlaskConical, "Drug Research"], [Dna, "Medical Datasets"], [ClipboardCheck, "Annotation"], [BrainCircuit, "AI Models"], [ShieldCheck, "Regulatory"], [Cloud, "Scalable"], [ScanLine, "Imaging"], [FileText, "Clinical Notes"]],

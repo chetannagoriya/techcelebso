@@ -11,7 +11,7 @@ const config = {
   hero: "/images/construction-infrastructure/construction-hero.png",
   challengeImage: "/images/construction-infrastructure/construction-hero.png",
   dashboardImage: "/images/automotive/automotive-dashboard.png",
-  ctaImage: "/images/industry-showcases/government-smart-cities.png",
+  ctaImage: "/images/construction-infrastructure/construction-hero.png",
   dashboardTitle: "Construction Intelligence Dashboard",
   stats: [["42", "Active Projects"], ["36", "Sites Monitored"], ["68%", "Avg Progress"], ["92%", "Safety Score"]],
   badges: [[Building2, "BIM Intelligence"], [Camera, "Site Monitoring"], [BarChart3, "Progress Tracking"], [ShieldCheck, "Safety Analytics"], [Gauge, "Cost Optimization"], [BrainCircuit, "Risk Prediction"], [Eye, "Computer Vision"], [ClipboardCheck, "Documentation"]],

@@ -11,7 +11,7 @@ import {
 
 export default function ProductDetailsPage({ product }) {
   return (
-    <main className="bg-white text-[#07152f] dark:bg-white dark:text-[#07152f]">
+    <main className="bg-white text-[#07152f] dark:bg-[#071126] dark:text-white">
       <section className="relative overflow-hidden bg-[#071124] text-white">
         <div
           className="absolute inset-0 opacity-90"

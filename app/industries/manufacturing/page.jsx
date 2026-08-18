@@ -9,7 +9,7 @@ const config = {
   hero: "/images/manufacturing/manufacturing-hero.png",
   challengeImage: "/images/industries/Manufacturing.jpg",
   dashboardImage: "/images/automotive/automotive-dashboard.png",
-  ctaImage: "/images/energy-utilities/connected-energy-city.png",
+  ctaImage: "/images/manufacturing/manufacturing-hero.png",
   dashboardTitle: "Manufacturing Intelligence Dashboard",
   stats: [["128,764", "Production Units"], ["82.6%", "OEE"], ["1.24%", "Defect Rate"], ["32.6", "Downtime"]],
   badges: [[ScanLine, "Quality Inspection"], [Wrench, "Predictive Maintenance"], [Factory, "Industrial Automation"], [Gauge, "Process Optimization"], [Eye, "Anomaly Detection"], [BarChart3, "Production Analytics"], [Cpu, "Digital Twin"], [ShieldCheck, "Safety Compliance"]],

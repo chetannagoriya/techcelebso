@@ -918,9 +918,6 @@ export default function GISGeospatialPage() {
               <Link href="/contact" className="cursor-pointer rounded-lg bg-[#00F5D4] px-6 py-3.5 text-sm font-bold text-[#0B132B] shadow-lg shadow-[#00F5D4]/20 transition-all hover:-translate-y-0.5 hover:bg-[#00F5D4]/90">
                 Book Free Consultation
               </Link>
-              <Link href="/contact" className="cursor-pointer rounded-lg border border-white bg-white px-6 py-3.5 text-sm font-bold text-[#0B132B] transition-all hover:-translate-y-0.5 hover:border-[#00F5D4] hover:bg-[#00F5D4] dark:border-slate-600 dark:bg-transparent dark:text-white dark:hover:border-white dark:hover:bg-white/5">
-                Schedule a Demo
-              </Link>
             </div>
 
           </div>

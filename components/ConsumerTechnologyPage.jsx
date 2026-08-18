@@ -5,6 +5,8 @@ import {
   Gauge, LockKeyhole, Palette, Rocket, ShieldCheck, Smartphone,
   Sparkles, TrendingUp, Users, WandSparkles,
 } from "lucide-react";
+import TechStackMarquee from "./TechStackMarquee";
+import TrustedOrganizationsMarquee from "./TrustedOrganizationsMarquee";
 
 const solutions = [
   { title: "Mobile Apps", icon: Smartphone, image: "/images/consumer-technology/mobile-apps.png", copy: "High-performance, feature-rich mobile apps for iOS & Android that deliver seamless user experiences.", items: ["Native & Cross-platform Apps", "UI/UX Design", "App Modernization", "Maintenance & Support"] },
@@ -18,7 +20,7 @@ const useCases = [
   ["Education & E-learning", "/images/industries/Education.jpg"],
   ["Health & Wellness", "/images/industries/Healthcare & Life Sciences.jpg"],
   ["Finance & Banking", "/images/industries/Financial Services.jpg"],
-  ["Media & Entertainment", "/images/event/collaboration/Retail Brands.webp"],
+  ["Media & Entertainment", "/images/industries/Media & Communication.jpg"],
   ["Productivity & Tools", "/images/industries/Professional Services.jpg"],
   ["Travel & Hospitality", "/images/industry-showcases/hospitality-travel.png"],
 ];
@@ -52,7 +54,7 @@ function SectionTitle({ children }) {
 
 export default function ConsumerTechnologyPage() {
   return (
-    <main className="bg-[#fbfcff] text-[#10172f] dark:bg-[#fbfcff] dark:text-[#10172f]">
+    <main className="bg-[#fbfcff] text-[#10172f] dark:bg-[#071126] dark:text-white">
       <section className="relative min-h-[610px] overflow-hidden bg-[#020a1d] text-white">
         <Image src="/images/consumer-technology/consumer-tech-hero.png" alt="Consumer technology product analytics dashboard" fill priority className="object-cover object-center" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,10,29,.98)_0%,rgba(2,10,29,.9)_35%,rgba(2,10,29,.2)_72%,rgba(2,10,29,.08)_100%)]" />
@@ -64,7 +66,7 @@ export default function ConsumerTechnologyPage() {
             <div className="mt-7 flex flex-wrap gap-3">
               <Link href="/contact" className="inline-flex items-center gap-2 rounded-md bg-[#1264ff] px-5 py-3 text-xs font-bold transition hover:bg-[#347dff]">Book Free Consultation <ArrowRight size={14}/></Link>
             </div>
-            <div className="mt-11 grid grid-cols-3 gap-5 sm:grid-cols-6">
+            <div className="industry-hero-icon-strip mt-11 grid grid-cols-3 gap-5 sm:grid-cols-6" style={{ position: "absolute", bottom: 0, left: "50%", zIndex: 20, width: "min(1200px, calc(100% - 3rem))", minHeight: 78, margin: 0, transform: "translateX(-50%)" }}>
               {[[Palette,"User-Centric Design"],[Boxes,"Scalable Architecture"],[Sparkles,"AI-First Approach"],[Cloud,"Cloud Native"],[LockKeyhole,"Secure & Compliant"],[TrendingUp,"Data Driven Insights"]].map(([Icon,label]) => <div key={label} className="text-center"><Icon className="mx-auto text-[#8d7cff]" size={22}/><span className="mt-2 block text-[8px] font-semibold leading-3 text-white/75">{label}</span></div>)}
             </div>
           </div>
@@ -74,9 +76,7 @@ export default function ConsumerTechnologyPage() {
       <section className="relative z-10 mx-auto -mt-5 max-w-[1360px] px-6 md:px-10">
         <div className="rounded-xl border border-slate-100 bg-white px-6 py-5 shadow-xl shadow-slate-900/5">
           <p className="text-center text-[10px] font-extrabold uppercase tracking-wide">Trusted by innovative consumer tech companies</p>
-          <div className="mt-5 grid grid-cols-2 items-center gap-5 text-center text-base font-bold text-slate-500 sm:grid-cols-4 lg:grid-cols-8">
-            {[["Google","text-[#4285f4]"],["Microsoft","text-[#555]"],["Adobe","text-[#ed1c24]"],["airbnb","text-[#ff5a5f]"],["Uber","text-black"],["Dropbox","text-[#0061ff]"],["Canva","text-[#00a6b8]"],["ATLASSIAN","text-[#1868db]"]].map(([brand,color])=><span key={brand} className={color}>{brand}</span>)}
-          </div>
+          <TrustedOrganizationsMarquee organizations={["Google","Microsoft","Adobe","airbnb","Uber","Dropbox","Canva","ATLASSIAN"]}/>
         </div>
       </section>
 
@@ -97,8 +97,8 @@ export default function ConsumerTechnologyPage() {
         <div className="rounded-xl border border-slate-200 bg-white p-6"><h2 className="text-[11px] font-extrabold uppercase tracking-wide">Key Capabilities</h2><div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{capabilities.map(([Icon,title,copy])=><div key={title} className="flex gap-3"><span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#f0edff] text-[#6654eb]"><Icon size={17}/></span><div><h3 className="text-[10px] font-bold">{title}</h3><p className="mt-1 text-[8px] leading-4 text-slate-500">{copy}</p></div></div>)}</div></div>
       </section>
 
-      <section className="mx-auto grid max-w-[1360px] gap-5 px-6 pb-12 md:px-10 lg:grid-cols-[.82fr_1.18fr]">
-        <div className="rounded-xl border border-slate-200 bg-white p-6"><h2 className="text-center text-[11px] font-extrabold uppercase">Technologies We Use</h2><div className="mt-6 grid grid-cols-3 gap-3 text-center text-[10px] font-bold text-slate-600 sm:grid-cols-5 lg:grid-cols-3 xl:grid-cols-5">{["React","Next.js","Flutter","Swift","Kotlin","Node.js","Python","AWS","Firebase","Docker","PostgreSQL","MongoDB","GraphQL","Strapi","TensorFlow"].map(x=><span key={x} className="rounded-md bg-slate-50 px-2 py-3">{x}</span>)}</div></div>
+      <section className="mx-auto grid max-w-[1360px] gap-5 px-6 pb-12 md:px-10">
+        <div className="rounded-xl border border-slate-200 bg-white p-6"><h2 className="text-center text-[11px] font-extrabold uppercase">Technologies We Use</h2><TechStackMarquee technologies={["React","Next.js","Flutter","Swift","Kotlin","Node.js","Python","AWS","Firebase","Docker","PostgreSQL","MongoDB","GraphQL","Strapi","TensorFlow"]}/></div>
         <div className="rounded-xl border border-slate-200 bg-white p-6"><h2 className="text-center text-[11px] font-extrabold uppercase">Our Product Development Workflow</h2><div className="mt-7 grid grid-cols-3 gap-5 sm:grid-cols-6">{workflow.map(([Icon,title,copy],i)=><div key={title} className="relative text-center">{i<5&&<ChevronRight size={14} className="absolute -right-3 top-5 hidden text-[#7c63ff] sm:block"/>}<span className="mx-auto grid h-11 w-11 place-items-center rounded-full bg-[#f2efff] text-[#6654eb]"><Icon size={20}/></span><p className="mt-3 text-[9px] font-bold">{title}</p><p className="mt-1 text-[7px] leading-3 text-slate-500">{copy}</p></div>)}</div></div>
       </section>
 
@@ -106,7 +106,7 @@ export default function ConsumerTechnologyPage() {
 
       <section className="mx-auto grid max-w-[1360px] gap-5 px-6 pb-12 md:px-10 lg:grid-cols-[.78fr_1.22fr]">
         <div className="rounded-xl border border-slate-200 bg-white p-5"><h2 className="mb-3 text-[11px] font-extrabold uppercase">FAQ</h2>{faqs.map(q=><details key={q} className="border-b border-slate-200 py-3"><summary className="cursor-pointer text-[9px] font-semibold">{q}</summary><p className="pt-2 text-[8px] leading-4 text-slate-500">Our product experts tailor architecture, delivery and post-launch support to your goals.</p></details>)}</div>
-        <div className="relative min-h-[330px] overflow-hidden rounded-xl bg-[#06102c] text-white"><Image src="/images/consumer-technology/cta.png" alt="Product designer building a consumer technology experience" fill className="object-cover object-center"/><div className="absolute inset-0 bg-gradient-to-r from-[#06102c] via-[#06102c]/85 to-transparent"/><div className="relative max-w-md p-8"><h2 className="text-3xl font-bold">Ready to Build the Next Big Thing?</h2><p className="mt-3 text-[11px] leading-5 text-white/75">Let&apos;s build powerful consumer technology products that your users will love.</p><div className="mt-6 flex flex-wrap gap-3"><Link href="/contact" className="rounded-md bg-[#1264ff] px-5 py-3 text-[10px] font-bold">Book Free Consultation</Link><Link href="/contact" className="rounded-md border border-white/50 px-5 py-3 text-[10px] font-bold">Schedule a Demo</Link></div></div></div>
+        <div className="relative min-h-[330px] overflow-hidden rounded-xl bg-[#06102c] text-white"><Image src="/images/consumer-technology/cta.png" alt="Product designer building a consumer technology experience" fill className="object-cover object-center"/><div className="absolute inset-0 bg-gradient-to-r from-[#06102c] via-[#06102c]/85 to-transparent"/><div className="relative max-w-md p-8"><h2 className="text-3xl font-bold">Ready to Build the Next Big Thing?</h2><p className="mt-3 text-[11px] leading-5 text-white/75">Let&apos;s build powerful consumer technology products that your users will love.</p><div className="mt-6 flex flex-wrap gap-3"><Link href="/contact" className="rounded-md bg-[#1264ff] px-5 py-3 text-[10px] font-bold">Book Free Consultation</Link></div></div></div>
       </section>
     </main>
   );

@@ -70,7 +70,7 @@ export const metadata = {
 
 export default function ProductsPage() {
   return (
-    <main className="bg-white text-[#07152f] dark:bg-white dark:text-[#07152f]">
+    <main className="bg-white text-[#07152f] dark:bg-[#071126] dark:text-white">
       <section className="relative overflow-hidden bg-[#071124] text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(58,134,255,.35),transparent_34%),radial-gradient(circle_at_80%_30%,rgba(0,245,212,.22),transparent_30%)]" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white to-transparent" />

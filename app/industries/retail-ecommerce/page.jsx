@@ -9,7 +9,7 @@ const config = {
   hero: "/images/retail-ecommerce/retail-hero.png",
   challengeImage: "/images/industries/retail_consumer_goods.jpg",
   dashboardImage: "/images/consumer-technology/capabilities.png",
-  ctaImage: "/images/cloud_infra_cta.jpg",
+  ctaImage: "/images/retail-ecommerce/retail-hero.png",
   dashboardTitle: "Retail Intelligence Dashboard",
   stats: [["₹24.8M", "Total Sales"], ["18,762", "Orders"], ["₹1,324", "Avg Order Value"], ["2.94%", "Conversion"]],
   badges: [[PackageSearch, "Product AI"], [Warehouse, "Inventory AI"], [BrainCircuit, "Recommendations"], [Camera, "In-Store Monitoring"], [Eye, "Shelf Analytics"], [Users, "Customer Analytics"], [BarChart3, "Demand Forecasting"], [Activity, "Loss Prevention"]],

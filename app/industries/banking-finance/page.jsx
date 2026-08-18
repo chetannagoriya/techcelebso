@@ -9,7 +9,7 @@ const config = {
   hero: "/images/banking-finance/banking-hero.png",
   challengeImage: "/images/industries/Financial Services.jpg",
   dashboardImage: "/images/consumer-technology/capabilities.png",
-  ctaImage: "/images/gis_cta_satellite.jpg",
+  ctaImage: "/images/banking-finance/banking-hero.png",
   dashboardTitle: "Financial Intelligence Dashboard",
   stats: [["12.45M", "Transactions"], ["2,756", "Fraud Cases"], ["32.6", "Risk Score"], ["₹18.7 Cr", "Blocked Amount"]],
   badges: [[ShieldCheck, "Fraud Detection"], [BarChart3, "Risk Analytics"], [CreditCard, "Credit Scoring"], [BrainCircuit, "AML Monitoring"], [LockKeyhole, "Compliance AI"], [Users, "Customer 360"], [Activity, "Predictive Analytics"], [ClipboardCheck, "Real-time Alerts"]],
