@@ -10,7 +10,7 @@ const config = {
   highlight: "Autonomous Vehicles, ADAS & Fleet Solutions",
   description: "Drive the future of mobility with AI-enabled perception, advanced driver assistance systems, autonomous driving data, and intelligent fleet management.",
   hero: "/images/automotive/automotive-hero.png",
-  challengeImage: "/images/industries/Logistics & Transportation.jpg",
+  challengeImage: "/images/automotive/industry-challenges-manufacturing.png",
   dashboardImage: "/images/automotive/automotive-dashboard.png",
   ctaImage: "/images/automotive/automotive-cta.png",
   dashboardTitle: "Automotive AI Dashboard",
@@ -19,12 +19,12 @@ const config = {
   logos: ["TATA MOTORS", "Mahindra", "MARUTI SUZUKI", "HYUNDAI", "BOSCH", "Continental", "NVIDIA", "APTIV"],
   challenges: [[Route, "Complex Road Scenarios", "Unpredictable driving environments"], [Database, "High Volume Sensor Data", "Huge data from cameras, LiDAR and radar"], [ShieldCheck, "Safety & Reliability", "Zero tolerance for automated mobility errors"], [ClipboardCheck, "Data Annotation at Scale", "Accurate labeling for AI training"], [Truck, "Fleet Operational Inefficiencies", "High downtime and maintenance costs"], [Gauge, "Real-time Decision Making", "Need low latency and high accuracy"]],
   solutions: [
-    [BrainCircuit, "Autonomous Driving AI", "/images/industry-showcases/telecom.png", ["Perception & Object Detection", "Sensor Fusion", "Path Planning", "Localization & Mapping", "Simulation Data Generation"]],
-    [ShieldCheck, "ADAS Solutions", "/images/industries/Technology.jpg", ["Lane Departure Warning", "Adaptive Cruise Control", "Emergency Braking", "Blind Spot Detection", "Traffic Sign Recognition"]],
-    [Truck, "Fleet Management AI", "/images/logistics/warehouse-ai.png", ["Real-time Vehicle Tracking", "Route Optimization", "Driver Behavior Monitoring", "Geofencing & Alerts", "Fuel Analytics"]],
-    [Database, "Automotive Data Services", "/images/consumer-technology/capabilities.png", ["Image Annotation", "LiDAR Point Cloud Annotation", "Video Annotation", "Sensor Data Labeling", "Data Quality Assurance"]]
+    [BrainCircuit, "Autonomous Driving AI", "/images/automotive/automotive-hero.png", ["Perception & Object Detection", "Sensor Fusion", "Path Planning", "Localization & Mapping", "Simulation Data Generation"]],
+    [ShieldCheck, "ADAS Solutions", "/images/automotive/adas-solutions-v2.png", ["Lane Departure Warning", "Adaptive Cruise Control", "Emergency Braking", "Blind Spot Detection", "Traffic Sign Recognition"]],
+    [Truck, "Fleet Management AI", "/images/logistics/fleet-intelligence.png", ["Real-time Vehicle Tracking", "Route Optimization", "Driver Behavior Monitoring", "Geofencing & Alerts", "Fuel Analytics"]],
+    [Database, "Automotive Data Services", "/images/automotive/automotive-data-services-v2.png", ["Image Annotation", "LiDAR Point Cloud Annotation", "Video Annotation", "Sensor Data Labeling", "Data Quality Assurance"]]
   ],
-  useCases: [["Passenger Vehicles", "/images/industries/Real Estate.jpg"], ["Commercial Vehicles", "/images/logistics/logistics-hero.png"], ["Autonomous Vehicles", "/images/consumer-technology/ai-products.png"], ["Robotaxis", "/images/industry-showcases/aviation-aerospace.png"], ["Logistics & Delivery", "/images/logistics/fleet-intelligence.png"], ["Smart Fleets", "/images/logistics/logistics-cta.png"], ["Shared Mobility", "/images/consumer-technology/mobile-apps.png"], ["Public Transportation", "/images/industry-showcases/government-smart-cities.png"], ["Agriculture Vehicles", "/images/agriculture/precision-farming.png"]],
+  useCases: [["Passenger Vehicles", "/images/automotive/automotive-hero.png"], ["Commercial Vehicles", "/images/logistics/logistics-hero.png"], ["Autonomous Vehicles", "/images/automotive/adas-solutions-v2.png"], ["Robotaxis", "/images/automotive/use-case-robotaxi-v2.png"], ["Logistics & Delivery", "/images/logistics/logistics-cta.png"], ["Smart Fleets", "/images/logistics/fleet-intelligence.png"], ["Shared Mobility", "/images/automotive/use-case-shared-mobility-v2.png"], ["Public Transportation", "/images/industry-showcases/government-smart-cities.png"], ["Agriculture Vehicles", "/images/agriculture/precision-farming.png"]],
   features: ["Computer Vision & Perception", "Sensor Fusion", "Object Detection & Tracking", "Predictive Analytics", "Real-time Alerts", "Digital Twin & Simulation", "Edge AI Deployment", "Scalable & Secure Platform"],
   modalitiesTitle: "Supported Sensors & Modalities",
   modalities: ["Cameras", "LiDAR", "RADAR", "Ultrasonic", "IMU", "GPS/GNSS", "V2X", "CAN Bus"],

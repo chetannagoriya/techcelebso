@@ -10,8 +10,8 @@ export const metadata = {
 };
 
 const config = {
-  accent: "#1264d8",
-  accentDark: "#0a56bd",
+  accent: "#00A98F",
+  accentDark: "#008D7A",
   eyebrow: "INDUSTRY SOLUTIONS",
   title: "AI-Powered",
   highlight: "Logistics & Supply Chain Solutions",
@@ -63,10 +63,10 @@ const config = {
   useCasesTitle: "Industries We Support",
   useCases: ["E-commerce", "Retail", "Manufacturing", "Healthcare", "FMCG", "Cold Chain", "Food Delivery", "Courier Services"],
   useCaseImages: [
-    "/images/logistics/logistics-hero.png", "/images/logistics/warehouse-ai.png",
-    "/images/logistics/fleet-intelligence.png", "/images/logistics/warehouse-ai.png",
-    "/images/logistics/warehouse-ai.png", "/images/logistics/fleet-intelligence.png",
-    "/images/logistics/logistics-hero.png", "/images/logistics/fleet-intelligence.png"
+    "/images/consumer-technology/consumer-tech-hero.png", "/images/retail-ecommerce/retail-hero.png",
+    "/images/manufacturing/manufacturing-hero.png", "/images/healthcare/use-case-hospitals.png",
+    "/images/industries/retail_consumer_goods.jpg", "/images/pharma-life-sciences/pharma-hero.png",
+    "/images/quick-commerce-delivery/quick-commerce-hero.png", "/images/logistics/fleet-intelligence.png"
   ],
   impact: [["99%", "Delivery Accuracy"], ["35%", "Fuel Cost Savings"], ["45%", "Route Optimization"], ["60%", "Operational Efficiency"]],
   faqs: ["How can AI improve route optimization?", "Do you provide real-time fleet tracking?", "Can your solution integrate with our existing systems?", "How does Warehouse AI improve operations?", "Is your solution scalable for large enterprises?"],

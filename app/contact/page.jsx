@@ -5,13 +5,62 @@ import {
   ArrowRight,
   BriefcaseBusiness,
   CheckCircle2,
+  ChevronDown,
   Clock3,
+  FileSearch,
+  Headphones,
+  Lightbulb,
   Mail,
   MapPin,
   MessageCircle,
   Phone,
   ShieldCheck,
 } from "lucide-react";
+
+const contactSteps = [
+  {
+    icon: FileSearch,
+    title: "We review your brief",
+    description: "A specialist studies your goals, scope, and timeline so the first conversation is productive.",
+  },
+  {
+    icon: Headphones,
+    title: "We schedule a discovery call",
+    description: "We bring the right domain and technology experts together to explore your requirements.",
+  },
+  {
+    icon: Lightbulb,
+    title: "You receive a clear next step",
+    description: "We share a practical approach, estimated engagement model, and the recommended way forward.",
+  },
+];
+
+const faqs = [
+  {
+    question: "How quickly will I hear back?",
+    answer: "Our team typically responds within one business day, Monday through Friday. Time-sensitive requests can be mentioned in your message so we can route them appropriately.",
+  },
+  {
+    question: "What information should I include in my inquiry?",
+    answer: "A short overview of your goal, current challenge, expected timeline, and any known technical requirements is enough to begin. You do not need a finished specification.",
+  },
+  {
+    question: "Can you sign an NDA before we discuss the project?",
+    answer: "Yes. Select the Mutual NDA option in the form and our team will arrange it before sensitive project details are discussed.",
+  },
+  {
+    question: "Do you work with startups as well as enterprises?",
+    answer: "Yes. We support early-stage teams validating ideas, growing companies scaling products, and enterprises modernizing complex technology and data systems.",
+  },
+  {
+    question: "Can your team work with an existing product or codebase?",
+    answer: "Yes. We can assess an existing platform, identify technical gaps, and recommend whether to improve, integrate, modernize, or rebuild specific parts.",
+  },
+  {
+    question: "Do you support clients outside India?",
+    answer: "Yes. Our team collaborates remotely with clients across time zones and can plan meetings, delivery, and communication around your working hours.",
+  },
+];
 
 export default function ContactPage() {
   const handleSubmit = (event) => {
@@ -120,6 +169,52 @@ export default function ContactPage() {
                   <button type="submit" className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#00F5D4] px-7 py-3.5 text-sm font-bold text-[#071126] shadow-lg shadow-[#00F5D4]/20 transition hover:-translate-y-0.5 hover:bg-[#70EEFF] focus:outline-none focus:ring-4 focus:ring-[#00F5D4]/20">Submit inquiry <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" /></button>
                 </div>
               </form>
+            </div>
+          </div>
+
+          <div className="mt-20 lg:mt-28">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="text-xs font-bold uppercase tracking-[.18em] text-[#00A98F] dark:text-[#00F5D4]">A simple start</p>
+              <h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-semibold tracking-[-.03em] sm:text-4xl">What happens after you reach out?</h2>
+              <p className="mt-4 text-base leading-7 text-slate-600 dark:text-slate-300">No long sales cycle or generic presentation. We focus the first conversation on your problem and the fastest useful next step.</p>
+            </div>
+
+            <div className="relative mt-10 grid gap-5 md:grid-cols-3">
+              <div className="pointer-events-none absolute left-[16%] right-[16%] top-8 hidden border-t border-dashed border-[#00A98F]/35 md:block" />
+              {contactSteps.map((step, index) => {
+                const Icon = step.icon;
+                return (
+                  <article key={step.title} className="relative rounded-2xl border border-slate-200 bg-white p-6 shadow-[0_14px_45px_rgba(11,19,43,.06)] dark:border-white/10 dark:bg-[#101b34] sm:p-7">
+                    <div className="flex items-center justify-between">
+                      <span className="grid h-14 w-14 place-items-center rounded-2xl bg-[#00F5D4]/12 text-[#008D7A] ring-1 ring-[#00A98F]/15 dark:text-[#00F5D4]"><Icon size={24} /></span>
+                      <span className="font-[family-name:var(--font-heading)] text-4xl font-semibold text-slate-100 dark:text-white/10">0{index + 1}</span>
+                    </div>
+                    <h3 className="mt-6 text-lg font-bold">{step.title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">{step.description}</p>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="mt-20 grid gap-10 lg:mt-28 lg:grid-cols-[.68fr_1.32fr] lg:gap-16">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[.18em] text-[#00A98F] dark:text-[#00F5D4]">Frequently asked questions</p>
+              <h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-semibold tracking-[-.03em] sm:text-4xl">A few answers before we talk.</h2>
+              <p className="mt-4 text-base leading-7 text-slate-600 dark:text-slate-300">Still unsure where your request fits? Send us a short note at <a href="mailto:info@antellay.com" className="font-semibold text-[#008D7A] underline decoration-[#00A98F]/30 underline-offset-4 transition hover:text-[#00A98F] dark:text-[#00F5D4]">info@antellay.com</a> and we&apos;ll route it to the right person.</p>
+              <a href="tel:+919784626443" className="mt-7 inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-bold shadow-sm transition hover:-translate-y-0.5 hover:border-[#00A98F] dark:border-white/15 dark:bg-white/5 dark:hover:border-[#00F5D4]"><Phone size={17} /> Call +91 97846 26443</a>
+            </div>
+
+            <div className="space-y-3">
+              {faqs.map((faq, index) => (
+                <details key={faq.question} className="group rounded-2xl border border-slate-200 bg-white px-5 shadow-[0_10px_35px_rgba(11,19,43,.045)] open:border-[#00A98F]/40 dark:border-white/10 dark:bg-[#101b34] dark:open:border-[#00F5D4]/30 sm:px-6" open={index === 0}>
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-5 py-5 text-left font-bold marker:content-none">
+                    <span>{faq.question}</span>
+                    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-slate-100 text-slate-500 transition group-open:rotate-180 group-open:bg-[#00F5D4]/15 group-open:text-[#008D7A] dark:bg-white/10 dark:text-slate-300 dark:group-open:text-[#00F5D4]"><ChevronDown size={17} /></span>
+                  </summary>
+                  <p className="border-t border-slate-100 pb-5 pt-4 text-sm leading-6 text-slate-600 dark:border-white/10 dark:text-slate-400">{faq.answer}</p>
+                </details>
+              ))}
             </div>
           </div>
         </div>

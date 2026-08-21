@@ -10,7 +10,7 @@ const config = {
   highlight: "Medical Imaging Solutions",
   description: "Transform patient care with AI, medical imaging and data-driven insights. Smarter diagnostics, faster decisions and better health outcomes.",
   hero: "/images/healthcare/healthcare-hero.png",
-  challengeImage: "/images/industries/Healthcare & Life Sciences.jpg",
+  challengeImage: "/images/healthcare/industry-challenges-doctor.png",
   dashboardImage: "/images/healthcare/healthcare-dashboard.png",
   ctaImage: "/images/healthcare/healthcare-cta.png",
   dashboardTitle: "Healthcare Intelligence Dashboard",
@@ -19,12 +19,12 @@ const config = {
   logos: ["Apollo Hospitals", "Fortis", "MAX Healthcare", "Narayana Health", "Manipal Hospitals", "Siemens Healthineers", "GE HealthCare", "PHILIPS"],
   challenges: [[Users, "Rising Patient Volume", "Overcrowded hospitals and longer wait times"], [Activity, "Diagnostic Delays", "Time critical decisions get delayed"], [Database, "Large Imaging Data", "Millions of scans to store and analyze"], [Stethoscope, "Radiologist Shortage", "Limited experts for growing demand"], [ClipboardCheck, "Manual Reports", "Human error and subjective interpretation"], [Building2, "Legacy Hospital Systems", "Disconnected and outdated infrastructure"]],
   solutions: [
-    [ScanLine, "Medical Imaging AI", "/images/healthcare/healthcare-dashboard.png", ["MRI Analysis", "CT Scan Analysis", "X-Ray Detection", "Ultrasound AI", "Mammography"]],
-    [BrainCircuit, "Radiology AI", "/images/healthcare/healthcare-hero.png", ["Tumor Detection", "Fracture Detection", "Lung Disease AI", "Stroke Detection", "AI Report Generation"]],
-    [Activity, "Diagnostics AI", "/images/healthcare/healthcare-cta.png", ["Pathology AI", "Blood Report Analysis", "Disease Prediction", "Early Detection", "Clinical Insights"]],
-    [Building2, "Hospital AI", "/images/industries/Healthcare & Life Sciences.jpg", ["Patient Dashboard", "Bed Management", "Appointment AI", "Operation Scheduling", "Hospital Analytics"]]
+    [ScanLine, "Medical Imaging AI", "/images/healthcare/medical-imaging-ai-v2.png", ["MRI Analysis", "CT Scan Analysis", "X-Ray Detection", "Ultrasound AI", "Mammography"]],
+    [BrainCircuit, "Radiology AI", "/images/healthcare/radiology-ai-v2.png", ["Tumor Detection", "Fracture Detection", "Lung Disease AI", "Stroke Detection", "AI Report Generation"]],
+    [Activity, "Diagnostics AI", "/images/healthcare/diagnostics-ai-v2.png", ["Pathology AI", "Blood Report Analysis", "Disease Prediction", "Early Detection", "Clinical Insights"]],
+    [Building2, "Hospital AI", "/images/healthcare/hospital-ai-v2.png", ["Patient Dashboard", "Bed Management", "Appointment AI", "Operation Scheduling", "Hospital Analytics"]]
   ],
-  useCases: [["Hospitals", "/images/industries/Healthcare & Life Sciences.jpg"], ["Diagnostic Centers", "/images/healthcare/healthcare-dashboard.png"], ["Radiology Labs", "/images/healthcare/healthcare-hero.png"], ["Medical Colleges", "/images/industries/Education.jpg"], ["Telemedicine", "/images/consumer-technology/mobile-apps.png"], ["Cancer Centers", "/images/pharma-life-sciences/pharma-hero.png"], ["Government Hospitals", "/images/industry-showcases/government-smart-cities.png"], ["Research Institutes", "/images/ai_data_hero.jpg"], ["Emergency Care", "/images/healthcare/healthcare-cta.png"]],
+  useCases: [["Hospitals", "/images/healthcare/use-case-hospitals.png"], ["Diagnostic Centers", "/images/healthcare/diagnostics-ai-v2.png"], ["Radiology Labs", "/images/healthcare/radiology-ai-v2.png"], ["Medical Colleges", "/images/industries/Education.jpg"], ["Telemedicine", "/images/healthcare/use-case-telemedicine.png"], ["Cancer Centers", "/images/healthcare/use-case-cancer-center.png"], ["Government Hospitals", "/images/healthcare/use-case-government-hospital.png"], ["Research Institutes", "/images/healthcare/use-case-research-institute.png"], ["Emergency Care", "/images/healthcare/use-case-emergency-response-v2.png"]],
   features: ["Medical Image Annotation", "Computer Vision", "Predictive Diagnostics", "Clinical Decision Support", "Auto Report Generation", "Multi Hospital Management", "HIPAA Ready", "Scalable & Secure Platform"],
   modalitiesTitle: "Supported Modalities",
   modalities: ["X-Ray", "MRI", "CT Scan", "Ultrasound", "ECG", "Pathology", "OCT", "Histopathology"],

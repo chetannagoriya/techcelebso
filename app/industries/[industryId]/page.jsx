@@ -20,22 +20,22 @@ export default function IndustryPage({ params }) {
         <div className="max-w-[1400px] mx-auto px-8 lg:px-20">
           
           <nav className="flex items-center gap-2 text-sm text-[#0B132B]/60 dark:text-white/50 mb-12 font-medium">
-            <Link href="/" className="hover:text-[#3A86FF] dark:hover:text-[#00F5D4] transition-colors">Home</Link>
+            <Link href="/" className="hover:text-[#00A98F] dark:hover:text-[#00F5D4] transition-colors">Home</Link>
             <ChevronRight size={14} />
-            <Link href="/industries" className="hover:text-[#3A86FF] dark:hover:text-[#00F5D4] transition-colors">Industries</Link>
+            <Link href="/industries" className="hover:text-[#00A98F] dark:hover:text-[#00F5D4] transition-colors">Industries</Link>
             <ChevronRight size={14} />
-            <span className="text-[#3A86FF] dark:text-[#00F5D4]">{title}</span>
+            <span className="text-[#00A98F] dark:text-[#00F5D4]">{title}</span>
           </nav>
 
           <div className="flex items-center gap-4 mb-6">
-             <div className="p-4 bg-white dark:bg-[#111827] border border-[#E2E8F0] dark:border-[#1F2937] rounded-sm text-[#3A86FF] dark:text-[#00F5D4] shadow-sm">
+             <div className="p-4 bg-white dark:bg-[#111827] border border-[#E2E8F0] dark:border-[#1F2937] rounded-sm text-[#00A98F] dark:text-[#00F5D4] shadow-sm">
                <Icon size={32} strokeWidth={1.5} />
              </div>
-             <span className="text-sm font-bold tracking-widest uppercase text-[#3A86FF] dark:text-[#00F5D4]">{category}</span>
+             <span className="text-sm font-bold tracking-widest uppercase text-[#00A98F] dark:text-[#00F5D4]">{category}</span>
           </div>
 
           <h1 className="text-4xl lg:text-6xl font-bold tracking-tight font-heading max-w-4xl leading-tight">
-            Advanced AI & Technology Solutions for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3A86FF] to-[#00F5D4] dark:from-[#00F5D4] dark:to-[#3A86FF]">{title}</span>
+            Advanced AI & Technology Solutions for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00A98F] to-[#00F5D4] dark:from-[#00F5D4] dark:to-[#00A98F]">{title}</span>
           </h1>
           
         </div>
@@ -55,7 +55,7 @@ export default function IndustryPage({ params }) {
              <ul className="flex flex-col gap-4 mt-4">
                 {['Architectural Modernization & Scalability', 'Advanced Predictive Analytics', 'Automated Workflow Pipelines', 'Enterprise Grade Security & Compliance'].map((benefit, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <CheckCircle2 size={20} className="text-[#3A86FF] dark:text-[#00F5D4] shrink-0 mt-0.5" />
+                    <CheckCircle2 size={20} className="text-[#00A98F] dark:text-[#00F5D4] shrink-0 mt-0.5" />
                     <span className="text-[#0B132B]/80 dark:text-white/80">{benefit}</span>
                   </li>
                 ))}
@@ -73,8 +73,8 @@ export default function IndustryPage({ params }) {
           {/* Right Media Placeholder */}
           <div className="relative w-full aspect-[4/3] bg-[#F8FAFC] dark:bg-[#111827] border border-[#E2E8F0] dark:border-[#1F2937] rounded-sm overflow-hidden flex flex-col items-center justify-center p-8 group">
              {/* Asymmetric geometric glow */}
-             <div className="absolute -top-32 -right-32 w-96 h-96 bg-[#3A86FF]/10 dark:bg-[#00F5D4]/10 rounded-full blur-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
-             <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-[#70EEFF]/10 dark:bg-[#3A86FF]/10 rounded-full blur-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
+             <div className="absolute -top-32 -right-32 w-96 h-96 bg-[#00A98F]/10 dark:bg-[#00F5D4]/10 rounded-full blur-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
+             <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-[#70EEFF]/10 dark:bg-[#00A98F]/10 rounded-full blur-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
              
              <div className="relative z-10 flex flex-col items-center text-center opacity-40 group-hover:opacity-60 transition-opacity">
                 <Icon size={64} className="mb-4" strokeWidth={1} />

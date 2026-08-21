@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 const config = {
-  accent:"#1264d8", accentDark:"#0a56bd", eyebrow:"INDUSTRY SOLUTIONS", title:"AI-Powered", highlight:"Energy & Utilities Solutions",
+  accent:"#00A98F", accentDark:"#008D7A", eyebrow:"INDUSTRY SOLUTIONS", title:"AI-Powered", highlight:"Energy & Utilities Solutions",
   description:"Optimize power grids, renewable energy assets, utility networks, and infrastructure using AI, GIS Mapping, IoT, and predictive analytics.",
   ecosystemTitle:"Trusted Across the Energy Ecosystem", solutionsTitle:"Our Energy & Utility Solutions",
   hero:"/images/energy-utilities-ai-hero.png", dashboardTitle:"Enterprise Energy Dashboard",
@@ -22,7 +22,7 @@ const config = {
   technologies:["OpenAI","AWS","Azure","Google Cloud","ArcGIS","Mapbox","Docker","Python","TensorFlow","Kafka","PostgreSQL","IoT"],
   workflow:[{icon:Zap,label:"Power Generation"},{icon:Radar,label:"Grid Monitoring"},{icon:Bot,label:"AI Analysis"},{icon:Gauge,label:"Asset Monitoring"},{icon:ShieldCheck,label:"Fault Detection"},{icon:TrendingUp,label:"Optimization"}],
   useCases:["Power Utilities","Solar Energy","Wind Energy","Oil & Gas","Water Utilities","Smart Cities","Manufacturing","Government Infrastructure"],
-  useCaseImages:["/images/energy-utilities/power-grid-mapping.png","/images/energy-utilities/renewable-analytics.png","/images/energy-utilities/renewable-analytics.png","/images/energy-utilities/asset-monitoring.png","/images/energy-utilities/power-grid-mapping.png","/images/energy-utilities/connected-energy-city.png","/images/energy-utilities/asset-monitoring.png","/images/energy-utilities/connected-energy-city.png"],
+  useCaseImages:["/images/energy-utilities/power-grid-mapping.png","/images/energy-utilities/renewable-analytics.png","/images/energy-utilities-ai-hero.png","/images/energy-utilities/asset-monitoring.png","/images/gis_cta_satellite.jpg","/images/energy-utilities/connected-energy-city.png","/images/manufacturing/manufacturing-hero.png","/images/industry-showcases/government-smart-cities.png"],
   useCasesTitle:"Industries We Support",
   impact:[["99.9%","Grid Uptime"],["40%","Maintenance Cost Reduction"],["55%","Faster Fault Detection"],["30%","Energy Savings"]],
   faqs:["How does AI improve power grid management?","Can the platform monitor renewable energy assets?","Does the platform support GIS Mapping?","Can IoT devices be integrated with the platform?","Is the platform suitable for utility companies?"],

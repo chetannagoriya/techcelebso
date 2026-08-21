@@ -48,16 +48,16 @@ export default function AboutPage() {
   return (
     <main className="overflow-hidden bg-white text-[#0B132B] transition-colors dark:bg-[#081126] dark:text-white">
       <section className="relative border-b border-slate-200 bg-[#F7F9FC] px-6 pb-16 pt-8 dark:border-white/10 dark:bg-[#0B132B] md:pb-20 md:pt-10 lg:px-10">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_10%,rgba(58,134,255,0.14),transparent_30%),radial-gradient(circle_at_5%_90%,rgba(0,245,212,0.08),transparent_28%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_10%,rgba(0,169,143,0.14),transparent_30%),radial-gradient(circle_at_5%_90%,rgba(0,245,212,0.08),transparent_28%)]" />
         <div className="relative mx-auto max-w-[1280px]">
           <div className="mb-10 max-w-4xl md:mb-14">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#3A86FF]/20 bg-white px-4 py-2 text-sm font-semibold text-[#246FDD] shadow-sm dark:border-[#00F5D4]/20 dark:bg-white/5 dark:text-[#00F5D4]">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#00A98F]/20 bg-white px-4 py-2 text-sm font-semibold text-[#008D7A] shadow-sm dark:border-[#00F5D4]/20 dark:bg-white/5 dark:text-[#00F5D4]">
               <Sparkles size={16} />
               About Antellay
             </div>
             <h1 className="font-[family-name:var(--font-heading)] text-5xl font-semibold leading-[1.02] tracking-[-0.045em] md:text-7xl lg:text-[5.5rem]">
               Being true to our values in{" "}
-              <span className="text-[#3A86FF] dark:text-[#00F5D4]">everything we create.</span>
+              <span className="text-[#00A98F] dark:text-[#00F5D4]">everything we create.</span>
             </h1>
           </div>
           <div className="relative h-[340px] overflow-hidden rounded-[1.75rem] shadow-[0_28px_80px_rgba(11,19,43,0.16)] md:h-[520px]">
@@ -82,7 +82,7 @@ export default function AboutPage() {
       <section className="px-6 py-16 md:py-20 lg:px-10">
         <div className="mx-auto grid max-w-[1180px] gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#3A86FF] dark:text-[#00F5D4]">Our Story</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#00A98F] dark:text-[#00F5D4]">Our Story</p>
             <h2 className="mt-3 font-[family-name:var(--font-heading)] text-4xl font-semibold tracking-tight md:text-5xl">
               A human idea, built through technology.
             </h2>
@@ -109,8 +109,8 @@ export default function AboutPage() {
             </p>
           </article>
           <article className="bg-[#111D37] p-8 md:p-12">
-            <ArrowUpRight className="mb-8 text-[#70EEFF]" size={34} />
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#70EEFF]">Our Vision</p>
+            <ArrowUpRight className="mb-8 text-[#00F5D4]" size={34} />
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#00F5D4]">Our Vision</p>
             <h2 className="mt-4 font-[family-name:var(--font-heading)] text-3xl font-semibold md:text-4xl">Shape a future where innovation serves everyone.</h2>
             <p className="mt-5 leading-7 text-slate-300">
               We aspire to become a trusted global technology partner known for challenging convention, creating responsibly, and building connections that endure.
@@ -122,16 +122,16 @@ export default function AboutPage() {
       <section className="bg-[#F7F9FC] px-6 py-16 dark:bg-[#0B132B] md:py-20 lg:px-10">
         <div className="mx-auto max-w-[1280px]">
           <div className="mb-12 max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#3A86FF] dark:text-[#00F5D4]">Our History</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#00A98F] dark:text-[#00F5D4]">Our History</p>
             <h2 className="mt-3 font-[family-name:var(--font-heading)] text-4xl font-semibold tracking-tight md:text-5xl">The milestones that shaped us.</h2>
           </div>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
             {milestones.map((milestone, index) => (
               <article key={milestone.year} className="relative rounded-2xl border border-slate-200 bg-white p-6 dark:border-white/10 dark:bg-[#111D37]">
-                <span className="mb-8 flex h-10 w-10 items-center justify-center rounded-full bg-[#3A86FF] text-sm font-bold text-white dark:bg-[#00F5D4] dark:text-[#081126]">
+                <span className="mb-8 flex h-10 w-10 items-center justify-center rounded-full bg-[#00A98F] text-sm font-bold text-white dark:bg-[#00F5D4] dark:text-[#081126]">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <p className="text-sm font-bold text-[#3A86FF] dark:text-[#00F5D4]">{milestone.year}</p>
+                <p className="text-sm font-bold text-[#00A98F] dark:text-[#00F5D4]">{milestone.year}</p>
                 <h3 className="mt-2 text-xl font-bold">{milestone.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-slate-500 dark:text-slate-400">{milestone.text}</p>
               </article>
@@ -143,14 +143,14 @@ export default function AboutPage() {
       <section className="px-6 py-16 md:py-20 lg:px-10">
         <div className="mx-auto max-w-[1180px]">
           <div className="mx-auto mb-12 max-w-3xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#3A86FF] dark:text-[#00F5D4]">Our Values</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#00A98F] dark:text-[#00F5D4]">Our Values</p>
             <h2 className="mt-3 font-[family-name:var(--font-heading)] text-4xl font-semibold tracking-tight md:text-5xl">The principles behind every decision.</h2>
             <p className="mt-5 leading-7 text-slate-600 dark:text-slate-400">They guide how we collaborate, solve, deliver, and grow together.</p>
           </div>
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {values.map(({ icon: Icon, title, text }) => (
-              <article key={title} className="group rounded-2xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:border-[#3A86FF]/40 hover:shadow-xl dark:border-white/10 dark:bg-[#111D37]">
-                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-[#3A86FF]/10 text-[#3A86FF] dark:bg-[#00F5D4]/10 dark:text-[#00F5D4]">
+              <article key={title} className="group rounded-2xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:border-[#00A98F]/40 hover:shadow-xl dark:border-white/10 dark:bg-[#111D37]">
+                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-[#00A98F]/10 text-[#00A98F] dark:bg-[#00F5D4]/10 dark:text-[#00F5D4]">
                   <Icon size={24} />
                 </div>
                 <h3 className="text-xl font-bold">{title}</h3>
@@ -162,7 +162,7 @@ export default function AboutPage() {
       </section>
 
       <section className="px-6 pb-16 md:pb-20 lg:px-10">
-        <div className="mx-auto overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-[#246FDD] to-[#0B132B] p-8 text-white md:p-12 lg:max-w-[1280px]">
+        <div className="mx-auto overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-[#00A98F] to-[#0B132B] p-8 text-white md:p-12 lg:max-w-[1280px]">
           <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
             <div>
               <p className="inline-flex rounded-full border-2 border-white bg-[#00F5D4] px-5 py-2.5 text-sm font-bold uppercase tracking-[0.16em] text-[#081126] shadow-lg">
@@ -171,7 +171,7 @@ export default function AboutPage() {
               <h2 className="mt-4 max-w-3xl font-[family-name:var(--font-heading)] text-4xl font-semibold tracking-tight md:text-5xl">
                 Great work grows from strong communities.
               </h2>
-              <p className="mt-5 max-w-2xl leading-7 text-blue-100">
+              <p className="mt-5 max-w-2xl leading-7 text-[#CCFBF1]">
                 We grow with our clients, collaborators, and people by sharing knowledge and creating value that reaches beyond the project.
               </p>
               <Link
@@ -186,7 +186,7 @@ export default function AboutPage() {
               {[["20+", "Industries"], ["25+", "Capabilities"], ["100%", "Commitment"]].map(([number, label]) => (
                 <div key={label} className="rounded-2xl border border-white/15 bg-white/10 p-4 text-center backdrop-blur md:p-6">
                   <p className="text-2xl font-bold md:text-4xl">{number}</p>
-                  <p className="mt-2 text-xs text-blue-100 md:text-sm">{label}</p>
+                  <p className="mt-2 text-xs text-[#CCFBF1] md:text-sm">{label}</p>
                 </div>
               ))}
             </div>
@@ -197,7 +197,7 @@ export default function AboutPage() {
       <section className="bg-[#F7F9FC] px-6 py-16 dark:bg-[#0B132B] md:py-20 lg:px-10">
         <div className="mx-auto max-w-[1280px]">
           <div className="mb-10">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#3A86FF] dark:text-[#00F5D4]">Gallery</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#00A98F] dark:text-[#00F5D4]">Gallery</p>
             <h2 className="mt-3 font-[family-name:var(--font-heading)] text-4xl font-semibold tracking-tight md:text-5xl">Life behind the work.</h2>
           </div>
           <div className="grid auto-rows-[260px] gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -213,7 +213,7 @@ export default function AboutPage() {
       <section className="px-6 py-16 md:py-20 lg:px-10">
         <div className="mx-auto grid max-w-[1080px] gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#3A86FF] dark:text-[#00F5D4]">Frequently Asked Questions</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#00A98F] dark:text-[#00F5D4]">Frequently Asked Questions</p>
             <h2 className="mt-3 font-[family-name:var(--font-heading)] text-4xl font-semibold tracking-tight">A little more about us.</h2>
           </div>
           <div className="space-y-3">
@@ -234,7 +234,7 @@ export default function AboutPage() {
         <h2 className="mx-auto mt-4 max-w-3xl font-[family-name:var(--font-heading)] text-4xl font-semibold tracking-tight md:text-5xl">Become a next-generation business with us.</h2>
         <Link
           href="/contact"
-          className="group mx-auto mt-8 flex w-full max-w-sm items-center justify-center gap-3 rounded-xl border-2 border-[#2563EB] bg-[#2563EB] px-8 py-4 text-base font-bold text-white shadow-xl shadow-[#2563EB]/25 transition hover:-translate-y-1 hover:border-[#0B132B] hover:bg-[#0B132B] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#3A86FF]/30 dark:border-[#00F5D4] dark:bg-[#00F5D4] dark:text-[#081126] dark:hover:border-white dark:hover:bg-white sm:w-fit"
+          className="group mx-auto mt-8 flex w-full max-w-sm items-center justify-center gap-3 rounded-xl border-2 border-[#00A98F] bg-[#00A98F] px-8 py-4 text-base font-bold text-white shadow-xl shadow-[#00A98F]/25 transition hover:-translate-y-1 hover:border-[#0B132B] hover:bg-[#0B132B] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#00A98F]/30 dark:border-[#00F5D4] dark:bg-[#00F5D4] dark:text-[#081126] dark:hover:border-white dark:hover:bg-white sm:w-fit"
         >
           Let&apos;s talk
           <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

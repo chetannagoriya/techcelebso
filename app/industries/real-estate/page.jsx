@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import TechStackMarquee from "../../../components/TechStackMarquee";
 import TrustedOrganizationsMarquee from "../../../components/TrustedOrganizationsMarquee";
+import UseCasesMarquee from "../../../components/UseCasesMarquee";
 
 const challenges = [
   [Database, "Property Data Scattered"], [Target, "Manual Site Selection"],
@@ -18,6 +19,17 @@ const workflow = [
   [ClipboardList, "Property Data"], [Satellite, "Satellite Mapping"],
   [Layers3, "GIS Analysis"], [Lightbulb, "AI Insights"],
   [Building2, "Investment Decision"], [ShieldCheck, "Monitoring"],
+];
+
+const realEstateUseCases = [
+  ["Residential", "/images/industries/Real Estate.jpg"],
+  ["Commercial", "/images/industries/Professional Services.jpg"],
+  ["Smart Cities", "/images/energy-utilities/connected-energy-city.png"],
+  ["Construction", "/images/construction-infrastructure/construction-hero.png"],
+  ["Government", "/images/industry-showcases/government-smart-cities.png"],
+  ["Infrastructure", "/images/gis_cta_satellite.jpg"],
+  ["Urban Planning", "/images/gis_hero_map.jpg"],
+  ["Real Estate Agencies", "/images/consulting_hero.jpg"],
 ];
 
 function MapPanel({ className = "" }) {
@@ -45,13 +57,13 @@ export default function RealEstatePage() {
 
       <section className="mx-auto grid max-w-[1440px] gap-4 px-6 py-4 md:px-10 lg:grid-cols-[.9fr_1.1fr] lg:px-8"><div className="relative min-h-72 overflow-hidden rounded-xl"><Image src="/images/gis_hero_map.jpg" alt="GIS land parcel analysis" fill className="object-cover"/></div><div><h2 className="mb-4 text-center text-sm font-bold uppercase">Industry Challenges</h2><div className="grid grid-cols-2 gap-3 sm:grid-cols-3">{challenges.map(([Icon,label])=><div key={label} className="flex min-h-24 items-center gap-3 rounded-lg border border-emerald-100 bg-white p-4 text-[10px] font-bold shadow-sm"><Icon size={25} className="shrink-0 text-[#079a6e]"/>{label}</div>)}</div></div></section>
 
-      <section className="mx-auto max-w-[1440px] px-6 py-5 md:px-10 lg:px-8"><h2 className="mb-5 text-center text-sm font-bold uppercase">Our AI-Powered Solutions</h2><div className="grid gap-4 lg:grid-cols-3">{[[Map,"GIS Mapping",["Interactive Maps","Parcel Mapping","Heat Maps","Utility Layers","Zoning Analysis"]],[Building2,"Property Intelligence",["Property Valuation","Market Trends","Price Prediction","Investment Score","Buyer Analytics"]],[TrendingUp,"Land Analytics",["Land Classification","Change Detection","Soil Analysis","Flood Risk","Environmental Analysis"]]].map(([Icon,title,items],idx)=><article key={title} className="grid min-h-64 grid-cols-[.82fr_1.18fr] gap-3 rounded-xl border border-emerald-100 bg-white p-4 shadow-sm"><div><h3 className="flex items-center gap-2 text-xs font-bold text-[#077c5d]"><Icon size={19}/>{title}</h3><ul className="mt-4 space-y-3 text-[9px] text-slate-600">{items.map(x=><li key={x} className="flex gap-2"><CheckCircle2 size={12} className="text-[#08a878]"/>{x}</li>)}</ul></div>{idx===1?<div className="relative overflow-hidden rounded-lg"><Image src="/images/industries/Real Estate.jpg" alt="Property intelligence" fill className="object-cover"/><div className="absolute bottom-2 left-2 right-2 rounded bg-[#06382f]/90 p-2 text-white"><span className="text-[7px]">Property Value Trend</span><b className="block text-lg text-emerald-300">+16.8%</b></div></div>:<MapPanel/>}</article>)}</div></section>
+      <section className="mx-auto max-w-[1440px] px-6 py-5 md:px-10 lg:px-8"><h2 className="mb-5 text-center text-sm font-bold uppercase">Our AI-Powered Solutions</h2><div className="grid gap-4 lg:grid-cols-3">{[[Map,"GIS Mapping","/images/gis_hero_map.jpg",["Interactive Maps","Parcel Mapping","Heat Maps","Utility Layers","Zoning Analysis"]],[Building2,"Property Intelligence","/images/industries/Real Estate.jpg",["Property Valuation","Market Trends","Price Prediction","Investment Score","Buyer Analytics"]],[TrendingUp,"Land Analytics","/images/agriculture/satellite-analytics.png",["Land Classification","Change Detection","Soil Analysis","Flood Risk","Environmental Analysis"]]].map(([Icon,title,image,items])=><article key={title} className="grid min-h-64 grid-cols-[.82fr_1.18fr] gap-3 rounded-xl border border-emerald-100 bg-white p-4 shadow-sm"><div><h3 className="flex items-center gap-2 text-xs font-bold text-[#077c5d]"><Icon size={19}/>{title}</h3><ul className="mt-4 space-y-3 text-[9px] text-slate-600">{items.map(x=><li key={x} className="flex gap-2"><CheckCircle2 size={12} className="text-[#08a878]"/>{x}</li>)}</ul></div><div className="relative overflow-hidden rounded-lg"><Image src={image} alt={title} fill className="object-cover"/></div></article>)}</div></section>
 
       <section className="mx-auto grid max-w-[1440px] gap-4 px-6 py-5 md:px-10 lg:grid-cols-[.32fr_.68fr] lg:px-8"><div className="rounded-xl border border-emerald-100 bg-white p-5"><h2 className="text-xs font-bold uppercase">AI Features</h2><div className="mt-4 space-y-3">{[[BarChart3,"AI Price Prediction"],[Radar,"Computer Vision"],[Satellite,"Satellite Analysis"],[Map,"GIS Intelligence"],[TrendingUp,"Predictive Analytics"],[ShieldCheck,"Risk Alerts"]].map(([Icon,label])=><div key={label} className="flex items-center gap-3 text-[10px] font-semibold"><span className="grid h-7 w-7 place-items-center rounded bg-emerald-50 text-[#079b70]"><Icon size={16}/></span>{label}</div>)}</div></div><div><h2 className="mb-3 text-center text-xs font-bold uppercase">Interactive GIS & Property Dashboard</h2><MapPanel className="min-h-[340px]"/></div></section>
 
       <section className="mx-auto grid max-w-[1440px] gap-5 px-6 py-5 md:px-10 lg:px-8"><div className="rounded-xl border border-emerald-100 bg-white p-5"><h2 className="text-center text-xs font-bold uppercase">Technology Stack</h2><TechStackMarquee technologies={["OpenAI","Google Maps","Mapbox","ArcGIS","Cesium","PostGIS","AWS","Azure","Python","TensorFlow","Docker","PostgreSQL"]}/></div><div className="rounded-xl border border-emerald-100 bg-white p-5"><h2 className="text-center text-xs font-bold uppercase">Our Workflow</h2><div className="mt-6 grid grid-cols-3 gap-5 sm:grid-cols-6">{workflow.map(([Icon,label],i)=><div key={label} className="relative text-center">{i<5&&<ArrowRight className="absolute -right-3 top-5 hidden text-emerald-500 sm:block" size={14}/>}<span className="mx-auto grid h-11 w-11 place-items-center rounded-full bg-emerald-50 text-[#079b70]"><Icon size={22}/></span><p className="mt-2 text-[8px] font-bold">{label}</p></div>)}</div></div></section>
 
-      <section className="mx-auto max-w-[1440px] px-6 py-5 md:px-10 lg:px-8"><div><h2 className="mb-4 text-center text-xs font-bold uppercase">Industries We Support</h2><div className="grid grid-cols-2 gap-2 sm:grid-cols-4">{["Residential","Commercial","Smart Cities","Construction","Government","Infrastructure","Urban Planning","Real Estate Agencies"].map((x,i)=><div key={x} className="relative aspect-[1.35] overflow-hidden rounded-lg"><Image src={i%2?"/images/industries/Real Estate.jpg":"/images/gis_hero_map.jpg"} alt="" fill className="object-cover"/><span className="absolute inset-x-0 bottom-0 bg-black/55 py-1.5 text-center text-[8px] font-bold text-white">{x}</span></div>)}</div></div></section>
+      <section className="mx-auto max-w-[1440px] px-6 py-8 md:px-10 lg:px-8"><h2 className="mb-4 text-center text-xs font-bold uppercase">Industries We Support</h2><UseCasesMarquee useCases={realEstateUseCases} label="Real estate use cases"/></section>
 
       <section className="mx-auto max-w-[1440px] px-6 pb-4 pt-5 md:px-10 lg:px-8"><div className="relative min-h-64 overflow-hidden rounded-xl bg-[#063643] p-7 text-white"><Image src="/images/gis_hero_map.jpg" alt="" fill className="object-cover opacity-35"/><div className="relative max-w-sm"><h2 className="text-2xl font-bold">Ready to Transform<br/>Real Estate with AI?</h2><p className="mt-3 text-[10px] leading-5 text-white/80">Leverage AI, GIS, and advanced analytics to make smarter property decisions, reduce risk, and maximize your real estate value.</p><div className="mt-5 flex gap-3"><Link href="/contact" className="rounded bg-[#08a66f] px-4 py-2.5 text-[9px] font-bold">Book Free Consultation</Link></div></div></div></section>
     </main>

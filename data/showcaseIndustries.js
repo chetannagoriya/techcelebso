@@ -7,7 +7,7 @@ import {
 
 const commonTechnologies = ["ArcGIS", "QGIS", "Google Earth Engine", "Python", "AI/ML", "PostgreSQL", "TensorFlow", "AWS", "Azure", "Docker", "Kafka", "Power BI"];
 
-const makeConfig = ({ accent = "#1264d8", hero, eyebrow, title, highlight, description, dashboardTitle, ecosystemTitle, solutionsTitle, logos, stats, challenges, solutions, features, workflow, useCasesTitle = "Use Cases", useCases, impact, faqs, ctaTitle, ctaCopy, secondary }) => ({
+const makeConfig = ({ accent = "#00A98F", hero, eyebrow, title, highlight, description, dashboardTitle, ecosystemTitle, solutionsTitle, logos, stats, challenges, solutions, features, workflow, useCasesTitle = "Use Cases", useCases, impact, faqs, ctaTitle, ctaCopy, secondary }) => ({
   accent, accentDark: accent, hero, challengeImage: secondary || hero, ctaImage: hero,
   eyebrow, title, highlight, description, dashboardTitle, ecosystemTitle, solutionsTitle,
   logos, stats, challenges, solutions, features, workflow, useCasesTitle, useCases, impact, faqs,
@@ -103,7 +103,7 @@ export const maritimePortsConfig = makeConfig({
 });
 
 export const hospitalityTravelConfig = makeConfig({
-  accent: "#1264d8", hero: "/images/industry-showcases/hospitality-travel.png", secondary: "/images/industries/retail_consumer_goods.jpg",
+  accent: "#00A98F", hero: "/images/industry-showcases/hospitality-travel.png", secondary: "/images/industries/retail_consumer_goods.jpg",
   eyebrow: "INDUSTRY SOLUTIONS", title: "AI-Powered", highlight: "Hospitality & Travel Solutions",
   description: "Deliver exceptional guest experiences with AI-powered hotel automation, travel intelligence, personalized recommendations, customer analytics, and camera sensing.",
   dashboardTitle: "Enterprise Hospitality Dashboard", ecosystemTitle: "Trusted by Leading Hospitality & Travel Brands", solutionsTitle: "Our AI-Powered Hospitality Solutions",
