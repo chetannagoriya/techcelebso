@@ -18,36 +18,36 @@ const cases = [
 
 export default function CaseStudiesPage() {
   return (
-    <main className="bg-[#f7fbff] text-[#07152f] dark:bg-[#f7fbff] dark:text-[#07152f]">
+    <main className="bg-[#f7fbff] text-[#07152f] transition-colors duration-300 dark:bg-[#071126] dark:text-white">
       <section className="relative overflow-hidden px-7 py-20 lg:px-14">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(58,134,255,.18),transparent_30%),radial-gradient(circle_at_80%_12%,rgba(16,185,129,.18),transparent_28%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(0,169,143,.18),transparent_30%),radial-gradient(circle_at_80%_12%,rgba(0,245,212,.14),transparent_28%)] dark:opacity-70" />
         <div className="relative mx-auto max-w-[1320px]">
-          <p className="flex items-center gap-2 text-sm font-black uppercase tracking-[.12em] text-[#096dd9]"><Sparkles size={16} /> Case Studies</p>
+          <p className="flex items-center gap-2 text-sm font-black uppercase tracking-[.12em] text-[#008D7A] dark:text-[#00F5D4]"><Sparkles size={16} /> Case Studies</p>
           <h1 className="mt-5 max-w-4xl text-6xl font-black leading-[1.02] tracking-[-.06em]">Real work. Real results. Real transformation.</h1>
-          <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600">See how Antellay applies AI, GIS, data and engineering to solve complex business and operational challenges.</p>
+          <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 dark:text-slate-300">See how Antellay applies AI, GIS, data and engineering to solve complex business and operational challenges.</p>
         </div>
       </section>
 
       <section className="mx-auto max-w-[1320px] px-7 pb-10 lg:px-14">
-        <div className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm md:flex-row md:items-center md:justify-between">
-          <div className="flex items-center gap-2 rounded-lg border border-slate-200 px-4 py-3 text-sm text-slate-400 md:w-96">Search case studies... <Search className="ml-auto text-slate-700" size={18} /></div>
-          <button className="inline-flex items-center gap-2 rounded-lg bg-[#096dd9] px-5 py-3 text-sm font-bold text-white"><Filter size={16} /> Filter by Industry</button>
+        <div className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-[#111D37] dark:shadow-black/20 md:flex-row md:items-center md:justify-between">
+          <div className="flex items-center gap-2 rounded-lg border border-slate-200 px-4 py-3 text-sm text-slate-400 dark:border-white/10 dark:bg-white/5 md:w-96">Search case studies... <Search className="ml-auto text-slate-700 dark:text-slate-200" size={18} /></div>
+          <button className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#00A98F] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#008D7A] dark:bg-[#00F5D4] dark:text-[#071126] dark:hover:bg-[#70EEFF]"><Filter size={16} /> Filter by Industry</button>
         </div>
       </section>
 
       <section className="mx-auto max-w-[1320px] px-7 pb-16 lg:px-14">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {cases.map(([image, tag, title, copy, metric]) => (
-            <article key={title} className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-              <div className="relative h-56 overflow-hidden"><Image src={image} alt={title} fill sizes="420px" className="object-cover transition duration-500 group-hover:scale-105" /><span className="absolute bottom-4 left-4 rounded-full bg-white/90 px-4 py-2 text-xs font-bold text-[#096dd9]">{tag}</span></div>
-              <div className="p-6"><h2 className="text-2xl font-black tracking-[-.035em]">{title}</h2><p className="mt-3 text-sm leading-7 text-slate-600">{copy}</p><p className="mt-5 flex items-center gap-2 text-sm font-black text-emerald-600"><BarChart3 size={17} />{metric}</p><Link href="/contact" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#096dd9]">Read Case Study <ArrowRight size={15} /></Link></div>
+            <article key={title} className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-[#00A98F]/35 hover:shadow-xl dark:border-white/10 dark:bg-[#111D37] dark:hover:border-[#00F5D4]/35 dark:hover:shadow-black/30">
+              <div className="relative h-56 overflow-hidden"><Image src={image} alt={title} fill sizes="420px" className="object-cover transition duration-500 group-hover:scale-105" /><span className="absolute bottom-4 left-4 rounded-full bg-white/90 px-4 py-2 text-xs font-bold text-[#008D7A] dark:bg-[#071126]/90 dark:text-[#00F5D4]">{tag}</span></div>
+              <div className="p-6"><h2 className="text-2xl font-black tracking-[-.035em]">{title}</h2><p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{copy}</p><p className="mt-5 flex items-center gap-2 text-sm font-black text-[#008D7A] dark:text-[#00F5D4]"><BarChart3 size={17} />{metric}</p><Link href="/contact" className="mt-6 inline-flex items-center gap-2 text-sm font-bold !text-[#008D7A] transition hover:gap-3 dark:!text-[#00F5D4]">Read Case Study <ArrowRight size={15} /></Link></div>
             </article>
           ))}
         </div>
       </section>
 
       <section className="px-7 pb-16 lg:px-14">
-        <div className="mx-auto grid max-w-[1320px] gap-6 rounded-3xl bg-[#071124] p-8 text-white md:grid-cols-[1fr_auto] md:items-center">
+        <div className="mx-auto grid max-w-[1320px] gap-6 rounded-3xl border border-white/5 bg-[#071124] p-8 text-white shadow-xl shadow-[#071124]/15 dark:border-[#00F5D4]/10 dark:shadow-black/25 md:grid-cols-[1fr_auto] md:items-center">
           <div><h2 className="text-3xl font-black">Have a challenge worth solving?</h2><p className="mt-3 text-white/65">Let’s turn it into the next measurable success story.</p></div>
         </div>
       </section>

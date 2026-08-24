@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BarChart3, Bot, Check, Handshake, Landmark, MapPin, Rocket, ShieldCheck, Users } from "lucide-react";
+import { ArrowRight, BarChart3, Bot, Building2, CalendarDays, Check, CircleDollarSign, GraduationCap, Handshake, Landmark, MapPin, Mic2, Network, Rocket, ShieldCheck, TrendingUp, Users } from "lucide-react";
 
 export const metadata = {
   title: "NXTFund Capital | Startup Fund",
@@ -8,15 +8,14 @@ export const metadata = {
 };
 
 const stats = [["₹100 Cr+", "Startup Fund"], ["500+", "Applications Received"], ["100+", "Mentors & Experts"], ["50+", "Investor Network"], ["24/7", "AI Monitoring"]];
-const heroCards = [["₹100 Cr", "Fund Size"], ["Jaipur HQ", "India"], ["AI Due Diligence", "& Monitoring"], ["Startup", "Incubation"]];
 const process = [["Apply Online", Rocket], ["AI Screening", Bot], ["Partner Review", Users], ["Founder Meeting", Handshake], ["Due Diligence", ShieldCheck], ["Funding & Support", Landmark]];
 const founderSupport = [
-  ["Funding", "Early-stage funding from our ₹100 Cr fund to fuel your growth."],
-  ["Startup Valley Incubation", "Premium workspace, resources and a thriving founder community."],
-  ["Investor Network", "Connect with 50+ investors, VCs and family offices."],
-  ["Growth Support", "Go-to-market, branding, hiring, legal and scale support."],
-  ["AI Monitoring Dashboard", "Real-time KPI tracking, insights and AI-driven recommendations."],
-  ["Startup School", "Learn, grow and scale with mentorship and workshops."],
+  [CircleDollarSign, "Funding", "Early-stage funding from our ₹100 Cr fund to fuel your growth."],
+  [Rocket, "Startup Valley Incubation", "Premium workspace, resources and a thriving founder community."],
+  [Network, "Investor Network", "Connect with 50+ investors, VCs and family offices."],
+  [TrendingUp, "Growth Support", "Go-to-market, branding, hiring, legal and scale support."],
+  [BarChart3, "AI Monitoring Dashboard", "Real-time KPI tracking, insights and AI-driven recommendations."],
+  [GraduationCap, "Startup School", "Learn, grow and scale with mentorship and workshops."],
 ];
 const partners = ["SEQUOIA", "a16z", "BLUME", "Accel", "TIGER GLOBAL", "matrix", "Kalaari", "BEENEXT", "SPARTAN", "IDG Capital"];
 
@@ -32,43 +31,29 @@ export default function NxtfundCapitalPage() {
   return (
     <main className="bg-[#fffaf7] text-[#151515] dark:bg-[#fffaf7] dark:text-[#151515]">
       <section className="relative overflow-hidden bg-white">
-        <nav className="relative z-10 mx-auto flex max-w-[1380px] items-center justify-between px-7 py-6 lg:px-14">
-          <Link href="/products" className="text-3xl font-black tracking-[-.08em]"><span className="text-black">NXT</span><span className="text-[#ff684f]">FUND</span></Link>
-          <div className="hidden items-center gap-8 text-xs font-black text-slate-700 lg:flex">
-            {["Home", "About Us", "For Founders", "Startup Valley", "Startup School", "AI Platform", "Investors", "Contact"].map((item) => <span key={item}>{item}</span>)}
-          </div>
-          <Link href="/contact" className="inline-flex items-center gap-2 rounded-xl bg-[#ff684f] px-5 py-3 text-xs font-black text-white">Apply for Funding <ArrowRight size={14} /></Link>
-        </nav>
-
-        <div className="relative mx-auto grid min-h-[560px] max-w-[1380px] items-center gap-10 px-7 pb-12 lg:grid-cols-[.83fr_1.17fr] lg:px-14">
+        <div className="relative mx-auto grid min-h-[540px] max-w-[1240px] items-center gap-12 px-7 py-14 lg:grid-cols-[1.08fr_.92fr] lg:px-14">
           <div>
-            <h1 className="max-w-xl text-[50px] font-black leading-[1.02] tracking-[-.055em] md:text-[72px]">
-              India’s Next Generation <span className="text-[#ff684f]">Startup Fund</span>
-            </h1>
-            <h2 className="mt-5 text-3xl font-black tracking-[-.04em]"><span className="text-[#ff684f]">₹100 Crore</span> Fund for India’s Most Ambitious Founders.</h2>
-            <p className="mt-4 max-w-md text-sm leading-7 text-slate-600">Apply once. Get funding, incubation, mentorship and AI-powered startup monitoring.</p>
+            <div className="rounded-[1.75rem] border border-slate-100 bg-white p-7 shadow-[0_18px_60px_rgba(15,23,42,.06)] sm:p-9">
+              <h1 className="text-4xl font-black leading-tight tracking-[-.045em] sm:text-5xl">NXT turns builders</h1>
+              <h2 className="mt-5 text-2xl font-black tracking-[-.035em] sm:text-3xl">Into formidable founders</h2>
+            </div>
+            <p className="mt-6 max-w-xl text-sm leading-7 text-slate-600">Connecting visionary founders with investors, strategic partners, and growth opportunities to build the defining companies of tomorrow.</p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <Link href="/contact" className="inline-flex items-center gap-2 rounded-xl bg-[#ff684f] px-7 py-4 text-xs font-black text-white">Apply For Funding <ArrowRight size={15} /></Link>
-              <Link href="#startup-valley" className="rounded-xl border border-slate-200 bg-white px-7 py-4 text-xs font-black">Explore Startup Valley</Link>
+              <Link href="/contact" className="inline-flex items-center gap-2 rounded-lg bg-black px-7 py-4 text-xs font-black !text-white">Apply Now <ArrowRight size={15} /></Link>
+              <Link href="/contact" className="rounded-lg border border-[#ff684f]/60 bg-white px-7 py-4 text-xs font-black !text-[#151515]">Become a Partner</Link>
             </div>
-            <p className="mt-6 text-xs text-slate-500">NXTFund is the investment arm of <span className="text-[#ff684f]">Celebso Group</span></p>
           </div>
+          <div className="rounded-[1.75rem] bg-[#fffdfb] p-5 shadow-[0_20px_70px_rgba(15,23,42,.07)]">
+            <div className="relative min-h-[430px] overflow-hidden rounded-[1.35rem] bg-blue-50"><Image src="/images/products/nxtfund/founder-interview.png" alt="Startup founder sharing his vision" fill priority sizes="(min-width: 1024px) 430px, 100vw" className="object-cover object-center" /></div>
+            <div className="mt-4 flex items-center justify-between"><b className="tracking-[-.04em]">NXT<span className="text-[#ff684f]">FUND</span></b><span className="text-[10px] uppercase tracking-[.15em] text-slate-400">Founder first</span></div>
+          </div>
+        </div>
+      </section>
 
-          <div className="relative min-h-[510px]">
-            <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-br from-blue-100 via-white to-orange-50" />
-            <div className="relative h-[510px] overflow-hidden rounded-[2.5rem]">
-              <Image src="/images/products/nxtfund-capital.jpeg" alt="NXTFund startup building" fill sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover object-top" />
-              <div className="absolute inset-0 bg-gradient-to-r from-white/25 via-transparent to-white/10" />
-            </div>
-            <div className="absolute right-5 top-14 grid gap-4">
-              {heroCards.map(([title, copy], index) => (
-                <Card key={title} className="flex w-44 items-center gap-3 p-4">
-                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-[#fff0eb] text-[#ff684f]">{[Landmark, MapPin, Bot, Rocket].map((Icon, i) => i === index && <Icon key={i} size={20} />)}</span>
-                  <div><b className="text-sm">{title}</b><p className="text-xs text-slate-500">{copy}</p></div>
-                </Card>
-              ))}
-            </div>
-          </div>
+      <section className="bg-white px-7 py-16 lg:px-14">
+        <div className="mx-auto max-w-[760px] text-base leading-8 text-slate-700">
+          <p className="first-letter:float-left first-letter:mr-3 first-letter:font-serif first-letter:text-7xl first-letter:italic first-letter:leading-[.75]">In 2025, NEXT FUND developed a new model of startup funding. Four times a year we invest up to ₹100 Crore in a select group of startups. Selected founders gain access to funding, incubation, mentorship, and an extensive investor network, while working closely with our team to get their companies into the best possible shape before presenting to investors.</p>
+          <p className="mt-6">But NEXT FUND doesn&apos;t end with funding. We and the NEXT FUND founder network continue to help founders build, scale, raise capital, and grow their companies for the long term—and beyond.</p>
         </div>
       </section>
 
@@ -80,7 +65,7 @@ export default function NxtfundCapitalPage() {
 
       <section className="mx-auto grid max-w-[1320px] gap-6 px-7 py-8 lg:grid-cols-2 lg:px-14">
         <div className="relative min-h-[300px] overflow-hidden rounded-3xl bg-slate-200">
-          <Image src="/images/products/nxtfund-capital.jpeg" alt="NXTFund founder session" fill className="object-cover object-center" />
+          <Image src="/images/products/nxtfund/startup-valley.png" alt="Startup Valley innovation center in Jaipur" fill className="object-cover object-center" />
         </div>
         <div className="py-4">
           <Label>About NXTFund</Label>
@@ -106,9 +91,13 @@ export default function NxtfundCapitalPage() {
       <section className="px-7 py-8 lg:px-14">
         <Label>What Founders Get With NXTFund</Label>
         <div className="mx-auto mt-5 grid max-w-[1320px] gap-4 md:grid-cols-3 lg:grid-cols-6">
-          {founderSupport.map(([title, copy]) => (
+          {founderSupport.map(([Icon, title, copy], index) => (
             <Card key={title} className="overflow-hidden p-4">
-              <div className="relative h-32 overflow-hidden rounded-xl bg-orange-50"><Image src="/images/products/nxtfund-capital.jpeg" alt={title} fill className="object-cover object-top" /></div>
+              <div className="relative grid h-32 place-items-center overflow-hidden rounded-xl bg-gradient-to-br from-[#fff6f2] to-[#ffe5dc]">
+                <span className="absolute -right-7 -top-7 h-24 w-24 rounded-full border-[18px] border-white/50" />
+                <span className="absolute bottom-3 left-4 text-5xl font-black text-[#ff684f]/8">0{index + 1}</span>
+                <span className="relative grid h-16 w-16 place-items-center rounded-2xl border border-[#ff684f]/15 bg-white text-[#ff684f] shadow-[0_12px_28px_rgba(255,104,79,.16)]"><Icon size={28} /></span>
+              </div>
               <h3 className="mt-4 text-sm font-black">{title}</h3>
               <p className="mt-2 text-xs leading-5 text-slate-500">{copy}</p>
             </Card>
@@ -118,7 +107,17 @@ export default function NxtfundCapitalPage() {
 
       <section className="mx-auto grid max-w-[1320px] gap-6 px-7 py-8 lg:grid-cols-[1fr_.9fr] lg:px-14" id="startup-valley">
         <div className="grid grid-cols-2 gap-3">
-          {[1, 2, 3, 4, 5, 6].map((item) => <div key={item} className="relative h-40 overflow-hidden rounded-2xl"><Image src="/images/products/nxtfund-capital.jpeg" alt={`Startup Valley ${item}`} fill className="object-cover object-top" /></div>)}
+          <div className="relative col-span-2 h-64 overflow-hidden rounded-2xl sm:h-72">
+            <Image src="/images/products/nxtfund/startup-valley.png" alt="Startup Valley innovation center" fill className="object-cover" />
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/65 to-transparent p-5 pt-16 text-white"><p className="text-lg font-black">Startup Valley Jaipur</p><p className="mt-1 text-xs text-white/70">A purpose-built home for ambitious founders.</p></div>
+          </div>
+          {[[Building2, "Founder Workspace"], [Landmark, "Meeting Rooms"], [Mic2, "Podcast Studio"], [CalendarDays, "Community Events"]].map(([Icon, title], index) => (
+            <div key={title} className="relative min-h-32 overflow-hidden rounded-2xl border border-orange-100 bg-gradient-to-br from-white to-[#fff3ee] p-5 shadow-sm">
+              <span className="absolute -bottom-5 -right-3 text-7xl font-black text-[#ff684f]/5">0{index + 1}</span>
+              <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#ff684f] text-white shadow-lg shadow-[#ff684f]/20"><Icon size={20} /></span>
+              <p className="relative mt-4 text-xs font-black text-slate-700">{title}</p>
+            </div>
+          ))}
         </div>
         <div className="py-4">
           <Label>Startup Valley - Jaipur</Label>
@@ -152,12 +151,6 @@ export default function NxtfundCapitalPage() {
         </div>
       </section>
 
-      <footer className="mt-8 bg-[#111] px-7 py-12 text-white lg:px-14">
-        <div className="mx-auto grid max-w-[1320px] gap-8 md:grid-cols-5">
-          <div><b className="text-3xl font-black tracking-[-.08em]"><span>NXT</span><span className="text-[#ff684f]">FUND</span></b><p className="mt-4 text-xs leading-6 text-white/55">The investment arm of Celebso Group backing India’s most ambitious founders.</p></div>
-          {["Platform", "Startup Valley", "Startup School", "Company"].map((h) => <div key={h}><b>{h}</b><p className="mt-4 text-xs leading-7 text-white/55">About<br/>Programs<br/>Resources<br/>Contact</p></div>)}
-        </div>
-      </footer>
     </main>
   );
 }

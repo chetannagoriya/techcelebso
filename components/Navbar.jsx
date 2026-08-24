@@ -47,7 +47,7 @@ export default function Navbar() {
       pathname === path ? "text-[#00A98F] dark:text-[#00F5D4] font-semibold" : ""
     }`;
 
-  if (["/products/byizon-ai", "/products/grehni-ai", "/products/nxtfund-capital", "/products/celebso-production"].includes(pathname)) return null;
+  if (["/products/grehni-ai", "/products/celebso-production"].includes(pathname)) return null;
 
   return (
     <header className={`navbar w-full flex items-center justify-between px-8 py-4 bg-white dark:bg-[#0B132B] border-b border-[#E2E8F0] dark:border-[#1C2541] z-50 transition-colors duration-300 ${isHomePage ? "home-navbar" : ""} ${isShowcasePage ? "showcase-navbar" : ""} ${isConsumerTechnologyPage ? "consumer-tech-navbar" : ""}`}>

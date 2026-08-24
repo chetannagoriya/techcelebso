@@ -4,6 +4,7 @@ import Image from "next/image";
 import {
   ArrowRight,
   BriefcaseBusiness,
+  CalendarDays,
   CheckCircle2,
   ChevronDown,
   Clock3,
@@ -15,6 +16,7 @@ import {
   MessageCircle,
   Phone,
   ShieldCheck,
+  Video,
 } from "lucide-react";
 
 const contactSteps = [
@@ -196,6 +198,61 @@ export default function ContactPage() {
               })}
             </div>
           </div>
+
+          <section className="relative mt-20 overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white px-6 py-10 shadow-[0_24px_70px_rgba(11,19,43,.10)] dark:border-white/10 dark:bg-[#101b34] sm:px-10 sm:py-12 lg:mt-28 lg:px-14 lg:py-14">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_82%_45%,rgba(0,245,212,.14),transparent_34%)]" />
+            <div className="pointer-events-none absolute -right-24 -top-28 h-80 w-80 rounded-full border-[44px] border-[#00A98F]/5" />
+            <div className="relative grid gap-10 lg:grid-cols-[1.15fr_.85fr] lg:items-center lg:gap-16">
+              <div>
+                <span className="inline-flex items-center gap-2 rounded-full bg-[#00A98F]/10 px-4 py-2 text-xs font-bold uppercase tracking-[.16em] text-[#008D7A] dark:bg-[#00F5D4]/10 dark:text-[#00F5D4]">
+                  <CalendarDays size={15} /> Schedule a consultation
+                </span>
+                <h2 className="mt-5 max-w-2xl font-[family-name:var(--font-heading)] text-3xl font-semibold leading-tight tracking-[-.035em] sm:text-4xl lg:text-5xl">
+                  Let&apos;s find a time that works for <span className="text-[#00A98F] dark:text-[#00F5D4]">you.</span>
+                </h2>
+                <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600 dark:text-slate-300">
+                  Prefer to speak directly with our team? Schedule a free 30-minute consultation and choose a date and time that works best for you.
+                </p>
+                <a
+                  href="https://calendly.com/space-antellay/30min"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#0b1731] px-7 py-3.5 text-sm font-bold !text-white shadow-lg shadow-[#0b1731]/20 transition hover:-translate-y-0.5 hover:bg-[#00A98F] focus:outline-none focus:ring-4 focus:ring-[#00A98F]/20 dark:bg-[#00F5D4] dark:!text-[#071126] dark:hover:bg-[#70EEFF] sm:w-auto"
+                >
+                  Schedule a Meeting <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+                </a>
+              </div>
+
+              <div className="relative mx-auto w-full max-w-[620px] pb-4 sm:pl-10">
+                <div className="absolute left-0 top-12 hidden h-[220px] w-[44%] rounded-2xl border border-slate-200 bg-slate-50 shadow-lg dark:border-white/10 dark:bg-[#14213b] sm:block">
+                  <div className="flex items-center gap-3 border-b border-slate-200 p-4 dark:border-white/10">
+                    <span className="grid h-10 w-10 place-items-center rounded-full bg-[#00A98F]/10 text-[#00A98F] dark:text-[#00F5D4]"><CalendarDays size={19} /></span>
+                    <div className="space-y-2"><span className="block h-2 w-20 rounded bg-slate-200 dark:bg-white/10" /><span className="block h-2 w-14 rounded bg-slate-100 dark:bg-white/5" /></div>
+                  </div>
+                  <div className="space-y-3 p-4">{[1, 2, 3].map((item) => <div key={item} className="h-8 rounded-lg bg-white shadow-sm dark:bg-white/5" />)}</div>
+                </div>
+
+                <div className="relative ml-auto w-full rounded-2xl border border-slate-200 bg-white p-5 shadow-[0_22px_55px_rgba(11,19,43,.16)] dark:border-white/10 dark:bg-[#0d1930] sm:w-[78%]">
+                  <div className="flex items-center justify-between border-b border-slate-100 pb-4 dark:border-white/10">
+                    <div><p className="text-base font-bold">Schedule a Meeting</p><p className="mt-1 text-xs text-slate-400">30 min · Online</p></div>
+                    <span className="grid h-9 w-9 place-items-center rounded-full bg-[#00A98F]/10 text-[#008D7A] dark:text-[#00F5D4]"><Video size={17} /></span>
+                  </div>
+                  <div className="mt-5 grid gap-5 sm:grid-cols-[1.2fr_.8fr]">
+                    <div>
+                      <div className="flex items-center justify-between text-xs font-bold"><span>August 2026</span><span className="text-slate-400">‹ &nbsp; ›</span></div>
+                      <div className="mt-4 grid grid-cols-7 gap-1 text-center text-[10px] text-slate-400">{["S", "M", "T", "W", "T", "F", "S"].map((day, index) => <span key={`${day}-${index}`}>{day}</span>)}</div>
+                      <div className="mt-2 grid grid-cols-7 gap-1 text-center text-[10px] font-medium">{Array.from({ length: 28 }, (_, index) => <span key={index} className={`grid aspect-square place-items-center rounded-full ${index === 20 ? "bg-[#00A98F] font-bold text-white dark:bg-[#00F5D4] dark:text-[#071126]" : "text-slate-600 dark:text-slate-300"}`}>{index + 1}</span>)}</div>
+                    </div>
+                    <div className="border-t border-slate-100 pt-4 dark:border-white/10 sm:border-l sm:border-t-0 sm:pl-4 sm:pt-0">
+                      <p className="text-[11px] font-bold">Available times</p>
+                      <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-1">{["10:00 AM", "11:00 AM", "01:00 PM", "03:00 PM"].map((time, index) => <span key={time} className={`rounded-md border px-2 py-2 text-center text-[10px] font-semibold ${index === 1 ? "border-[#00A98F] bg-[#00A98F] text-white dark:border-[#00F5D4] dark:bg-[#00F5D4] dark:text-[#071126]" : "border-slate-200 text-slate-600 dark:border-white/10 dark:text-slate-300"}`}>{time}</span>)}</div>
+                    </div>
+                  </div>
+                  <div className="mt-5 h-9 rounded-lg bg-gradient-to-r from-[#00A98F] to-[#00D9BC] text-center text-[11px] font-bold leading-9 text-white">Confirm meeting</div>
+                </div>
+              </div>
+            </div>
+          </section>
 
           <div className="mt-20 grid gap-10 lg:mt-28 lg:grid-cols-[.68fr_1.32fr] lg:gap-16">
             <div>
