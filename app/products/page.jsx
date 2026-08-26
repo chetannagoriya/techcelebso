@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Bot, BrainCircuit, Camera, Check, CircleDollarSign, Command, Globe2, Home, Layers, Rocket, ShieldCheck, Sparkles, Users, Zap } from "lucide-react";
+import { ArrowRight, Bot, BrainCircuit, Camera, Check, CircleDollarSign, Command, Cpu, Globe2, Home, Layers, Rocket, Satellite, ShieldCheck, Sparkles, Users, Zap } from "lucide-react";
 import ProductFeatureSlideshow from "../../components/ProductFeatureSlideshow";
 
 const products = [
@@ -54,6 +54,26 @@ const products = [
     icon: CircleDollarSign,
     bullets: ["Startup funding", "AI due diligence", "Incubation", "Founder mentorship"],
   },
+  {
+    name: "Antellay Space",
+    tagline: "Space intelligence, reimagined.",
+    copy: "An AI operating system for the space economy, connecting satellite intelligence, earth observation and mission-ready analytics.",
+    image: "/images/products/antellay-space-reference.png",
+    href: "/products/antellay-space",
+    accent: "#f08a45",
+    icon: Satellite,
+    bullets: ["Satellite intelligence", "Earth observation", "Mission analytics", "Secure space data"],
+  },
+  {
+    name: "Antellay X",
+    tagline: "Autonomy, redefined.",
+    copy: "One intelligence layer for autonomous machines across humanoid, land, air, sea and space environments.",
+    image: "/images/products/antellay-x-reference.png",
+    href: "/products/antellay-x",
+    accent: "#c9ddff",
+    icon: Cpu,
+    bullets: ["Embodied AI", "Autonomous systems", "Multimodal perception", "Machine coordination"],
+  },
 ];
 
 const systems = [
@@ -65,7 +85,7 @@ const systems = [
 
 export const metadata = {
   title: "Our Products | Antellay",
-  description: "Explore Antellay products including CelebsoX, Byizon.ai, Grehni.ai, Celebso Production and NXTFund Capital.",
+  description: "Explore Antellay products including CelebsoX, Byizon.ai, Grehni.ai, Antellay Space, Antellay X and more.",
 };
 
 export default function ProductsPage() {
@@ -80,7 +100,7 @@ export default function ProductsPage() {
               <Sparkles size={14} /> Our Products
             </span>
             <h1 className="mt-6 max-w-3xl text-5xl font-extrabold leading-[1.04] tracking-[-.05em] sm:text-6xl lg:text-[76px]">
-              Five intelligent products for the next wave of business.
+              Seven intelligent products for the next wave of business.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/72">
               From AI business operations and smart spaces to creator networks, production studios and startup capital, Antellay builds products with a sharp point of view and a practical path to scale.
@@ -125,7 +145,7 @@ export default function ProductsPage() {
             A Cyntexa-inspired product hub: bold product stories, clear use cases, polished previews and fast routes to demo conversations.
           </p>
         </div>
-        <div className="grid gap-5 lg:grid-cols-5">
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {products.map((product) => {
             const Icon = product.icon;
             return (
@@ -161,7 +181,7 @@ export default function ProductsPage() {
         <div className="mx-auto grid max-w-[1360px] gap-6 lg:grid-cols-[.85fr_1.15fr]">
           <div className="rounded-3xl bg-[#071124] p-8 text-white">
             <p className="text-xs font-extrabold uppercase tracking-[.12em] text-cyan-300">How We Build</p>
-            <h2 className="mt-4 text-4xl font-extrabold tracking-[-.04em]">One product studio. Five focused ecosystems.</h2>
+            <h2 className="mt-4 text-4xl font-extrabold tracking-[-.04em]">One product studio. Seven focused ecosystems.</h2>
             <p className="mt-5 text-sm leading-7 text-white/65">
               Each product is designed around a specific audience, but the core remains the same: intelligent workflows, beautiful interfaces and measurable business value.
             </p>
@@ -177,7 +197,7 @@ export default function ProductsPage() {
           </div>
           <div className="grid gap-5">
             <div className="grid gap-5 md:grid-cols-3">
-              {[["5", "Flagship products"], ["10x", "Faster product decisions"], ["24/7", "AI-ready workflows"]].map(([value, label]) => (
+              {[["7", "Flagship products"], ["10x", "Faster product decisions"], ["24/7", "AI-ready workflows"]].map(([value, label]) => (
                 <div key={label} className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
                   <b className="text-4xl text-[#3a86ff]">{value}</b>
                   <span className="mt-2 block text-xs font-bold text-slate-600">{label}</span>
@@ -200,13 +220,15 @@ export default function ProductsPage() {
       </section>
 
       <section className="mx-auto max-w-[1360px] px-6 py-16 md:px-10">
-        <div className="grid gap-5 md:grid-cols-5">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-7">
           {[
             [Command, "Operate", "Byizon.ai"],
             [Users, "Connect", "CelebsoX"],
             [Zap, "Automate", "Grehni.ai"],
             [Camera, "Create", "Celebso Production"],
             [Rocket, "Fund", "NXTFund Capital"],
+            [Satellite, "Discover", "Antellay Space"],
+            [Cpu, "Autonomize", "Antellay X"],
           ].map(([Icon, action, name]) => (
             <div key={name} className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
               <span className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-blue-50 text-[#3a86ff]">

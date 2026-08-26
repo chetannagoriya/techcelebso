@@ -15,8 +15,10 @@ export default function Navbar() {
   const { theme, toggleTheme, mounted } = useTheme();
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
+  const [isProductsOpen, setIsProductsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const industriesDropdownRef = useRef(null);
+  const productsDropdownRef = useRef(null);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -26,6 +28,9 @@ export default function Navbar() {
       }
       if (industriesDropdownRef.current && !industriesDropdownRef.current.contains(event.target)) {
         setIsIndustriesOpen(false);
+      }
+      if (productsDropdownRef.current && !productsDropdownRef.current.contains(event.target)) {
+        setIsProductsOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -37,6 +42,7 @@ export default function Navbar() {
     const closeDropdowns = window.setTimeout(() => {
       setIsServicesOpen(false);
       setIsIndustriesOpen(false);
+      setIsProductsOpen(false);
     }, 0);
 
     return () => window.clearTimeout(closeDropdowns);
@@ -46,8 +52,6 @@ export default function Navbar() {
     `hover:text-[#00A98F] dark:hover:text-[#00F5D4] transition-colors duration-200 ${
       pathname === path ? "text-[#00A98F] dark:text-[#00F5D4] font-semibold" : ""
     }`;
-
-  if (["/products/grehni-ai", "/products/celebso-production"].includes(pathname)) return null;
 
   return (
     <header className={`navbar w-full flex items-center justify-between px-8 py-4 bg-white dark:bg-[#0B132B] border-b border-[#E2E8F0] dark:border-[#1C2541] z-50 transition-colors duration-300 ${isHomePage ? "home-navbar" : ""} ${isShowcasePage ? "showcase-navbar" : ""} ${isConsumerTechnologyPage ? "consumer-tech-navbar" : ""}`}>
@@ -222,7 +226,48 @@ export default function Navbar() {
           </div>
         </div>
 
-        <Link href="/products" className={linkClass("/products")}>Products</Link>
+        {/* Products Mega Menu */}
+        <div ref={productsDropdownRef}>
+          <button
+            onClick={() => setIsProductsOpen(!isProductsOpen)}
+            className={`flex items-center gap-1 hover:text-[#00A98F] dark:hover:text-[#00F5D4] transition-colors focus:outline-none ${pathname.startsWith('/products') ? 'text-[#00A98F] dark:text-[#00F5D4] font-semibold' : ''}`}
+          >
+            Products <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform duration-300 ${isProductsOpen ? "rotate-180" : ""}`}><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+
+          <div className={`absolute top-full left-0 w-full h-screen transition-all duration-300 z-50 ${isProductsOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
+            <div className="absolute inset-0 bg-[#0B132B]/5 dark:bg-[#0B132B]/60 backdrop-blur-md transition-opacity duration-300" onClick={() => setIsProductsOpen(false)}></div>
+
+            <div className="relative mx-auto w-full max-w-7xl bg-white dark:bg-[#0B132B] border-x border-b border-[#E2E8F0] dark:border-[#1C2541] shadow-2xl rounded-b-sm p-6 md:p-8 max-h-[75vh] md:max-h-[calc(100vh-100px)] overflow-y-auto mega-scroll flex flex-col">
+              <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-5">
+                {[
+                  ["CelebsoX", "A social network for ambitious dreamers.", "/products/celebsox"],
+                  ["Byizon.ai", "The AI business operating system.", "/products/byizon-ai"],
+                  ["Grehni.ai", "The operating system for every space.", "/products/grehni-ai"],
+                  ["Celebso Production", "Crafting iconic visuals.", "/products/celebso-production"],
+                  ["NXTFund Capital", "India's next generation startup fund.", "/products/nxtfund-capital"],
+                  ["Antellay Space", "Space intelligence, reimagined.", "/products/antellay-space"],
+                  ["Antellay X", "Autonomy, redefined.", "/products/antellay-x"],
+                ].map(([name, description, href]) => (
+                  <Link key={name} href={href} className="group rounded-sm border border-[#E2E8F0] p-4 transition-colors hover:border-[#00A98F] dark:border-[#2D3A54] dark:hover:border-[#00F5D4]">
+                    <h4 className="font-bold text-sm text-[#0B132B] transition-colors group-hover:text-[#00A98F] dark:text-white dark:group-hover:text-[#00F5D4]">{name}</h4>
+                    <p className="mt-2 text-xs leading-5 text-[#0B132B]/60 dark:text-white/50">{description}</p>
+                    <span className="mt-4 inline-block text-xs font-semibold text-[#00A98F] dark:text-[#00F5D4]">Explore product →</span>
+                  </Link>
+                ))}
+              </div>
+              <div className="mt-8 flex w-full shrink-0 items-center justify-between rounded-sm border border-[#E2E8F0] bg-[#F4F7FA] p-4 dark:border-[#2D3A54] dark:bg-[#0B132B]">
+                <div>
+                  <h4 className="text-sm font-bold text-[#0B132B] dark:text-white">Explore the Antellay product ecosystem</h4>
+                  <p className="mt-1 text-xs text-[#0B132B]/60 dark:text-white/50">Discover platforms built for creators, businesses, spaces and founders.</p>
+                </div>
+                <Link href="/products" className="rounded-sm bg-[#00F5D4] px-4 py-2 text-xs font-bold text-[#0B132B] transition-colors hover:bg-[#70EEFF]">
+                  View All Products
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
         <Link href="/about" className={linkClass("/about")}>About</Link>
         <Link href="/contact" className={linkClass("/contact")}>Contact Us</Link>
       </nav>

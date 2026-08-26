@@ -108,7 +108,7 @@ export default function CompactFooter() {
         </div>
 
         <div className="mt-8 flex flex-col gap-3 border-t border-white/10 pt-5 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 Antellay Technologies Pvt. Ltd. All rights reserved.</p>
+          <p>© 2026 ANTELLAY Tech. All Rights Reserved. A Celebso Group Company.</p>
           <a href="mailto:info@antellay.com" className="transition hover:text-[#00F5D4]">info@antellay.com</a>
         </div>
       </div>

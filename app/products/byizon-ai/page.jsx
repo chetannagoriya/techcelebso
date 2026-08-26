@@ -35,17 +35,17 @@ export const metadata = {
 
 function DashboardPreview({ compact = false }) {
   return (
-    <div className={`overflow-hidden rounded-xl bg-[#06152f] text-white ${compact ? "h-32" : "p-4 shadow-2xl"}`}>
-      {!compact && <div className="mb-3 flex items-center justify-between"><b className="text-xs">Byizon AI</b><span className="text-[9px] text-blue-200">Generating your dashboard...</span></div>}
+    <div className={`overflow-hidden rounded-xl ${compact ? "h-32 bg-[#06152f] text-white" : "bg-[#f8fbff] p-4 text-[#07152f] shadow-2xl"}`}>
+      {!compact && <div className="mb-3 flex items-center justify-between border-b border-slate-200 pb-3"><b className="flex items-center gap-2 text-xs"><span className="grid h-6 w-6 place-items-center rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 text-[9px] text-white">B</span>Byizon AI</b><span className="text-[9px] text-blue-600">Generating your dashboard...</span></div>}
       <div className={`grid ${compact ? "h-full grid-cols-3 gap-1 p-2" : "grid-cols-2 gap-3 sm:grid-cols-4"}`}>
         {(compact ? [62, 84, 48] : ["$8.42M", "124", "1,243", "$67.8K"]).map((value, index) => (
-          <div key={value} className="rounded-lg border border-white/10 bg-white/[.06] p-2">
-            {!compact && <><span className="text-[8px] text-white/45">{["Total Revenue", "Deals Closed", "Active Customers", "Avg Deal Size"][index]}</span><b className="mt-1 block text-lg">{value}</b><span className="text-[8px] text-emerald-300">+12.6%</span></>}
+          <div key={value} className={`rounded-lg p-2 ${compact ? "border border-white/10 bg-white/[.06]" : "border border-slate-200 bg-white shadow-sm"}`}>
+            {!compact && <><span className="text-[8px] text-slate-500">{["Total Revenue", "Deals Closed", "Active Customers", "Avg Deal Size"][index]}</span><b className="mt-1 block text-lg">{value}</b><span className="text-[8px] text-emerald-600">+12.6%</span></>}
             {compact && <div className="flex h-full items-end gap-1">{[.4, .75, .55, .9, .66].map((height, bar) => <span key={bar} className="flex-1 rounded-t bg-gradient-to-t from-[#1677ff] to-[#43c9e8]" style={{ height: `${height * Number(value)}%` }} />)}</div>}
           </div>
         ))}
       </div>
-      {!compact && <div className="mt-3 grid grid-cols-3 gap-3"><div className="h-36 rounded-lg border border-white/10 bg-[linear-gradient(145deg,transparent_44%,#1688ff_45%,#1688ff_48%,transparent_49%)]" /><div className="grid h-36 place-items-center rounded-lg border border-white/10"><div className="grid h-20 w-20 place-items-center rounded-full bg-[conic-gradient(#1688ff_0_45%,#44d1c5_45%_70%,#263c62_70%)]"><span className="h-11 w-11 rounded-full bg-[#06152f]" /></div></div><div className="space-y-4 rounded-lg border border-white/10 p-4">{[90, 72, 60, 45].map((width) => <div key={width} className="h-2 rounded bg-white/10"><div className="h-full rounded bg-[#1688ff]" style={{ width: `${width}%` }} /></div>)}</div></div>}
+      {!compact && <div className="mt-3 grid grid-cols-3 gap-3"><div className="h-36 rounded-lg border border-slate-200 bg-[linear-gradient(145deg,transparent_44%,#1688ff_45%,#1688ff_48%,transparent_49%)]" /><div className="grid h-36 place-items-center rounded-lg border border-slate-200 bg-white"><div className="grid h-20 w-20 place-items-center rounded-full bg-[conic-gradient(#1688ff_0_45%,#44d1c5_45%_70%,#dbe4f1_70%)]"><span className="h-11 w-11 rounded-full bg-white" /></div></div><div className="space-y-4 rounded-lg border border-slate-200 bg-white p-4">{[90, 72, 60, 45].map((width) => <div key={width} className="h-2 rounded bg-slate-100"><div className="h-full rounded bg-[#1688ff]" style={{ width: `${width}%` }} /></div>)}</div></div>}
     </div>
   );
 }
@@ -64,7 +64,7 @@ export default function ByizonAiPage() {
             <div className="mt-5 flex flex-wrap gap-2">{["AI-Powered", "Real-Time Insights", "Smart Dashboards", "Enterprise Ready"].map((tag) => <span key={tag} className="rounded-md border border-white/15 px-3 py-2 text-[9px] text-white/70">{tag}</span>)}</div>
             <div className="mt-7 flex flex-wrap gap-3"><Link href="/contact" className="inline-flex items-center gap-2 rounded-lg bg-[#1677ff] px-7 py-3.5 text-sm font-black !text-white">Book a Demo <ArrowRight size={15} /></Link><Link href="#overview" className="rounded-lg border border-white/40 px-7 py-3.5 text-sm font-bold !text-white">Explore Byizon</Link></div>
           </div>
-          <div className="relative"><div className="absolute -inset-8 bg-blue-500/15 blur-3xl" /><div className="relative rounded-2xl border border-blue-300/20 bg-[#f8fbff] p-4"><DashboardPreview /></div></div>
+          <div className="relative pt-14"><div className="absolute -inset-8 bg-blue-500/15 blur-3xl" /><div className="absolute right-[7%] top-0 z-20 max-w-[250px] rounded-2xl rounded-br-sm bg-gradient-to-r from-[#1688ff] to-[#55b8ff] px-5 py-4 text-xs font-semibold leading-5 shadow-xl">Show me this month&apos;s sales performance by region.</div><div className="absolute -right-4 top-14 h-[88%] w-[92%] rounded-2xl border border-white/25 bg-[#07152f] shadow-2xl"><div className="flex h-8 items-center gap-1.5 border-b border-white/10 px-4"><span className="h-2 w-2 rounded-full bg-red-400/70"/><span className="h-2 w-2 rounded-full bg-amber-300/70"/><span className="h-2 w-2 rounded-full bg-emerald-400/70"/></div></div><div className="relative z-10 mt-10 rounded-2xl border border-blue-100 bg-[#f8fbff] p-4 shadow-2xl"><DashboardPreview /></div></div>
         </div>
       </section>
 

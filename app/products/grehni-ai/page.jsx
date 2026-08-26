@@ -75,15 +75,7 @@ export default function GrehniAiPage() {
     <main className="bg-[#020807] text-white dark:bg-[#020807]">
       <section className="relative overflow-hidden border-b border-white/8 bg-[#020807]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_22%,rgba(16,185,129,.38),transparent_28%),radial-gradient(circle_at_45%_48%,rgba(0,174,255,.16),transparent_35%)]" />
-        <nav className="relative mx-auto flex max-w-[1380px] items-center justify-between px-7 py-7 lg:px-14">
-          <Link href="/products" className="font-serif text-3xl tracking-[-.04em] text-white">Grehni</Link>
-          <div className="hidden items-center gap-10 text-xs font-semibold text-white/60 lg:flex">
-            {["Product", "Use Cases", "Technology", "About", "Resources"].map((item) => <span key={item}>{item}</span>)}
-          </div>
-          <Link href="/contact" className="rounded-lg bg-emerald-500 px-6 py-3 text-xs font-black text-[#02120d]">Request Demo</Link>
-        </nav>
-
-        <div className="relative mx-auto grid min-h-[610px] max-w-[1380px] items-center gap-10 px-7 pb-12 lg:grid-cols-[.9fr_1.1fr] lg:px-14">
+        <div className="relative mx-auto grid min-h-[610px] max-w-[1380px] items-center gap-10 px-7 py-12 lg:grid-cols-[.9fr_1.1fr] lg:px-14">
           <div>
             <SectionLabel>The AI Operating System</SectionLabel>
             <h1 className="mt-6 max-w-3xl font-serif text-[58px] leading-[.98] tracking-[-.05em] text-white md:text-[82px]">
@@ -92,10 +84,7 @@ export default function GrehniAiPage() {
             <p className="mt-6 max-w-md text-sm leading-7 text-white/62">
               Grehni is an AI-native platform that gives any space — hotel, office, home, or venue — a voice, a brain, and full autonomous control.
             </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link href="/contact" className="inline-flex items-center gap-2 rounded-lg bg-emerald-500 px-7 py-4 text-xs font-black text-[#02120d]">See It Live <ArrowRight size={15} /></Link>
-              <Link href="#technology" className="rounded-lg border border-white/12 px-7 py-4 text-xs font-black text-white/72">Explore Technology</Link>
-            </div>
+            <Link href="#technology" className="mt-8 inline-flex items-center gap-2 rounded-lg bg-emerald-500 px-7 py-4 text-xs font-black text-[#02120d] transition hover:bg-emerald-400">Explore Grehni <ArrowRight size={15} /></Link>
             <div className="mt-12 grid max-w-xl grid-cols-2 gap-7 sm:grid-cols-4">
               {stats.map(([value, label]) => <div key={label}><b className="font-serif text-3xl text-emerald-400">{value}</b><p className="mt-1 text-[10px] uppercase tracking-[.18em] text-white/38">{label}</p></div>)}
             </div>

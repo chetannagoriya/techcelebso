@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Camera, Clapperboard, Crown, Film, Gem, Instagram, Play, Shirt, Star, Video } from "lucide-react";
+import { ArrowRight, Camera, Clapperboard, Crown, Gem, Star, Video } from "lucide-react";
 
 export const metadata = {
   title: "Celebso Productions | Crafting Iconic Visuals",
@@ -26,8 +26,8 @@ function Label({ children }) {
   return <p className="text-xs font-black uppercase tracking-[.16em] text-[#c89b3c]">{children}</p>;
 }
 
-function Shot({ className = "", alt = "Celebso production visual" }) {
-  return <div className={`relative overflow-hidden bg-[#16120d] ${className}`}><Image src="/images/products/celebso-production.jpeg" alt={alt} fill sizes="(min-width: 1024px) 35vw, 100vw" className="object-cover object-top opacity-88" /><div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" /></div>;
+function Shot({ src, className = "", alt = "Celebso production visual", position = "object-center" }) {
+  return <div className={`relative overflow-hidden bg-[#16120d] ${className}`}><Image src={src} alt={alt} fill sizes="(min-width: 1024px) 35vw, 100vw" className={`object-cover ${position} opacity-88 transition duration-500 hover:scale-105`} /><div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" /></div>;
 }
 
 export default function CelebsoProductionPage() {
@@ -35,22 +35,17 @@ export default function CelebsoProductionPage() {
     <main className="bg-[#080806] text-white dark:bg-[#080806]">
       <section className="relative min-h-[660px] overflow-hidden border-b border-[#2a2115]">
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/92 to-black/20" />
-        <div className="absolute right-0 top-0 h-full w-[62%]"><Image src="/images/products/celebso-production.jpeg" alt="Celebso Productions hero" fill priority sizes="62vw" className="object-cover object-top" /><div className="absolute inset-0 bg-gradient-to-r from-black via-black/35 to-transparent" /></div>
-        <nav className="relative z-10 mx-auto flex max-w-[1380px] items-center justify-between px-7 py-7 lg:px-14">
-          <Link href="/products" className="font-serif text-3xl font-black leading-none">CELEBSO<br/><span className="text-sm tracking-[.35em] text-white/65">PRODUCTIONS</span></Link>
-          <div className="hidden items-center gap-10 text-xs font-black uppercase tracking-[.08em] text-white/70 lg:flex">{["Home", "About Us", "Services", "Portfolio", "Models", "Contact"].map((x) => <span key={x}>{x}</span>)}</div>
-          <GoldButton href="/contact">Book a Shoot</GoldButton>
-        </nav>
-        <div className="relative z-10 mx-auto max-w-[1380px] px-7 pb-24 pt-24 lg:px-14">
+        <div className="absolute right-0 top-0 h-full w-[62%]"><Image src="/images/products/celebsox/celebsox-paparazzi-hero.png" alt="Celebso Productions fashion campaign" fill priority sizes="62vw" className="object-cover object-center" /><div className="absolute inset-0 bg-gradient-to-r from-black via-black/35 to-transparent" /></div>
+        <div className="relative z-10 mx-auto max-w-[1380px] px-7 py-24 lg:px-14 lg:py-32">
           <h1 className="font-serif text-[64px] font-black leading-[.92] tracking-[-.045em] md:text-[92px]">CELEBSO<br/><span className="text-[#c89b3c]">PRODUCTIONS</span></h1>
           <h2 className="mt-7 text-2xl font-black uppercase tracking-[.08em] text-white/85">Crafting Iconic Visuals</h2>
           <p className="mt-6 max-w-md text-sm leading-8 text-white/66">Fashion photography, editorial shoots, commercial campaigns and celebrity productions — all crafted with perfection.</p>
-          <div className="mt-8 flex flex-wrap gap-4"><GoldButton href="/contact">Book a Shoot <ArrowRight size={15} /></GoldButton><GoldButton href="/contact" outline>Get a Quote <ArrowRight size={15} /></GoldButton></div>
+          <GoldButton href="#portfolio" className="mt-8">Explore Celebso Production <ArrowRight size={15} /></GoldButton>
         </div>
       </section>
 
       <section className="grid border-b border-[#2a2115] lg:grid-cols-[.45fr_.55fr]">
-        <Shot className="min-h-[380px]" alt="Fashion editorial shoot" />
+        <Shot src="/images/products/celebsox/celebsox-creator-story.png" className="min-h-[380px]" alt="Fashion editorial shoot" position="object-top" />
         <div className="px-7 py-16 lg:px-20">
           <Label>About Celebso Productions</Label>
           <h2 className="mt-5 font-serif text-5xl leading-tight">Turning Concepts <br />Into Iconic Visuals</h2>
@@ -61,22 +56,22 @@ export default function CelebsoProductionPage() {
         </div>
       </section>
 
-      <section className="px-7 py-16 lg:px-14">
+      <section className="scroll-mt-24 px-7 py-16 lg:px-14" id="portfolio">
         <div className="mx-auto max-w-[1380px]">
-          <div className="flex items-center justify-between gap-4"><Label>Our Work</Label><GoldButton href="/contact" outline>View All Work <ArrowRight size={14} /></GoldButton></div>
+          <div className="flex items-center justify-between gap-4"><Label>Our Work</Label><GoldButton href="/contact" outline>Start a Project <ArrowRight size={14} /></GoldButton></div>
           <div className="mt-7 grid auto-rows-[210px] grid-cols-2 gap-3 md:grid-cols-4">
-            <Shot className="row-span-2" alt="Magazine cover shoot" />
-            <Shot className="col-span-2" alt="Runway production" />
-            <Shot alt="CelebsoX cover" />
-            <Shot alt="Jewelry editorial" />
-            <Shot alt="Commercial model shoot" />
-            <Shot alt="Luxury fashion runway" />
-            <Shot className="col-span-2" alt="Celebrity event production" />
+            <Shot src="/images/industries/Professional Services.jpg" className="row-span-2" alt="Magazine cover shoot" />
+            <Shot src="/images/event/big_picture_img.webp" className="col-span-2" alt="Runway production" />
+            <Shot src="/images/event/event_footprint/celebso_vally.jpg" alt="Celebso event production" />
+            <Shot src="/images/event/collaboration/Retail Brands.webp" alt="Retail brand editorial" />
+            <Shot src="/images/industries/Media & Communication.jpg" alt="Commercial media production" />
+            <Shot src="/images/industries/retail_consumer_goods.jpg" alt="Luxury consumer campaign" />
+            <Shot src="/images/events/events-hero-conference.png" className="col-span-2" alt="Celebrity event production" />
           </div>
         </div>
       </section>
 
-      <section className="border-y border-[#2a2115] px-7 py-16 lg:px-14">
+      <section className="scroll-mt-24 border-y border-[#2a2115] px-7 py-16 lg:px-14" id="services">
         <div className="mx-auto max-w-[1380px]">
           <Label>Our Services</Label>
           <div className="mt-7 grid gap-5 md:grid-cols-3 lg:grid-cols-6">
@@ -108,21 +103,13 @@ export default function CelebsoProductionPage() {
 
       <section className="px-7 pb-16 lg:px-14">
         <div className="relative mx-auto grid max-w-[1380px] overflow-hidden border border-[#3a2d1c] bg-[#0d0c09] md:grid-cols-[.36fr_1fr_.36fr]">
-          <Shot className="min-h-[260px]" alt="Production runway" />
+          <Shot src="/images/event/event_footprint/Mewar Startup.jpg" className="min-h-[260px]" alt="Live production stage" />
           <div className="grid place-items-center p-10 text-center">
             <div><h2 className="font-serif text-4xl leading-tight">LET’S CREATE <br/><span className="text-[#c89b3c]">SOMETHING ICONIC</span></h2><p className="mt-4 text-sm text-white/58">From concept to creation, we bring your vision to life with style and perfection.</p><GoldButton href="/contact" className="mt-6">Book Your Shoot</GoldButton></div>
           </div>
-          <Shot className="min-h-[260px]" alt="Celebrity portrait" />
+          <Shot src="/images/event/event_footprint/founders_meetup_jaipur.jpg" className="min-h-[260px]" alt="Celebrity and founder event" />
         </div>
       </section>
-
-      <footer className="border-t border-[#2a2115] px-7 py-10 lg:px-14">
-        <div className="mx-auto grid max-w-[1380px] gap-8 md:grid-cols-[1.3fr_repeat(4,1fr)]">
-          <div><b className="font-serif text-3xl">CELEBSO<br/><span className="text-sm tracking-[.35em] text-white/55">PRODUCTIONS</span></b></div>
-          {["Company", "Services", "Quick Links"].map((h) => <div key={h}><b className="text-[#c89b3c]">{h}</b><p className="mt-4 text-xs leading-7 text-white/50">About Us<br/>Portfolio<br/>Models<br/>Contact</p></div>)}
-          <div><b className="text-[#c89b3c]">Follow Us</b><p className="mt-4 flex gap-3 text-white/55"><Instagram size={18} /><Film size={18} /><Play size={18} /><Shirt size={18} /></p></div>
-        </div>
-      </footer>
     </main>
   );
 }
