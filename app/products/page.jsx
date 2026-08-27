@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Bot, BrainCircuit, Camera, Check, CircleDollarSign, Command, Cpu, Globe2, Home, Layers, Rocket, Satellite, ShieldCheck, Sparkles, Users, Zap } from "lucide-react";
+import { ArrowRight, Bot, BrainCircuit, Check, CircleDollarSign, Command, Cpu, Globe2, Home, Layers, Rocket, Satellite, ShieldCheck, Sparkles, Users, Zap } from "lucide-react";
 import ProductFeatureSlideshow from "../../components/ProductFeatureSlideshow";
 
 const products = [
@@ -33,16 +33,6 @@ const products = [
     accent: "#18d884",
     icon: Home,
     bullets: ["Voice-first control", "Spatial AI", "Energy optimization", "Device automation"],
-  },
-  {
-    name: "Celebso Production",
-    tagline: "Crafting iconic visuals.",
-    copy: "Premium production for fashion, editorial, commercial campaigns, celebrity shoots, model portfolios and brand storytelling.",
-    image: "/images/products/celebso-production.jpeg",
-    href: "/products/celebso-production",
-    accent: "#c89b3c",
-    icon: Camera,
-    bullets: ["Fashion photography", "Brand campaigns", "Celebrity shoots", "Video production"],
   },
   {
     name: "NXTFund Capital",
@@ -100,10 +90,10 @@ export default function ProductsPage() {
               <Sparkles size={14} /> Our Products
             </span>
             <h1 className="mt-6 max-w-3xl text-5xl font-extrabold leading-[1.04] tracking-[-.05em] sm:text-6xl lg:text-[76px]">
-              Seven intelligent products for the next wave of business.
+              Six intelligent products for the next wave of business.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/72">
-              From AI business operations and smart spaces to creator networks, production studios and startup capital, Antellay builds products with a sharp point of view and a practical path to scale.
+              From AI business operations and smart spaces to creator networks, autonomous systems and startup capital, Antellay builds products with a sharp point of view and a practical path to scale.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="#products" className="inline-flex items-center gap-2 rounded-md bg-[#3a86ff] px-6 py-3 text-sm font-bold text-white">
@@ -181,7 +171,7 @@ export default function ProductsPage() {
         <div className="mx-auto grid max-w-[1360px] gap-6 lg:grid-cols-[.85fr_1.15fr]">
           <div className="rounded-3xl bg-[#071124] p-8 text-white">
             <p className="text-xs font-extrabold uppercase tracking-[.12em] text-cyan-300">How We Build</p>
-            <h2 className="mt-4 text-4xl font-extrabold tracking-[-.04em]">One product studio. Seven focused ecosystems.</h2>
+            <h2 className="mt-4 text-4xl font-extrabold tracking-[-.04em]">One product studio. Six focused ecosystems.</h2>
             <p className="mt-5 text-sm leading-7 text-white/65">
               Each product is designed around a specific audience, but the core remains the same: intelligent workflows, beautiful interfaces and measurable business value.
             </p>
@@ -197,7 +187,7 @@ export default function ProductsPage() {
           </div>
           <div className="grid gap-5">
             <div className="grid gap-5 md:grid-cols-3">
-              {[["7", "Flagship products"], ["10x", "Faster product decisions"], ["24/7", "AI-ready workflows"]].map(([value, label]) => (
+              {[["6", "Flagship products"], ["10x", "Faster product decisions"], ["24/7", "AI-ready workflows"]].map(([value, label]) => (
                 <div key={label} className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
                   <b className="text-4xl text-[#3a86ff]">{value}</b>
                   <span className="mt-2 block text-xs font-bold text-slate-600">{label}</span>
@@ -220,12 +210,11 @@ export default function ProductsPage() {
       </section>
 
       <section className="mx-auto max-w-[1360px] px-6 py-16 md:px-10">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-7">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-6">
           {[
             [Command, "Operate", "Byizon.ai"],
             [Users, "Connect", "CelebsoX"],
             [Zap, "Automate", "Grehni.ai"],
-            [Camera, "Create", "Celebso Production"],
             [Rocket, "Fund", "NXTFund Capital"],
             [Satellite, "Discover", "Antellay Space"],
             [Cpu, "Autonomize", "Antellay X"],

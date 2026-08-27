@@ -285,6 +285,15 @@ export default function Home() {
 
       {/* Antellay Product Logos */}
       <section className="bg-white px-4 pb-2 transition-colors duration-300 dark:bg-[#0B132B] md:px-8 md:pb-3">
+        <Link href="/products/antellay-x" aria-label="Explore Antellay X" className="group relative mx-auto mb-7 block aspect-[1324/302] w-full max-w-[1324px] overflow-hidden rounded-2xl bg-[#05080d] shadow-[0_20px_60px_rgba(5,8,13,.18)] md:mb-10">
+          <Image
+            src="/images/products/antellay-x-home-banner.png"
+            alt="Antellay X — Autonomy Redefined"
+            fill
+            sizes="(max-width: 1324px) 100vw, 1324px"
+            className="object-cover transition duration-700 group-hover:scale-[1.02]"
+          />
+        </Link>
         <div className="product-logo-map relative mx-auto w-full max-w-[998px]">
           <img
             src="/images/antellay-product-logos-transparent.png"
@@ -347,6 +356,15 @@ export default function Home() {
 
       <section className="bg-white px-6 py-20 dark:bg-[#0B132B] md:px-10">
         <div className="mx-auto max-w-[1400px]">
+          <Link href="/products/antellay-space" aria-label="Explore Antellay Space OS" className="group relative mb-12 block aspect-[1097/218] w-full overflow-hidden rounded-2xl bg-[#03070d] shadow-[0_20px_60px_rgba(3,7,13,.18)]">
+            <Image
+              src="/images/products/antellay-space-home-banner.png"
+              alt="Antellay Space OS — The operating system for the space age"
+              fill
+              sizes="(max-width: 1400px) 100vw, 1400px"
+              className="object-cover transition duration-700 group-hover:scale-[1.02]"
+            />
+          </Link>
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Part of Celebso Group Ecosystem</h2>
           <div className="ecosystem-slider mt-9">
             <div className="ecosystem-slider-track">

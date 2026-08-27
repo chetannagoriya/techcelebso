@@ -38,13 +38,10 @@ export default function NxtfundCapitalPage() {
               <h2 className="mt-5 text-2xl font-black tracking-[-.035em] sm:text-3xl">Into formidable founders</h2>
             </div>
             <p className="mt-6 max-w-xl text-sm leading-7 text-slate-600">Connecting visionary founders with investors, strategic partners, and growth opportunities to build the defining companies of tomorrow.</p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Link href="/contact" className="inline-flex items-center gap-2 rounded-lg bg-black px-7 py-4 text-xs font-black !text-white">Apply Now <ArrowRight size={15} /></Link>
-              <Link href="/contact" className="rounded-lg border border-[#ff684f]/60 bg-white px-7 py-4 text-xs font-black !text-[#151515]">Become a Partner</Link>
-            </div>
+            <Link href="https://nxtfund.in" className="mt-7 inline-flex items-center gap-2 rounded-lg bg-[#ff684f] px-7 py-4 text-xs font-black !text-white shadow-lg shadow-[#ff684f]/20 transition hover:bg-[#ed553c]">Explore NXT Fund <ArrowRight size={15} /></Link>
           </div>
           <div className="rounded-[1.75rem] bg-[#fffdfb] p-5 shadow-[0_20px_70px_rgba(15,23,42,.07)]">
-            <div className="relative min-h-[430px] overflow-hidden rounded-[1.35rem] bg-blue-50"><Image src="/images/products/nxtfund/founder-interview.png" alt="Startup founder sharing his vision" fill priority sizes="(min-width: 1024px) 430px, 100vw" className="object-cover object-center" /></div>
+            <div className="relative min-h-[430px] overflow-hidden rounded-[1.35rem] bg-blue-50"><Image src="/images/products/nxtfund/founder-stage.png" alt="NXTFund founder speaking on stage" fill priority sizes="(min-width: 1024px) 430px, 100vw" className="object-cover object-center" /></div>
             <div className="mt-4 flex items-center justify-between"><b className="tracking-[-.04em]">NXT<span className="text-[#ff684f]">FUND</span></b><span className="text-[10px] uppercase tracking-[.15em] text-slate-400">Founder first</span></div>
           </div>
         </div>
@@ -63,7 +60,7 @@ export default function NxtfundCapitalPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-[1320px] gap-6 px-7 py-8 lg:grid-cols-2 lg:px-14">
+      <section id="about-nxtfund" className="mx-auto grid scroll-mt-24 max-w-[1320px] gap-6 px-7 py-8 lg:grid-cols-2 lg:px-14">
         <div className="relative min-h-[300px] overflow-hidden rounded-3xl bg-slate-200">
           <Image src="/images/products/nxtfund/startup-valley.png" alt="Startup Valley innovation center in Jaipur" fill className="object-cover object-center" />
         </div>

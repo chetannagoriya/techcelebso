@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { useTheme } from "./ThemeProvider";
@@ -56,16 +57,15 @@ export default function Navbar() {
   return (
     <header className={`navbar w-full flex items-center justify-between px-8 py-4 bg-white dark:bg-[#0B132B] border-b border-[#E2E8F0] dark:border-[#1C2541] z-50 transition-colors duration-300 ${isHomePage ? "home-navbar" : ""} ${isShowcasePage ? "showcase-navbar" : ""} ${isConsumerTechnologyPage ? "consumer-tech-navbar" : ""}`}>
       <div className="logo flex-shrink-0">
-        <Link href="/" aria-label="Antellay home" className="flex items-center text-2xl font-black tracking-[0.12em]">
-          <span className="nav-logo-mark transition-colors duration-300" aria-hidden="true">
-            Λ
-          </span>
-          <span
-            className="nav-logo-word transition-colors duration-300"
-            style={{ color: theme === "dark" ? "#ffffff" : "#0B132B" }}
-          >
-            NTELLAY
-          </span>
+        <Link href="/" aria-label="Antellay home" className="nav-logo-wordmark" title="Antellay">
+          <span className="nav-logo-lambda nav-logo-lambda-first" aria-hidden="true">Λ</span>
+          <span>N</span>
+          <span>T</span>
+          <span className="nav-logo-e" aria-label="E"><i /><i /><i /></span>
+          <span>L</span>
+          <span>L</span>
+          <span className="nav-logo-lambda" aria-hidden="true">Λ</span>
+          <span>Y</span>
         </Link>
       </div>
       <nav className="nav-links flex flex-1 justify-center items-center gap-6 text-sm font-medium text-[#0B132B]/70 dark:text-white/60">
@@ -239,20 +239,25 @@ export default function Navbar() {
             <div className="absolute inset-0 bg-[#0B132B]/5 dark:bg-[#0B132B]/60 backdrop-blur-md transition-opacity duration-300" onClick={() => setIsProductsOpen(false)}></div>
 
             <div className="relative mx-auto w-full max-w-7xl bg-white dark:bg-[#0B132B] border-x border-b border-[#E2E8F0] dark:border-[#1C2541] shadow-2xl rounded-b-sm p-6 md:p-8 max-h-[75vh] md:max-h-[calc(100vh-100px)] overflow-y-auto mega-scroll flex flex-col">
-              <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-5">
+              <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
                 {[
-                  ["CelebsoX", "A social network for ambitious dreamers.", "/products/celebsox"],
-                  ["Byizon.ai", "The AI business operating system.", "/products/byizon-ai"],
-                  ["Grehni.ai", "The operating system for every space.", "/products/grehni-ai"],
-                  ["Celebso Production", "Crafting iconic visuals.", "/products/celebso-production"],
-                  ["NXTFund Capital", "India's next generation startup fund.", "/products/nxtfund-capital"],
-                  ["Antellay Space", "Space intelligence, reimagined.", "/products/antellay-space"],
-                  ["Antellay X", "Autonomy, redefined.", "/products/antellay-x"],
-                ].map(([name, description, href]) => (
-                  <Link key={name} href={href} className="group rounded-sm border border-[#E2E8F0] p-4 transition-colors hover:border-[#00A98F] dark:border-[#2D3A54] dark:hover:border-[#00F5D4]">
-                    <h4 className="font-bold text-sm text-[#0B132B] transition-colors group-hover:text-[#00A98F] dark:text-white dark:group-hover:text-[#00F5D4]">{name}</h4>
-                    <p className="mt-2 text-xs leading-5 text-[#0B132B]/60 dark:text-white/50">{description}</p>
-                    <span className="mt-4 inline-block text-xs font-semibold text-[#00A98F] dark:text-[#00F5D4]">Explore product →</span>
+                  ["CelebsoX", "A social network for ambitious dreamers.", "/products/celebsox", "/images/products/celebsox.jpeg"],
+                  ["Antellay Space", "Space intelligence, reimagined.", "/products/antellay-space", "/images/products/antellay-space-reference.png"],
+                  ["Antellay X", "Autonomy, redefined.", "/products/antellay-x", "/images/products/antellay-x-reference.png"],
+                  ["Byizon", "The AI business operating system.", "/products/byizon-ai", "/images/products/byizon-ai.jpeg"],
+                  ["NXT Fund", "India's next generation startup fund.", "/products/nxtfund-capital", "/images/products/nxtfund-capital.jpeg"],
+                  ["Grehni", "The operating system for every space.", "/products/grehni-ai", "/images/products/grehni-ai.jpeg"],
+                ].map(([name, description, href, image]) => (
+                  <Link key={name} href={href} className="group overflow-hidden rounded-xl border border-[#E2E8F0] bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#00A98F] hover:shadow-xl dark:border-[#2D3A54] dark:bg-[#101a33] dark:hover:border-[#00F5D4]">
+                    <div className="relative aspect-[1.5] overflow-hidden bg-[#071126]">
+                      <Image src={image} alt={`${name} product preview`} fill sizes="(max-width: 768px) 50vw, 220px" className="object-cover object-top opacity-90 transition duration-500 group-hover:scale-105 group-hover:opacity-100" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#071126]/70 via-transparent to-transparent" />
+                    </div>
+                    <div className="p-4">
+                      <h4 className="font-bold text-sm text-[#0B132B] transition-colors group-hover:text-[#00A98F] dark:text-white dark:group-hover:text-[#00F5D4]">{name}</h4>
+                      <p className="mt-2 min-h-10 text-xs leading-5 text-[#0B132B]/60 dark:text-white/50">{description}</p>
+                      <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-[#00A98F] dark:text-[#00F5D4]">Explore product <span className="transition-transform group-hover:translate-x-1">→</span></span>
+                    </div>
                   </Link>
                 ))}
               </div>

@@ -84,7 +84,7 @@ export default function GrehniAiPage() {
             <p className="mt-6 max-w-md text-sm leading-7 text-white/62">
               Grehni is an AI-native platform that gives any space — hotel, office, home, or venue — a voice, a brain, and full autonomous control.
             </p>
-            <Link href="#technology" className="mt-8 inline-flex items-center gap-2 rounded-lg bg-emerald-500 px-7 py-4 text-xs font-black text-[#02120d] transition hover:bg-emerald-400">Explore Grehni <ArrowRight size={15} /></Link>
+            <Link href="https://grahni.in" className="mt-8 inline-flex items-center gap-2 rounded-lg bg-emerald-500 px-7 py-4 text-xs font-black text-[#02120d] transition hover:bg-emerald-400">Explore Grehni <ArrowRight size={15} /></Link>
             <div className="mt-12 grid max-w-xl grid-cols-2 gap-7 sm:grid-cols-4">
               {stats.map(([value, label]) => <div key={label}><b className="font-serif text-3xl text-emerald-400">{value}</b><p className="mt-1 text-[10px] uppercase tracking-[.18em] text-white/38">{label}</p></div>)}
             </div>

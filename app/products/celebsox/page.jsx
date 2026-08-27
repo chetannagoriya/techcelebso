@@ -27,9 +27,8 @@ export default function CelebsoXPage() {
               <p className="text-xl font-medium leading-tight text-white/92 sm:text-[27px]">Build Your Identity. Create Your</p>
               <span className="mt-1 block pl-6 font-serif text-5xl italic leading-none text-white sm:text-7xl">Legacy</span>
             </div>
-            <div className="mt-3 flex flex-wrap gap-3 pl-2">
-              <Link href="/contact" className="inline-flex min-h-12 items-center gap-3 rounded-lg border border-white/40 bg-black/70 px-4 py-2 !text-white shadow-lg transition hover:border-[#f1b53a]"><span className="text-2xl leading-none">●</span><span className="text-left text-[9px] leading-tight">Download on the<br /><b className="text-sm">App Store</b></span></Link>
-              <Link href="/contact" className="inline-flex min-h-12 items-center gap-3 rounded-lg border border-white/40 bg-black/70 px-4 py-2 !text-white shadow-lg transition hover:border-[#f1b53a]"><Play size={22} fill="currentColor" /><span className="text-left text-[9px] leading-tight">GET IT ON<br /><b className="text-sm">Google Play</b></span></Link>
+            <div className="mt-5 pl-2">
+              <Link href="https://celebso.in" className="inline-flex min-h-12 items-center gap-2 rounded-lg bg-[#f1b53a] px-6 py-3 text-sm font-black !text-black shadow-lg shadow-[#f1b53a]/20 transition hover:-translate-y-0.5 hover:bg-[#ffd05a]">Explore CelebsoX <ArrowRight size={16} /></Link>
             </div>
           </div>
         </div>

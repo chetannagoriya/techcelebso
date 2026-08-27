@@ -614,6 +614,76 @@ h1, h2, h3, h4, h5, h6 {
   color: #ffffff !important;
 }
 
+.navbar .nav-logo-wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.24em;
+  width: 9rem;
+  height: 1.75rem;
+  flex-shrink: 0;
+  justify-content: space-between;
+  color: #090d16;
+  font-family: var(--font-heading), sans-serif;
+  font-size: 1.08rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .navbar .nav-logo-wordmark {
+    width: 10.25rem;
+    height: 2rem;
+    font-size: 1.22rem;
+  }
+}
+
+.dark .navbar .nav-logo-wordmark {
+  color: #ffffff;
+}
+
+.navbar .nav-logo-wordmark > span {
+  display: inline-flex;
+  height: 1em;
+  align-items: center;
+  color: inherit !important;
+  font-size: 1em;
+  line-height: 1;
+}
+
+.navbar .nav-logo-lambda {
+  font-size: 1em !important;
+  font-weight: 400;
+  transform: scaleX(0.86);
+  transform-origin: center;
+}
+
+.navbar .nav-logo-lambda-first {
+  font-size: 1.12em !important;
+}
+
+.navbar .nav-logo-e {
+  width: 0.74em;
+  height: 1em;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.18em;
+  padding-block: 0.11em;
+}
+
+.navbar .nav-logo-e i {
+  display: block;
+  width: 100%;
+  height: 0.1em;
+  flex-shrink: 0;
+  background: currentColor;
+}
+
+.navbar .nav-logo-e i:nth-child(2) {
+  width: 76%;
+}
+
 .nav-links {
   display: flex;
   gap: 25px;

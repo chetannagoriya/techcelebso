@@ -30,7 +30,7 @@ export default function AntellayXPage() {
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,#f7f8fa_0%,rgba(247,248,250,.98)_32%,rgba(247,248,250,.68)_54%,rgba(247,248,250,.05)_82%)]" />
         <div className="absolute inset-x-0 bottom-0 -z-10 h-36 bg-gradient-to-t from-[#f7f8fa] to-transparent" />
         <div className="mx-auto flex min-h-[690px] max-w-[1440px] items-center px-6 py-20 sm:min-h-[760px] md:px-10 lg:px-14">
-          <div className="max-w-2xl">
+          <div className="max-w-2xl -translate-y-10 sm:-translate-y-12 lg:-translate-y-16">
             <p className="text-xs font-black uppercase tracking-[.42em] text-[#00A98F]">Embodied Intelligence</p>
             <h1 className="mt-8 whitespace-nowrap text-[38px] font-light uppercase tracking-[.13em] sm:text-7xl sm:tracking-[.18em] lg:text-[82px]">Antellay-<span className="text-[#00A98F]">X</span></h1>
             <p className="mt-6 text-xs font-bold uppercase tracking-[.46em] text-black/62 sm:text-sm">Autonomy. Redefined.</p>
