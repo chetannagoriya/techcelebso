@@ -1,244 +1,148 @@
+import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowUpRight,
-  BadgeCheck,
-  BrainCircuit,
-  HeartHandshake,
-  Lightbulb,
-  MessagesSquare,
-  ShieldCheck,
-  Sparkles,
-  UsersRound,
-} from "lucide-react";
+import { Bot, BrainCircuit, ChartNoAxesCombined, Code2, DatabaseZap, Eye, Globe2, Lightbulb, Network, Orbit, Rocket, Target } from "lucide-react";
 
-const milestones = [
-  { year: "2019", title: "The first bold step", text: "Antellay began with a small team and a clear belief: technology should create meaningful human progress." },
-  { year: "2020", title: "Building our foundation", text: "We expanded our engineering practice and helped ambitious businesses turn complex ideas into dependable products." },
-  { year: "2022", title: "Growing across industries", text: "Our work grew across cloud, AI, data, cybersecurity, and digital transformation." },
-  { year: "2024", title: "From services to ecosystems", text: "We launched focused products and partnerships designed to create value beyond a single engagement." },
-  { year: "Today", title: "Creating what is next", text: "We continue to bring strategy, design, and engineering together for organizations ready to move forward." },
+const capabilities = [
+  { icon: BrainCircuit, title: "Artificial Intelligence", text: "Intelligent systems, automation, and next-generation software." },
+  { icon: Globe2, title: "Geospatial Intelligence", text: "Location-based insights, mapping, and spatial data at scale." },
+  { icon: DatabaseZap, title: "Data & AI Infrastructure", text: "Reliable data pipelines and scalable intelligence systems." },
+  { icon: Code2, title: "Software Engineering", text: "Digital products, platforms, APIs, and modern cloud technology." },
+  { icon: Bot, title: "Autonomous Systems", text: "Technologies designed to support complex operations." },
+  { icon: Orbit, title: "Space Intelligence", text: "Satellite capabilities for observation and decision-making." },
 ];
 
-const values = [
-  { icon: HeartHandshake, title: "Customer Success", text: "We measure our work by the lasting outcomes it creates for the people and businesses we serve." },
-  { icon: Lightbulb, title: "Innovation With Purpose", text: "We explore new possibilities, but always connect innovation to a practical human or business need." },
-  { icon: ShieldCheck, title: "Trust & Accountability", text: "We communicate honestly, protect what matters, and take ownership from the first conversation to delivery." },
-  { icon: UsersRound, title: "Team Spirit", text: "The strongest ideas emerge when diverse minds solve problems together with generosity and respect." },
-  { icon: BrainCircuit, title: "Continuous Learning", text: "Curiosity keeps us relevant. We learn rapidly, share openly, and improve with every challenge." },
-  { icon: MessagesSquare, title: "Clear Communication", text: "We make complexity understandable and keep every stakeholder aligned throughout the journey." },
+const products = [
+  { image: "/images/products/celebsox.jpeg", name: "CelebsoX", href: "/products/celebsox", text: "A social network for ambitious dreamers." },
+  { image: "/images/products/antellay-space-reference.png", name: "Antellay Space", href: "/products/antellay-space", text: "Space intelligence, reimagined." },
+  { image: "/images/products/antellay-x-reference.png", name: "Antellay X", href: "/products/antellay-x", text: "Autonomy, redefined." },
+  { image: "/images/products/byizon-ai.jpeg", name: "Byizon", href: "/products/byizon-ai", text: "The AI business operating system." },
+  { image: "/images/products/nxtfund-capital.jpeg", name: "NXT Fund", href: "/products/nxtfund-capital", text: "India's next generation startup fund." },
+  { image: "/images/products/grehni-ai.jpeg", name: "Grehni", href: "/products/grehni-ai", text: "The operating system for every space." },
 ];
 
-const gallery = [
-  { src: "/images/about/gallery/antellay-gallery-01.jfif", alt: "Life at Antellay gallery photo one" },
-  { src: "/images/about/gallery/antellay-gallery-02.jfif", alt: "Life at Antellay gallery photo two" },
-  { src: "/images/about/gallery/antellay-gallery-03.jfif", alt: "Life at Antellay gallery photo three" },
-  { src: "/images/about/gallery/antellay-gallery-04.jfif", alt: "Life at Antellay gallery photo four" },
-  { src: "/images/about/gallery/antellay-gallery-05.jfif", alt: "Life at Antellay gallery photo five" },
-  { src: "/images/about/gallery/antellay-gallery-06.jfif", alt: "Life at Antellay gallery photo six" },
+const gallery = [1, 2, 3, 4, 5, 6].map((number) => ({
+  src: `/images/about/gallery/antellay-gallery-0${number}.jfif`,
+  alt: `Life at Antellay, moment ${number}`,
+}));
+
+const approach = [
+  { icon: Eye, title: "Observe", text: "See the real world clearly." },
+  { icon: BrainCircuit, title: "Understand", text: "Turn signals into context." },
+  { icon: Network, title: "Reason", text: "Connect complex information." },
+  { icon: ChartNoAxesCombined, title: "Predict", text: "Anticipate what comes next." },
+  { icon: Rocket, title: "Act", text: "Create meaningful progress." },
 ];
 
-const faqs = [
-  ["What does Antellay do?", "Antellay helps organizations design, build, and scale digital solutions across AI, cloud, data, cybersecurity, product engineering, and consulting."],
-  ["Where does Antellay work?", "We are based in India and collaborate with ambitious teams across markets through flexible, distributed delivery."],
-  ["What makes Antellay different?", "We combine industry understanding, thoughtful design, and strong engineering while keeping people and measurable outcomes at the center."],
-  ["How can I work with Antellay?", "Tell us about your goal through our contact page. We will connect you with the right specialists for a focused first conversation."],
-];
+export const metadata = {
+  title: "About Antellay — Intelligence for What Comes Next",
+  description: "Meet Antellay, our mission, technology ecosystem, and the people behind the work.",
+};
 
 export default function AboutPage() {
   return (
-    <main className="overflow-hidden bg-white text-[#0B132B] transition-colors dark:bg-[#081126] dark:text-white">
-      <section className="relative border-b border-slate-200 bg-[#F7F9FC] px-6 pb-16 pt-8 dark:border-white/10 dark:bg-[#0B132B] md:pb-20 md:pt-10 lg:px-10">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_10%,rgba(0,169,143,0.14),transparent_30%),radial-gradient(circle_at_5%_90%,rgba(0,245,212,0.08),transparent_28%)]" />
-        <div className="relative mx-auto max-w-[1280px]">
-          <div className="mb-10 max-w-4xl md:mb-14">
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#00A98F]/20 bg-white px-4 py-2 text-sm font-semibold text-[#008D7A] shadow-sm dark:border-[#00F5D4]/20 dark:bg-white/5 dark:text-[#00F5D4]">
-              <Sparkles size={16} />
-              About Antellay
-            </div>
-            <h1 className="font-[family-name:var(--font-heading)] text-5xl font-semibold leading-[1.02] tracking-[-0.045em] md:text-7xl lg:text-[5.5rem]">
-              Being true to our values in{" "}
-              <span className="text-[#00A98F] dark:text-[#00F5D4]">everything we create.</span>
+    <main className="overflow-hidden bg-white text-[#0b132b] dark:bg-[#07101f] dark:text-white">
+      <section className="px-5 pb-8 pt-10 md:px-8 md:pb-10 md:pt-14">
+        <div className="mx-auto grid max-w-[1320px] gap-6 lg:grid-cols-[0.78fr_1.22fr] lg:items-stretch">
+          <div className="flex flex-col justify-center py-2 lg:pr-8">
+            <p className="text-xs font-bold uppercase tracking-[0.15em] text-[#009e8a] dark:text-[#00f5d4]">About Antellay</p>
+            <h1 className="mt-4 max-w-xl font-[family-name:var(--font-heading)] text-[clamp(2.8rem,5.3vw,5.5rem)] font-semibold leading-[0.98] tracking-[-0.055em]">
+              Building intelligence for the <span className="text-[#00a98f] dark:text-[#00f5d4]">next era.</span>
             </h1>
+            <div className="mt-7 h-0.5 w-20 bg-[#00a98f]" />
+            <p className="mt-7 max-w-lg text-base leading-7 text-slate-600 dark:text-slate-300">Antellay is a technology and engineering company building intelligent systems, platforms, and infrastructure for a rapidly changing world.</p>
+            <p className="mt-4 max-w-lg text-base leading-7 text-slate-600 dark:text-slate-300">We bring artificial intelligence, data, software engineering, and advanced systems together to turn complexity into useful, human progress.</p>
           </div>
-          <div className="relative h-[340px] overflow-hidden rounded-[1.75rem] shadow-[0_28px_80px_rgba(11,19,43,0.16)] md:h-[520px]">
-            <video
-              src="/videos/about-people-progress.mp4"
-              className="h-full w-full object-cover"
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="metadata"
-              aria-label="Technology designed around people and progress"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#081126]/70 via-transparent to-transparent" />
-            <p className="absolute bottom-6 left-6 max-w-xl text-lg font-medium leading-7 text-white md:bottom-10 md:left-10 md:text-2xl">
-              We design technology around people, progress, and lasting partnerships.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="px-6 py-16 md:py-20 lg:px-10">
-        <div className="mx-auto grid max-w-[1180px] gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#00A98F] dark:text-[#00F5D4]">Our Story</p>
-            <h2 className="mt-3 font-[family-name:var(--font-heading)] text-4xl font-semibold tracking-tight md:text-5xl">
-              A human idea, built through technology.
-            </h2>
-          </div>
-          <div className="space-y-5 text-lg leading-8 text-slate-600 dark:text-slate-300">
-            <p>
-              Antellay started with a simple conviction: powerful technology matters most when it improves how people live, work, and grow.
-            </p>
-            <p>
-              Today, we bring together strategists, designers, engineers, and domain thinkers to solve complex challenges with clarity. We do not stop at delivering software—we build relationships, capability, and momentum that last.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#0B132B] px-6 py-16 text-white md:py-20 lg:px-10">
-        <div className="mx-auto grid max-w-[1180px] gap-px overflow-hidden rounded-[1.5rem] bg-white/15 lg:grid-cols-2">
-          <article className="bg-[#111D37] p-8 md:p-12">
-            <BadgeCheck className="mb-8 text-[#00F5D4]" size={34} />
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#00F5D4]">Our Mission</p>
-            <h2 className="mt-4 font-[family-name:var(--font-heading)] text-3xl font-semibold md:text-4xl">Turn technology into tangible progress.</h2>
-            <p className="mt-5 leading-7 text-slate-300">
-              We help organizations create smarter processes, stronger products, and better experiences by combining the right people, insight, and technology.
-            </p>
-          </article>
-          <article className="bg-[#111D37] p-8 md:p-12">
-            <ArrowUpRight className="mb-8 text-[#00F5D4]" size={34} />
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#00F5D4]">Our Vision</p>
-            <h2 className="mt-4 font-[family-name:var(--font-heading)] text-3xl font-semibold md:text-4xl">Shape a future where innovation serves everyone.</h2>
-            <p className="mt-5 leading-7 text-slate-300">
-              We aspire to become a trusted global technology partner known for challenging convention, creating responsibly, and building connections that endure.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section className="bg-[#F7F9FC] px-6 py-16 dark:bg-[#0B132B] md:py-20 lg:px-10">
-        <div className="mx-auto max-w-[1280px]">
-          <div className="mb-12 max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#00A98F] dark:text-[#00F5D4]">Our History</p>
-            <h2 className="mt-3 font-[family-name:var(--font-heading)] text-4xl font-semibold tracking-tight md:text-5xl">The milestones that shaped us.</h2>
-          </div>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
-            {milestones.map((milestone, index) => (
-              <article key={milestone.year} className="relative rounded-2xl border border-slate-200 bg-white p-6 dark:border-white/10 dark:bg-[#111D37]">
-                <span className="mb-8 flex h-10 w-10 items-center justify-center rounded-full bg-[#00A98F] text-sm font-bold text-white dark:bg-[#00F5D4] dark:text-[#081126]">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <p className="text-sm font-bold text-[#00A98F] dark:text-[#00F5D4]">{milestone.year}</p>
-                <h3 className="mt-2 text-xl font-bold">{milestone.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-500 dark:text-slate-400">{milestone.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="px-6 py-16 md:py-20 lg:px-10">
-        <div className="mx-auto max-w-[1180px]">
-          <div className="mx-auto mb-12 max-w-3xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#00A98F] dark:text-[#00F5D4]">Our Values</p>
-            <h2 className="mt-3 font-[family-name:var(--font-heading)] text-4xl font-semibold tracking-tight md:text-5xl">The principles behind every decision.</h2>
-            <p className="mt-5 leading-7 text-slate-600 dark:text-slate-400">They guide how we collaborate, solve, deliver, and grow together.</p>
-          </div>
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {values.map(({ icon: Icon, title, text }) => (
-              <article key={title} className="group rounded-2xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:border-[#00A98F]/40 hover:shadow-xl dark:border-white/10 dark:bg-[#111D37]">
-                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-[#00A98F]/10 text-[#00A98F] dark:bg-[#00F5D4]/10 dark:text-[#00F5D4]">
-                  <Icon size={24} />
-                </div>
-                <h3 className="text-xl font-bold">{title}</h3>
-                <p className="mt-3 leading-7 text-slate-600 dark:text-slate-400">{text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="px-6 pb-16 md:pb-20 lg:px-10">
-        <div className="mx-auto overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-[#00A98F] to-[#0B132B] p-8 text-white md:p-12 lg:max-w-[1280px]">
-          <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
-            <div>
-              <p className="inline-flex rounded-full border-2 border-white bg-[#00F5D4] px-5 py-2.5 text-sm font-bold uppercase tracking-[0.16em] text-[#081126] shadow-lg">
-                Community &amp; Work
-              </p>
-              <h2 className="mt-4 max-w-3xl font-[family-name:var(--font-heading)] text-4xl font-semibold tracking-tight md:text-5xl">
-                Great work grows from strong communities.
-              </h2>
-              <p className="mt-5 max-w-2xl leading-7 text-[#CCFBF1]">
-                We grow with our clients, collaborators, and people by sharing knowledge and creating value that reaches beyond the project.
-              </p>
-              <Link
-                href="/careers"
-                className="group mt-8 inline-flex w-full items-center justify-center gap-3 rounded-xl border-2 border-white bg-[#00F5D4] px-7 py-4 text-base font-bold text-[#081126] shadow-xl shadow-black/20 transition hover:-translate-y-1 hover:bg-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#00F5D4]/50 sm:w-auto"
-              >
-                Join our team
-                <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </Link>
+          <div className="group relative min-h-[360px] overflow-hidden rounded-[1.6rem] bg-[#07101f] shadow-[0_22px_70px_rgba(2,12,25,.18)] md:min-h-[500px]">
+            <Image src="/images/gis_cta_satellite.jpg" alt="Satellite intelligence above Earth" fill priority sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover transition duration-700 group-hover:scale-[1.025]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#06101d]/70 via-transparent to-[#06101d]/15" />
+            <div className="absolute right-5 top-5 rounded-xl border border-white/25 bg-[#07101f]/55 px-5 py-4 text-xs font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-md md:right-8 md:top-8">
+              <p>AI · Data · Engineering</p><p className="mt-2 text-[#00f5d4]">Intelligence</p><p className="mt-2 text-white/70">Built for the future</p>
             </div>
-            <div className="grid gap-3 sm:grid-cols-3">
-              {[["20+", "Industries"], ["25+", "Capabilities"], ["100%", "Commitment"]].map(([number, label]) => (
-                <div key={label} className="rounded-2xl border border-white/15 bg-white/10 p-4 text-center backdrop-blur md:p-6">
-                  <p className="text-2xl font-bold md:text-4xl">{number}</p>
-                  <p className="mt-2 text-xs text-[#CCFBF1] md:text-sm">{label}</p>
-                </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-5 py-5 md:px-8">
+        <div className="mx-auto grid max-w-[1320px] overflow-hidden rounded-2xl border border-slate-200 bg-[#f8fbfc] shadow-sm dark:border-white/10 dark:bg-white/[0.04] lg:grid-cols-[0.92fr_1.08fr]">
+          <div className="flex gap-5 p-7 md:p-9">
+            <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-[#00a98f]/30 text-[#00a98f] dark:text-[#00f5d4]"><Target size={30} /></div>
+            <div><p className="text-xs font-bold uppercase tracking-[0.14em] text-[#009e8a] dark:text-[#00f5d4]">Our mission</p><h2 className="mt-2 max-w-md font-[family-name:var(--font-heading)] text-2xl font-semibold leading-tight md:text-3xl">Build intelligent technology that helps people understand, decide, and act.</h2></div>
+          </div>
+          <div className="border-t border-slate-200 p-7 text-sm leading-7 text-slate-600 dark:border-white/10 dark:text-slate-300 md:p-9 lg:border-l lg:border-t-0">
+            <p>We believe the next generation of technology will move beyond traditional software. It will observe complexity, generate insight, and support better decisions at scale.</p>
+            <p className="mt-3 font-semibold text-[#009e8a] dark:text-[#00f5d4]">That is the future Antellay is working to build.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-5 py-16 md:px-8 md:py-20">
+        <div className="mx-auto max-w-[1320px]">
+          <div className="text-center"><p className="text-xs font-bold uppercase tracking-[0.15em] text-[#009e8a] dark:text-[#00f5d4]">What we build</p><h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-semibold tracking-tight md:text-4xl">Intelligent technologies for a complex world.</h2></div>
+          <div className="mt-12 grid grid-cols-2 gap-y-10 md:grid-cols-3 lg:grid-cols-6">
+            {capabilities.map(({ icon: Icon, title, text }, index) => (
+              <article key={title} className={`px-4 text-center ${index ? "border-l border-slate-200 dark:border-white/10" : ""}`}>
+                <Icon className="mx-auto text-[#00a98f] dark:text-[#00f5d4]" size={34} strokeWidth={1.6} />
+                <h3 className="mt-4 text-sm font-bold leading-5">{title}</h3><p className="mt-3 text-xs leading-5 text-slate-500 dark:text-slate-400">{text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#f4f8f8] px-5 py-16 dark:bg-[#0a1728] md:px-8 md:py-20">
+        <div className="mx-auto max-w-[1320px]">
+          <div className="text-center"><p className="text-xs font-bold uppercase tracking-[0.15em] text-[#009e8a] dark:text-[#00f5d4]">Our product &amp; technology ecosystem</p><h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-semibold tracking-tight md:text-4xl">Building intelligent platforms for what comes next.</h2></div>
+          <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
+            {products.map((product) => (
+              <Link key={product.name} href={product.href} className="group overflow-hidden rounded-xl border border-[#e2e8f0] bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#00a98f] hover:shadow-xl dark:border-[#2d3a54] dark:bg-[#101a33] dark:hover:border-[#00f5d4]">
+                <div className="relative aspect-[1.5] overflow-hidden bg-[#071126]"><Image src={product.image} alt={`${product.name} product preview`} fill sizes="(max-width: 768px) 50vw, 220px" className="object-cover object-top opacity-90 transition duration-500 group-hover:scale-105 group-hover:opacity-100" /><div className="absolute inset-0 bg-gradient-to-t from-[#071126]/70 via-transparent to-transparent" /></div>
+                <div className="p-4"><h3 className="text-sm font-bold text-[#0b132b] transition-colors group-hover:text-[#00a98f] dark:text-white dark:group-hover:text-[#00f5d4]">{product.name}</h3><p className="mt-2 min-h-10 text-xs leading-5 text-[#0b132b]/60 dark:text-white/50">{product.text}</p><span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-[#00a98f] dark:text-[#00f5d4]">Explore product <span className="transition-transform group-hover:translate-x-1">→</span></span></div>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-col items-start justify-between gap-4 rounded-lg border border-[#e2e8f0] bg-white p-5 dark:border-[#2d3a54] dark:bg-[#0b132b] sm:flex-row sm:items-center">
+            <div><h3 className="text-sm font-bold">Explore the Antellay product ecosystem</h3><p className="mt-1 text-xs text-[#0b132b]/60 dark:text-white/50">Discover platforms built for creators, businesses, spaces, and founders.</p></div>
+            <Link href="/products" className="shrink-0 rounded bg-[#00f5d4] px-5 py-2.5 text-xs font-bold text-[#0b132b] transition-colors hover:bg-[#70eeff]">View all products</Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-5 py-8 md:px-8">
+        <div className="mx-auto max-w-[1320px] overflow-hidden rounded-[1.6rem] bg-[#071726] px-6 py-10 text-white md:px-10">
+          <div className="grid gap-10 lg:grid-cols-[0.92fr_2.08fr] lg:items-center">
+            <div><p className="text-xs font-bold uppercase tracking-[0.15em] text-[#00f5d4]">Our approach</p><h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-semibold leading-tight md:text-4xl">Observe. Understand.<br />Reason. Predict. Act.</h2><p className="mt-4 max-w-md text-sm leading-6 text-slate-300">Intelligence should not simply process information. It should help people make better decisions.</p></div>
+            <div className="grid grid-cols-2 gap-6 sm:grid-cols-5">
+              {approach.map(({ icon: Icon, title, text }, index) => (
+                <div key={title} className="relative text-center">{index < approach.length - 1 && <span className="absolute left-[68%] top-7 hidden w-[64%] border-t border-dashed border-[#00f5d4]/35 sm:block" />}<div className="relative mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-[#00f5d4]/60 bg-[#0b2030] text-[#00f5d4]"><Icon size={24} strokeWidth={1.6} /></div><h3 className="mt-3 text-sm font-bold text-[#00f5d4]">{title}</h3><p className="mt-1 text-[11px] leading-4 text-slate-400">{text}</p></div>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-[#F7F9FC] px-6 py-16 dark:bg-[#0B132B] md:py-20 lg:px-10">
-        <div className="mx-auto max-w-[1280px]">
-          <div className="mb-10">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#00A98F] dark:text-[#00F5D4]">Gallery</p>
-            <h2 className="mt-3 font-[family-name:var(--font-heading)] text-4xl font-semibold tracking-tight md:text-5xl">Life behind the work.</h2>
-          </div>
-          <div className="grid auto-rows-[260px] gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {gallery.map((image) => (
-              <div key={image.src} className="group overflow-hidden rounded-2xl bg-slate-200">
-                <img src={image.src} alt={image.alt} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-              </div>
+      <section className="px-5 py-16 md:px-8 md:py-20">
+        <div className="mx-auto grid max-w-[1320px] overflow-hidden rounded-2xl border border-slate-200 bg-white dark:border-white/10 dark:bg-[#101d31] lg:grid-cols-[0.75fr_1.25fr]">
+          <div className="relative min-h-[390px] bg-slate-100"><Image src="/images/about/antellay-leadership.png" alt="Antellay leadership speaking on stage" fill sizes="(min-width: 1024px) 38vw, 100vw" className="object-cover object-center" /></div>
+          <div className="flex flex-col justify-center p-8 md:p-12 lg:p-14"><p className="text-xs font-bold uppercase tracking-[0.15em] text-[#009e8a] dark:text-[#00f5d4]">Built on a belief</p><h2 className="mt-3 font-[family-name:var(--font-heading)] text-3xl font-semibold tracking-tight md:text-4xl">The future will be defined by intelligence that people can trust.</h2><blockquote className="mt-7 border-l-2 border-[#00a98f] pl-6 text-lg leading-8 text-slate-600 dark:text-slate-300">“Our ambition is to turn sophisticated technology into clear, useful systems—built responsibly, and designed around the people who use them.”</blockquote><p className="mt-6 text-sm leading-7 text-slate-500 dark:text-slate-400">We are building Antellay as a home for curious thinkers, practical dreamers, and teams willing to solve difficult problems together.</p></div>
+        </div>
+      </section>
+
+      <section className="bg-[#f4f8f8] px-5 py-16 dark:bg-[#0a1728] md:px-8 md:py-20">
+        <div className="mx-auto max-w-[1320px]">
+          <div className="mx-auto mb-11 max-w-2xl text-center"><p className="text-xs font-bold uppercase tracking-[0.15em] text-[#009e8a] dark:text-[#00f5d4]">Our people &amp; culture</p><h2 className="mt-3 font-[family-name:var(--font-heading)] text-4xl font-semibold tracking-tight md:text-5xl">Life behind the work.</h2><p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-slate-500 dark:text-slate-400">Ideas become meaningful when people share them, challenge them, and build them together.</p></div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {gallery.map((item) => (
+              <div key={item.src} className="group relative aspect-[4/3] overflow-hidden rounded-2xl bg-slate-200 shadow-sm"><Image src={item.src} alt={item.alt} fill sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className="object-cover transition duration-700 group-hover:scale-105" /><div className="absolute inset-0 bg-gradient-to-t from-[#07101f]/30 via-transparent to-transparent opacity-40 transition group-hover:opacity-70" /></div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="px-6 py-16 md:py-20 lg:px-10">
-        <div className="mx-auto grid max-w-[1080px] gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#00A98F] dark:text-[#00F5D4]">Frequently Asked Questions</p>
-            <h2 className="mt-3 font-[family-name:var(--font-heading)] text-4xl font-semibold tracking-tight">A little more about us.</h2>
-          </div>
-          <div className="space-y-3">
-            {faqs.map(([question, answer]) => (
-              <details key={question} className="group rounded-2xl border border-slate-200 bg-white p-6 open:shadow-lg dark:border-white/10 dark:bg-[#111D37]">
-                <summary className="cursor-pointer list-none pr-6 font-semibold marker:hidden">{question}</summary>
-                <p className="mt-4 border-t border-slate-100 pt-4 leading-7 text-slate-600 dark:border-white/10 dark:text-slate-400">{answer}</p>
-              </details>
-            ))}
-          </div>
+      <section className="px-5 py-8 md:px-8 md:py-10">
+        <div className="mx-auto flex max-w-[1320px] flex-col items-center justify-between gap-7 overflow-hidden rounded-2xl bg-gradient-to-r from-[#071726] to-[#0b2d3a] px-7 py-8 text-white md:flex-row md:px-10">
+          <div className="flex items-center gap-5"><Lightbulb className="hidden text-[#00f5d4] sm:block" size={44} strokeWidth={1.4} /><div><h2 className="font-[family-name:var(--font-heading)] text-2xl font-semibold md:text-3xl">Build what comes next with us.</h2><p className="mt-1 text-sm text-slate-300">Explore our work, products, and vision for intelligent technology.</p></div></div>
+          <div className="flex w-full gap-3 sm:w-auto"><Link href="/products" className="flex-1 rounded-lg bg-[#00cdb5] px-6 py-3 text-center text-sm font-bold text-[#061421] transition hover:bg-[#00f5d4] sm:flex-none">Explore products</Link><Link href="/contact" className="flex-1 rounded-lg border border-white/35 px-6 py-3 text-center text-sm font-bold transition hover:bg-white hover:text-[#07101f] sm:flex-none">Contact us</Link></div>
         </div>
-      </section>
-
-      <section className="border-t border-slate-200 bg-[#F7F9FC] px-6 py-16 text-center dark:border-white/10 dark:bg-[#0B132B] md:py-20">
-        <p className="inline-flex rounded-full border-2 border-[#0B132B] bg-[#0B132B] px-5 py-2.5 text-sm font-bold uppercase tracking-[0.16em] text-white shadow-md dark:border-white dark:bg-white dark:text-[#081126]">
-          Start a conversation
-        </p>
-        <h2 className="mx-auto mt-4 max-w-3xl font-[family-name:var(--font-heading)] text-4xl font-semibold tracking-tight md:text-5xl">Become a next-generation business with us.</h2>
-        <Link
-          href="/contact"
-          className="group mx-auto mt-8 flex w-full max-w-sm items-center justify-center gap-3 rounded-xl border-2 border-[#00A98F] bg-[#00A98F] px-8 py-4 text-base font-bold text-white shadow-xl shadow-[#00A98F]/25 transition hover:-translate-y-1 hover:border-[#0B132B] hover:bg-[#0B132B] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#00A98F]/30 dark:border-[#00F5D4] dark:bg-[#00F5D4] dark:text-[#081126] dark:hover:border-white dark:hover:bg-white sm:w-fit"
-        >
-          Let&apos;s talk
-          <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </Link>
       </section>
     </main>
   );
