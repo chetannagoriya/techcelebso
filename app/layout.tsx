@@ -22,6 +22,9 @@ const plusJakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "Antellay — IT Solutions & Services",
   description: "Enterprise IT solutions, cloud architecture, and digital transformation services.",
+  verification: {
+    google: "E3J6Ls3_pUEz1uIbAZ4ZphV46DOtgv0D4tq5-kdeJA8",
+  },
 };
 
 export default function RootLayout({
