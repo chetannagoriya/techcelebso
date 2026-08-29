@@ -21,7 +21,7 @@ const products = [
 ];
 
 const gallery = [1, 2, 3, 4, 5, 6].map((number) => ({
-  src: `/images/about/gallery/antellay-gallery-0${number}.jfif`,
+  src: `/images/about/gallery/antellay-gallery-0${number}.jpg`,
   alt: `Life at Antellay, moment ${number}`,
 }));
 
